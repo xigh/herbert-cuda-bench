@@ -42,7 +42,7 @@ The CPU load is logged (`uptime`) at every round. The later scripts (decode-dept
 | herbert-cuda-bf16 | see below | safetensors, bf16 |
 | herbert-vk-bf16 | `2f3ae48` (the build of #002), its server `9738be7` | safetensors, bf16 |
 | herbert-vk-f16 | `cc51363` (phase 5) | safetensors, f16 |
-| herbert-cuda-f16 | `0c7d88d` (phase 5 only), at its default and with `--tune gemm.f16=1`; an f16 variant of the engine, to be published with the next article | safetensors, f16 |
+| herbert-cuda-f16 | `0c7d88d` (phase 5 only), at its default and with `--tune gemm.f16=1`; the IEEE f16 variant of the engine, [xigh/herbert-cuda-f16](https://github.com/xigh/herbert-cuda-f16) tag `v0.1.0` (its tree is `0c7d88d`) | safetensors, f16 |
 | llama.cpp | release `b11718`, CUDA and Vulkan builds (Release, CUDA arch 89, `GGML_NATIVE`); `b11719` compared in phase 2b; `08ffba21e` (the version of #002) as a reference in phase 1 | GGUF BF16 (phases 1, 2), F16 (phase 5), `-ngl 99` |
 | vLLM | 0.31.0; 0.28.0 (the version of #002) as a reference in phase 1 | bfloat16 (phases 1, 2), float16 (phase 5) |
 | SGLang | 0.5.22, `CUDA_HOME` at the 12.8 toolkit | bfloat16, float16 (phase 5) |
