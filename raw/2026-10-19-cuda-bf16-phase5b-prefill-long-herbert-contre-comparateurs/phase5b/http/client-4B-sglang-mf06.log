@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "~/c003/phase2-scripts/_http_client.py", line 118, in <module>
+    print(f"{args.engine} {args.model} p{n:>5}: in {row['input_tokens']} · TTFT {row['ttft_ms_median']:.2f} ms · prefill {row['prefill_tps_median']:.0f} tok/s ({row['prefill_spread_pct']:.1f} %) · decode {row['decode_tps_median']:.2f} tok/s ({row['decode_spread_pct']:.1f} %) · out {row['output_tokens']} · n={len(ttft)}", flush=True)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__

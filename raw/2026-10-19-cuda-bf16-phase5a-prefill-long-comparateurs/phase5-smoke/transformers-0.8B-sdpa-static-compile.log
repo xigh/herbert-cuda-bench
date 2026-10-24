@@ -1,0 +1,20 @@
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  89%|████████▉ | 285/320 [00:00<00:00, 2846.07it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2942.75it/s]
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 15:49:25.799000 702517 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+ok, peak GiB 5.954356670379639

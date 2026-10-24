@@ -1,0 +1,17 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 act=bf16 graph=1 prefill.block=2048 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=pad gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async sdpa.bk=32 rec.tc=1
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv × 256, intermediate 9216, vocab 248320, rotary 64, linear k 16×128 v 32×128, tied head true
+[cuda] 8.35 GiB allocated, KV for 4608 positions; 6.9 of 15.6 GiB free
+[cuda] 50 kernels, 325 launches per step
+[engine] loaded in 4.1 s, mounted in 0.17 s
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+[warmup 1] 128 prompt tokens in 0.021 s (6089.7 tok/s) · 1 generated in 0.00 s (46816.48 tok/s)
+
+>>> Here are my notes on a hybrid language model, repeated as I took them during several meetings.
+
+Meeting 1: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of ke
+Based
+[ids] 27775
+[decoded] "Based"
+[turn 1] 128 prompt tokens in 0.021 s (6113.7 tok/s) · 1 generated in 0.00 s (369685.77 tok/s) · position 128

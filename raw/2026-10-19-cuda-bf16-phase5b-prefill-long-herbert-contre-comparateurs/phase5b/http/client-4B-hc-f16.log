@@ -1,0 +1,4 @@
+hc-f16 Qwen3.5-4B p10000: in [10009, 10010] · TTFT 964.69 ms · prefill 10375 tok/s (0.3 %) · decode 72.59 tok/s (0.0 %) · out [128] · n=15
+hc-f16 Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2136.89 ms · prefill 9364 tok/s (0.2 %) · decode 67.15 tok/s (0.0 %) · out [128] · n=15
+hc-f16 Qwen3.5-4B p40000: in [40008, 40009, 40010] · TTFT 5073.91 ms · prefill 7885 tok/s (0.2 %) · decode 57.82 tok/s (0.0 %) · out [128] · n=15
+hc-f16 Qwen3.5-4B p60000: in [60009, 60010, 60011] · TTFT 8864.43 ms · prefill 6770 tok/s (0.1 %) · decode 50.91 tok/s (0.0 %) · out [128] · n=15

@@ -1,0 +1,183 @@
+INFO:     Started server process [1935550]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:8121 (Press CTRL+C to quit)
+[transformers] Scanning the cache directory for LLMs and VLMs.
+
+  0%|          | 0/18 [00:00<?, ?it/s]
+100%|██████████| 18/18 [00:00<00:00, 74381.75it/s]
+INFO:     localhost:59632 - "GET /v1/models HTTP/1.1" 200 OK
+[transformers] Ignoring unsupported fields in the request: {'stream_options'}
+[transformers] Loading $MODELS_DIR/Qwen3.5-0.8B@main
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  62%|██████▏   | 293/473 [00:00<00:00, 2912.76it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3683.50it/s]
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+[transformers] The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+INFO:     localhost:59636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:45874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48706 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48736 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48746 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48756 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48774 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48814 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48840 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48848 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48856 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:48874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60034 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60042 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60046 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60048 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60052 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60058 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60068 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60084 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60108 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60112 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60128 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60144 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60160 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60168 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60192 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:60198 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41246 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41254 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41280 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41296 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41312 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+W1018 17:43:49.988000 1935550 torch/_inductor/cudagraph_utils.py:542] [__cudagraphs] CUDAGraph supports dynamic shapes by recording a new graph for each distinct input size. Recording too many CUDAGraphs may lead to extra overhead. We have observed 9 distinct sizes. Please consider the following options for better performance: a) padding inputs to a few fixed number of shapes; or b) set torch._inductor.config.triton.cudagraph_skip_dynamic_graphs=True. Set torch._inductor.config.triton.cudagraph_dynamic_shape_warn_limit=None to silence this warning.
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41320 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41322 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41326 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41334 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41338 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41348 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41360 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41366 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41382 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:41386 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56820 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56856 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56860 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56876 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56882 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56894 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56908 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56922 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56938 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:56948 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:38818 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:38822 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:38830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:38844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-0.8B@main, CB: False
+INFO:     localhost:38852 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+W1018 17:44:11.466000 1935550 torch/_inductor/compile_worker/subproc_pool.py:338] SubprocPool unclean exit
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1935550]

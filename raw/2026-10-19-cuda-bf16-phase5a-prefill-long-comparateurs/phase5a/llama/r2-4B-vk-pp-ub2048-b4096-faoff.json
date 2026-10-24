@@ -1,0 +1,181 @@
+[
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "AMD Ryzen 9 9900X 12-Core Processor (RADV RAPHAEL_MENDOCINO), NVIDIA GeForce RTX 4080",
+    "backends": "Vulkan",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 4096,
+    "n_ubatch": 2048,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "Vulkan1",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 10000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:32:26Z",
+    "avg_ns": 1472796789,
+    "stddev_ns": 0,
+    "avg_ts": 6789.802962,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 1472796789 ],
+    "samples_ts": [ 6789.8 ]
+  },
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "AMD Ryzen 9 9900X 12-Core Processor (RADV RAPHAEL_MENDOCINO), NVIDIA GeForce RTX 4080",
+    "backends": "Vulkan",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 4096,
+    "n_ubatch": 2048,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "Vulkan1",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 20000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:32:29Z",
+    "avg_ns": 3720282023,
+    "stddev_ns": 0,
+    "avg_ts": 5375.936522,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 3720282023 ],
+    "samples_ts": [ 5375.94 ]
+  },
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "AMD Ryzen 9 9900X 12-Core Processor (RADV RAPHAEL_MENDOCINO), NVIDIA GeForce RTX 4080",
+    "backends": "Vulkan",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 4096,
+    "n_ubatch": 2048,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "Vulkan1",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 40000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:32:37Z",
+    "avg_ns": 55212315030,
+    "stddev_ns": 0,
+    "avg_ts": 724.476052,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 55212315030 ],
+    "samples_ts": [ 724.476 ]
+  }[New LWP 713758]
+[New LWP 713757]
+[New LWP 713756]
+[New LWP 713755]
+[New LWP 713754]
+[New LWP 713753]
+[New LWP 713752]
+[New LWP 713751]
+[New LWP 713750]
+[New LWP 713749]
+[New LWP 713748]
+[New LWP 713747]
+[New LWP 713744]
+[New LWP 713743]
+[New LWP 713742]
+[New LWP 713740]
+[New LWP 713739]
+[New LWP 713738]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ed8e2b10913 in __GI___wait4 (pid=713815, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+#0  0x00007ed8e2b10913 in __GI___wait4 (pid=713815, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+30	in ../sysdeps/unix/sysv/linux/wait4.c
+#1  0x00007ed8e2d45bd3 in ggml_print_backtrace () from ~/llama.cpp-b11718/build-vk/bin/libggml-base.so.0
+#2  0x00007ed8e2d5a7df in ggml_uncaught_exception() () from ~/llama.cpp-b11718/build-vk/bin/libggml-base.so.0
+#3  0x00007ed8e2ebb0da in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007ed8e2ea5a55 in std::terminate() () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00007ed8e2ebb391 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x00007ed8df44bd8c in ggml_vk_create_buffer_device(std::shared_ptr<vk_device_struct>&, unsigned long) [clone .cold] () from ~/llama.cpp-b11718/build-vk/bin/libggml-vulkan.so.0
+#7  0x00007ed8df48e61b in ggml_vk_preallocate_buffers(ggml_backend_vk_context*, std::shared_ptr<vk_context_struct>) () from ~/llama.cpp-b11718/build-vk/bin/libggml-vulkan.so.0
+#8  0x00007ed8df4ced14 in ggml_vk_mul_mat_q_f16(ggml_backend_vk_context*, std::shared_ptr<vk_context_struct>&, ggml_tensor const*, ggml_tensor const*, ggml_tensor*, bool) () from ~/llama.cpp-b11718/build-vk/bin/libggml-vulkan.so.0
+#9  0x00007ed8df50f2c1 in ggml_vk_build_graph(ggml_backend_vk_context*, ggml_cgraph*, int, ggml_tensor*, int, bool, bool, bool) () from ~/llama.cpp-b11718/build-vk/bin/libggml-vulkan.so.0
+#10 0x00007ed8df50fdd7 in ggml_backend_vk_graph_compute(ggml_backend*, ggml_cgraph*) () from ~/llama.cpp-b11718/build-vk/bin/libggml-vulkan.so.0
+#11 0x00007ed8e2d644d4 in ggml_backend_sched_graph_compute_async () from ~/llama.cpp-b11718/build-vk/bin/libggml-base.so.0
+#12 0x00007ed8e203b91b in llama_context::graph_compute(ggml_cgraph*, bool) () from ~/llama.cpp-b11718/build-vk/bin/libllama.so.0
+#13 0x00007ed8e203f5b6 in llama_context::process_ubatch(llama_ubatch const&, llm_graph_type, llama_memory_context_i*, ggml_status&) () from ~/llama.cpp-b11718/build-vk/bin/libllama.so.0
+#14 0x00007ed8e20488c6 in llama_context::decode(llama_batch_ext const&) () from ~/llama.cpp-b11718/build-vk/bin/libllama.so.0
+#15 0x00007ed8e3164473 in test_prompt(llama_context*, int, int, int) () from ~/llama.cpp-b11718/build-vk/bin/libllama-bench-impl.so
+#16 0x00007ed8e31738d8 in llama_bench(int, char**) () from ~/llama.cpp-b11718/build-vk/bin/libllama-bench-impl.so
+#17 0x00007ed8e2a2a1ca in __libc_start_call_main (main=main@entry=0x6110068cb270 <main>, argc=argc@entry=21, argv=argv@entry=0x7ffde4dfae18) at ../sysdeps/nptl/libc_start_call_main.h:58
+#18 0x00007ed8e2a2a28b in __libc_start_main_impl (main=0x6110068cb270 <main>, argc=21, argv=0x7ffde4dfae18, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7ffde4dfae08) at ../csu/libc-start.c:360
+#19 0x00006110068cb2a5 in _start ()
+[Inferior 1 (process 713736) detached]

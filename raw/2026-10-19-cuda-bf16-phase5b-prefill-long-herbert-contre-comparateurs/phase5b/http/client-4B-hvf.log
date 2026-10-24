@@ -1,0 +1,4 @@
+hvf Qwen3.5-4B p10000: in [10009, 10010] · TTFT 1055.25 ms · prefill 9486 tok/s (1.0 %) · decode 68.18 tok/s (0.6 %) · out [128] · n=15
+hvf Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2299.38 ms · prefill 8702 tok/s (0.4 %) · decode 62.32 tok/s (0.3 %) · out [128] · n=15
+hvf Qwen3.5-4B p40000: in [40008, 40009, 40010] · TTFT 5419.56 ms · prefill 7382 tok/s (0.2 %) · decode 53.75 tok/s (0.3 %) · out [128] · n=15
+hvf Qwen3.5-4B p60000: in [60009, 60010, 60011] · TTFT 9292.09 ms · prefill 6458 tok/s (0.1 %) · decode 47.61 tok/s (0.2 %) · out [128] · n=15

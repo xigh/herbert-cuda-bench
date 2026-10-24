@@ -1,0 +1,14 @@
+156-        },
+157-        {
+158:            "name": "CudaNoStablePerfLimit",
+159:            "settings": ["0x166c5e", 0 ]
+160-        }
+161-    ],
+162-    "rules" : [
+--
+349-        { "pattern" : { "feature" : "dso",      "matches" : "libweston" },              "profile" : "No VidMem Reuse" },
+350-        { "pattern": "X-Plane-x86_64",   "profile" : "DisableDBus" },
+351:        { "pattern" : { "feature" : "procname", "matches" : "obs" },                    "profile" : "CudaNoStablePerfLimit" },
+352:        { "pattern" : { "feature" : "procname", "matches" : "Discord" },                "profile" : "CudaNoStablePerfLimit" }
+353-    ]
+354-}

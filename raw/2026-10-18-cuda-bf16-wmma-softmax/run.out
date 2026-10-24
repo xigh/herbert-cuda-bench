@@ -1,0 +1,22 @@
+== 2026-10-18T08:03:11+02:00 gemm
+gemm 0.8B dn.proj128 exit 0
+gemm 0.8B dn.out exit 0
+gemm 0.8B attn.qkv exit 0
+gemm 0.8B attn.o exit 0
+gemm 0.8B mlp.gate_up exit 0
+gemm 0.8B mlp.down exit 0
+gemm 4B dn.proj128 exit 0
+gemm 4B dn.out exit 0
+gemm 4B attn.qkv exit 0
+gemm 4B attn.o exit 0
+gemm 4B mlp.gate_up exit 0
+gemm 4B mlp.down exit 0
+== 2026-10-18T08:03:27+02:00 oracle
+compare 0.8B exit 0
+compare 4B exit 0
+== 2026-10-18T08:06:20+02:00 round 1 ·  08:06:20 up 5 days, 23:15, 11 users,  load average: 2.23, 2.23, 1.70
+== 2026-10-18T08:10:49+02:00 round 2 ·  08:10:49 up 5 days, 23:19, 11 users,  load average: 2.62, 2.57, 2.00
+== 2026-10-18T08:15:19+02:00 round 3 ·  08:15:19 up 5 days, 23:24, 11 users,  load average: 3.94, 2.98, 2.28
+== 2026-10-18T08:19:54+02:00 round 4 ·  08:19:54 up 5 days, 23:28, 11 users,  load average: 3.67, 3.80, 2.88
+== 2026-10-18T08:24:24+02:00 round 5 ·  08:24:24 up 5 days, 23:33, 11 users,  load average: 3.02, 3.50, 3.01
+ALLDONE-wmma-003

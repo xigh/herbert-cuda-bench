@@ -1,0 +1,2 @@
+old modules 440, differing 0
+new only: sdpa_combine_h16d256_s64.ptx sdpa_combine_h8d256_s64.ptx sdpa_gqa_h16kv4d256_s64.ptx sdpa_gqa_h8kv2d256_s64.ptx 

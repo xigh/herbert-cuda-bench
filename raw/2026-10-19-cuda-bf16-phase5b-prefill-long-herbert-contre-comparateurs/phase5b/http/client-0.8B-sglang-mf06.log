@@ -1,0 +1,4 @@
+sglang-mf06 Qwen3.5-0.8B p10000: in [10009, 10010] · TTFT 181.40 ms · prefill 55182 tok/s (6.8 %) · decode 347.86 tok/s (0.3 %) · out [128] · n=15
+sglang-mf06 Qwen3.5-0.8B p20000: in [20009, 20010] · TTFT 419.49 ms · prefill 47700 tok/s (5.5 %) · decode 329.32 tok/s (0.3 %) · out [128] · n=15
+sglang-mf06 Qwen3.5-0.8B p40000: in [40008, 40009, 40010] · TTFT 1077.05 ms · prefill 37147 tok/s (4.1 %) · decode 293.43 tok/s (0.2 %) · out [128] · n=15
+sglang-mf06 Qwen3.5-0.8B p60000: in [60009, 60010, 60011] · TTFT 1995.29 ms · prefill 30076 tok/s (3.8 %) · decode 264.99 tok/s (0.2 %) · out [128] · n=15

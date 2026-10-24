@@ -1,0 +1,36 @@
+p1-short cuda-0-old exit 0
+p1-short cuda-0-old16 exit 0
+p1-short cuda-0-gqa32 exit 0
+p1-short cuda-0-gqa64 exit 0
+p2-explain cuda-0-old exit 0
+p2-explain cuda-0-old16 exit 0
+p2-explain cuda-0-gqa32 exit 0
+p2-explain cuda-0-gqa64 exit 0
+p3-long cuda-0-old exit 0
+p3-long cuda-0-old16 exit 0
+p3-long cuda-0-gqa32 exit 0
+p3-long cuda-0-gqa64 exit 0
+p4-xlong cuda-0-old exit 0
+p4-xlong cuda-0-old16 exit 0
+p4-xlong cuda-0-gqa32 exit 0
+p4-xlong cuda-0-gqa64 exit 0
+p1-short: cpu 7 tokens · prompt 24 @ 111.1 tok/s · gen 7 @ 5.14 tok/s
+  0-gqa32: identical (7 tokens) · prompt 24 @ 1430.1 tok/s · gen 7 @ 79.98 tok/s
+  0-gqa64: identical (7 tokens) · prompt 24 @ 1430.7 tok/s · gen 7 @ 79.86 tok/s
+  0-old: identical (7 tokens) · prompt 24 @ 1425.7 tok/s · gen 7 @ 80.07 tok/s
+  0-old16: identical (7 tokens) · prompt 24 @ 1429.7 tok/s · gen 7 @ 80.05 tok/s
+p2-explain: cpu 177 tokens · prompt 39 @ 171.5 tok/s · gen 177 @ 5.13 tok/s
+  0-gqa32: identical (177 tokens) · prompt 39 @ 2278.8 tok/s · gen 177 @ 80.07 tok/s
+  0-gqa64: identical (177 tokens) · prompt 39 @ 2277.9 tok/s · gen 177 @ 79.96 tok/s
+  0-old: first divergence at token 32 of 177 · prompt 39 @ 2278.1 tok/s · gen 165 @ 80.16 tok/s
+  0-old16: first divergence at token 53 of 177 · prompt 39 @ 2279.1 tok/s · gen 180 @ 80.15 tok/s
+p3-long: cpu 255 tokens · prompt 759 @ 617.0 tok/s · gen 255 @ 5.10 tok/s
+  0-gqa32: identical (255 tokens) · prompt 759 @ 10914.1 tok/s · gen 255 @ 78.76 tok/s
+  0-gqa64: identical (255 tokens) · prompt 759 @ 10931.3 tok/s · gen 255 @ 78.66 tok/s
+  0-old: identical (255 tokens) · prompt 759 @ 11011.0 tok/s · gen 255 @ 78.43 tok/s
+  0-old16: identical (255 tokens) · prompt 759 @ 10937.5 tok/s · gen 255 @ 78.69 tok/s
+p4-xlong: cpu 190 tokens · prompt 2882 @ 587.0 tok/s · gen 190 @ 5.02 tok/s
+  0-gqa32: first divergence at token 105 of 190 · prompt 2882 @ 11313.3 tok/s · gen 186 @ 77.97 tok/s
+  0-gqa64: first divergence at token 105 of 190 · prompt 2882 @ 11282.3 tok/s · gen 186 @ 77.89 tok/s
+  0-old: first divergence at token 105 of 190 · prompt 2882 @ 11259.3 tok/s · gen 186 @ 76.80 tok/s
+  0-old16: first divergence at token 105 of 190 · prompt 2882 @ 11300.0 tok/s · gen 186 @ 77.69 tok/s

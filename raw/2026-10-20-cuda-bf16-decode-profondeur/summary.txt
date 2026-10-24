@@ -1,0 +1,39 @@
+# A. decode step and attention by depth (dd1/a, sdpa.split=8, --profile)
+   10000: step 3948.5 µs · sdpa_split 873.5 µs (22.1 %) · combine 18.4 µs · rest 3056.6 µs · KV once 123 MB → 141 GB/s
+   20000: step 4773.9 µs · sdpa_split 1704.7 µs (35.7 %) · combine 18.8 µs · rest 3050.4 µs · KV once 246 MB → 144 GB/s
+   40000: step 6439.8 µs · sdpa_split 3378.4 µs (52.5 %) · combine 19.7 µs · rest 3041.7 µs · KV once 492 MB → 146 GB/s
+   60000: step 8115.2 µs · sdpa_split 5042.7 µs (62.1 %) · combine 19.9 µs · rest 3052.6 µs · KV once 738 MB → 146 GB/s
+
+# B. decode tok/s per sdpa.split (graph on; median, n, spread, ratio to split 8)
+  dd2b runs left out (another compute process on the GPU at launch): 14
+  p3: s8 401.0 (n=3, 0.0 %, ×1.000) · s16 403.7 (n=3, 21.5 %, ×1.007) · s32 403.8 (n=2, 0.0 %, ×1.007) · s64 402.5 (n=2, 0.0 %, ×1.004) · s128 400.0 (n=1, 0.0 %, ×0.998)
+    ids s8r1 s8r2 s8r3 s128r3: first difference against split 8 at None
+    ids s16r1 s16r2 s16r3 s32r2 s32r3: first difference against split 8 at 144
+    ids s64r2 s64r3: first difference against split 8 at 172
+  pp10000: s8 298.7 (n=3, 0.0 %, ×1.000) · s16 338.7 (n=3, 0.0 %, ×1.134) · s32 361.3 (n=3, 0.0 %, ×1.209) · s64 359.7 (n=3, 2.0 %, ×1.204) · s128 362.2 (n=3, 0.0 %, ×1.213) · s256 352.6 (n=3, 2.6 %, ×1.180)
+    ids s8r1 s8r2 s8r3: first difference against split 8 at None
+    ids s16r1 s16r2 s16r3 s128r1 s128r2 s128r3: first difference against split 8 at 12
+    ids s32r1 s32r2 s32r3: first difference against split 8 at 98
+    ids s64r1 s64r2 s64r3: first difference against split 8 at 28
+    ids s256r1 s256r2 s256r3: first difference against split 8 at 10
+  pp20000: s8 240.1 (n=3, 0.6 %, ×1.000) · s16 295.7 (n=2, 0.0 %, ×1.232) · s32 329.1 (n=2, 1.8 %, ×1.371) · s64 330.0 (n=2, 0.1 %, ×1.375) · s128 335.8 (n=1, 0.0 %, ×1.399)
+    ids s8r1 s8r2 s8r3: first difference against split 8 at None
+    ids s16r2 s16r3: first difference against split 8 at 125
+    ids s32r2 s32r3 s64r2 s64r3 s128r3: first difference against split 8 at 32
+  pp40000: s8 171.8 (n=3, 0.0 %, ×1.000) · s16 235.1 (n=2, 0.0 %, ×1.369) · s32 284.6 (n=2, 0.0 %, ×1.657) · s64 275.7 (n=2, 0.0 %, ×1.604) · s128 290.0 (n=1, 0.0 %, ×1.688)
+    ids s8r1 s8r2 s8r3: first difference against split 8 at None
+    ids s16r2 s16r3: first difference against split 8 at 57
+    ids s32r2 s32r3: first difference against split 8 at 22
+    ids s64r2 s64r3 s128r3: first difference against split 8 at 22
+  pp60000: s8 133.5 (n=3, 0.0 %, ×1.000) · s16 194.5 (n=3, 0.0 %, ×1.457) · s32 246.8 (n=3, 0.0 %, ×1.849) · s64 230.6 (n=3, 0.0 %, ×1.727) · s128 251.8 (n=3, 0.1 %, ×1.886) · s256 238.7 (n=3, 0.1 %, ×1.788)
+    ids s8r1 s8r2 s8r3: first difference against split 8 at None
+    ids s16r1 s16r2 s16r3 s32r1 s32r2 s32r3 s64r1 s64r2 s64r3 s128r1 s128r2 s128r3: first difference against split 8 at 17
+    ids s256r1 s256r2 s256r3: first difference against split 8 at 31
+
+# C. 60K, --profile per split (dd1/c)
+  s  8: step 8113.2 µs · sdpa_split 5045.7 µs (146 GB/s if KV read once) · combine 19.5 µs
+  s 16: step 5761.0 µs · sdpa_split 2684.2 µs (275 GB/s if KV read once) · combine 20.5 µs
+  s 32: step 4659.2 µs · sdpa_split 1572.9 µs (469 GB/s if KV read once) · combine 22.9 µs
+  s 64: step 4939.8 µs · sdpa_split 1857.5 µs (397 GB/s if KV read once) · combine 27.0 µs
+  s128: step 4579.4 µs · sdpa_split 1480.7 µs (498 GB/s if KV read once) · combine 48.5 µs
+  s256: step 4803.6 µs · sdpa_split 1648.6 µs (447 GB/s if KV read once) · combine 95.9 µs

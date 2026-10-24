@@ -1,0 +1,16 @@
+llama        0.8B b11719-cuda-default p1-short    identical (7 tokens)
+llama        0.8B b11719-cuda-default p2-explain  first divergence at token 8 of 145
+llama        0.8B b11719-cuda-default p3-long     first divergence at token 172 of 255
+llama        0.8B b11719-cuda-default p4-xlong    first divergence at token 8 of 199
+llama        0.8B b11719-cuda-faon-ub1024 p1-short    identical (7 tokens)
+llama        0.8B b11719-cuda-faon-ub1024 p2-explain  first divergence at token 8 of 145
+llama        0.8B b11719-cuda-faon-ub1024 p3-long     first divergence at token 172 of 255
+llama        0.8B b11719-cuda-faon-ub1024 p4-xlong    first divergence at token 8 of 199
+llama        4B   b11719-cuda-default p1-short    identical (7 tokens)
+llama        4B   b11719-cuda-default p2-explain  identical (177 tokens)
+llama        4B   b11719-cuda-default p3-long     first divergence at token 162 of 255
+llama        4B   b11719-cuda-default p4-xlong    first divergence at token 155 of 190
+llama        4B   b11719-cuda-faon-ub1024 p1-short    identical (7 tokens)
+llama        4B   b11719-cuda-faon-ub1024 p2-explain  identical (177 tokens)
+llama        4B   b11719-cuda-faon-ub1024 p3-long     first divergence at token 162 of 255
+llama        4B   b11719-cuda-faon-ub1024 p4-xlong    first divergence at token 105 of 190

@@ -1,0 +1,46 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=32 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv × 256, intermediate 3584, vocab 248320, rotary 64, linear k 16×128 v 16×128, tied head true
+[cuda] 1.81 GiB allocated, KV for 4096 positions; 0.3 of 15.6 GiB free
+[cuda] 48 kernels, 245 launches per step
+[engine] loaded in 0.7 s, mounted in 0.01 s
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+[warmup 1] 759 prompt tokens in 0.017 s (44764.3 tok/s) · 255 generated in 1.12 s (227.98 tok/s)
+
+>>> Here are my notes on a hybrid language model, repeated as I took them during several meetings.
+
+Meeting 1: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Meeting 2: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Meeting 3: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Meeting 4: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Meeting 5: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Meeting 6: The GatedDeltaNet layer keeps a recurrent state per value head instead of a key-value cache. At every position the state decays by a learned factor, the key retrieves what the state predicts for it, and the difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update. The query then reads the updated state. Three such layers alternate with one full attention layer, which keeps a classic cache of keys and values and attends over every earlier position with a partial rotary embedding on a quarter of each head. 
+
+Question: summarize in three bullet points how this hybrid model processes a token, and say which part grows with the length of the context.
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   Input: Six repeated notes (Meetings 1-6) describing a hybrid language model.
+    *   Task: Summarize the model's processing of a token in three bullet points.
+    *   Task: Identify which part grows with the length of the context.
+    *   Constraint: The output must be in three bullet points.
+
+2.  **Analyze the Input Text:**
+    *   The text describes a specific architecture: "GatedDeltaNet".
+    *   **Key Components:**
+        *   **State:** A recurrent state per value head.
+        *   **Mechanism:** At every position, the state decays by a learned factor.
+        *   **Key Retrieval:** The key retrieves what the state predicts for it.
+        *   **Rank-One Update:** The difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update.
+        *   **Query:** The query then reads the updated state.
+        *   **Attention:** Three such layers alternate with one full attention layer.
+        *   **Full Attention:** Keeps a classic cache
+[ids] 90700 8340 25 271 16 13 220 2972 2014 53983 279 5952 64700 198 262 348 256 5396 25 18117 11173 8129 318 39212 793 220 16 12 21 8 21988 264 24197 3992 1558 13 198 262 348 256 5261 25 7860 5437 537 279 1558 579 8427 314 264 3817 303 2250 16916 3387 13 198 262 348 256 5261 25 62366 864 919 26817 440 279 2984 314 279 2193 13 198 262 348 256 42794 25 561 2468 1902 381 303 2250 16916 3387 13 271 17 13 220 2972 2014 53983 279 5396 2824 64700 198 262 348 256 561 1414 16067 264 3050 17120 25 328 38 639 19661 6738 3158 198 262 348 256 2972 1536 32956 64700 198 285 348 256 2972 1349 64700 357 61911 1528 791 869 1901 13 198 285 348 256 2972 55157 65526 64700 2332 1396 2234 11 279 1528 1566 912 539 264 9218 7911 13 198 285 348 256 2972 1536 18878 805 64700 561 1328 68279 1092 279 1528 54004 364 424 13 198 285 348 256 2972 21850 87269 5376 64700 561 6463 1881 279 869 321 421 19039 11 29689 539 264 9218 4238 11 369 5158 1142 430 264 6857 18030 2560 13 198 285 348 256 2972 2766 64700 561 3134 1179 15339 279 5860 1528 13 198 285 348 256 2972 66983 64700 14095 1680 13224 23833 440 799 2400 6326 6000 13 198 285 348 256 2972 9153 59930 64700 87695 264 11088
+[decoded] "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: Six repeated notes (Meetings 1-6) describing a hybrid language model.\n    *   Task: Summarize the model's processing of a token in three bullet points.\n    *   Task: Identify which part grows with the length of the context.\n    *   Constraint: The output must be in three bullet points.\n\n2.  **Analyze the Input Text:**\n    *   The text describes a specific architecture: \"GatedDeltaNet\".\n    *   **Key Components:**\n        *   **State:** A recurrent state per value head.\n        *   **Mechanism:** At every position, the state decays by a learned factor.\n        *   **Key Retrieval:** The key retrieves what the state predicts for it.\n        *   **Rank-One Update:** The difference between the value and that prediction, scaled by a learned rate, is written back as a rank-one update.\n        *   **Query:** The query then reads the updated state.\n        *   **Attention:** Three such layers alternate with one full attention layer.\n        *   **Full Attention:** Keeps a classic"
+[turn 1] 759 prompt tokens in 0.019 s (39052.9 tok/s) · 255 generated in 1.27 s (200.70 tok/s) · position 1014

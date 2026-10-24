@@ -1,0 +1,44 @@
+p1-short cuda-0-base exit 0
+p1-short cuda-0-softmax-shared exit 0
+p1-short cuda-0-pad exit 0
+p1-short cuda-0-wmma exit 0
+p1-short cuda-0-vklike exit 0
+p2-explain cuda-0-base exit 0
+p2-explain cuda-0-softmax-shared exit 0
+p2-explain cuda-0-pad exit 0
+p2-explain cuda-0-wmma exit 0
+p2-explain cuda-0-vklike exit 0
+p3-long cuda-0-base exit 0
+p3-long cuda-0-softmax-shared exit 0
+p3-long cuda-0-pad exit 0
+p3-long cuda-0-wmma exit 0
+p3-long cuda-0-vklike exit 0
+p4-xlong cuda-0-base exit 0
+p4-xlong cuda-0-softmax-shared exit 0
+p4-xlong cuda-0-pad exit 0
+p4-xlong cuda-0-wmma exit 0
+p4-xlong cuda-0-vklike exit 0
+p1-short: cpu 7 tokens · prompt 24 @ 101.6 tok/s · gen 7 @ 4.84 tok/s
+  0-base: identical (7 tokens) · prompt 24 @ 1385.5 tok/s · gen 7 @ 77.18 tok/s
+  0-pad: identical (7 tokens) · prompt 24 @ 1382.6 tok/s · gen 7 @ 77.13 tok/s
+  0-softmax-shared: identical (7 tokens) · prompt 24 @ 1386.0 tok/s · gen 7 @ 77.17 tok/s
+  0-vklike: identical (7 tokens) · prompt 24 @ 1271.8 tok/s · gen 7 @ 76.30 tok/s
+  0-wmma: identical (7 tokens) · prompt 24 @ 1381.3 tok/s · gen 7 @ 77.16 tok/s
+p2-explain: cpu 177 tokens · prompt 39 @ 159.9 tok/s · gen 177 @ 4.22 tok/s
+  0-base: first divergence at token 32 of 177 · prompt 39 @ 2206.3 tok/s · gen 165 @ 77.20 tok/s
+  0-pad: first divergence at token 32 of 177 · prompt 39 @ 2179.9 tok/s · gen 165 @ 77.14 tok/s
+  0-softmax-shared: identical (177 tokens) · prompt 39 @ 2202.6 tok/s · gen 177 @ 77.16 tok/s
+  0-vklike: identical (177 tokens) · prompt 39 @ 2022.5 tok/s · gen 177 @ 76.12 tok/s
+  0-wmma: first divergence at token 32 of 177 · prompt 39 @ 2194.7 tok/s · gen 165 @ 77.21 tok/s
+p3-long: cpu 255 tokens · prompt 759 @ 581.0 tok/s · gen 255 @ 4.71 tok/s
+  0-base: identical (255 tokens) · prompt 759 @ 10922.5 tok/s · gen 255 @ 75.69 tok/s
+  0-pad: identical (255 tokens) · prompt 759 @ 10257.0 tok/s · gen 255 @ 75.72 tok/s
+  0-softmax-shared: first divergence at token 141 of 255 · prompt 759 @ 10958.1 tok/s · gen 255 @ 75.71 tok/s
+  0-vklike: first divergence at token 141 of 255 · prompt 759 @ 9817.6 tok/s · gen 255 @ 74.75 tok/s
+  0-wmma: identical (255 tokens) · prompt 759 @ 10069.7 tok/s · gen 255 @ 75.69 tok/s
+p4-xlong: cpu 190 tokens · prompt 2882 @ 356.4 tok/s · gen 190 @ 4.72 tok/s
+  0-base: first divergence at token 105 of 190 · prompt 2882 @ 11339.6 tok/s · gen 186 @ 73.99 tok/s
+  0-pad: first divergence at token 105 of 190 · prompt 2882 @ 10449.4 tok/s · gen 186 @ 73.98 tok/s
+  0-softmax-shared: identical (190 tokens) · prompt 2882 @ 11298.9 tok/s · gen 190 @ 73.96 tok/s
+  0-vklike: identical (190 tokens) · prompt 2882 @ 10241.7 tok/s · gen 190 @ 73.07 tok/s
+  0-wmma: first divergence at token 105 of 190 · prompt 2882 @ 10377.1 tok/s · gen 186 @ 73.95 tok/s

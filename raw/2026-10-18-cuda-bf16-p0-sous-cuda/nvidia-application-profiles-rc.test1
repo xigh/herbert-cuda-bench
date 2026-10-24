@@ -1,0 +1,8 @@
+{
+    "profiles": [
+        { "name": "CudaNoStablePerfLimit", "settings": ["0x166c5e", 0 ] }
+    ],
+    "rules": [
+        { "pattern" : { "feature" : "procname", "matches" : "herbert-cuda-chat" }, "profile" : "CudaNoStablePerfLimit" }
+    ]
+}

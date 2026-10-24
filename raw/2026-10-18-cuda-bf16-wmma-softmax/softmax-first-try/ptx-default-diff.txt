@@ -1,0 +1,2 @@
+Only in ~/softmax-003/ptx-after: sdpa_flash_h16kv4d256_k32_smem.ptx
+Only in ~/softmax-003/ptx-after: sdpa_flash_h8kv2d256_k32_smem.ptx

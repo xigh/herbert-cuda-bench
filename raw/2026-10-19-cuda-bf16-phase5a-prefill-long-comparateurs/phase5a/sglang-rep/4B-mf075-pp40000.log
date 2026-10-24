@@ -1,0 +1,227 @@
+[2026-10-19 20:04:28 TP0] Init parallel begin.
+[2026-10-19 20:04:28 TP0] Init parallel ends. elapsed=0.07 s
+[2026-10-19 20:04:28 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-19 20:04:28 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-19 20:04:28 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-19 20:04:28 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-19 20:04:28 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Multi-thread loading shards:  50% Completed | 1/2 [00:02<00:02,  2.21s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.46s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.57s/it]
+[2026-10-19 20:04:32 TP0] Load weight end. elapsed=3.24 s, type=Qwen3_5ForConditionalGeneration, avail mem=6.64 GB, mem usage=8.62 GB.
+[2026-10-19 20:04:32 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-19 20:04:32 TP0] max_running_requests is capped to 5 by the mamba state cache (max_mamba_cache_size=25, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-19 20:04:32 TP0] Mamba Cache is allocated. max_mamba_cache_size: 25, conv_state size: 0.03GB, ssm_state size: 1.22GB 
+[2026-10-19 20:04:32 TP0] KV Cache is allocated. dtype: torch.float16, #tokens: 48233, K size: 0.74 GB, V size: 0.74 GB
+[2026-10-19 20:04:32 TP0] Memory pool end. avail mem=3.89 GB
+[2026-10-19 20:04:32 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-19 20:04:32 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-19 20:04:32 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-19 20:04:32 TP0] Capture target prefill CUDA graph begin. backend=breakable, num_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048], avail mem=3.46 GB
+
+  0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=3.46 GB):   0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=3.46 GB):   2%|▏         | 1/42 [00:00<00:34,  1.20it/s]
+Capturing prefill shape (num_tokens=1792 avail_mem=2.87 GB):   2%|▏         | 1/42 [00:00<00:34,  1.20it/s]
+Capturing prefill shape (num_tokens=1792 avail_mem=2.87 GB):   5%|▍         | 2/42 [00:01<00:24,  1.62it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=2.86 GB):   5%|▍         | 2/42 [00:01<00:24,  1.62it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=2.86 GB):   7%|▋         | 3/42 [00:01<00:15,  2.45it/s]
+Capturing prefill shape (num_tokens=1280 avail_mem=2.86 GB):   7%|▋         | 3/42 [00:01<00:15,  2.45it/s]
+Capturing prefill shape (num_tokens=1280 avail_mem=2.86 GB):  10%|▉         | 4/42 [00:01<00:14,  2.65it/s]
+Capturing prefill shape (num_tokens=1024 avail_mem=2.85 GB):  10%|▉         | 4/42 [00:01<00:14,  2.65it/s]
+Capturing prefill shape (num_tokens=1024 avail_mem=2.85 GB):  12%|█▏        | 5/42 [00:01<00:10,  3.53it/s]
+Capturing prefill shape (num_tokens=960 avail_mem=2.85 GB):  12%|█▏        | 5/42 [00:01<00:10,  3.53it/s] 
+Capturing prefill shape (num_tokens=960 avail_mem=2.85 GB):  14%|█▍        | 6/42 [00:02<00:09,  3.68it/s]
+Capturing prefill shape (num_tokens=896 avail_mem=2.82 GB):  14%|█▍        | 6/42 [00:02<00:09,  3.68it/s]
+Capturing prefill shape (num_tokens=896 avail_mem=2.82 GB):  17%|█▋        | 7/42 [00:02<00:08,  4.27it/s]
+Capturing prefill shape (num_tokens=832 avail_mem=2.81 GB):  17%|█▋        | 7/42 [00:02<00:08,  4.27it/s]
+Capturing prefill shape (num_tokens=832 avail_mem=2.81 GB):  19%|█▉        | 8/42 [00:02<00:07,  4.71it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=2.80 GB):  19%|█▉        | 8/42 [00:02<00:07,  4.71it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=2.80 GB):  21%|██▏       | 9/42 [00:02<00:06,  5.30it/s]
+Capturing prefill shape (num_tokens=704 avail_mem=2.80 GB):  21%|██▏       | 9/42 [00:02<00:06,  5.30it/s]
+Capturing prefill shape (num_tokens=704 avail_mem=2.80 GB):  24%|██▍       | 10/42 [00:02<00:05,  5.84it/s]
+Capturing prefill shape (num_tokens=640 avail_mem=2.79 GB):  24%|██▍       | 10/42 [00:02<00:05,  5.84it/s]
+Capturing prefill shape (num_tokens=640 avail_mem=2.79 GB):  26%|██▌       | 11/42 [00:02<00:04,  6.57it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=2.78 GB):  26%|██▌       | 11/42 [00:02<00:04,  6.57it/s]
+Capturing prefill shape (num_tokens=512 avail_mem=2.77 GB):  26%|██▌       | 11/42 [00:02<00:04,  6.57it/s]
+Capturing prefill shape (num_tokens=512 avail_mem=2.77 GB):  31%|███       | 13/42 [00:03<00:03,  7.69it/s]
+Capturing prefill shape (num_tokens=480 avail_mem=2.77 GB):  31%|███       | 13/42 [00:03<00:03,  7.69it/s]
+Capturing prefill shape (num_tokens=480 avail_mem=2.77 GB):  33%|███▎      | 14/42 [00:03<00:03,  8.15it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=2.76 GB):  33%|███▎      | 14/42 [00:03<00:03,  8.15it/s]
+Capturing prefill shape (num_tokens=416 avail_mem=2.75 GB):  33%|███▎      | 14/42 [00:03<00:03,  8.15it/s]
+Capturing prefill shape (num_tokens=416 avail_mem=2.75 GB):  38%|███▊      | 16/42 [00:03<00:02,  8.97it/s]
+Capturing prefill shape (num_tokens=384 avail_mem=2.75 GB):  38%|███▊      | 16/42 [00:03<00:02,  8.97it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=2.74 GB):  38%|███▊      | 16/42 [00:03<00:02,  8.97it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=2.74 GB):  43%|████▎     | 18/42 [00:03<00:02, 10.30it/s]
+Capturing prefill shape (num_tokens=320 avail_mem=2.73 GB):  43%|████▎     | 18/42 [00:03<00:02, 10.30it/s]
+Capturing prefill shape (num_tokens=288 avail_mem=2.72 GB):  43%|████▎     | 18/42 [00:03<00:02, 10.30it/s]
+Capturing prefill shape (num_tokens=288 avail_mem=2.72 GB):  48%|████▊     | 20/42 [00:03<00:01, 11.54it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=2.71 GB):  48%|████▊     | 20/42 [00:03<00:01, 11.54it/s]
+Capturing prefill shape (num_tokens=240 avail_mem=2.70 GB):  48%|████▊     | 20/42 [00:03<00:01, 11.54it/s]
+Capturing prefill shape (num_tokens=240 avail_mem=2.70 GB):  52%|█████▏    | 22/42 [00:03<00:01, 12.91it/s]
+Capturing prefill shape (num_tokens=224 avail_mem=2.70 GB):  52%|█████▏    | 22/42 [00:03<00:01, 12.91it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=2.69 GB):  52%|█████▏    | 22/42 [00:03<00:01, 12.91it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=2.69 GB):  57%|█████▋    | 24/42 [00:03<00:01, 13.98it/s]
+Capturing prefill shape (num_tokens=192 avail_mem=2.68 GB):  57%|█████▋    | 24/42 [00:03<00:01, 13.98it/s]
+Capturing prefill shape (num_tokens=176 avail_mem=2.67 GB):  57%|█████▋    | 24/42 [00:03<00:01, 13.98it/s]
+Capturing prefill shape (num_tokens=176 avail_mem=2.67 GB):  62%|██████▏   | 26/42 [00:03<00:01, 15.12it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=2.66 GB):  62%|██████▏   | 26/42 [00:03<00:01, 15.12it/s]
+Capturing prefill shape (num_tokens=144 avail_mem=2.66 GB):  62%|██████▏   | 26/42 [00:04<00:01, 15.12it/s]
+Capturing prefill shape (num_tokens=144 avail_mem=2.66 GB):  67%|██████▋   | 28/42 [00:04<00:00, 16.06it/s]
+Capturing prefill shape (num_tokens=128 avail_mem=2.65 GB):  67%|██████▋   | 28/42 [00:04<00:00, 16.06it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=2.63 GB):  67%|██████▋   | 28/42 [00:04<00:00, 16.06it/s]
+Capturing prefill shape (num_tokens=96 avail_mem=2.62 GB):  67%|██████▋   | 28/42 [00:04<00:00, 16.06it/s] 
+Capturing prefill shape (num_tokens=96 avail_mem=2.62 GB):  74%|███████▍  | 31/42 [00:04<00:00, 17.66it/s]
+Capturing prefill shape (num_tokens=80 avail_mem=2.62 GB):  74%|███████▍  | 31/42 [00:04<00:00, 17.66it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=2.61 GB):  74%|███████▍  | 31/42 [00:04<00:00, 17.66it/s]
+Capturing prefill shape (num_tokens=48 avail_mem=2.60 GB):  74%|███████▍  | 31/42 [00:04<00:00, 17.66it/s]
+Capturing prefill shape (num_tokens=48 avail_mem=2.60 GB):  81%|████████  | 34/42 [00:04<00:00, 18.77it/s]
+Capturing prefill shape (num_tokens=32 avail_mem=2.59 GB):  81%|████████  | 34/42 [00:04<00:00, 18.77it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=2.59 GB):  81%|████████  | 34/42 [00:04<00:00, 18.77it/s]
+Capturing prefill shape (num_tokens=24 avail_mem=2.58 GB):  81%|████████  | 34/42 [00:04<00:00, 18.77it/s]
+Capturing prefill shape (num_tokens=24 avail_mem=2.58 GB):  88%|████████▊ | 37/42 [00:04<00:00, 19.48it/s]
+Capturing prefill shape (num_tokens=20 avail_mem=2.57 GB):  88%|████████▊ | 37/42 [00:04<00:00, 19.48it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=2.56 GB):  88%|████████▊ | 37/42 [00:04<00:00, 19.48it/s]
+Capturing prefill shape (num_tokens=12 avail_mem=2.56 GB):  88%|████████▊ | 37/42 [00:04<00:00, 19.48it/s]
+Capturing prefill shape (num_tokens=12 avail_mem=2.56 GB):  95%|█████████▌| 40/42 [00:04<00:00, 20.07it/s]
+Capturing prefill shape (num_tokens=8 avail_mem=2.55 GB):  95%|█████████▌| 40/42 [00:04<00:00, 20.07it/s] 
+Capturing prefill shape (num_tokens=4 avail_mem=2.54 GB):  95%|█████████▌| 40/42 [00:04<00:00, 20.07it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=2.54 GB): 100%|██████████| 42/42 [00:04<00:00,  8.84it/s]
+[2026-10-19 20:04:38 TP0] Capture target prefill CUDA graph end. elapsed=5.61 s, mem usage=0.59 GB, avail mem=2.86 GB.
+[2026-10-19 20:04:38 TP0] Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, avail mem=2.86 GB
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+Capturing batches (bs=1 avail_mem=2.86 GB):   0%|          | 0/1 [00:00<?, ?it/s][2026-10-19 20:04:38 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+
+Capturing batches (bs=1 avail_mem=2.86 GB): 100%|██████████| 1/1 [00:00<00:00, 12.07it/s]
+[2026-10-19 20:04:39 TP0] Capture target decode CUDA graph end. bs=[1], elapsed=0.94 s, mem usage=0.00 GB, avail mem=2.86 GB.
+[2026-10-19 20:04:39 TP0] Reset HybridReqToTokenPool
+[rank0]:[W1019 20:04:39.047981475 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 165675008 bytes (free: 169213952, total: 16720199680).
+[rank0]:[W1019 20:04:39.048062417 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 165675008 bytes (free: 169213952, total: 16720199680).
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1111, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1104, in cli_main
+[rank0]:     main(server_args, bench_args)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1066, in main
+[rank0]:     work_func(server_args, port_args, bench_args, 0, 0)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 931, in latency_test
+[rank0]:     latency_test_run_once(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 803, in latency_test_run_once
+[rank0]:     next_token_ids, _, batch = model_runner.extend(reqs)
+[rank0]:                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 574, in extend
+[rank0]:     return extend(reqs, self.torch_runner)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 530, in extend
+[rank0]:     logits_output = model_runner.forward(forward_batch).logits_output
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 1829, in forward
+[rank0]:     output = self._forward_raw(
+[rank0]:              ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 2021, in _forward_raw
+[rank0]:     ret = self.eager_runner.execute(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/eager_runner.py", line 224, in execute
+[rank0]:     return self._execute_extend(forward_batch, pp_proxy_tensors)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/eager_runner.py", line 350, in _execute_extend
+[rank0]:     ret = model_runner.model.forward(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_vl.py", line 1653, in forward
+[rank0]:     hidden_states = general_mm_embed_routine(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/mm_utils.py", line 844, in general_mm_embed_routine
+[rank0]:     hidden_states = language_model(
+[rank0]:                     ^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1890, in forward
+[rank0]:     hidden_states = layer(
+[rank0]:                     ^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1209, in forward
+[rank0]:     hidden_states = self.linear_attn(
+[rank0]:                     ^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1059, in forward
+[rank0]:     attn_result = self.attn(
+[rank0]:                   ^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/radix_linear_attention.py", line 142, in forward
+[rank0]:     return get_attn_backend().forward(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/hybrid_linear_attn_backend.py", line 1492, in forward
+[rank0]:     return self.forward_extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/hybrid_linear_attn_backend.py", line 1444, in forward_extend
+[rank0]:     return self.linear_attn_backend.forward_extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/gdn_backend.py", line 1181, in forward_extend
+[rank0]:     core_attn_out, last_recurrent_state, h = self.kernel_dispatcher.extend(
+[rank0]:                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/gdn_backend.py", line 455, in extend
+[rank0]:     return self.extend_kernel.extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/kernels/gdn_triton.py", line 203, in extend
+[rank0]:     return chunk_gated_delta_rule(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk.py", line 254, in chunk_gated_delta_rule
+[rank0]:     o, h = ChunkGatedDeltaRuleFunction.apply(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/utils.py", line 177, in wrapper
+[rank0]:     return fn(*contiguous_args, **contiguous_kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 481, in decorate_fwd
+[rank0]:     return fwd(*args, **kwargs)  # pyrefly: ignore [not-callable]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk.py", line 112, in forward
+[rank0]:     k = l2norm_fwd(k)
+[rank0]:         ^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/l2norm.py", line 80, in l2norm_fwd
+[rank0]:     y = torch.empty_like(x)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 158.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 161.38 MiB is free. Including non-PyTorch memory, this process has 15.39 GiB memory in use. Of the allocated memory 14.68 GiB is allocated by PyTorch, with 252.00 MiB allocated in private pools (e.g., CUDA Graphs), and 112.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+max_total_num_tokens=48233
+Warmup ...

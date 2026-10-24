@@ -1,0 +1,5 @@
+sglang-triton Qwen3.5-4B p   10: in [20, 21] · TTFT 20.96 ms · prefill 957 tok/s (6.3 %) · decode 78.19 tok/s (0.1 %) · out [128] · n=15
+sglang-triton Qwen3.5-4B p  100: in [109, 110, 111] · TTFT 22.47 ms · prefill 4908 tok/s (4.0 %) · decode 78.09 tok/s (0.1 %) · out [128] · n=15
+sglang-triton Qwen3.5-4B p  500: in [510, 511] · TTFT 50.11 ms · prefill 10196 tok/s (4.1 %) · decode 77.55 tok/s (0.2 %) · out [128] · n=15
+sglang-triton Qwen3.5-4B p 2048: in [2058, 2059] · TTFT 201.90 ms · prefill 10193 tok/s (1.7 %) · decode 75.66 tok/s (0.2 %) · out [128] · n=15
+sglang-triton Qwen3.5-4B p 4096: in [4105, 4106, 4107] · TTFT 396.20 ms · prefill 10363 tok/s (1.4 %) · decode 74.89 tok/s (0.4 %) · out [128] · n=15

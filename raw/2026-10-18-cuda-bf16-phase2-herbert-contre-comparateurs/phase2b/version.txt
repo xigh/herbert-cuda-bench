@@ -1,0 +1,4 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 15945 MiB):
+  Device 0: NVIDIA GeForce RTX 4080, compute capability 8.9, VMM: yes, VRAM: 15945 MiB
+version: 0.7.0-dev (build 11719, commit 5aeac37a3)
+built with GNU 13.3.0 for Linux x86_64

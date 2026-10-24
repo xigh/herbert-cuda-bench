@@ -1,0 +1,30 @@
+INFO:     Started server process [1951576]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:8122 (Press CTRL+C to quit)
+[transformers] Scanning the cache directory for LLMs and VLMs.
+
+  0%|          | 0/18 [00:00<?, ?it/s]
+100%|██████████| 18/18 [00:00<00:00, 73014.96it/s]
+INFO:     localhost:40192 - "GET /v1/models HTTP/1.1" 200 OK
+[transformers] Ignoring unsupported fields in the request: {'stream_options'}
+[transformers] Loading $MODELS_DIR/Qwen3.5-4B@main
+
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]
+Loading weights:  11%|█         | 81/723 [00:00<00:00, 802.22it/s]
+Loading weights:  22%|██▏       | 162/723 [00:00<00:00, 802.22it/s]
+Loading weights:  34%|███▎      | 243/723 [00:00<00:00, 797.83it/s]
+Loading weights:  45%|████▍     | 323/723 [00:00<00:00, 794.66it/s]
+Loading weights:  56%|█████▋    | 407/723 [00:00<00:00, 804.79it/s]
+Loading weights: 100%|██████████| 723/723 [00:00<00:00, 1231.16it/s]
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+[transformers] The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+INFO:     localhost:40198 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:40214 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1951576]

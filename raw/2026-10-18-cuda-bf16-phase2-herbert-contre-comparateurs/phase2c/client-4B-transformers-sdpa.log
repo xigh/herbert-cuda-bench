@@ -1,0 +1,5 @@
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p   10: in [20, 21] · TTFT 26.49 ms · prefill 766 tok/s (10.9 %) · decode 60.09 tok/s (0.3 %) · out [128] · n=15
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p  100: in [109, 110, 111] · TTFT 27.37 ms · prefill 3999 tok/s (3.1 %) · decode 59.97 tok/s (0.2 %) · out [128] · n=15
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p  500: in [510, 511] · TTFT 61.07 ms · prefill 8360 tok/s (1.3 %) · decode 59.80 tok/s (0.3 %) · out [128] · n=15
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p 2048: in [2058, 2059] · TTFT 240.10 ms · prefill 8575 tok/s (0.7 %) · decode 59.15 tok/s (0.3 %) · out [128] · n=15
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p 4096: in [4105, 4106, 4107] · TTFT 502.32 ms · prefill 8174 tok/s (0.5 %) · decode 58.38 tok/s (0.3 %) · out [128] · n=15

@@ -1,0 +1,62 @@
+== 2026-10-18T16:54:51+02:00 A round 1 0.8B ·  16:54:51 up 6 days,  8:03, 11 users,  load average: 0.16, 0.12, 0.04
+== 2026-10-18T16:55:28+02:00 A round 1 4B ·  16:55:28 up 6 days,  8:04, 11 users,  load average: 0.54, 0.22, 0.08
+== 2026-10-18T16:57:54+02:00 A round 2 0.8B ·  16:57:54 up 6 days,  8:06, 12 users,  load average: 0.65, 0.45, 0.19
+== 2026-10-18T16:58:31+02:00 A round 2 4B ·  16:58:31 up 6 days,  8:07, 12 users,  load average: 0.80, 0.51, 0.22
+== 2026-10-18T17:00:58+02:00 A round 3 0.8B ·  17:00:58 up 6 days,  8:09, 12 users,  load average: 1.00, 0.69, 0.33
+== 2026-10-18T17:01:34+02:00 A round 3 4B ·  17:01:34 up 6 days,  8:10, 12 users,  load average: 0.86, 0.69, 0.35
+== 2026-10-18T17:04:00+02:00 A round 4 0.8B ·  17:04:00 up 6 days,  8:12, 12 users,  load average: 0.74, 0.75, 0.43
+== 2026-10-18T17:04:37+02:00 A round 4 4B ·  17:04:37 up 6 days,  8:13, 12 users,  load average: 0.94, 0.80, 0.46
+== 2026-10-18T17:07:04+02:00 A round 5 0.8B ·  17:07:04 up 6 days,  8:16, 12 users,  load average: 0.94, 0.84, 0.53
+== 2026-10-18T17:07:40+02:00 A round 5 4B ·  17:07:40 up 6 days,  8:16, 12 users,  load average: 1.04, 0.88, 0.55
+== 2026-10-18T17:10:07+02:00 A vllm 0.8B cg512 ·  17:10:07 up 6 days,  8:19, 12 users,  load average: 1.19, 0.95, 0.63
+== 2026-10-18T17:13:50+02:00 A vllm 0.8B triton-cg512 ·  17:13:50 up 6 days,  8:22, 12 users,  load average: 1.65, 1.35, 0.87
+== 2026-10-18T17:17:34+02:00 A sglang 0.8B default ·  17:17:34 up 6 days,  8:26, 12 users,  load average: 1.61, 1.46, 1.02
+== 2026-10-18T17:18:03+02:00 A sglang 0.8B triton ·  17:18:03 up 6 days,  8:26, 12 users,  load average: 1.40, 1.42, 1.02
+== 2026-10-18T17:18:32+02:00 A transformers 0.8B sdpa-static-compile ·  17:18:32 up 6 days,  8:27, 12 users,  load average: 1.24, 1.38, 1.02
+== 2026-10-18T17:18:56+02:00 A transformers 0.8B eager-static-compile ·  17:18:56 up 6 days,  8:27, 12 users,  load average: 1.16, 1.35, 1.01
+== 2026-10-18T17:19:23+02:00 A vllm 4B cg512 ·  17:19:23 up 6 days,  8:28, 12 users,  load average: 1.10, 1.32, 1.01
+== 2026-10-18T17:24:15+02:00 A vllm 4B triton-cg512 ·  17:24:15 up 6 days,  8:33, 12 users,  load average: 1.06, 1.27, 1.08
+== 2026-10-18T17:29:07+02:00 A sglang 4B default ·  17:29:07 up 6 days,  8:38, 12 users,  load average: 1.20, 1.39, 1.19
+== 2026-10-18T17:29:53+02:00 A sglang 4B triton ·  17:29:53 up 6 days,  8:38, 12 users,  load average: 1.09, 1.33, 1.18
+== 2026-10-18T17:30:39+02:00 A transformers 4B sdpa-static-compile ·  17:30:39 up 6 days,  8:39, 12 users,  load average: 1.11, 1.31, 1.18
+== 2026-10-18T17:31:26+02:00 A transformers 4B eager-static-compile ·  17:31:26 up 6 days,  8:40, 12 users,  load average: 1.05, 1.26, 1.17
+== 2026-10-18T17:32:13+02:00 B 0.8B hc-nu ·  17:32:13 up 6 days,  8:41, 12 users,  load average: 1.02, 1.22, 1.16
+== 2026-10-18T17:32:46+02:00 B 0.8B hc-cand ·  17:32:46 up 6 days,  8:41, 12 users,  load average: 0.93, 1.18, 1.15
+== 2026-10-18T17:33:18+02:00 B 0.8B hv ·  17:33:18 up 6 days,  8:42, 12 users,  load average: 0.96, 1.16, 1.14
+== 2026-10-18T17:33:54+02:00 B 0.8B llama-cuda ·  17:33:54 up 6 days,  8:42, 12 users,  load average: 0.72, 1.08, 1.11
+== 2026-10-18T17:34:35+02:00 B 0.8B llama-vk ·  17:34:35 up 6 days,  8:43, 12 users,  load average: 0.78, 1.05, 1.10
+== 2026-10-18T17:35:24+02:00 B 0.8B vllm-cg512 ·  17:35:24 up 6 days,  8:44, 12 users,  load average: 0.59, 0.96, 1.06
+== 2026-10-18T17:37:19+02:00 B 0.8B vllm-triton-cg512 ·  17:37:19 up 6 days,  8:46, 12 users,  load average: 0.78, 0.98, 1.06
+== 2026-10-18T17:39:13+02:00 B 0.8B sglang-default ·  17:39:13 up 6 days,  8:48, 12 users,  load average: 1.20, 1.10, 1.10
+== 2026-10-18T17:40:08+02:00 B 0.8B sglang-triton ·  17:40:08 up 6 days,  8:49, 12 users,  load average: 1.07, 1.09, 1.09
+~/c003/phase2-scripts/_p2-003.sh: line 99: 1934887 Killed                  setsid $SPY -m sglang.launch_server --model-path $M/Qwen3.5-$m --dtype bfloat16 --context-length 4608 --mem-fraction-static 0.8 --disable-radix-cache --served-model-name $mn --host localhost --port 8121 $sa > $O/http/server-$m-$e.log 2>&1
+== 2026-10-18T17:41:06+02:00 B 0.8B transformers-sdpa ·  17:41:06 up 6 days,  8:50, 12 users,  load average: 0.99, 1.08, 1.09
+== 2026-10-18T17:42:55+02:00 B 0.8B transformers-sdpa-compile ·  17:42:55 up 6 days,  8:51, 12 users,  load average: 0.95, 1.05, 1.08
+== 2026-10-18T17:44:16+02:00 B 4B hc-nu ·  17:44:16 up 6 days,  8:53, 12 users,  load average: 0.93, 1.03, 1.07
+== 2026-10-18T17:46:41+02:00 B 4B hc-cand ·  17:46:41 up 6 days,  8:55, 12 users,  load average: 0.92, 1.00, 1.05
+== 2026-10-18T17:49:03+02:00 B 4B hv ·  17:49:03 up 6 days,  8:57, 12 users,  load average: 1.08, 1.02, 1.05
+== 2026-10-18T17:51:31+02:00 B 4B llama-cuda ·  17:51:31 up 6 days,  9:00, 12 users,  load average: 0.12, 0.65, 0.90
+== 2026-10-18T17:54:05+02:00 B 4B llama-vk ·  17:54:05 up 6 days,  9:03, 12 users,  load average: 0.86, 0.78, 0.91
+== 2026-10-18T17:57:19+02:00 B 4B vllm-cg512 ·  17:57:19 up 6 days,  9:06, 12 users,  load average: 0.55, 0.71, 0.87
+== 2026-10-18T18:01:13+02:00 B 4B vllm-triton-cg512 ·  18:01:13 up 6 days,  9:10, 12 users,  load average: 0.43, 0.66, 0.83
+== 2026-10-18T18:05:07+02:00 B 4B sglang-default ·  18:05:07 up 6 days,  9:14, 12 users,  load average: 0.30, 0.61, 0.79
+~/c003/phase2-scripts/_p2-003.sh: line 99: 1938137 Killed                  setsid $SPY -m sglang.launch_server --model-path $M/Qwen3.5-$m --dtype bfloat16 --context-length 4608 --mem-fraction-static 0.8 --disable-radix-cache --served-model-name $mn --host localhost --port 8121 $sa > $O/http/server-$m-$e.log 2>&1
+== 2026-10-18T18:07:55+02:00 B 4B sglang-triton ·  18:07:55 up 6 days,  9:16, 12 users,  load average: 0.86, 0.78, 0.83
+~/c003/phase2-scripts/_p2-003.sh: line 99: 1938650 Killed                  setsid $SPY -m sglang.launch_server --model-path $M/Qwen3.5-$m --dtype bfloat16 --context-length 4608 --mem-fraction-static 0.8 --disable-radix-cache --served-model-name $mn --host localhost --port 8121 $sa > $O/http/server-$m-$e.log 2>&1
+== 2026-10-18T18:10:44+02:00 B 4B transformers-sdpa ·  18:10:44 up 6 days,  9:19, 12 users,  load average: 0.92, 0.88, 0.86
+== 2026-10-18T18:13:54+02:00 B 4B transformers-sdpa-compile ·  18:13:54 up 6 days,  9:22, 12 users,  load average: 1.03, 0.96, 0.91
+== 2026-10-18T18:17:20+02:00 C profile removed · ComputeCache
+nvidia-application-profiles-rc.off-phase2
+== 2026-10-18T18:17:20+02:00 C round 1 0.8B ·  18:17:20 up 6 days,  9:26, 12 users,  load average: 0.93, 0.98, 0.93
+== 2026-10-18T18:17:37+02:00 C round 1 4B ·  18:17:37 up 6 days,  9:26, 12 users,  load average: 0.94, 0.98, 0.93
+== 2026-10-18T18:18:49+02:00 C round 2 0.8B ·  18:18:49 up 6 days,  9:27, 12 users,  load average: 0.98, 0.99, 0.94
+== 2026-10-18T18:19:07+02:00 C round 2 4B ·  18:19:07 up 6 days,  9:28, 12 users,  load average: 0.99, 0.99, 0.94
+== 2026-10-18T18:20:19+02:00 C round 3 0.8B ·  18:20:19 up 6 days,  9:29, 12 users,  load average: 1.06, 1.01, 0.95
+== 2026-10-18T18:20:36+02:00 C round 3 4B ·  18:20:36 up 6 days,  9:29, 12 users,  load average: 1.04, 1.01, 0.95
+== 2026-10-18T18:21:48+02:00 C vllm 0.8B cg512 ·  18:21:48 up 6 days,  9:30, 12 users,  load average: 1.01, 1.00, 0.96
+== 2026-10-18T18:25:32+02:00 C sglang 0.8B default ·  18:25:32 up 6 days,  9:34, 12 users,  load average: 1.98, 1.57, 1.19
+== 2026-10-18T18:26:01+02:00 C vllm 4B cg512 ·  18:26:01 up 6 days,  9:34, 12 users,  load average: 2.80, 1.87, 1.31
+== 2026-10-18T18:30:56+02:00 C sglang 4B default ·  18:30:56 up 6 days,  9:39, 12 users,  load average: 0.92, 1.45, 1.28
+== 2026-10-18T18:31:43+02:00 C profile restored · ComputeCache
+nvidia-application-profiles-rc
+ALLDONE-phase2

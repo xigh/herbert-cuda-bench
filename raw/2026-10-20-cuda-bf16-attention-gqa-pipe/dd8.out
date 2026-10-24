@@ -1,0 +1,13 @@
+== 2026-10-20T22:49:23+02:00 stopping resident-gpu
+== 2026-10-20T22:49:23+02:00 0.8B A tokens
+== 2026-10-20T22:49:48+02:00 0.8B B round 1 ·  22:49:48 up 2 days,  2:33,  2 users,  load average: 1.81, 1.22, 1.09
+== 2026-10-20T22:51:11+02:00 0.8B B round 2 ·  22:51:11 up 2 days,  2:34,  2 users,  load average: 1.31, 1.19, 1.09
+== 2026-10-20T22:52:34+02:00 0.8B B round 3 ·  22:52:34 up 2 days,  2:35,  2 users,  load average: 1.15, 1.16, 1.09
+== 2026-10-20T22:53:56+02:00 0.8B C profile at 60K
+== 2026-10-20T22:54:09+02:00 4B A tokens
+== 2026-10-20T22:55:58+02:00 4B B round 1 ·  22:55:58 up 2 days,  2:39,  2 users,  load average: 1.15, 1.11, 1.08
+== 2026-10-20T23:01:31+02:00 4B B round 2 ·  23:01:31 up 2 days,  2:44,  2 users,  load average: 1.03, 1.04, 1.05
+== 2026-10-20T23:07:04+02:00 4B B round 3 ·  23:07:04 up 2 days,  2:50,  2 users,  load average: 1.00, 1.00, 1.02
+== 2026-10-20T23:12:37+02:00 4B C profile at 60K
+ALLDONE-dd8
+== 2026-10-20T23:13:30+02:00 resident-gpu: active

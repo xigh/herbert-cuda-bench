@@ -1,0 +1,4 @@
+llama-cuda Qwen3.5-4B p10000: in [10009, 10010] · TTFT 1063.83 ms · prefill 9409 tok/s (16.7 %) · decode 71.18 tok/s (0.1 %) · out [128] · n=15
+llama-cuda Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2173.27 ms · prefill 9207 tok/s (12.7 %) · decode 68.84 tok/s (0.0 %) · out [128] · n=15
+llama-cuda Qwen3.5-4B p40000: in [40008, 40009, 40010] · TTFT 4886.13 ms · prefill 8188 tok/s (10.9 %) · decode 64.52 tok/s (0.0 %) · out [128] · n=15
+llama-cuda Qwen3.5-4B p60000: in [60009, 60010, 60011] · TTFT 8086.78 ms · prefill 7421 tok/s (7.2 %) · decode 60.75 tok/s (0.1 %) · out [128] · n=15

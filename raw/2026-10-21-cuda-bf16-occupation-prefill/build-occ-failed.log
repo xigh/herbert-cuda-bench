@@ -1,0 +1,4 @@
+error: failed to parse lock file at: ~/herbert-cuda-bf16-occ/Cargo.lock
+
+Caused by:
+  lock file version 4 requires `-Znext-lockfile-bump`

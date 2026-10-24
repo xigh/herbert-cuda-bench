@@ -1,0 +1,18 @@
+== 2026-10-18T12:25:30+02:00 vllm again, --max-num-seqs 8
+== 2026-10-18T12:25:30+02:00 vllm 0.8B default ·  12:25:30 up 6 days,  3:34, 11 users,  load average: 0.90, 1.41, 1.68
+== 2026-10-18T12:29:48+02:00 vllm 0.8B eager ·  12:29:48 up 6 days,  3:38, 11 users,  load average: 1.70, 1.53, 1.65
+== 2026-10-18T12:32:58+02:00 vllm 0.8B mnbt2048 ·  12:32:58 up 6 days,  3:41, 11 users,  load average: 1.79, 1.62, 1.66
+== 2026-10-18T12:37:10+02:00 vllm 0.8B mnbt16384 ·  12:37:10 up 6 days,  3:46, 11 users,  load average: 2.80, 2.11, 1.83
+== 2026-10-18T12:41:24+02:00 vllm 0.8B flashattn ·  12:41:24 up 6 days,  3:50, 11 users,  load average: 1.47, 1.78, 1.76
+== 2026-10-18T12:45:37+02:00 vllm 0.8B flashinfer ·  12:45:37 up 6 days,  3:54, 11 users,  load average: 1.48, 1.59, 1.69
+== 2026-10-18T12:50:06+02:00 vllm 0.8B triton ·  12:50:06 up 6 days,  3:59, 11 users,  load average: 2.04, 1.83, 1.76
+== 2026-10-18T12:54:20+02:00 vllm 0.8B ref0.28.0 ·  12:54:20 up 6 days,  4:03, 11 users,  load average: 1.49, 1.68, 1.71
+== 2026-10-18T12:59:34+02:00 vllm 4B default ·  12:59:34 up 6 days,  4:08, 11 users,  load average: 1.48, 1.91, 1.82
+== 2026-10-18T13:04:45+02:00 vllm 4B eager ·  13:04:45 up 6 days,  4:13, 11 users,  load average: 1.13, 1.56, 1.70
+== 2026-10-18T13:08:39+02:00 vllm 4B mnbt2048 ·  13:08:39 up 6 days,  4:17, 11 users,  load average: 1.29, 1.50, 1.65
+== 2026-10-18T13:13:40+02:00 vllm 4B mnbt16384 ·  13:13:40 up 6 days,  4:22, 11 users,  load average: 1.16, 1.39, 1.56
+== 2026-10-18T13:18:51+02:00 vllm 4B flashattn ·  13:18:51 up 6 days,  4:27, 11 users,  load average: 1.01, 1.38, 1.52
+== 2026-10-18T13:23:57+02:00 vllm 4B flashinfer ·  13:23:57 up 6 days,  4:32, 11 users,  load average: 1.36, 1.58, 1.57
+== 2026-10-18T13:29:06+02:00 vllm 4B triton ·  13:29:06 up 6 days,  4:38, 11 users,  load average: 1.28, 1.56, 1.56
+== 2026-10-18T13:34:14+02:00 vllm 4B ref0.28.0 ·  13:34:14 up 6 days,  4:43, 11 users,  load average: 1.60, 1.89, 1.75
+ALLDONE-after-p1

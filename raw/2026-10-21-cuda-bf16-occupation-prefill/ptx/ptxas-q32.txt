@@ -1,0 +1,24 @@
+== sdpa_flash_h16kv4d256_k32_pipe.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 255 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h16kv4d256_k32_pipe_q32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 222 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h16kv4d256_k32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h16kv4d256_k32_q32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h8kv2d256_k32_pipe.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 255 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h8kv2d256_k32_pipe_q32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 222 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h8kv2d256_k32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]
+== sdpa_flash_h8kv2d256_k32_q32.ptx
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]

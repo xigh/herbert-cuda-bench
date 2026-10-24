@@ -1,0 +1,222 @@
+# medians, tok/s (n samples); FAIL = attempted, no measure (out of memory, see logs)
+
+== llama-cuda 0.8B
+  setting                         10000          20000          40000          60000
+  default                    43878 (3)     39562 (3)     33001 (3)     28052 (3)
+  ub1024-b2048-faoff         32590 (3)     23730 (3)     15451 (3)     11480 (3)
+  ub1024-b2048-faon          47246 (3)     42454 (3)     34817 (3)     29440 (3)
+  ub1024-b4096-faoff         32739 (3)     23837 (3)     15502 (3)     11509 (3)
+  ub1024-b4096-faon          47420 (3)     42762 (3)     35029 (3)     29638 (3)
+  ub2048-b2048-faoff         28640 (3)     21793 (3)     14712 (3)     11087 (3)
+  ub2048-b2048-faon          41920 (3)     38213 (3)     32204 (3)     27443 (3)
+  ub2048-b4096-faoff         28719 (3)     21889 (3)     14752 (3)     11114 (3)
+  ub2048-b4096-faon          42060 (3)     38409 (3)     32453 (3)     27622 (3)
+  ub256-b2048-faoff          28302 (3)     21633 (3)     14174 (3)     10436 (3)
+  ub256-b2048-faon           35383 (3)     32870 (3)     28298 (3)     24605 (3)
+  ub256-b4096-faoff          28421 (3)     21764 (3)     14229 (3)     10470 (3)
+  ub256-b4096-faon           35521 (3)     33099 (3)     28469 (3)     24810 (3)
+  ub512-b2048-faoff          32418 (3)     23305 (3)     15111 (3)     11237 (3)
+  ub512-b2048-faon           43883 (3)     39523 (3)     33011 (3)     28011 (3)
+  ub512-b4096-faoff          32510 (3)     23447 (3)     15157 (3)     11261 (3)
+  ub512-b4096-faon           44073 (3)     39805 (3)     33168 (3)     28192 (3)
+  best 10000  ub1024-b4096-faon 47420  ub1024-b2048-faon 47246  ub512-b4096-faon 44073  ub512-b2048-faon 43883
+  best 20000  ub1024-b4096-faon 42762  ub1024-b2048-faon 42454  ub512-b4096-faon 39805  default 39562
+  best 40000  ub1024-b4096-faon 35029  ub1024-b2048-faon 34817  ub512-b4096-faon 33168  ub512-b2048-faon 33011
+  best 60000  ub1024-b4096-faon 29638  ub1024-b2048-faon 29440  ub512-b4096-faon 28192  default 28052
+== llama-cuda 4B
+  setting                         10000          20000          40000          60000
+  default                    10909 (3)     10171 (3)      8643 (3)      7551 (3)
+  ub1024-b2048-faoff               FAIL           FAIL           FAIL           FAIL
+  ub1024-b2048-faon          11272 (3)     10534 (3)      9077 (3)      7972 (3)
+  ub1024-b4096-faoff               FAIL           FAIL           FAIL           FAIL
+  ub1024-b4096-faon          11310 (3)     10602 (3)      9120 (3)      7993 (3)
+  ub2048-b2048-faoff               FAIL           FAIL           FAIL           FAIL
+  ub2048-b2048-faon          10649 (3)     10056 (3)      8765 (3)      7718 (3)
+  ub2048-b4096-faoff               FAIL           FAIL           FAIL           FAIL
+  ub2048-b4096-faon          10686 (3)     10097 (3)      8801 (3)      7750 (3)
+  ub256-b2048-faoff           7977 (3)      6537 (3)      4646 (3)      3580 (3)
+  ub256-b2048-faon            9483 (3)      8962 (3)      7730 (3)      6843 (3)
+  ub256-b4096-faoff           8004 (3)      6559 (3)      4655 (3)      3588 (3)
+  ub256-b4096-faon            9517 (3)      9002 (3)      7762 (3)      6869 (3)
+  ub512-b2048-faoff           8868 (3)      6981 (3)      4934 (3)      3832 (3)
+  ub512-b2048-faon           10827 (3)     10133 (3)      8626 (3)      7543 (3)
+  ub512-b4096-faoff           8891 (3)      7003 (3)      4947 (3)      3839 (3)
+  ub512-b4096-faon           10920 (3)     10195 (3)      8661 (3)      7572 (3)
+  best 10000  ub1024-b4096-faon 11310  ub1024-b2048-faon 11272  ub512-b4096-faon 10920  default 10909
+  best 20000  ub1024-b4096-faon 10602  ub1024-b2048-faon 10534  ub512-b4096-faon 10195  default 10171
+  best 40000  ub1024-b4096-faon 9120  ub1024-b2048-faon 9077  ub2048-b4096-faon 8801  ub2048-b2048-faon 8765
+  best 60000  ub1024-b4096-faon 7993  ub1024-b2048-faon 7972  ub2048-b4096-faon 7750  ub2048-b2048-faon 7718
+  cells with no setting: none
+  pairs covering every cell: ub1024-b2048-faon+ub1024-b4096-faon gm 1.0000 min 1.000 (low 0.9949) | ub1024-b4096-faon+ub512-b4096-faon gm 1.0000 min 1.000 (low 0.9477) | default+ub1024-b4096-faon gm 1.0000 min 1.000 (low 0.9443) | ub1024-b4096-faon+ub512-b2048-faon gm 1.0000 min 1.000 (low 0.9424)
+
+== llama-vk 0.8B
+  setting                         10000          20000          40000          60000
+  default                    25222 (3)     23055 (3)     19837 (3)     17269 (3)
+  ub1024-b2048-faoff         21399 (3)     15637 (3)      9805 (3)      7205 (3)
+  ub1024-b2048-faon          27167 (3)     24734 (3)     20824 (3)     17903 (3)
+  ub1024-b4096-faoff         21806 (3)     15979 (3)      9985 (3)      7327 (3)
+  ub1024-b4096-faon          27706 (3)     25336 (3)     21376 (3)     18387 (3)
+  ub2048-b2048-faoff         18911 (3)     14598 (3)      9194 (3)      6876 (3)
+  ub2048-b2048-faon          24008 (3)     21963 (3)     18781 (3)     16191 (3)
+  ub2048-b4096-faoff         19541 (3)     15161 (3)      9489 (3)      7078 (3)
+  ub2048-b4096-faon          24882 (3)     22928 (3)     19622 (3)     16973 (3)
+  ub256-b2048-faoff          20411 (3)     15311 (3)      9217 (3)      6548 (3)
+  ub256-b2048-faon           23476 (3)     21815 (3)     18944 (3)     16643 (3)
+  ub256-b4096-faoff          20630 (3)     15468 (3)      9277 (3)      6582 (3)
+  ub256-b4096-faon           23761 (3)     22147 (3)     19181 (3)     16868 (3)
+  ub512-b2048-faoff          20873 (3)     15286 (3)      9089 (3)      7051 (3)
+  ub512-b2048-faon           25110 (3)     23072 (3)     19805 (3)     17256 (3)
+  ub512-b4096-faoff          21126 (3)     15480 (3)      9169 (3)      7107 (3)
+  ub512-b4096-faon           25441 (3)     23460 (3)     20164 (3)     17556 (3)
+  best 10000  ub1024-b4096-faon 27706  ub1024-b2048-faon 27167  ub512-b4096-faon 25441  default 25222
+  best 20000  ub1024-b4096-faon 25336  ub1024-b2048-faon 24734  ub512-b4096-faon 23460  ub512-b2048-faon 23072
+  best 40000  ub1024-b4096-faon 21376  ub1024-b2048-faon 20824  ub512-b4096-faon 20164  default 19837
+  best 60000  ub1024-b4096-faon 18387  ub1024-b2048-faon 17903  ub512-b4096-faon 17556  default 17269
+== llama-vk 4B
+  setting                         10000          20000          40000          60000
+  default                     8544 (3)      7964 (3)      7045 (3)      6269 (3)
+  ub1024-b2048-faoff               FAIL           FAIL           FAIL           FAIL
+  ub1024-b2048-faon           8094 (3)      7555 (3)      6676 (3)      5980 (3)
+  ub1024-b4096-faoff               FAIL           FAIL           FAIL           FAIL
+  ub1024-b4096-faon           8173 (3)      7656 (3)      6762 (3)      6048 (3)
+  ub2048-b2048-faoff               FAIL           FAIL           FAIL           FAIL
+  ub2048-b2048-faon           8161 (3)      7633 (3)      6779 (3)      6100 (3)
+  ub2048-b4096-faoff               FAIL           FAIL           FAIL           FAIL
+  ub2048-b4096-faon           8328 (3)      7812 (3)      6940 (3)      6242 (3)
+  ub256-b2048-faoff           6863 (3)      5416 (3)      3416 (3)      2471 (3)
+  ub256-b2048-faon            7988 (3)      7541 (3)      6722 (3)      6030 (3)
+  ub256-b4096-faoff           6903 (3)      5450 (3)      3432 (3)      2479 (3)
+  ub256-b4096-faon            8047 (3)      7602 (3)      6763 (3)      6071 (3)
+  ub512-b2048-faoff           7177 (3)      5492 (3)      3568 (3)      2654 (3)
+  ub512-b2048-faon            8543 (3)      7971 (3)      7043 (3)      6272 (3)
+  ub512-b4096-faoff           7229 (3)      5533 (3)      3589 (3)      2668 (3)
+  ub512-b4096-faon            8613 (3)      8050 (3)      7102 (3)      6327 (3)
+  best 10000  ub512-b4096-faon 8613  default 8544  ub512-b2048-faon 8543  ub2048-b4096-faon 8328
+  best 20000  ub512-b4096-faon 8050  ub512-b2048-faon 7971  default 7964  ub2048-b4096-faon 7812
+  best 40000  ub512-b4096-faon 7102  default 7045  ub512-b2048-faon 7043  ub2048-b4096-faon 6940
+  best 60000  ub512-b4096-faon 6327  ub512-b2048-faon 6272  default 6269  ub2048-b4096-faon 6242
+  cells with no setting: none
+  pairs covering every cell: ub1024-b4096-faon+ub512-b4096-faon gm 1.0000 min 1.000 (low 0.9437) | ub1024-b4096-faon+ub512-b2048-faon gm 0.9956 min 0.990 (low 0.9361) | default+ub1024-b4096-faon gm 0.9955 min 0.989 (low 0.9368) | ub1024-b2048-faon+ub512-b4096-faon gm 0.9880 min 0.974 (low 0.9381)
+
+== vllm 0.8B
+  setting                         10000          20000          40000          60000
+  default                    50116 (5)     45047 (5)     36091 (5)     29830 (5)
+  eager                      45240 (5)     41160 (5)     33343 (5)     27908 (5)
+  flashattn                  50068 (5)     45075 (5)     36142 (5)     29824 (5)
+  flashinfer                 50906 (5)     45939 (5)     37006 (5)     30729 (5)
+  mnbt16384                  50354 (5)     44932 (5)     36155 (5)     30083 (5)
+  mnbt2048                   51739 (5)     45702 (5)     35433 (5)     28718 (5)
+  triton                     45596 (5)     37580 (5)     27222 (5)     21195 (5)
+  best 10000  mnbt2048 51739  flashinfer 50906  mnbt16384 50354  default 50116
+  best 20000  flashinfer 45939  mnbt2048 45702  flashattn 45075  default 45047
+  best 40000  flashinfer 37006  mnbt16384 36155  flashattn 36142  default 36091
+  best 60000  flashinfer 30729  mnbt16384 30083  default 29830  flashattn 29824
+== vllm 4B
+  setting                         10000          20000          40000          60000
+  default                    10590 (5)      9877 (5)      8638 (5)      7645 (5)
+  eager                       9308 (5)      8688 (5)      7654 (5)      6893 (5)
+  flashattn                  10585 (5)      9876 (5)      8625 (5)      7650 (5)
+  flashinfer                 10673 (5)      9966 (5)      8749 (5)      7794 (5)
+  mnbt16384                  10561 (5)      9913 (5)      8659 (5)      7669 (5)
+  mnbt2048                   10470 (5)      9708 (5)      8493 (5)      7508 (5)
+  triton                      9958 (5)      8783 (5)      7084 (5)      5933 (5)
+  best 10000  flashinfer 10673  default 10590  flashattn 10585  mnbt16384 10561
+  best 20000  flashinfer 9966  mnbt16384 9913  default 9877  flashattn 9876
+  best 40000  flashinfer 8749  mnbt16384 8659  default 8638  flashattn 8625
+  best 60000  flashinfer 7794  mnbt16384 7669  flashattn 7650  default 7645
+  cells with no setting: none
+  pairs covering every cell: flashinfer+mnbt2048 gm 1.0000 min 1.000 (low 0.9698) | flashinfer+mnbt16384 gm 0.9980 min 0.984 (low 0.9831) | default+flashinfer gm 0.9980 min 0.984 (low 0.9808) | flashattn+flashinfer gm 0.9980 min 0.984 (low 0.9807)
+
+== sglang 0.8B
+  setting                         10000          20000          40000          60000
+  chunk2048                  54385 (3)     47167 (3)           FAIL           FAIL
+  default                    54201 (3)     46945 (3)           FAIL           FAIL
+  flashinfer                 54410 (3)     47094 (3)           FAIL           FAIL
+  mf06                       54449 (3)     47114 (3)     38014 (3)     31770 (3)
+  mf07                       54456 (3)     47114 (3)     37958 (3)           FAIL
+  mf07-mrr1                  54335 (3)     47091 (3)     38010 (3)           FAIL
+  mf072                      54351 (3)     47069 (3)     38004 (3)           FAIL
+  mf075                      54384 (3)     47067 (3)           FAIL           FAIL
+  mf078                      54436 (3)     47061 (3)           FAIL           FAIL
+  mf08-mrr1                  54354 (3)     47047 (3)           FAIL           FAIL
+  nochunk                    54403 (3)     47091 (3)           FAIL           FAIL
+  nograph                    54268 (3)     47028 (3)           FAIL           FAIL
+  triton                     49942 (3)     40983 (3)           FAIL           FAIL
+  best 10000  mf07 54456  mf06 54449  mf078 54436  flashinfer 54410
+  best 20000  chunk2048 47167  mf07 47114  mf06 47114  flashinfer 47094
+  best 40000  mf06 38014  mf07-mrr1 38010  mf072 38004  mf07 37958
+  best 60000  mf06 31770
+== sglang 4B
+  setting                         10000          20000          40000          60000
+  chunk2048                  10905 (3)           FAIL           FAIL           FAIL
+  default                    10889 (3)           FAIL           FAIL           FAIL
+  flashinfer                 10905 (3)           FAIL           FAIL           FAIL
+  mf06                             FAIL           FAIL           FAIL           FAIL
+  mf07                       10890 (3)     10167 (3)           FAIL           FAIL
+  mf07-mrr1                  10908 (3)     10171 (3)           FAIL           FAIL
+  mf072                      10876 (3)     10164 (3)           FAIL           FAIL
+  mf075                      10905 (3)     10171 (3)           FAIL           FAIL
+  mf078                      10905 (3)           FAIL           FAIL           FAIL
+  mf08-mrr1                  10901 (3)           FAIL           FAIL           FAIL
+  nochunk                    10898 (3)           FAIL           FAIL           FAIL
+  nograph                    10896 (3)           FAIL           FAIL           FAIL
+  triton                     10416 (3)           FAIL           FAIL           FAIL
+  best 10000  mf07-mrr1 10908  chunk2048 10905  flashinfer 10905  mf075 10905
+  best 20000  mf075 10171  mf07-mrr1 10171  mf07 10167  mf072 10164
+  best 40000  
+  best 60000  
+  cells with no setting: [('4B', 40000), ('4B', 60000)]
+  pairs covering every cell: mf06+mf07-mrr1 gm 0.9998 min 0.999 (low 0.9987) | mf06+mf075 gm 0.9997 min 0.999 (low 0.9983) | mf06+mf07 gm 0.9995 min 0.998 (low 0.9991) | mf06+mf072 gm 0.9992 min 0.997 (low 0.9986)
+
+== transformers 0.8B
+  setting                         10000          20000          40000          60000
+  eager-dynamic              20984 (5)           FAIL           FAIL           FAIL
+  eager-static               20983 (5)           FAIL           FAIL           FAIL
+  eager-static-compile       32134 (5)           FAIL           FAIL           FAIL
+  sdpa-dynamic               34598 (5)     29520 (5)     26046 (5)     22818 (5)
+  sdpa-static                34597 (5)     29477 (5)     26000 (5)     22791 (5)
+  sdpa-static-compile        41995 (5)     32539 (5)     28339 (5)     26809 (5)
+  best 10000  sdpa-static-compile 41995  sdpa-dynamic 34598  sdpa-static 34597  eager-static-compile 32134
+  best 20000  sdpa-static-compile 32539  sdpa-dynamic 29520  sdpa-static 29477
+  best 40000  sdpa-static-compile 28339  sdpa-dynamic 26046  sdpa-static 26000
+  best 60000  sdpa-static-compile 26809  sdpa-dynamic 22818  sdpa-static 22791
+== transformers 4B
+  setting                         10000          20000          40000          60000
+  eager-dynamic                    FAIL           FAIL           FAIL           FAIL
+  eager-static                     FAIL           FAIL           FAIL           FAIL
+  eager-static-compile             FAIL           FAIL           FAIL           FAIL
+  sdpa-dynamic                7960 (5)      7454 (5)      6824 (5)           FAIL
+  sdpa-static                 7950 (5)      7448 (5)      6821 (5)           FAIL
+  sdpa-static-compile         9257 (5)      7967 (5)           FAIL           FAIL
+  best 10000  sdpa-static-compile 9257  sdpa-dynamic 7960  sdpa-static 7950
+  best 20000  sdpa-static-compile 7967  sdpa-dynamic 7454  sdpa-static 7448
+  best 40000  sdpa-dynamic 6824  sdpa-static 6821
+  best 60000  
+  cells with no setting: [('4B', 60000)]
+  pairs covering every cell: sdpa-dynamic+sdpa-static-compile gm 1.0000 min 1.000 (low 0.8819) | sdpa-static+sdpa-static-compile gm 0.9999 min 1.000 (low 0.8809) | sdpa-dynamic+sdpa-static gm 0.8979 min 0.824 (low 0.8970) | eager-static-compile+sdpa-dynamic gm 0.8979 min 0.824 (low 0.7652)
+
+transformers ('0.8B', 'eager-dynamic', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 5.81 
+transformers ('0.8B', 'eager-dynamic', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 9.86
+transformers ('0.8B', 'eager-dynamic', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 53.64 GiB. GPU 0 has a total capacity of 15.57 GiB of which 2.97
+transformers ('0.8B', 'eager-static', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 5.83 
+transformers ('0.8B', 'eager-static', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 9.84
+transformers ('0.8B', 'eager-static', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 53.64 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.09
+transformers ('0.8B', 'eager-static-compile', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 1.60 
+transformers ('0.8B', 'eager-static-compile', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 4.16
+transformers ('0.8B', 'eager-static-compile', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 53.64 GiB. GPU 0 has a total capacity of 15.57 GiB of which 1.60
+transformers ('4B', 'eager-dynamic', 10000): OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.60 
+transformers ('4B', 'eager-dynamic', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 11.92 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.95
+transformers ('4B', 'eager-dynamic', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 626.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 619
+transformers ('4B', 'eager-dynamic', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 6.71 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.79 
+transformers ('4B', 'eager-static', 10000): OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.67 
+transformers ('4B', 'eager-static', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 11.92 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.76
+transformers ('4B', 'eager-static', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 626.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 623
+transformers ('4B', 'eager-static', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 6.71 GiB. GPU 0 has a total capacity of 15.57 GiB of which 4.08 
+transformers ('4B', 'eager-static-compile', 10000): OutOfMemoryError('CUDA out of memory. Tried to allocate 80.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 107.
+transformers ('4B', 'eager-static-compile', 20000): OutOfMemoryError('CUDA out of memory. Tried to allocate 382.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 473
+transformers ('4B', 'eager-static-compile', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 1.49 GiB. GPU 0 has a total capacity of 15.57 GiB of which 473.3
+transformers ('4B', 'eager-static-compile', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 6.71 GiB. GPU 0 has a total capacity of 15.57 GiB of which 4.08 
+transformers ('4B', 'sdpa-dynamic', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 470.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 429
+transformers ('4B', 'sdpa-static', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 470.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 429
+transformers ('4B', 'sdpa-static-compile', 40000): OutOfMemoryError('CUDA out of memory. Tried to allocate 314.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 341
+transformers ('4B', 'sdpa-static-compile', 60000): OutOfMemoryError('CUDA out of memory. Tried to allocate 470.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 113

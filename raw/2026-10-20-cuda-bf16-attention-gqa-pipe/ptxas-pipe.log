@@ -1,0 +1,36 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h16kv4d256_k32_pipe' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h16kv4d256_k32_pipe
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 255 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 135.823 ms
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h16kv4d256_k32' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h16kv4d256_k32
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 115.965 ms
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h16kv4d256_k32_smem' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h16kv4d256_k32_smem
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 213 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 117.411 ms
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h8kv2d256_k32_pipe' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h8kv2d256_k32_pipe
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 255 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 131.363 ms
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h8kv2d256_k32' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h8kv2d256_k32
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 207 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 115.842 ms
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'sdpa_flash_h8kv2d256_k32_smem' for 'sm_89'
+ptxas info    : Function properties for sdpa_flash_h8kv2d256_k32_smem
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 213 registers, used 1 barriers, 396 bytes cmem[0]
+ptxas info    : Compile time = 114.888 ms

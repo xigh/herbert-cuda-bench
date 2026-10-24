@@ -1,0 +1,8 @@
+gemm_2560x18432_bf16_64x128x32_w2x2_s2.ptx | 0 bytes spill stores Used 124 registers  |  32 HMMA.16816.F32.BF16; 3 LDGDEPBAR; 12 LDGSTS.E.BYPASS.128; 3 LDS; 12 LDSM.16.M88.4;
+gemm_2560x18432_bf16_64x128x32_w2x2_s2_sync.ptx | 0 bytes spill stores Used 159 registers  |  32 HMMA.16816.F32.BF16; 12 LDG.E.128; 12 LDSM.16.M88.4; 12 STS.128;
+gemm_2560x18432_bf16_64x128x32_w2x2_s2_sync_wmma.ptx | 0 bytes spill stores Used 161 registers  |  32 HMMA.16816.F32.BF16; 12 LDG.E.128; 32 LDS.64; 12 LDSM.16.M88.4; 12 STS.128; 32 STS.64;
+gemm_2560x18432_bf16_64x128x32_w2x2_s2_wmma.ptx | 0 bytes spill stores Used 123 registers  |  32 HMMA.16816.F32.BF16; 3 LDGDEPBAR; 12 LDGSTS.E.BYPASS.128; 3 LDS; 32 LDS.64; 12 LDSM.16.M88.4; 32 STS.64;
+gemm_2560x18432_bf16_64x64x32_w2x2_s3.ptx | 0 bytes spill stores Used 70 registers  |  16 HMMA.16816.F32.BF16; 4 LDGDEPBAR; 12 LDGSTS.E.BYPASS.128; 3 LDS; 8 LDSM.16.M88.4;
+gemm_2560x18432_bf16_64x64x32_w2x2_s3_sync.ptx | 0 bytes spill stores Used 95 registers  |  16 HMMA.16816.F32.BF16; 12 LDG.E.128; 8 LDSM.16.M88.4; 12 STS.128;
+gemm_2560x18432_bf16_64x64x32_w2x2_s3_sync_wmma.ptx | 0 bytes spill stores Used 78 registers  |  16 HMMA.16816.F32.BF16; 12 LDG.E.128; 16 LDS.64; 8 LDSM.16.M88.4; 12 STS.128; 16 STS.64;
+gemm_2560x18432_bf16_64x64x32_w2x2_s3_wmma.ptx | 0 bytes spill stores Used 62 registers  |  16 HMMA.16816.F32.BF16; 4 LDGDEPBAR; 12 LDGSTS.E.BYPASS.128; 3 LDS; 16 LDS.64; 8 LDSM.16.M88.4; 16 STS.64;

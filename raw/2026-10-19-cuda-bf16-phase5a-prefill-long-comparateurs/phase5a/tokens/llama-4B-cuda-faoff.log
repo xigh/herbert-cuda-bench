@@ -1,0 +1,4 @@
+llama 4B cuda-faoff pp10000 64 tokens
+llama 4B cuda-faoff pp20000 64 tokens
+llama 4B cuda-faoff pp40000 64 tokens
+llama 4B cuda-faoff pp60000 64 tokens

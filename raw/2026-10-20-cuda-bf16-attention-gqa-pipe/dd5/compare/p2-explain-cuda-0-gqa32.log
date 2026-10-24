@@ -1,0 +1,16 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=32 sdpa.gqa=1 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv × 256, intermediate 3584, vocab 248320, rotary 64, linear k 16×128 v 16×128, tied head true
+[cuda] 1.81 GiB allocated, KV for 4096 positions; 6.9 of 15.6 GiB free
+[cuda] 48 kernels, 245 launches per step
+[engine] loaded in 0.7 s, mounted in 0.01 s
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Explain step by step, in about 150 words, why the sky is blue during the day and red at sunset.
+During the day, sunlight travels through the Earth's atmosphere. As it passes above the Earth, it scatters shorter wavelengths of light, primarily blue, while longer wavelengths like red pass through more easily. This scattering gives the sky its characteristic blue hue.
+
+At sunset, the sun is low on the horizon, meaning sunlight travels a much longer path through the atmosphere before reaching the observer. This extended path allows more blue light to scatter out of the way, leaving the red, orange, and purple light to dominate. The sky appears red because the scattered blue light is so faint that the red light becomes the brightest and most visible color.
+[ids] 15542 279 1834 11 37728 33060 1472 279 8964 579 16078 13 1577 424 15734 3294 279 8964 11 424 1100 9872 22602 89661 314 3000 11 15048 6105 11 1345 4860 89661 1040 2438 1440 1472 777 6497 13 1061 69377 6486 279 12515 1141 27649 6105 37747 13 271 1597 41564 11 279 6797 369 3238 383 279 32946 11 7063 37728 33060 264 1691 4860 1752 1472 279 16078 1518 18176 279 21387 13 1061 11244 1752 5954 777 6105 3000 310 43000 680 314 279 1560 11 9101 279 2438 11 18016 11 321 24142 3000 310 39390 13 561 12515 7701 2438 1521 279 35742 6105 3000 369 748 36334 421 279 2438 3000 8772 279 68516 321 1379 9155 1829 13
+[decoded] "During the day, sunlight travels through the Earth's atmosphere. As it passes above the Earth, it scatters shorter wavelengths of light, primarily blue, while longer wavelengths like red pass through more easily. This scattering gives the sky its characteristic blue hue.\n\nAt sunset, the sun is low on the horizon, meaning sunlight travels a much longer path through the atmosphere before reaching the observer. This extended path allows more blue light to scatter out of the way, leaving the red, orange, and purple light to dominate. The sky appears red because the scattered blue light is so faint that the red light becomes the brightest and most visible color."
+[turn 1] 39 prompt tokens in 0.004 s (9406.4 tok/s) · 127 generated in 0.31 s (406.03 tok/s) · position 166

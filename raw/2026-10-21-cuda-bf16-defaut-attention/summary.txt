@@ -1,0 +1,44 @@
+
+## 0.8B, against the oracle (first differing element)
+| prompt | new | old-sw | new-old | old | new = old-sw | new-old = old |
+|---|---|---|---|---|---|---|
+| p1-short | identical | identical | identical | identical | identical | identical |
+| p2-explain | differs at 8 | differs at 8 | differs at 8 | differs at 8 | identical | identical |
+| p3-long | differs at 172 | differs at 172 | identical | identical | identical | identical |
+| p4-xlong | differs at 8 | differs at 8 | differs at 8 | differs at 8 | identical | identical |
+| pp1024 | identical | identical | identical | identical | identical | identical |
+| pp128 | identical | identical | identical | identical | identical | identical |
+| pp2048 | identical | identical | identical | identical | identical | identical |
+| pp256 | identical | identical | identical | identical | identical | identical |
+| pp4000 | identical | identical | identical | identical | identical | identical |
+| pp512 | identical | identical | identical | identical | identical | identical |
+
+## 0.8B, long prompts (64 generated)
+  pp10000: new = old-sw: identical · new-old = old: identical · new against old: differs at 10
+  pp60000: new = old-sw: identical · new-old = old: identical · new against old: differs at 17
+
+## 4B, against the oracle (first differing element)
+| prompt | new | old-sw | new-old | old | new = old-sw | new-old = old |
+|---|---|---|---|---|---|---|
+| p1-short | identical | identical | identical | identical | identical | identical |
+| p2-explain | identical | identical | differs at 32 | differs at 32 | identical | identical |
+| p3-long | identical | identical | identical | identical | identical | identical |
+| p4-xlong | differs at 105 | differs at 105 | differs at 105 | differs at 105 | identical | identical |
+| pp1024 | identical | identical | identical | identical | identical | identical |
+| pp128 | identical | identical | identical | identical | identical | identical |
+| pp2048 | identical | identical | identical | identical | identical | identical |
+| pp256 | identical | identical | identical | identical | identical | identical |
+| pp4000 | identical | identical | identical | identical | identical | identical |
+| pp512 | differs at 0 | differs at 0 | differs at 0 | differs at 0 | identical | identical |
+
+## 4B, long prompts (64 generated)
+  pp10000: new = old-sw: identical · new-old = old: identical · new against old: identical
+  pp60000: new = old-sw: identical · new-old = old: identical · new against old: differs at 23
+
+## [tuning] lines (0.8B p1)
+  new: [tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg sdpa.pipe=1 sdpa.rows=16 rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+  old-sw: [tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg sdpa.pipe=1 sdpa.rows=16 rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+  new-old: [tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 sdpa.gqa=0 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg sdpa.pipe=0 sdpa.rows=16 rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+  old: [tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 sdpa.gqa=0 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg sdpa.pipe=0 sdpa.rows=16 rec.tc=1 ld.scope=plain sdpa.maxnreg=0
+
+pairs not identical: 0

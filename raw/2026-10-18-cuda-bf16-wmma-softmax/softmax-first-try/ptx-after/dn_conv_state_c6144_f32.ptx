@@ -1,0 +1,98 @@
+//
+// dn_conv_state_c6144_f32, emitted by herbert-cuda-bf16
+//
+.version 8.5
+.target sm_89
+.address_size 64
+
+
+.visible .entry dn_conv_state_c6144_f32(
+	.param .u64 dn_conv_state_c6144_f32_p0,
+	.param .u64 dn_conv_state_c6144_f32_p1,
+	.param .u32 dn_conv_state_c6144_f32_p2
+)
+.reqntid 128, 1, 1
+{
+	.reg .pred %p<4>;
+	.reg .b32 %r<32>;
+	.reg .f32 %f<4>;
+	.reg .b64 %rd<32>;
+
+	ld.param.u64 %rd0, [dn_conv_state_c6144_f32_p0];
+	cvta.to.global.u64 %rd1, %rd0;
+	ld.param.u64 %rd2, [dn_conv_state_c6144_f32_p1];
+	cvta.to.global.u64 %rd3, %rd2;
+	ld.param.u32 %r0, [dn_conv_state_c6144_f32_p2];
+	mov.u32 %r1, %ctaid.x;
+	mov.u32 %r2, %tid.x;
+	mad.lo.u32 %r3, %r1, 128, %r2;
+	setp.ge.u32 %p0, %r0, 4;
+	sub.u32 %r4, %r0, 4;
+	selp.b32 %r5, %r4, 0, %p0;
+	mad.lo.u32 %r6, %r5, 8224, %r3;
+	mul.wide.u32 %rd4, %r6, 4;
+	add.s64 %rd5, %rd1, %rd4;
+	add.u32 %r7, %r0, 0;
+	min.u32 %r8, %r7, 3;
+	mad.lo.u32 %r9, %r3, 4, %r8;
+	mul.wide.u32 %rd6, %r9, 4;
+	add.s64 %rd7, %rd3, %rd6;
+	selp.b64 %rd8, %rd5, %rd7, %p0;
+	ld.global.f32 %f0, [%rd8];
+	setp.ge.u32 %p1, %r0, 3;
+	sub.u32 %r10, %r0, 3;
+	selp.b32 %r11, %r10, 0, %p1;
+	mad.lo.u32 %r12, %r11, 8224, %r3;
+	mul.wide.u32 %rd9, %r12, 4;
+	add.s64 %rd10, %rd1, %rd9;
+	add.u32 %r13, %r0, 1;
+	min.u32 %r14, %r13, 3;
+	mad.lo.u32 %r15, %r3, 4, %r14;
+	mul.wide.u32 %rd11, %r15, 4;
+	add.s64 %rd12, %rd3, %rd11;
+	selp.b64 %rd13, %rd10, %rd12, %p1;
+	ld.global.f32 %f1, [%rd13];
+	setp.ge.u32 %p2, %r0, 2;
+	sub.u32 %r16, %r0, 2;
+	selp.b32 %r17, %r16, 0, %p2;
+	mad.lo.u32 %r18, %r17, 8224, %r3;
+	mul.wide.u32 %rd14, %r18, 4;
+	add.s64 %rd15, %rd1, %rd14;
+	add.u32 %r19, %r0, 2;
+	min.u32 %r20, %r19, 3;
+	mad.lo.u32 %r21, %r3, 4, %r20;
+	mul.wide.u32 %rd16, %r21, 4;
+	add.s64 %rd17, %rd3, %rd16;
+	selp.b64 %rd18, %rd15, %rd17, %p2;
+	ld.global.f32 %f2, [%rd18];
+	setp.ge.u32 %p3, %r0, 1;
+	sub.u32 %r22, %r0, 1;
+	selp.b32 %r23, %r22, 0, %p3;
+	mad.lo.u32 %r24, %r23, 8224, %r3;
+	mul.wide.u32 %rd19, %r24, 4;
+	add.s64 %rd20, %rd1, %rd19;
+	add.u32 %r25, %r0, 3;
+	min.u32 %r26, %r25, 3;
+	mad.lo.u32 %r27, %r3, 4, %r26;
+	mul.wide.u32 %rd21, %r27, 4;
+	add.s64 %rd22, %rd3, %rd21;
+	selp.b64 %rd23, %rd20, %rd22, %p3;
+	ld.global.f32 %f3, [%rd23];
+	mad.lo.u32 %r28, %r3, 4, 0;
+	mul.wide.u32 %rd24, %r28, 4;
+	add.s64 %rd25, %rd3, %rd24;
+	st.global.f32 [%rd25], %f0;
+	mad.lo.u32 %r29, %r3, 4, 1;
+	mul.wide.u32 %rd26, %r29, 4;
+	add.s64 %rd27, %rd3, %rd26;
+	st.global.f32 [%rd27], %f1;
+	mad.lo.u32 %r30, %r3, 4, 2;
+	mul.wide.u32 %rd28, %r30, 4;
+	add.s64 %rd29, %rd3, %rd28;
+	st.global.f32 [%rd29], %f2;
+	mad.lo.u32 %r31, %r3, 4, 3;
+	mul.wide.u32 %rd30, %r31, 4;
+	add.s64 %rd31, %rd3, %rd30;
+	st.global.f32 [%rd31], %f3;
+	ret;
+}

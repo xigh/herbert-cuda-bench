@@ -1,0 +1,166 @@
+//
+// argmax_final_61, emitted by herbert-cuda-bf16
+//
+.version 8.5
+.target sm_89
+.address_size 64
+
+.shared .align 16 .b8 argmax_final_61_s0[256];
+
+.visible .entry argmax_final_61(
+	.param .u64 argmax_final_61_p0,
+	.param .u64 argmax_final_61_p1
+)
+.reqntid 256, 1, 1
+{
+	.reg .pred %p<60>;
+	.reg .b32 %r<33>;
+	.reg .f32 %f<20>;
+	.reg .b64 %rd<6>;
+
+	ld.param.u64 %rd0, [argmax_final_61_p0];
+	cvta.to.global.u64 %rd1, %rd0;
+	ld.param.u64 %rd2, [argmax_final_61_p1];
+	cvta.to.global.u64 %rd3, %rd2;
+	mov.u32 %r0, argmax_final_61_s0;
+	mov.u32 %r1, %tid.x;
+	mov.f32 %f0, 0fFF800000;
+	mov.u32 %r2, 4294967295;
+	mov.u32 %r3, %r1;
+	setp.ge.u32 %p0, %r3, 61;
+	@%p0 bra L1;
+L0:
+	mul.wide.u32 %rd4, %r3, 8;
+	add.s64 %rd5, %rd1, %rd4;
+	ld.global.u32 %r4, [%rd5];
+	mov.b32 %f1, %r4;
+	ld.global.u32 %r5, [%rd5+4];
+	setp.gt.f32 %p1, %f1, %f0;
+	@%p1 mov.f32 %f0, %f1;
+	@%p1 mov.u32 %r2, %r5;
+	add.u32 %r3, %r3, 256;
+	setp.lt.u32 %p2, %r3, 61;
+	@%p2 bra L0;
+L1:
+	shfl.sync.bfly.b32 %f2, %f0, 16, 31, 0xffffffff;
+	shfl.sync.bfly.b32 %r6, %r2, 16, 31, 0xffffffff;
+	setp.gt.f32 %p3, %f2, %f0;
+	setp.eq.f32 %p4, %f2, %f0;
+	setp.lt.u32 %p5, %r6, %r2;
+	and.pred %p6, %p4, %p5;
+	selp.f32 %f3, %f2, %f0, %p3;
+	selp.b32 %r7, %r6, %r2, %p3;
+	selp.b32 %r8, %r6, %r7, %p6;
+	shfl.sync.bfly.b32 %f4, %f3, 8, 31, 0xffffffff;
+	shfl.sync.bfly.b32 %r9, %r8, 8, 31, 0xffffffff;
+	setp.gt.f32 %p7, %f4, %f3;
+	setp.eq.f32 %p8, %f4, %f3;
+	setp.lt.u32 %p9, %r9, %r8;
+	and.pred %p10, %p8, %p9;
+	selp.f32 %f5, %f4, %f3, %p7;
+	selp.b32 %r10, %r9, %r8, %p7;
+	selp.b32 %r11, %r9, %r10, %p10;
+	shfl.sync.bfly.b32 %f6, %f5, 4, 31, 0xffffffff;
+	shfl.sync.bfly.b32 %r12, %r11, 4, 31, 0xffffffff;
+	setp.gt.f32 %p11, %f6, %f5;
+	setp.eq.f32 %p12, %f6, %f5;
+	setp.lt.u32 %p13, %r12, %r11;
+	and.pred %p14, %p12, %p13;
+	selp.f32 %f7, %f6, %f5, %p11;
+	selp.b32 %r13, %r12, %r11, %p11;
+	selp.b32 %r14, %r12, %r13, %p14;
+	shfl.sync.bfly.b32 %f8, %f7, 2, 31, 0xffffffff;
+	shfl.sync.bfly.b32 %r15, %r14, 2, 31, 0xffffffff;
+	setp.gt.f32 %p15, %f8, %f7;
+	setp.eq.f32 %p16, %f8, %f7;
+	setp.lt.u32 %p17, %r15, %r14;
+	and.pred %p18, %p16, %p17;
+	selp.f32 %f9, %f8, %f7, %p15;
+	selp.b32 %r16, %r15, %r14, %p15;
+	selp.b32 %r17, %r15, %r16, %p18;
+	shfl.sync.bfly.b32 %f10, %f9, 1, 31, 0xffffffff;
+	shfl.sync.bfly.b32 %r18, %r17, 1, 31, 0xffffffff;
+	setp.gt.f32 %p19, %f10, %f9;
+	setp.eq.f32 %p20, %f10, %f9;
+	setp.lt.u32 %p21, %r18, %r17;
+	and.pred %p22, %p20, %p21;
+	selp.f32 %f11, %f10, %f9, %p19;
+	selp.b32 %r19, %r18, %r17, %p19;
+	selp.b32 %r20, %r18, %r19, %p22;
+	mov.u32 %r21, %tid.x;
+	and.b32 %r22, %r21, 31;
+	shr.u32 %r23, %r21, 5;
+	setp.eq.u32 %p23, %r22, 0;
+	mad.lo.u32 %r24, %r23, 8, %r0;
+	@%p23 st.shared.f32 [%r24], %f11;
+	@%p23 st.shared.u32 [%r24+4], %r20;
+	bar.sync 0;
+	ld.shared.f32 %f12, [%r0];
+	ld.shared.u32 %r25, [%r0+4];
+	ld.shared.f32 %f13, [%r0+8];
+	ld.shared.u32 %r26, [%r0+12];
+	setp.gt.f32 %p24, %f13, %f12;
+	setp.eq.f32 %p25, %f13, %f12;
+	setp.lt.u32 %p26, %r26, %r25;
+	and.pred %p27, %p25, %p26;
+	or.pred %p28, %p24, %p27;
+	@%p28 mov.f32 %f12, %f13;
+	@%p28 mov.u32 %r25, %r26;
+	ld.shared.f32 %f14, [%r0+16];
+	ld.shared.u32 %r27, [%r0+20];
+	setp.gt.f32 %p29, %f14, %f12;
+	setp.eq.f32 %p30, %f14, %f12;
+	setp.lt.u32 %p31, %r27, %r25;
+	and.pred %p32, %p30, %p31;
+	or.pred %p33, %p29, %p32;
+	@%p33 mov.f32 %f12, %f14;
+	@%p33 mov.u32 %r25, %r27;
+	ld.shared.f32 %f15, [%r0+24];
+	ld.shared.u32 %r28, [%r0+28];
+	setp.gt.f32 %p34, %f15, %f12;
+	setp.eq.f32 %p35, %f15, %f12;
+	setp.lt.u32 %p36, %r28, %r25;
+	and.pred %p37, %p35, %p36;
+	or.pred %p38, %p34, %p37;
+	@%p38 mov.f32 %f12, %f15;
+	@%p38 mov.u32 %r25, %r28;
+	ld.shared.f32 %f16, [%r0+32];
+	ld.shared.u32 %r29, [%r0+36];
+	setp.gt.f32 %p39, %f16, %f12;
+	setp.eq.f32 %p40, %f16, %f12;
+	setp.lt.u32 %p41, %r29, %r25;
+	and.pred %p42, %p40, %p41;
+	or.pred %p43, %p39, %p42;
+	@%p43 mov.f32 %f12, %f16;
+	@%p43 mov.u32 %r25, %r29;
+	ld.shared.f32 %f17, [%r0+40];
+	ld.shared.u32 %r30, [%r0+44];
+	setp.gt.f32 %p44, %f17, %f12;
+	setp.eq.f32 %p45, %f17, %f12;
+	setp.lt.u32 %p46, %r30, %r25;
+	and.pred %p47, %p45, %p46;
+	or.pred %p48, %p44, %p47;
+	@%p48 mov.f32 %f12, %f17;
+	@%p48 mov.u32 %r25, %r30;
+	ld.shared.f32 %f18, [%r0+48];
+	ld.shared.u32 %r31, [%r0+52];
+	setp.gt.f32 %p49, %f18, %f12;
+	setp.eq.f32 %p50, %f18, %f12;
+	setp.lt.u32 %p51, %r31, %r25;
+	and.pred %p52, %p50, %p51;
+	or.pred %p53, %p49, %p52;
+	@%p53 mov.f32 %f12, %f18;
+	@%p53 mov.u32 %r25, %r31;
+	ld.shared.f32 %f19, [%r0+56];
+	ld.shared.u32 %r32, [%r0+60];
+	setp.gt.f32 %p54, %f19, %f12;
+	setp.eq.f32 %p55, %f19, %f12;
+	setp.lt.u32 %p56, %r32, %r25;
+	and.pred %p57, %p55, %p56;
+	or.pred %p58, %p54, %p57;
+	@%p58 mov.f32 %f12, %f19;
+	@%p58 mov.u32 %r25, %r32;
+	setp.eq.u32 %p59, %r1, 0;
+	@%p59 st.global.u32 [%rd3+8], %r25;
+	ret;
+}

@@ -1,0 +1,19 @@
+11201 MHz, P0
+69
+ready after 4
+500
+chunks 0 time 0.06665459799114615
+None
+11201 MHz, P0
+
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1916605]
+200
+chunks 67 ttft 1.5652153310365975 time 2.6528671289561316 delta keys {'role', 'reasoning_content'}
+data: {"id":"620f9f7b-75b2-47c5-94cc-a4c1b519154c","choices":[{"delta":{},"index":0,"finish_reason":"length"}],"created":1792335144,"model":"$MODELS_DIR/Qwen3.5-0.8B@main","object":"chat.completion.chunk","system_fingerprint":"","usage":{"completion_tokens":64,"prompt_tokens":17,"total_tokens":81}}
+200
+chunks 67 ttft 0.0043982709757983685 time 0.6535703409463167 delta keys {'reasoning_content', 'role'}
+data: {"id":"c33101c3-6528-461e-b237-3b10e787abb2","choices":[{"delta":{},"index":0,"finish_reason":"length"}],"created":1792335145,"model":"$MODELS_DIR/Qwen3.5-0.8B@main","object":"chat.completion.chunk","system_fingerprint":"","usage":{"completion_tokens":64,"prompt_tokens":17,"total_tokens":81}}
+11201 MHz, P0

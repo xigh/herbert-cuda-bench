@@ -1,0 +1,14 @@
+== 2026-10-20T22:44:09+02:00 dd6 ended: ALLDONE-dd6 == 2026-10-20T22:44:04+02:00 resident-gpu: active 
+== 2026-10-20T22:44:39+02:00 built 5ec3063 (2026-10-20T22:32:33+02:00) Prefill attention: the copies of K and V overlap the arithmetic (--tune sdpa.pipe=1,
+ptxas ok sdpa_flash_h16kv4d256_k32_pipe.ptx
+ptxas ok sdpa_flash_h16kv4d256_k32.ptx
+ptxas ok sdpa_flash_h16kv4d256_k32_smem.ptx
+ptxas ok sdpa_flash_h8kv2d256_k32_pipe.ptx
+ptxas ok sdpa_flash_h8kv2d256_k32.ptx
+ptxas ok sdpa_flash_h8kv2d256_k32_smem.ptx
+PTX DIFFERS sdpa_flash_h16kv4d256_k32.ptx
+PTX DIFFERS sdpa_flash_h16kv4d256_k32_smem.ptx
+PTX DIFFERS sdpa_flash_h8kv2d256_k32.ptx
+PTX DIFFERS sdpa_flash_h8kv2d256_k32_smem.ptx
+== 2026-10-20T22:46:51+02:00 dd7: ALLDONE-dd7
+ALLDONE-chain7

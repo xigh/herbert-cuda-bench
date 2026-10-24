@@ -1,0 +1,4 @@
+vllm-mnbt2048 Qwen3.5-0.8B p10000: in [10011, 10012] · TTFT 208.12 ms · prefill 48108 tok/s (2.1 %) · decode 339.46 tok/s (0.4 %) · out [128] · n=15
+vllm-mnbt2048 Qwen3.5-0.8B p20000: in [20011, 20012] · TTFT 464.11 ms · prefill 43119 tok/s (0.8 %) · decode 323.42 tok/s (0.3 %) · out [128] · n=15
+vllm-mnbt2048 Qwen3.5-0.8B p40000: in [40010, 40011, 40012] · TTFT 1175.37 ms · prefill 34040 tok/s (0.2 %) · decode 292.00 tok/s (0.4 %) · out [128] · n=15
+vllm-mnbt2048 Qwen3.5-0.8B p60000: in [60011, 60012, 60013] · TTFT 2169.26 ms · prefill 27665 tok/s (0.3 %) · decode 266.18 tok/s (0.4 %) · out [128] · n=15

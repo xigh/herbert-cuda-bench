@@ -1,0 +1,6 @@
+name, driver_version
+NVIDIA GeForce RTX 4080, 595.99.02
+2f3ae48
+238400e3f03cc49cdb7a38fc2fe6bde53ecefda4b9b4999e4218548f3d6ec703  ~/herbert-vk-bf16-v1/target/release/herbert-vk-chat
+Cuda compilation tools, release 12.8, V12.8.90
+Build cuda_12.8.r12.8/compiler.35538042_0

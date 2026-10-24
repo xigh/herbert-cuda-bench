@@ -1,0 +1,111 @@
+[2026-10-21 01:29:16 TP0] Init parallel begin.
+[2026-10-21 01:29:16 TP0] Init parallel ends. elapsed=0.08 s
+[2026-10-21 01:29:16 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-21 01:29:17 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-21 01:29:17 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-21 01:29:17 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-21 01:29:17 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.67it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.67it/s]
+[2026-10-21 01:29:18 TP0] Load weight end. elapsed=0.68 s, type=Qwen3_5ForConditionalGeneration, avail mem=13.53 GB, mem usage=1.72 GB.
+[2026-10-21 01:29:18 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-21 01:29:18 TP0] max_running_requests is capped to 37 by the mamba state cache (max_mamba_cache_size=189, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-21 01:29:18 TP0] Mamba Cache is allocated. max_mamba_cache_size: 189, conv_state size: 0.12GB, ssm_state size: 3.34GB 
+[2026-10-21 01:29:18 TP0] KV Cache is allocated. dtype: torch.float16, #tokens: 336195, K size: 1.92 GB, V size: 1.92 GB
+[2026-10-21 01:29:18 TP0] Memory pool end. avail mem=6.19 GB
+[2026-10-21 01:29:18 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-21 01:29:18 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-21 01:29:18 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-21 01:29:18 TP0] Capture target prefill CUDA graph begin. backend=breakable, num_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048], avail mem=5.74 GB
+
+  0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=5.74 GB):   0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=5.74 GB):   2%|▏         | 1/42 [00:00<00:25,  1.63it/s]
+Capturing prefill shape (num_tokens=1792 avail_mem=5.38 GB):   2%|▏         | 1/42 [00:00<00:25,  1.63it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=5.38 GB):   2%|▏         | 1/42 [00:00<00:25,  1.63it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=5.38 GB):   7%|▋         | 3/42 [00:00<00:08,  4.86it/s]
+Capturing prefill shape (num_tokens=1280 avail_mem=5.37 GB):   7%|▋         | 3/42 [00:00<00:08,  4.86it/s]
+Capturing prefill shape (num_tokens=1024 avail_mem=5.37 GB):   7%|▋         | 3/42 [00:00<00:08,  4.86it/s]
+Capturing prefill shape (num_tokens=960 avail_mem=5.36 GB):   7%|▋         | 3/42 [00:00<00:08,  4.86it/s] 
+Capturing prefill shape (num_tokens=960 avail_mem=5.36 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.63it/s]
+Capturing prefill shape (num_tokens=896 avail_mem=5.34 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.63it/s]
+Capturing prefill shape (num_tokens=832 avail_mem=5.33 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.63it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=5.32 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.63it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=5.32 GB):  21%|██▏       | 9/42 [00:00<00:02, 13.79it/s]
+Capturing prefill shape (num_tokens=704 avail_mem=5.32 GB):  21%|██▏       | 9/42 [00:00<00:02, 13.79it/s]
+Capturing prefill shape (num_tokens=640 avail_mem=5.31 GB):  21%|██▏       | 9/42 [00:01<00:02, 13.79it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=5.31 GB):  21%|██▏       | 9/42 [00:01<00:02, 13.79it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=5.31 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.27it/s]
+Capturing prefill shape (num_tokens=512 avail_mem=5.30 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.27it/s]
+Capturing prefill shape (num_tokens=480 avail_mem=5.29 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.27it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=5.29 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.27it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=5.29 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.03it/s]
+Capturing prefill shape (num_tokens=416 avail_mem=5.28 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.03it/s]
+Capturing prefill shape (num_tokens=384 avail_mem=5.27 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.03it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=5.27 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.03it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=5.27 GB):  43%|████▎     | 18/42 [00:01<00:01, 21.95it/s]
+Capturing prefill shape (num_tokens=320 avail_mem=5.27 GB):  43%|████▎     | 18/42 [00:01<00:01, 21.95it/s]
+Capturing prefill shape (num_tokens=288 avail_mem=5.26 GB):  43%|████▎     | 18/42 [00:01<00:01, 21.95it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=5.25 GB):  43%|████▎     | 18/42 [00:01<00:01, 21.95it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=5.25 GB):  50%|█████     | 21/42 [00:01<00:00, 23.55it/s]
+Capturing prefill shape (num_tokens=240 avail_mem=5.24 GB):  50%|█████     | 21/42 [00:01<00:00, 23.55it/s]
+Capturing prefill shape (num_tokens=224 avail_mem=5.23 GB):  50%|█████     | 21/42 [00:01<00:00, 23.55it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=5.23 GB):  50%|█████     | 21/42 [00:01<00:00, 23.55it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=5.23 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.77it/s]
+Capturing prefill shape (num_tokens=192 avail_mem=5.22 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.77it/s]
+Capturing prefill shape (num_tokens=176 avail_mem=5.22 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.77it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=5.21 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.77it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=5.21 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.72it/s]
+Capturing prefill shape (num_tokens=144 avail_mem=5.21 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.72it/s]
+Capturing prefill shape (num_tokens=128 avail_mem=5.20 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.72it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=5.19 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.72it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=5.19 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.38it/s]
+Capturing prefill shape (num_tokens=96 avail_mem=5.19 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.38it/s] 
+Capturing prefill shape (num_tokens=80 avail_mem=5.18 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.38it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=5.17 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.38it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=5.17 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.85it/s]
+Capturing prefill shape (num_tokens=48 avail_mem=5.17 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.85it/s]
+Capturing prefill shape (num_tokens=32 avail_mem=5.16 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.85it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=5.16 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.85it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=5.16 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.13it/s]
+Capturing prefill shape (num_tokens=24 avail_mem=5.15 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.13it/s]
+Capturing prefill shape (num_tokens=20 avail_mem=5.15 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.13it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=5.14 GB):  86%|████████▌ | 36/42 [00:02<00:00, 27.13it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=5.14 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.39it/s]
+Capturing prefill shape (num_tokens=12 avail_mem=5.13 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.39it/s]
+Capturing prefill shape (num_tokens=8 avail_mem=5.13 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.39it/s] 
+Capturing prefill shape (num_tokens=4 avail_mem=5.12 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.39it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=5.12 GB): 100%|██████████| 42/42 [00:02<00:00, 27.64it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=5.12 GB): 100%|██████████| 42/42 [00:02<00:00, 19.49it/s]
+[2026-10-21 01:29:21 TP0] Capture target prefill CUDA graph end. elapsed=2.98 s, mem usage=0.41 GB, avail mem=5.33 GB.
+[2026-10-21 01:29:21 TP0] Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, avail mem=5.33 GB
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+Capturing batches (bs=1 avail_mem=5.33 GB):   0%|          | 0/1 [00:00<?, ?it/s][2026-10-21 01:29:22 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+
+Capturing batches (bs=1 avail_mem=5.33 GB): 100%|██████████| 1/1 [00:00<00:00, 14.54it/s]
+[2026-10-21 01:29:22 TP0] Capture target decode CUDA graph end. bs=[1], elapsed=0.90 s, mem usage=0.02 GB, avail mem=5.31 GB.
+[2026-10-21 01:29:22 TP0] Reset HybridReqToTokenPool
+[rank0]:[W1021 01:29:22.354390219 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 865468416, total: 16720199680).
+[2026-10-21 01:29:24 TP0] Reset HybridReqToTokenPool
+[2026-10-21 01:29:26 TP0] Reset HybridReqToTokenPool
+[2026-10-21 01:29:28 TP0] Reset HybridReqToTokenPool
+max_total_num_tokens=336195
+Warmup ...
+Prefill. latency: 1.95865 s, throughput:  30633.28 token/s
+Total. latency:  1.959 s, throughput:  30633.79 token/s
+Benchmark ...
+Prefill. latency: 1.90095 s, throughput:  31563.23 token/s
+Total. latency:  1.901 s, throughput:  31563.76 token/s
+Prefill. latency: 1.90247 s, throughput:  31537.94 token/s
+Total. latency:  1.902 s, throughput:  31538.46 token/s
+Prefill. latency: 1.90205 s, throughput:  31544.99 token/s
+Total. latency:  1.902 s, throughput:  31545.51 token/s

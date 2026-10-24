@@ -1,0 +1,13 @@
+== 2026-10-18T15:20:35+02:00 sglang 0.8B compile-bs8-mf0.6 ·  15:20:35 up 6 days,  6:29, 11 users,  load average: 0.68, 1.21, 1.32
+FAIL sglang 0.8B compile-bs8-mf0.6 pp
+FAIL sglang 0.8B compile-bs8-mf0.6 tg
+== 2026-10-18T15:23:32+02:00 sglang 0.8B compile-bs8-mf0.5 ·  15:23:32 up 6 days,  6:32, 11 users,  load average: 1.00, 1.12, 1.26
+FAIL sglang 0.8B compile-bs8-mf0.5 pp
+FAIL sglang 0.8B compile-bs8-mf0.5 tg
+== 2026-10-18T15:26:08+02:00 sglang 4B compile-bs8-mf0.6 ·  15:26:08 up 6 days,  6:35, 11 users,  load average: 1.00, 1.08, 1.22
+FAIL sglang 4B compile-bs8-mf0.6 pp
+FAIL sglang 4B compile-bs8-mf0.6 tg
+== 2026-10-18T15:26:26+02:00 sglang 4B compile-bs8-mf0.5 ·  15:26:26 up 6 days,  6:35, 11 users,  load average: 1.00, 1.07, 1.22
+FAIL sglang 4B compile-bs8-mf0.5 pp
+FAIL sglang 4B compile-bs8-mf0.5 tg
+ALLDONE-after-p1e

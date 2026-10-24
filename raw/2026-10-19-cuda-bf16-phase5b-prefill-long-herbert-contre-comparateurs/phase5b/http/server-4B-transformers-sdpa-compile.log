@@ -1,0 +1,160 @@
+INFO:     Started server process [781116]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:8121 (Press CTRL+C to quit)
+[transformers] Scanning the cache directory for LLMs and VLMs.
+
+  0%|          | 0/18 [00:00<?, ?it/s]
+100%|██████████| 18/18 [00:00<00:00, 72039.57it/s]
+INFO:     localhost:53454 - "GET /v1/models HTTP/1.1" 200 OK
+[transformers] Ignoring unsupported fields in the request: {'stream_options'}
+[transformers] Loading $MODELS_DIR/Qwen3.5-4B@main
+
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]
+Loading weights:   6%|▌         | 42/723 [00:00<00:01, 411.50it/s]
+Loading weights:  12%|█▏        | 89/723 [00:00<00:01, 417.59it/s]
+Loading weights:  20%|█▉        | 142/723 [00:00<00:01, 425.44it/s]
+Loading weights:  26%|██▌       | 185/723 [00:00<00:01, 419.49it/s]
+Loading weights:  32%|███▏      | 234/723 [00:00<00:01, 421.89it/s]
+Loading weights:  39%|███▊      | 279/723 [00:00<00:01, 426.30it/s]
+Loading weights:  45%|████▌     | 326/723 [00:00<00:00, 420.04it/s]
+Loading weights:  51%|█████▏    | 371/723 [00:00<00:00, 414.41it/s]
+Loading weights:  58%|█████▊    | 416/723 [00:00<00:00, 423.93it/s]
+Loading weights: 100%|██████████| 723/723 [00:01<00:00, 673.56it/s]
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+[transformers] The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+INFO:     localhost:53464 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:40692 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:40698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:59634 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:59650 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:44660 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:44662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:44672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36422 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36426 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:39750 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:39762 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:45276 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:45284 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:45286 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:38494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:38506 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:43102 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:43116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:48382 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:41510 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:41514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36970 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36982 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:57424 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:59228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:59238 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:35824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:46336 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:46346 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:36126 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:24.846901787 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 540409856, total: 16720199680).
+[W1019 23:52:24.947817939 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 738197504 bytes (free: 441843712, total: 16720199680).
+[W1019 23:52:26.917870760 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:26.198036809 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:55384 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:28.254566471 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:29.535033886 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:55390 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:31.582727875 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:31.863036822 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:55396 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:33.912875867 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:33.194037175 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:55410 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:35.240111854 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:36.521051746 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:56920 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:38.564283020 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:38.845036000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:56924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:40.890156550 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:40.171045665 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:56940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:42.222293893 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:43.503046512 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:56944 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:45.555017985 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:45.836037815 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:53358 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:47.883249403 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:47.164035804 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:53374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:49.207829708 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:50.489033623 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:53376 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:52.534923020 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:52.816037065 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:53378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:54.868207870 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:54.149042891 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:38626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:56.200965737 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:57.482044264 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:38628 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:52:59.530681233 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:52:59.811046961 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+[transformers] [Request received] Model: $MODELS_DIR/Qwen3.5-4B@main, CB: False
+INFO:     localhost:38630 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[W1019 23:53:01.856337731 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 114688000, total: 16720199680).
+[W1019 23:53:01.137094022 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 116785152, total: 16720199680).
+W1019 23:53:01.817000 781116 torch/_inductor/compile_worker/subproc_pool.py:338] SubprocPool unclean exit
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [781116]

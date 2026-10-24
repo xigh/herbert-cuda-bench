@@ -1,0 +1,6 @@
+0.8B default (dd4): 1.277 TFLOP, 21.55 ms, 59.3 TFLOPS, 55 % of 108.5
+0.8B pipe (dd7): 1.277 TFLOP, 15.62 ms, 81.7 TFLOPS, 75 % of 108.5
+0.8B rows32: 1.277 TFLOP, 21.15 ms, 60.4 TFLOPS, 56 % of 108.5
+0.8B pipe-rows32: 1.277 TFLOP, 17.70 ms, 72.1 TFLOPS, 66 % of 108.5
+4B rows32: 0.595 TFLOP, 7.26 ms, 81.9 TFLOPS, 76 % of 108.5
+4B pipe-rows32: 0.595 TFLOP, 6.08 ms, 97.8 TFLOPS, 90 % of 108.5

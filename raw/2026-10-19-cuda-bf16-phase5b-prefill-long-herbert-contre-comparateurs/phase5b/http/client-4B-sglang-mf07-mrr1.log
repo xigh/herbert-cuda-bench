@@ -1,0 +1,4 @@
+sglang-mf07-mrr1 Qwen3.5-4B p10000: in [10009, 10010] · TTFT 951.94 ms · prefill 10515 tok/s (1.3 %) · decode 73.90 tok/s (0.1 %) · out [128] · n=15
+sglang-mf07-mrr1 Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2028.46 ms · prefill 9864 tok/s (1.2 %) · decode 72.31 tok/s (0.1 %) · out [128] · n=15
+sglang-mf07-mrr1 Qwen3.5-4B p40000: in [40008, 40009, 40010] · TTFT 4617.16 ms · prefill 8665 tok/s (1.1 %) · decode 67.57 tok/s (0.0 %) · out [128] · n=15
+sglang-mf07-mrr1 Qwen3.5-4B p60000: in [60009, 60010, 60011] · TTFT 7808.80 ms · prefill 7685 tok/s (1.0 %) · decode 63.47 tok/s (0.1 %) · out [128] · n=15

@@ -1,0 +1,89 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 act=bf16 graph=1 prefill.block=1024 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=0 gemm.carveout=driver gemm.layout=pad gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg rec.tc=1
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv × 256, intermediate 3584, vocab 248320, rotary 64, linear k 16×128 v 16×128, tied head true
+[cuda] 1.55 GiB allocated, KV for 4608 positions; 13.7 of 15.6 GiB free
+[cuda] 33 kernels, 245 launches per step
+[engine] loaded in 0.7 s, mounted in 0.01 s · matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 act=bf16 graph=1 prefill.block=1024 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=0 gemm.carveout=driver gemm.layout=pad gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg rec.tc=1
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+[serve] listening on http://localhost:8121/v1/messages
+[request msg_herbert_cuda_000001] 20 prompt tokens in 0.0042 s (4726.7 tok/s) · 8 generated in 0.017 s (405.13 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000002] 20 prompt tokens in 0.0042 s (4752.1 tok/s) · 128 generated in 0.312 s (406.49 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000003] 21 prompt tokens in 0.0042 s (4997.3 tok/s) · 128 generated in 0.312 s (406.51 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000004] 20 prompt tokens in 0.0042 s (4772.6 tok/s) · 128 generated in 0.312 s (406.53 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000005] 20 prompt tokens in 0.0042 s (4754.9 tok/s) · 128 generated in 0.312 s (406.56 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000006] 20 prompt tokens in 0.0042 s (4761.3 tok/s) · 128 generated in 0.312 s (406.52 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000007] 20 prompt tokens in 0.0042 s (4754.6 tok/s) · 128 generated in 0.312 s (406.61 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000008] 21 prompt tokens in 0.0042 s (4999.4 tok/s) · 128 generated in 0.312 s (406.56 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000009] 20 prompt tokens in 0.0042 s (4766.8 tok/s) · 128 generated in 0.312 s (406.59 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000010] 20 prompt tokens in 0.0042 s (4741.2 tok/s) · 128 generated in 0.312 s (406.58 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000011] 20 prompt tokens in 0.0042 s (4764.0 tok/s) · 128 generated in 0.312 s (406.59 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000012] 20 prompt tokens in 0.0042 s (4776.8 tok/s) · 128 generated in 0.312 s (406.74 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000013] 21 prompt tokens in 0.0042 s (5010.4 tok/s) · 128 generated in 0.312 s (406.54 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000014] 20 prompt tokens in 0.0042 s (4769.1 tok/s) · 128 generated in 0.312 s (406.61 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000015] 20 prompt tokens in 0.0042 s (4773.1 tok/s) · 128 generated in 0.312 s (406.56 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000016] 20 prompt tokens in 0.0042 s (4770.5 tok/s) · 128 generated in 0.312 s (406.58 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000017] 109 prompt tokens in 0.0049 s (22318.2 tok/s) · 8 generated in 0.017 s (408.01 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000018] 109 prompt tokens in 0.0049 s (22301.8 tok/s) · 128 generated in 0.312 s (406.89 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000019] 111 prompt tokens in 0.0049 s (22625.8 tok/s) · 128 generated in 0.312 s (406.81 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000020] 110 prompt tokens in 0.0049 s (22461.0 tok/s) · 128 generated in 0.312 s (406.87 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000021] 110 prompt tokens in 0.0049 s (22433.4 tok/s) · 128 generated in 0.312 s (406.89 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000022] 109 prompt tokens in 0.0049 s (22272.2 tok/s) · 128 generated in 0.312 s (406.73 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000023] 109 prompt tokens in 0.0049 s (22273.1 tok/s) · 128 generated in 0.312 s (406.67 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000024] 111 prompt tokens in 0.0049 s (22616.5 tok/s) · 128 generated in 0.312 s (406.57 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000025] 110 prompt tokens in 0.0049 s (22489.4 tok/s) · 128 generated in 0.312 s (406.66 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000026] 110 prompt tokens in 0.0049 s (22480.1 tok/s) · 128 generated in 0.312 s (406.66 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000027] 109 prompt tokens in 0.0049 s (22311.7 tok/s) · 128 generated in 0.312 s (406.66 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000028] 109 prompt tokens in 0.0049 s (22305.0 tok/s) · 128 generated in 0.312 s (406.65 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000029] 111 prompt tokens in 0.0049 s (22670.2 tok/s) · 128 generated in 0.312 s (406.63 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000030] 110 prompt tokens in 0.0049 s (22478.4 tok/s) · 128 generated in 0.312 s (406.68 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000031] 110 prompt tokens in 0.0049 s (22436.0 tok/s) · 128 generated in 0.312 s (406.63 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000032] 109 prompt tokens in 0.0049 s (22304.0 tok/s) · 128 generated in 0.312 s (406.61 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000033] 510 prompt tokens in 0.0106 s (48135.1 tok/s) · 8 generated in 0.017 s (403.91 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000034] 510 prompt tokens in 0.0106 s (48120.4 tok/s) · 128 generated in 0.314 s (404.26 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000035] 511 prompt tokens in 0.0106 s (48194.6 tok/s) · 128 generated in 0.314 s (404.29 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000036] 510 prompt tokens in 0.0106 s (48153.6 tok/s) · 128 generated in 0.314 s (403.92 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000037] 510 prompt tokens in 0.0106 s (48098.1 tok/s) · 128 generated in 0.314 s (404.27 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000038] 510 prompt tokens in 0.0106 s (48049.3 tok/s) · 128 generated in 0.314 s (404.24 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000039] 510 prompt tokens in 0.0106 s (48105.7 tok/s) · 128 generated in 0.314 s (404.28 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000040] 511 prompt tokens in 0.0106 s (48204.9 tok/s) · 128 generated in 0.314 s (404.30 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000041] 510 prompt tokens in 0.0106 s (48103.1 tok/s) · 128 generated in 0.314 s (404.24 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000042] 510 prompt tokens in 0.0106 s (48161.4 tok/s) · 128 generated in 0.314 s (404.27 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000043] 510 prompt tokens in 0.0106 s (48140.3 tok/s) · 128 generated in 0.314 s (404.22 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000044] 510 prompt tokens in 0.0106 s (48120.7 tok/s) · 128 generated in 0.314 s (404.30 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000045] 511 prompt tokens in 0.0106 s (48198.5 tok/s) · 128 generated in 0.314 s (404.27 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000046] 510 prompt tokens in 0.0106 s (48144.1 tok/s) · 128 generated in 0.314 s (404.29 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000047] 510 prompt tokens in 0.0106 s (48130.3 tok/s) · 128 generated in 0.314 s (404.28 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000048] 510 prompt tokens in 0.0106 s (48075.9 tok/s) · 128 generated in 0.314 s (404.26 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000049] 2058 prompt tokens in 0.0457 s (45041.0 tok/s) · 8 generated in 0.018 s (388.89 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000050] 2058 prompt tokens in 0.0458 s (44973.7 tok/s) · 128 generated in 0.325 s (391.26 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000051] 2059 prompt tokens in 0.0459 s (44894.4 tok/s) · 128 generated in 0.325 s (391.25 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000052] 2058 prompt tokens in 0.0456 s (45156.7 tok/s) · 128 generated in 0.325 s (391.30 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000053] 2058 prompt tokens in 0.0453 s (45461.6 tok/s) · 128 generated in 0.325 s (390.80 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000054] 2058 prompt tokens in 0.0458 s (44898.1 tok/s) · 128 generated in 0.325 s (391.30 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000055] 2058 prompt tokens in 0.0456 s (45175.3 tok/s) · 128 generated in 0.325 s (391.33 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000056] 2059 prompt tokens in 0.0454 s (45389.1 tok/s) · 128 generated in 0.325 s (391.31 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000057] 2058 prompt tokens in 0.0457 s (44985.9 tok/s) · 128 generated in 0.325 s (391.28 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000058] 2058 prompt tokens in 0.0455 s (45270.5 tok/s) · 128 generated in 0.324 s (391.54 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000059] 2058 prompt tokens in 0.0457 s (44986.2 tok/s) · 128 generated in 0.325 s (391.23 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000060] 2058 prompt tokens in 0.0456 s (45095.1 tok/s) · 128 generated in 0.324 s (391.54 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000061] 2059 prompt tokens in 0.0453 s (45409.8 tok/s) · 128 generated in 0.324 s (391.52 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000062] 2058 prompt tokens in 0.0459 s (44869.0 tok/s) · 128 generated in 0.324 s (391.51 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000063] 2058 prompt tokens in 0.0455 s (45219.4 tok/s) · 128 generated in 0.324 s (391.54 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000064] 2058 prompt tokens in 0.0454 s (45293.1 tok/s) · 128 generated in 0.324 s (391.50 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000065] 4106 prompt tokens in 0.0922 s (44536.1 tok/s) · 8 generated in 0.020 s (349.93 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000066] 4106 prompt tokens in 0.0927 s (44300.5 tok/s) · 128 generated in 0.362 s (350.39 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000067] 4107 prompt tokens in 0.0902 s (45545.9 tok/s) · 128 generated in 0.362 s (350.47 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000068] 4105 prompt tokens in 0.0921 s (44556.2 tok/s) · 128 generated in 0.362 s (350.37 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000069] 4106 prompt tokens in 0.0917 s (44776.9 tok/s) · 128 generated in 0.362 s (350.58 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000070] 4106 prompt tokens in 0.0917 s (44762.1 tok/s) · 128 generated in 0.362 s (350.49 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000071] 4106 prompt tokens in 0.0917 s (44771.3 tok/s) · 128 generated in 0.362 s (350.36 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000072] 4107 prompt tokens in 0.0918 s (44733.5 tok/s) · 128 generated in 0.362 s (350.46 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000073] 4105 prompt tokens in 0.0920 s (44605.3 tok/s) · 128 generated in 0.362 s (350.36 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000074] 4106 prompt tokens in 0.0921 s (44606.1 tok/s) · 128 generated in 0.362 s (350.56 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000075] 4106 prompt tokens in 0.0922 s (44557.2 tok/s) · 128 generated in 0.362 s (350.41 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000076] 4106 prompt tokens in 0.0920 s (44630.9 tok/s) · 128 generated in 0.362 s (350.52 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000077] 4107 prompt tokens in 0.0922 s (44522.7 tok/s) · 128 generated in 0.363 s (350.33 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000078] 4105 prompt tokens in 0.0920 s (44618.3 tok/s) · 128 generated in 0.362 s (350.55 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000079] 4106 prompt tokens in 0.0917 s (44773.7 tok/s) · 128 generated in 0.362 s (350.46 tok/s after the first) · max_tokens
+[request msg_herbert_cuda_000080] 4106 prompt tokens in 0.0919 s (44663.6 tok/s) · 128 generated in 0.362 s (350.56 tok/s after the first) · max_tokens

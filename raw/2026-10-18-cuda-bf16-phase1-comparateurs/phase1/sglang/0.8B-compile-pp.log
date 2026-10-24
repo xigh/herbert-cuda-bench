@@ -1,0 +1,312 @@
+[2026-10-18 12:13:27 TP0] Init parallel begin.
+[2026-10-18 12:13:27 TP0] Init parallel ends. elapsed=0.07 s
+[2026-10-18 12:13:27 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-18 12:13:28 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-18 12:13:28 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-18 12:13:28 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-18 12:13:28 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  5.15it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  5.14it/s]
+[2026-10-18 12:13:28 TP0] Load weight end. elapsed=0.27 s, type=Qwen3_5ForConditionalGeneration, avail mem=13.53 GB, mem usage=1.72 GB.
+[2026-10-18 12:13:29 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-18 12:13:29 TP0] max_running_requests is capped to 53 by the mamba state cache (max_mamba_cache_size=269, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-18 12:13:29 TP0] Mamba Cache is allocated. max_mamba_cache_size: 269, conv_state size: 0.17GB, ssm_state size: 4.75GB 
+[2026-10-18 12:13:29 TP0] Warmed fused Mamba slot copy kernel in 224.619 ms
+[2026-10-18 12:13:29 TP0] KV Cache is allocated. dtype: torch.bfloat16, #tokens: 477656, K size: 2.73 GB, V size: 2.73 GB
+[2026-10-18 12:13:29 TP0] Memory pool end. avail mem=3.13 GB
+[2026-10-18 12:13:29 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-18 12:13:29 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-18 12:13:29 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-18 12:13:29 TP0] Capture target prefill CUDA graph begin. backend=breakable, num_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048], avail mem=2.68 GB
+
+  0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=2.68 GB):   0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=2.68 GB):   2%|▏         | 1/42 [00:00<00:19,  2.13it/s]
+Capturing prefill shape (num_tokens=1792 avail_mem=2.32 GB):   2%|▏         | 1/42 [00:00<00:19,  2.13it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=2.32 GB):   2%|▏         | 1/42 [00:00<00:19,  2.13it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=2.32 GB):   7%|▋         | 3/42 [00:00<00:06,  5.96it/s]
+Capturing prefill shape (num_tokens=1280 avail_mem=2.31 GB):   7%|▋         | 3/42 [00:00<00:06,  5.96it/s]
+Capturing prefill shape (num_tokens=1024 avail_mem=2.31 GB):   7%|▋         | 3/42 [00:00<00:06,  5.96it/s]
+Capturing prefill shape (num_tokens=960 avail_mem=2.30 GB):   7%|▋         | 3/42 [00:00<00:06,  5.96it/s] 
+Capturing prefill shape (num_tokens=960 avail_mem=2.30 GB):  14%|█▍        | 6/42 [00:00<00:03, 10.84it/s]
+Capturing prefill shape (num_tokens=896 avail_mem=2.27 GB):  14%|█▍        | 6/42 [00:00<00:03, 10.84it/s]
+Capturing prefill shape (num_tokens=832 avail_mem=2.27 GB):  14%|█▍        | 6/42 [00:00<00:03, 10.84it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=2.26 GB):  14%|█▍        | 6/42 [00:00<00:03, 10.84it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=2.26 GB):  21%|██▏       | 9/42 [00:00<00:02, 14.67it/s]
+Capturing prefill shape (num_tokens=704 avail_mem=2.26 GB):  21%|██▏       | 9/42 [00:00<00:02, 14.67it/s]
+Capturing prefill shape (num_tokens=640 avail_mem=2.25 GB):  21%|██▏       | 9/42 [00:00<00:02, 14.67it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=2.25 GB):  21%|██▏       | 9/42 [00:00<00:02, 14.67it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=2.25 GB):  29%|██▊       | 12/42 [00:00<00:01, 17.97it/s]
+Capturing prefill shape (num_tokens=512 avail_mem=2.24 GB):  29%|██▊       | 12/42 [00:00<00:01, 17.97it/s]
+Capturing prefill shape (num_tokens=480 avail_mem=2.23 GB):  29%|██▊       | 12/42 [00:00<00:01, 17.97it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=2.23 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.97it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=2.23 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.55it/s]
+Capturing prefill shape (num_tokens=416 avail_mem=2.22 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.55it/s]
+Capturing prefill shape (num_tokens=384 avail_mem=2.21 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.55it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=2.21 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.55it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=2.21 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.50it/s]
+Capturing prefill shape (num_tokens=320 avail_mem=2.21 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.50it/s]
+Capturing prefill shape (num_tokens=288 avail_mem=2.20 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.50it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=2.19 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.50it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=2.19 GB):  50%|█████     | 21/42 [00:01<00:00, 23.93it/s]
+Capturing prefill shape (num_tokens=240 avail_mem=2.18 GB):  50%|█████     | 21/42 [00:01<00:00, 23.93it/s]
+Capturing prefill shape (num_tokens=224 avail_mem=2.17 GB):  50%|█████     | 21/42 [00:01<00:00, 23.93it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=2.17 GB):  50%|█████     | 21/42 [00:01<00:00, 23.93it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=2.17 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.90it/s]
+Capturing prefill shape (num_tokens=192 avail_mem=2.16 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.90it/s]
+Capturing prefill shape (num_tokens=176 avail_mem=2.16 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.90it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=2.15 GB):  57%|█████▋    | 24/42 [00:01<00:00, 24.90it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=2.15 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.65it/s]
+Capturing prefill shape (num_tokens=144 avail_mem=2.15 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.65it/s]
+Capturing prefill shape (num_tokens=128 avail_mem=2.14 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.65it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=2.13 GB):  64%|██████▍   | 27/42 [00:01<00:00, 25.65it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=2.13 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.24it/s]
+Capturing prefill shape (num_tokens=96 avail_mem=2.13 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.24it/s] 
+Capturing prefill shape (num_tokens=80 avail_mem=2.12 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.24it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=2.11 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.24it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=2.11 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.64it/s]
+Capturing prefill shape (num_tokens=48 avail_mem=2.11 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.64it/s]
+Capturing prefill shape (num_tokens=32 avail_mem=2.10 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.64it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=2.10 GB):  79%|███████▊  | 33/42 [00:01<00:00, 26.64it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=2.10 GB):  86%|████████▌ | 36/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=24 avail_mem=2.09 GB):  86%|████████▌ | 36/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=20 avail_mem=2.08 GB):  86%|████████▌ | 36/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=2.08 GB):  86%|████████▌ | 36/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=2.08 GB):  93%|█████████▎| 39/42 [00:01<00:00, 26.99it/s]
+Capturing prefill shape (num_tokens=12 avail_mem=2.08 GB):  93%|█████████▎| 39/42 [00:01<00:00, 26.99it/s]
+Capturing prefill shape (num_tokens=8 avail_mem=2.07 GB):  93%|█████████▎| 39/42 [00:01<00:00, 26.99it/s] 
+Capturing prefill shape (num_tokens=4 avail_mem=2.06 GB):  93%|█████████▎| 39/42 [00:02<00:00, 26.99it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=2.06 GB): 100%|██████████| 42/42 [00:02<00:00, 27.21it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=2.06 GB): 100%|██████████| 42/42 [00:02<00:00, 20.46it/s]
+[2026-10-18 12:13:32 TP0] Capture target prefill CUDA graph end. elapsed=2.87 s, mem usage=0.41 GB, avail mem=2.27 GB.
+[2026-10-18 12:13:32 TP0] Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, avail mem=2.27 GB
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+Capturing batches (bs=1 avail_mem=2.27 GB):   0%|          | 0/1 [00:00<?, ?it/s][2026-10-18 12:13:35 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'layernorm_gated.py:228'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/layernorm_gated.py", line 228, in calc_rows_per_block
+    sm_count = _get_sm_count(device)
+               ^^^^^^^^^^^^^^^^^^^^^
+
+  torch._dynamo.utils.warn_once(msg)
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `triton._C.libtriton.native_specialize_impl.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'decode.py:2454'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/flashinfer/decode.py", line 2454, in run
+    enable_pdl = device_support_pdl(q.device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  torch._dynamo.utils.warn_once(msg)
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'utils.py:860'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/flashinfer/utils.py", line 860, in device_support_pdl
+    major, _ = get_compute_capability(device)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  torch._dynamo.utils.warn_once(msg)
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'utils.py:318'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/flashinfer/utils.py", line 318, in get_compute_capability
+    properties = get_device_properties(device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  torch._dynamo.utils.warn_once(msg)
+[rank0]:[W1018 12:14:07.513848713 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1132462080 bytes (free: 781189120, total: 16720199680).
+[rank0]:[W1018 12:14:18.229819150 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1415577600 bytes (free: 1198522368, total: 16720199680).
+[rank0]:[W1018 12:14:29.994169587 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1698693120 bytes (free: 915406848, total: 16720199680).
+[rank0]:[W1018 12:14:40.252262921 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1981808640 bytes (free: 632291328, total: 16720199680).
+[rank0]:[W1018 12:14:51.182175057 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2264924160 bytes (free: 349175808, total: 16720199680).
+[rank0]:[W1018 12:14:51.224466795 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 67108864 bytes (free: 133169152, total: 16720199680).
+[rank0]:[W1018 12:14:51.224514314 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 67108864 bytes (free: 133169152, total: 16720199680).
+
+Capturing batches (bs=1 avail_mem=2.27 GB):   0%|          | 0/1 [01:18<?, ?it/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 515, in __init__
+[rank0]:     self.capture()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 1167, in capture
+[rank0]:     self._capture_one_stream()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 1227, in _capture_one_stream
+[rank0]:     self.capture_one_shape(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 1355, in capture_one_shape
+[rank0]:     self.backend.capture_one(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner_backend/full_cuda_graph_backend.py", line 166, in capture_one
+[rank0]:     output = forward_fn()
+[rank0]:              ^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 1319, in run_once
+[rank0]:     out = forward(
+[rank0]:           ^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1261, in compile_wrapper
+[rank0]:     result = fn(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/external_utils.py", line 69, in inner
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_vl.py", line 1653, in forward
+[rank0]:     hidden_states = general_mm_embed_routine(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/mm_utils.py", line 844, in general_mm_embed_routine
+[rank0]:     hidden_states = language_model(
+[rank0]:                     ^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1890, in forward
+[rank0]:     hidden_states = layer(
+[rank0]:                     ^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1200, in forward
+[rank0]:     hidden_states = self.attn_boundary.prepare(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1209, in torch_dynamo_resume_in_forward_at_1200
+[rank0]:     hidden_states = self.linear_attn(
+[rank0]:                     ^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1059, in forward
+[rank0]:     attn_result = self.attn(
+[rank0]:                   ^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/radix_linear_attention.py", line 142, in forward
+[rank0]:     return get_attn_backend().forward(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/hybrid_linear_attn_backend.py", line 1457, in forward
+[rank0]:     def forward(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_functorch/aot_autograd.py", line 1289, in forward
+[rank0]:     return compiled_fn(full_args)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 1189, in runtime_wrapper
+[rank0]:     result = _codegen_runtime_wrapper(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/codegen.py:codegen(runtime_wrapper_orchestration)", line 8, in _runtime_wrapper
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2594, in __call__
+[rank0]:     return self.compiled_fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 828, in __call__
+[rank0]:     return self.current_callable(inputs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3720, in run
+[rank0]:     out = model(new_inputs)
+[rank0]:           ^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/.cache/sglang/inductor/5g/c5gvqnxin53l765w56vockurhxforybbjsu6io3zu4w4ecymahrh.py", line 506, in call
+[rank0]:     triton_poi_fused_as_strided_clone_select_2.run(arg1_1, buf12, 566231040, stream=raw_stream0)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 2516, in run
+[rank0]:     self.autotune_to_one_config(*args, **kwargs)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 1883, in autotune_to_one_config
+[rank0]:     timings = self.benchmark_all_configs(*args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 1836, in benchmark_all_configs
+[rank0]:     timing = self.bench(launcher, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 1566, in bench
+[rank0]:     result = benchmarker.benchmark(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 193, in wrapper
+[rank0]:     return fn(self, *args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 308, in benchmark
+[rank0]:     return benchmark_fn(self, _callable, warmup=warmup, rep=rep, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 408, in _default_cuda_bench
+[rank0]:     return self.benchmark_gpu(f, warmup=warmup, rep=rep, **kw)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 193, in wrapper
+[rank0]:     return fn(self, *args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 88, in wrapper
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_inductor/runtime/benchmarking.py", line 716, in benchmark_gpu
+[rank0]:     buffer = torch.empty(
+[rank0]:              ^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_compile.py", line 54, in inner
+[rank0]:     return disable_fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 477, in __torch_dispatch__
+[rank0]:     res = func(*args, **kwargs)
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_ops.py", line 916, in __call__
+[rank0]:     return self._op(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 127.00 MiB is free. Including non-PyTorch memory, this process has 15.41 GiB memory in use. Of the allocated memory 14.76 GiB is allocated by PyTorch, with 144.00 MiB allocated in private pools (e.g., CUDA Graphs), and 113.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1111, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1104, in cli_main
+[rank0]:     main(server_args, bench_args)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1066, in main
+[rank0]:     work_func(server_args, port_args, bench_args, 0, 0)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 922, in latency_test
+[rank0]:     model_runner, tokenizer = load_model(server_args, port_args, gpu_id, tp_rank)
+[rank0]:                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 370, in load_model
+[rank0]:     model_runner.init_cuda_graphs()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 1178, in init_cuda_graphs
+[rank0]:     capture = capture_cuda_graphs(
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner_components/cuda_graph_setup.py", line 413, in capture_cuda_graphs
+[rank0]:     decode = capture_decode_graph(model_runner=model_runner)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner_components/cuda_graph_setup.py", line 737, in capture_decode_graph
+[rank0]:     runner = GraphRunnerCls(model_runner)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/decode_cuda_graph_runner.py", line 517, in __init__
+[rank0]:     raise Exception(
+[rank0]: Exception: Capture cuda graph failed: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 127.00 MiB is free. Including non-PyTorch memory, this process has 15.41 GiB memory in use. Of the allocated memory 14.76 GiB is allocated by PyTorch, with 144.00 MiB allocated in private pools (e.g., CUDA Graphs), and 113.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank0]: Possible solutions:
+[rank0]: 1. set --mem-fraction-static to a smaller value (e.g., 0.8 or 0.7)
+[rank0]: 2. set --cuda-graph-max-bs-decode to a smaller value (e.g., 16)
+[rank0]: 3. disable decode CUDA graph by --cuda-graph-backend-decode=disabled. (Not recommended. Huge performance loss)
+[rank0]: Open an issue on GitHub https://github.com/sgl-project/sglang/issues/new/choose 
+

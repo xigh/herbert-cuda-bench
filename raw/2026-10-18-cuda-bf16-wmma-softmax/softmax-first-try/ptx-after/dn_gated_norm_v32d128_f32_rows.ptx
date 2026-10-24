@@ -1,0 +1,100 @@
+//
+// dn_gated_norm_v32d128_f32_rows, emitted by herbert-cuda-bf16
+//
+.version 8.5
+.target sm_89
+.address_size 64
+
+.shared .align 16 .b8 dn_gated_norm_v32d128_f32_rows_s0[128];
+
+.visible .entry dn_gated_norm_v32d128_f32_rows(
+	.param .u64 dn_gated_norm_v32d128_f32_rows_p0,
+	.param .u64 dn_gated_norm_v32d128_f32_rows_p1,
+	.param .u64 dn_gated_norm_v32d128_f32_rows_p2,
+	.param .u64 dn_gated_norm_v32d128_f32_rows_p3
+)
+.reqntid 128, 1, 1
+{
+	.reg .pred %p<1>;
+	.reg .b16 %h<2>;
+	.reg .b32 %r<11>;
+	.reg .f32 %f<34>;
+	.reg .b64 %rd<22>;
+
+	ld.param.u64 %rd0, [dn_gated_norm_v32d128_f32_rows_p0];
+	cvta.to.global.u64 %rd1, %rd0;
+	ld.param.u64 %rd2, [dn_gated_norm_v32d128_f32_rows_p1];
+	cvta.to.global.u64 %rd3, %rd2;
+	ld.param.u64 %rd4, [dn_gated_norm_v32d128_f32_rows_p2];
+	cvta.to.global.u64 %rd5, %rd4;
+	ld.param.u64 %rd6, [dn_gated_norm_v32d128_f32_rows_p3];
+	cvta.to.global.u64 %rd7, %rd6;
+	mov.u32 %r0, %ctaid.y;
+	mul.wide.u32 %rd8, %r0, 16384;
+	add.s64 %rd9, %rd1, %rd8;
+	mul.wide.u32 %rd10, %r0, 49408;
+	add.s64 %rd11, %rd3, %rd10;
+	mul.wide.u32 %rd12, %r0, 8192;
+	add.s64 %rd13, %rd7, %rd12;
+	mov.u32 %r1, dn_gated_norm_v32d128_f32_rows_s0;
+	mov.u32 %r2, %ctaid.x;
+	mov.u32 %r3, %tid.x;
+	mad.lo.u32 %r4, %r2, 128, %r3;
+	mul.wide.u32 %rd14, %r4, 4;
+	add.s64 %rd15, %rd9, %rd14;
+	ld.global.f32 %f0, [%rd15];
+	mul.rn.f32 %f1, %f0, %f0;
+	shfl.sync.bfly.b32 %f2, %f1, 16, 31, 0xffffffff;
+	add.rn.f32 %f3, %f1, %f2;
+	shfl.sync.bfly.b32 %f4, %f3, 8, 31, 0xffffffff;
+	add.rn.f32 %f5, %f3, %f4;
+	shfl.sync.bfly.b32 %f6, %f5, 4, 31, 0xffffffff;
+	add.rn.f32 %f7, %f5, %f6;
+	shfl.sync.bfly.b32 %f8, %f7, 2, 31, 0xffffffff;
+	add.rn.f32 %f9, %f7, %f8;
+	shfl.sync.bfly.b32 %f10, %f9, 1, 31, 0xffffffff;
+	add.rn.f32 %f11, %f9, %f10;
+	mov.u32 %r5, %tid.x;
+	and.b32 %r6, %r5, 31;
+	shr.u32 %r7, %r5, 5;
+	setp.eq.u32 %p0, %r6, 0;
+	mad.lo.u32 %r8, %r7, 4, %r1;
+	bar.sync 0;
+	@%p0 st.shared.f32 [%r8], %f11;
+	bar.sync 0;
+	ld.shared.f32 %f12, [%r1];
+	ld.shared.f32 %f13, [%r1+4];
+	add.rn.f32 %f14, %f12, %f13;
+	ld.shared.f32 %f15, [%r1+8];
+	add.rn.f32 %f16, %f14, %f15;
+	ld.shared.f32 %f17, [%r1+12];
+	add.rn.f32 %f18, %f16, %f17;
+	bar.sync 0;
+	mul.rn.f32 %f19, %f18, 0f3C000000;
+	add.rn.f32 %f20, %f19, 0f358637BD;
+	sqrt.rn.f32 %f21, %f20;
+	div.rn.f32 %f22, 0f3F800000, %f21;
+	mul.wide.u32 %rd16, %r3, 2;
+	add.s64 %rd17, %rd5, %rd16;
+	ld.global.nc.b16 %h0, [%rd17];
+	cvt.u32.u16 %r9, %h0;
+	shl.b32 %f23, %r9, 16;
+	add.u32 %r10, %r4, 8192;
+	mul.wide.u32 %rd18, %r10, 4;
+	add.s64 %rd19, %rd11, %rd18;
+	ld.global.f32 %f24, [%rd19];
+	neg.f32 %f25, %f24;
+	mul.rn.f32 %f26, %f25, 0f3FB8AA3B;
+	ex2.approx.ftz.f32 %f27, %f26;
+	add.rn.f32 %f28, %f27, 0f3F800000;
+	div.rn.f32 %f29, 0f3F800000, %f28;
+	mul.rn.f32 %f30, %f24, %f29;
+	mul.rn.f32 %f31, %f0, %f22;
+	mul.rn.f32 %f32, %f31, %f23;
+	mul.rn.f32 %f33, %f32, %f30;
+	cvt.rn.bf16.f32 %h1, %f33;
+	mul.wide.u32 %rd20, %r4, 2;
+	add.s64 %rd21, %rd13, %rd20;
+	st.global.b16 [%rd21], %h1;
+	ret;
+}

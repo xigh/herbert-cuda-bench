@@ -1,0 +1,54 @@
+== 2026-10-21T01:19:56+02:00 stopping resident-gpu
+== 2026-10-21T01:20:46+02:00 round 1 0.8B hc-def ·  01:20:46 up 2 days,  5:04,  2 users,  load average: 0.60, 0.18, 0.05
+== 2026-10-21T01:21:05+02:00 round 1 0.8B hc-sw ·  01:21:05 up 2 days,  5:04,  2 users,  load average: 0.71, 0.23, 0.08
+== 2026-10-21T01:21:20+02:00 round 1 0.8B llama-cuda ·  01:21:20 up 2 days,  5:04,  2 users,  load average: 0.84, 0.28, 0.10
+== 2026-10-21T01:21:36+02:00 round 1 0.8B vllm ·  01:21:36 up 2 days,  5:04,  2 users,  load average: 0.88, 0.32, 0.11
+== 2026-10-21T01:27:31+02:00 round 1 0.8B sglang ·  01:27:31 up 2 days,  5:10,  2 users,  load average: 1.35, 0.99, 0.48
+== 2026-10-21T01:29:55+02:00 round 1 4B hc-def ·  01:29:55 up 2 days,  5:13,  2 users,  load average: 1.18, 1.03, 0.57
+== 2026-10-21T01:31:04+02:00 round 1 4B hc-sw ·  01:31:04 up 2 days,  5:14,  2 users,  load average: 1.13, 1.04, 0.61
+== 2026-10-21T01:32:08+02:00 round 1 4B llama-cuda ·  01:32:08 up 2 days,  5:15,  2 users,  load average: 1.04, 1.03, 0.64
+== 2026-10-21T01:33:05+02:00 round 1 4B vllm ·  01:33:05 up 2 days,  5:16,  2 users,  load average: 1.06, 1.04, 0.67
+== 2026-10-21T01:43:39+02:00 round 1 4B sglang ·  01:43:39 up 2 days,  5:26,  2 users,  load average: 0.89, 1.12, 0.99
+== 2026-10-21T01:45:29+02:00 round 2 0.8B sglang ·  01:45:29 up 2 days,  5:28,  2 users,  load average: 0.98, 1.08, 1.00
+== 2026-10-21T01:47:52+02:00 round 2 0.8B vllm ·  01:47:52 up 2 days,  5:31,  2 users,  load average: 1.03, 1.06, 1.00
+== 2026-10-21T01:53:43+02:00 round 2 0.8B llama-cuda ·  01:53:43 up 2 days,  5:37,  2 users,  load average: 1.20, 1.41, 1.19
+== 2026-10-21T01:54:02+02:00 round 2 0.8B hc-sw ·  01:54:02 up 2 days,  5:37,  2 users,  load average: 1.29, 1.41, 1.20
+== 2026-10-21T01:54:17+02:00 round 2 0.8B hc-def ·  01:54:17 up 2 days,  5:37,  2 users,  load average: 1.22, 1.39, 1.20
+== 2026-10-21T01:54:36+02:00 round 2 4B sglang ·  01:54:36 up 2 days,  5:37,  2 users,  load average: 1.16, 1.37, 1.19
+== 2026-10-21T01:56:25+02:00 round 2 4B vllm ·  01:56:25 up 2 days,  5:39,  2 users,  load average: 1.09, 1.27, 1.17
+== 2026-10-21T02:06:57+02:00 round 2 4B llama-cuda ·  02:06:57 up 2 days,  5:50,  2 users,  load average: 0.91, 1.37, 1.34
+== 2026-10-21T02:07:54+02:00 round 2 4B hc-sw ·  02:07:54 up 2 days,  5:51,  2 users,  load average: 0.96, 1.31, 1.32
+== 2026-10-21T02:08:58+02:00 round 2 4B hc-def ·  02:08:58 up 2 days,  5:52,  2 users,  load average: 0.99, 1.25, 1.29
+== 2026-10-21T02:10:07+02:00 round 3 0.8B hc-def ·  02:10:07 up 2 days,  5:53,  2 users,  load average: 1.07, 1.21, 1.27
+== 2026-10-21T02:10:26+02:00 round 3 0.8B hc-sw ·  02:10:26 up 2 days,  5:53,  2 users,  load average: 1.05, 1.19, 1.27
+== 2026-10-21T02:10:41+02:00 round 3 0.8B llama-cuda ·  02:10:41 up 2 days,  5:54,  2 users,  load average: 1.04, 1.18, 1.26
+== 2026-10-21T02:10:57+02:00 round 3 0.8B vllm ·  02:10:57 up 2 days,  5:54,  2 users,  load average: 1.03, 1.17, 1.26
+== 2026-10-21T02:16:49+02:00 round 3 0.8B sglang ·  02:16:49 up 2 days,  6:00,  2 users,  load average: 1.09, 1.43, 1.40
+== 2026-10-21T02:19:12+02:00 round 3 4B hc-def ·  02:19:12 up 2 days,  6:02,  2 users,  load average: 1.00, 1.26, 1.34
+== 2026-10-21T02:20:21+02:00 round 3 4B hc-sw ·  02:20:21 up 2 days,  6:03,  2 users,  load average: 1.00, 1.20, 1.31
+== 2026-10-21T02:21:25+02:00 round 3 4B llama-cuda ·  02:21:25 up 2 days,  6:04,  2 users,  load average: 1.00, 1.16, 1.29
+== 2026-10-21T02:22:21+02:00 round 3 4B vllm ·  02:22:21 up 2 days,  6:05,  2 users,  load average: 1.04, 1.14, 1.27
+== 2026-10-21T02:32:54+02:00 round 3 4B sglang ·  02:32:54 up 2 days,  6:16,  2 users,  load average: 0.96, 1.19, 1.25
+== 2026-10-21T02:34:44+02:00 round 4 0.8B sglang ·  02:34:44 up 2 days,  6:18,  2 users,  load average: 1.00, 1.13, 1.22
+== 2026-10-21T02:37:07+02:00 round 4 0.8B vllm ·  02:37:07 up 2 days,  6:20,  2 users,  load average: 1.08, 1.10, 1.18
+== 2026-10-21T02:42:59+02:00 round 4 0.8B llama-cuda ·  02:42:59 up 2 days,  6:26,  2 users,  load average: 1.31, 1.40, 1.29
+== 2026-10-21T02:43:14+02:00 round 4 0.8B hc-sw ·  02:43:14 up 2 days,  6:26,  2 users,  load average: 1.24, 1.38, 1.29
+== 2026-10-21T02:43:30+02:00 round 4 0.8B hc-def ·  02:43:30 up 2 days,  6:26,  2 users,  load average: 1.18, 1.36, 1.28
+== 2026-10-21T02:43:48+02:00 round 4 4B sglang ·  02:43:48 up 2 days,  6:27,  2 users,  load average: 1.13, 1.33, 1.27
+== 2026-10-21T02:45:38+02:00 round 4 4B vllm ·  02:45:38 up 2 days,  6:28,  2 users,  load average: 1.05, 1.24, 1.25
+== 2026-10-21T02:56:10+02:00 round 4 4B llama-cuda ·  02:56:10 up 2 days,  6:39,  2 users,  load average: 0.87, 1.07, 1.18
+== 2026-10-21T02:57:06+02:00 round 4 4B hc-sw ·  02:57:06 up 2 days,  6:40,  2 users,  load average: 0.96, 1.06, 1.16
+== 2026-10-21T02:58:10+02:00 round 4 4B hc-def ·  02:58:10 up 2 days,  6:41,  2 users,  load average: 0.99, 1.05, 1.15
+== 2026-10-21T02:59:20+02:00 round 5 0.8B hc-def ·  02:59:20 up 2 days,  6:42,  2 users,  load average: 1.00, 1.03, 1.14
+== 2026-10-21T02:59:38+02:00 round 5 0.8B hc-sw ·  02:59:38 up 2 days,  6:42,  2 users,  load average: 1.00, 1.03, 1.14
+== 2026-10-21T02:59:54+02:00 round 5 0.8B llama-cuda ·  02:59:54 up 2 days,  6:43,  2 users,  load average: 1.08, 1.04, 1.14
+== 2026-10-21T03:00:09+02:00 round 5 0.8B vllm ·  03:00:09 up 2 days,  6:43,  2 users,  load average: 1.06, 1.04, 1.14
+== 2026-10-21T03:06:02+02:00 round 5 0.8B sglang ·  03:06:02 up 2 days,  6:49,  2 users,  load average: 0.86, 1.22, 1.21
+== 2026-10-21T03:08:25+02:00 round 5 4B hc-def ·  03:08:25 up 2 days,  6:51,  2 users,  load average: 0.99, 1.13, 1.17
+== 2026-10-21T03:09:34+02:00 round 5 4B hc-sw ·  03:09:34 up 2 days,  6:52,  2 users,  load average: 1.00, 1.10, 1.16
+== 2026-10-21T03:10:38+02:00 round 5 4B llama-cuda ·  03:10:38 up 2 days,  6:53,  2 users,  load average: 1.00, 1.08, 1.14
+== 2026-10-21T03:11:35+02:00 round 5 4B vllm ·  03:11:35 up 2 days,  6:54,  2 users,  load average: 1.00, 1.06, 1.13
+== 2026-10-21T03:22:07+02:00 round 5 4B sglang ·  03:22:07 up 2 days,  7:05,  2 users,  load average: 0.50, 0.92, 1.10
+ALLDONE-av1
+== 2026-10-21T03:24:02+02:00 starting resident-gpu
+== 2026-10-21T03:24:22+02:00 resident-gpu: active

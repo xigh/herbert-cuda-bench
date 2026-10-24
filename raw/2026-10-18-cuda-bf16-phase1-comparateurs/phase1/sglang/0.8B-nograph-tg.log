@@ -1,0 +1,51 @@
+[2026-10-18 12:11:30] [1;33m'--disable-cuda-graph' is deprecated and will be removed in a future release. Use '--cuda-graph-backend-{decode,prefill}=disabled' instead.[0m
+[2026-10-18 12:11:30 TP0] Init parallel begin.
+[2026-10-18 12:11:30 TP0] Init parallel ends. elapsed=0.07 s
+[2026-10-18 12:11:30 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-18 12:11:31 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-18 12:11:31 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-18 12:11:31 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-18 12:11:31 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  5.15it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  5.14it/s]
+[2026-10-18 12:11:31 TP0] Load weight end. elapsed=0.27 s, type=Qwen3_5ForConditionalGeneration, avail mem=13.53 GB, mem usage=1.72 GB.
+[2026-10-18 12:11:32 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-18 12:11:32 TP0] max_running_requests is capped to 53 by the mamba state cache (max_mamba_cache_size=269, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-18 12:11:32 TP0] Mamba Cache is allocated. max_mamba_cache_size: 269, conv_state size: 0.17GB, ssm_state size: 4.75GB 
+[2026-10-18 12:11:32 TP0] Warmed fused Mamba slot copy kernel in 225.109 ms
+[2026-10-18 12:11:32 TP0] KV Cache is allocated. dtype: torch.bfloat16, #tokens: 477656, K size: 2.73 GB, V size: 2.73 GB
+[2026-10-18 12:11:32 TP0] Memory pool end. avail mem=3.13 GB
+[2026-10-18 12:11:32 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-18 12:11:32 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-18 12:11:32 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-18 12:11:32 TP0] Disable prefill CUDA graph because cuda_graph_config resolved prefill.backend='disabled' (e.g. via --cuda-graph-backend-prefill=disabled or auto-disable rules).
+[2026-10-18 12:11:32 TP0] Reset HybridReqToTokenPool
+max_total_num_tokens=477656
+Warmup ...
+[2026-10-18 12:11:33 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+[2026-10-18 12:11:33 TP0] Reset HybridReqToTokenPool
+Prefill. latency: 0.49643 s, throughput:   1528.93 token/s
+Decode 0. Batch size: 1, latency: 0.02684 s, throughput:     37.26 token/s
+Decode 1. Batch size: 1, latency: 0.00923 s, throughput:    108.33 token/s
+Decode 2. Batch size: 1, latency: 0.00715 s, throughput:    139.78 token/s
+Decode 3. Batch size: 1, latency: 0.00714 s, throughput:    140.03 token/s
+Decode 4. Batch size: 1, latency: 0.00710 s, throughput:    140.76 token/s
+Decode.  median latency: 0.00710 s, median throughput:    140.87 token/s
+Total. latency:  0.743 s, throughput:   1064.85 token/s
+Benchmark ...
+Prefill. latency: 0.01542 s, throughput:  49220.41 token/s
+Decode 0. Batch size: 1, latency: 0.00721 s, throughput:    138.78 token/s
+Decode 1. Batch size: 1, latency: 0.00710 s, throughput:    140.79 token/s
+Decode 2. Batch size: 1, latency: 0.00712 s, throughput:    140.47 token/s
+Decode 3. Batch size: 1, latency: 0.00713 s, throughput:    140.26 token/s
+Decode 4. Batch size: 1, latency: 0.00712 s, throughput:    140.39 token/s
+Decode.  median latency: 0.00708 s, median throughput:    141.25 token/s
+Total. latency:  1.815 s, throughput:    558.77 token/s

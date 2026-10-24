@@ -1,0 +1,153 @@
+[2026-10-19 19:33:27] [1;33m'--disable-cuda-graph' is deprecated and will be removed in a future release. Use '--cuda-graph-backend-{decode,prefill}=disabled' instead.[0m
+[2026-10-19 19:33:27 TP0] Init parallel begin.
+[2026-10-19 19:33:27 TP0] Init parallel ends. elapsed=0.07 s
+[2026-10-19 19:33:27 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-19 19:33:28 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-19 19:33:28 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-19 19:33:28 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-19 19:33:28 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.63it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.63it/s]
+[2026-10-19 19:33:29 TP0] Load weight end. elapsed=0.69 s, type=Qwen3_5ForConditionalGeneration, avail mem=13.53 GB, mem usage=1.72 GB.
+[2026-10-19 19:33:29 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-19 19:33:29 TP0] max_running_requests is capped to 53 by the mamba state cache (max_mamba_cache_size=268, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-19 19:33:29 TP0] Mamba Cache is allocated. max_mamba_cache_size: 268, conv_state size: 0.17GB, ssm_state size: 4.73GB 
+[2026-10-19 19:33:29 TP0] KV Cache is allocated. dtype: torch.float16, #tokens: 477565, K size: 2.73 GB, V size: 2.73 GB
+[2026-10-19 19:33:29 TP0] Memory pool end. avail mem=3.13 GB
+[2026-10-19 19:33:29 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-19 19:33:29 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-19 19:33:29 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-19 19:33:29 TP0] Disable prefill CUDA graph because cuda_graph_config resolved prefill.backend='disabled' (e.g. via --cuda-graph-backend-prefill=disabled or auto-disable rules).
+[2026-10-19 19:33:30 TP0] Reset HybridReqToTokenPool
+max_total_num_tokens=477565
+Warmup ...
+[rank0]:[W1019 19:33:30.956180910 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 297140224, total: 16720199680).
+[rank0]:[W1019 19:33:30.956246543 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 297140224, total: 16720199680).
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1111, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1104, in cli_main
+[rank0]:     main(server_args, bench_args)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1066, in main
+[rank0]:     work_func(server_args, port_args, bench_args, 0, 0)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 931, in latency_test
+[rank0]:     latency_test_run_once(
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 803, in latency_test_run_once
+[rank0]:     next_token_ids, _, batch = model_runner.extend(reqs)
+[rank0]:                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 574, in extend
+[rank0]:     return extend(reqs, self.torch_runner)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 530, in extend
+[rank0]:     logits_output = model_runner.forward(forward_batch).logits_output
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 1829, in forward
+[rank0]:     output = self._forward_raw(
+[rank0]:              ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 2021, in _forward_raw
+[rank0]:     ret = self.eager_runner.execute(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/eager_runner.py", line 224, in execute
+[rank0]:     return self._execute_extend(forward_batch, pp_proxy_tensors)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/runner/eager_runner.py", line 350, in _execute_extend
+[rank0]:     ret = model_runner.model.forward(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_vl.py", line 1653, in forward
+[rank0]:     hidden_states = general_mm_embed_routine(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/mm_utils.py", line 844, in general_mm_embed_routine
+[rank0]:     hidden_states = language_model(
+[rank0]:                     ^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1890, in forward
+[rank0]:     hidden_states = layer(
+[rank0]:                     ^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1209, in forward
+[rank0]:     hidden_states = self.linear_attn(
+[rank0]:                     ^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/models/qwen3_5.py", line 1059, in forward
+[rank0]:     attn_result = self.attn(
+[rank0]:                   ^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/radix_linear_attention.py", line 142, in forward
+[rank0]:     return get_attn_backend().forward(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/hybrid_linear_attn_backend.py", line 1492, in forward
+[rank0]:     return self.forward_extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/hybrid_linear_attn_backend.py", line 1444, in forward_extend
+[rank0]:     return self.linear_attn_backend.forward_extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/gdn_backend.py", line 1181, in forward_extend
+[rank0]:     core_attn_out, last_recurrent_state, h = self.kernel_dispatcher.extend(
+[rank0]:                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/gdn_backend.py", line 455, in extend
+[rank0]:     return self.extend_kernel.extend(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/layers/attention/linear/kernels/gdn_triton.py", line 203, in extend
+[rank0]:     return chunk_gated_delta_rule(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk.py", line 254, in chunk_gated_delta_rule
+[rank0]:     o, h = ChunkGatedDeltaRuleFunction.apply(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/utils.py", line 177, in wrapper
+[rank0]:     return fn(*contiguous_args, **contiguous_kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 481, in decorate_fwd
+[rank0]:     return fwd(*args, **kwargs)  # pyrefly: ignore [not-callable]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk.py", line 119, in forward
+[rank0]:     g, o, A, w, h, v_new = chunk_gated_delta_rule_fwd(
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk.py", line 63, in chunk_gated_delta_rule_fwd
+[rank0]:     h, v_new = chunk_gated_delta_rule_fwd_h(
+[rank0]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk_delta_h.py", line 397, in chunk_gated_delta_rule_fwd_h
+[rank0]:     h = k.new_empty(B, NT, H, V, K)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 314.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 283.38 MiB is free. Including non-PyTorch memory, this process has 15.27 GiB memory in use. Of the allocated memory 14.86 GiB is allocated by PyTorch, and 111.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

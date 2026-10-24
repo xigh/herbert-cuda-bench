@@ -1,0 +1,63 @@
+diff --git a/README.md b/README.md
+index 0952a22..fe06971 100644
+--- a/README.md
++++ b/README.md
+@@ -2,7 +2,7 @@
+ 
+ The CUDA counterpart of `herbert-vk-bf16` (Vulkan, SPIR-V emitted) and `herbert-jit-bf16` (CPU): the same model (Qwen3.5, text), the same numerical contract (bf16 weights, bf16 activations, bf16 KV cache, f32 accumulators, one rounding to nearest even at the output of each kernel). No CUDA C, no nvcc, no NVRTC, no cuBLAS: every compute kernel is PTX emitted at start-up by Rust and handed to the driver, which is loaded at run time (`libcuda.so.1`, `nvcuda.dll` on Windows).
+ 
+-The CUDA engine supports Qwen3.5-0.8B and 4B decode and block prefill, with a captured decode graph and per-kernel profiling. Since 2026-10-19 the default prefill is the measured candidate: `gemm.auto=3`, `gemm.layout=xor`, `prefill.block=auto`. The former default (64×64 GEMM, K=32, three stages, padded layout, 1024-row blocks) is `--tune gemm.auto=0 --tune gemm.layout=pad --tune prefill.block=1024`. Other experimental policies are opt-in.
++The CUDA engine supports Qwen3.5-0.8B and 4B decode and block prefill, with a captured decode graph and per-kernel profiling. Since 2026-10-19 the default prefill is the measured candidate: `gemm.auto=3`, `gemm.layout=xor`, `prefill.block=auto`. The former default (64×64 GEMM, K=32, three stages, padded layout, 1024-row blocks) is `--tune gemm.auto=0 --tune gemm.layout=pad --tune prefill.block=1024`. Since 2026-10-21 the attention defaults are `sdpa.gqa=1`, `sdpa.split=64` and `sdpa.pipe=1`; the former attention is `--tune sdpa.gqa=0 --tune sdpa.split=8 --tune sdpa.pipe=0`. Other experimental policies are opt-in.
+ 
+ The measured Linux build uses the installed stable Rust toolchain on rtx4080 (1.98): `PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH" cargo build --release`. Its release profile is `opt-level=3`, without LTO. On the ARM Mac, use `cargo check --bins`; GPU execution and release measurements run on rtx4080.
+ 
+diff --git a/src/cuda/probe.rs b/src/cuda/probe.rs
+index 034c626..3f4452b 100644
+--- a/src/cuda/probe.rs
++++ b/src/cuda/probe.rs
+@@ -76,6 +76,8 @@ pub fn all_kernels() -> Vec<Emitted> {
+         v.push(dc::sdpa_split(attn, 8));
+         v.push(dc::sdpa_gqa(attn, 8));
+         v.push(dc::sdpa_combine(attn, 8));
++        v.push(dc::sdpa_gqa(attn, 64));
++        v.push(dc::sdpa_combine(attn, 64));
+         for act in [Act::Bf16, Act::F32] {
+             let d = DeltaShape { act, ..delta };
+             v.push(dc::dn_conv_l2_gates(d));
+diff --git a/src/cuda/tuning.rs b/src/cuda/tuning.rs
+index 9b4e2fc..2a5edd9 100644
+--- a/src/cuda/tuning.rs
++++ b/src/cuda/tuning.rs
+@@ -15,10 +15,11 @@ use crate::ptx::Ld;
+ pub struct Tuning {
+     /// `matvec.rows`, `matvec.warps`, `matvec.depth`, `matvec.cache` (ca, nc, nol1, cg, cs).
+     pub matvec: Matvec,
+-    /// `sdpa.split`: blocks per head of the decode attention (per KV head with `sdpa.gqa=1`).
++    /// `sdpa.split`: blocks per head of the decode attention (per KV head with `sdpa.gqa=1`); 64 by default
++    /// since 2026-10-21, 8 before.
+     pub sdpa_split: u32,
+-    /// `sdpa.gqa`: 1 = the decode attention in one pass per GQA group (`decode::sdpa_gqa`), 0 = per query head
+-    /// (`decode::sdpa_split`, the default).
++    /// `sdpa.gqa`: 1 = the decode attention in one pass per GQA group (`decode::sdpa_gqa`, the default since
++    /// 2026-10-21), 0 = per query head (`decode::sdpa_split`, the default before).
+     pub sdpa_gqa: u32,
+     /// `act`: bf16 or f32, the DeltaNet's activations and states.
+     pub act: Act,
+@@ -60,7 +61,7 @@ pub struct Tuning {
+     /// memory, as with opaque fragments (Vulkan), instead of in registers.
+     pub sdpa_smem_softmax: bool,
+     /// `sdpa.pipe`: 1 = the prefill attention's copies of K and V overlap its arithmetic (`prefill::sdpa_flash`,
+-    /// same results), 0 = each tile waits for both copies (the default).
++    /// same results; the default since 2026-10-21), 0 = each tile waits for both copies (the default before).
+     pub sdpa_pipe: u32,
+     /// `sdpa.rows`: query rows per block of the prefill attention, 16 (the default, 4 warps) or 32 (8 warps sharing
+     /// each K and V tile, `prefill::sdpa_flash` with `qg` = 2, same results).
+@@ -76,7 +77,7 @@ pub struct Tuning {
+ 
+ impl Default for Tuning {
+     fn default() -> Tuning {
+-        Tuning { matvec: Matvec { rows: 2, warps: 4, depth: 8, cache: Ld::NcNoL1, w16: false }, sdpa_split: 8, sdpa_gqa: 0, act: Act::Bf16, graph: 1, prefill_block: 0, gemm_tile: "64".to_string(), gemm_bk: 32, gemm_stages: 3, gemm_auto: 3, gemm_carveout: None, gemm_swizzle: true, gemm_schedule: 0, gemm_pipeline: 0, gemm_down_short: "same".into(), gemm_ldmatrix: true, gemm_async_copy: true, gemm_wmma: false, gemm_f16: false, sdpa_bk: 32, sdpa_smem_softmax: false, sdpa_pipe: 0, sdpa_rows: 16, rec_tc: 1, ld_scope: 0, sdpa_maxnreg: 0 }
++        Tuning { matvec: Matvec { rows: 2, warps: 4, depth: 8, cache: Ld::NcNoL1, w16: false }, sdpa_split: 64, sdpa_gqa: 1, act: Act::Bf16, graph: 1, prefill_block: 0, gemm_tile: "64".to_string(), gemm_bk: 32, gemm_stages: 3, gemm_auto: 3, gemm_carveout: None, gemm_swizzle: true, gemm_schedule: 0, gemm_pipeline: 0, gemm_down_short: "same".into(), gemm_ldmatrix: true, gemm_async_copy: true, gemm_wmma: false, gemm_f16: false, sdpa_bk: 32, sdpa_smem_softmax: false, sdpa_pipe: 1, sdpa_rows: 16, rec_tc: 1, ld_scope: 0, sdpa_maxnreg: 0 }
+     }
+ }
+ 

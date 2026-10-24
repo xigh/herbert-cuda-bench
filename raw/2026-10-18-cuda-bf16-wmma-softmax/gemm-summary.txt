@@ -1,0 +1,227 @@
+model shape M tile copy | µs mma | µs wmma | wmma / mma
+0.8B attn.o         128 64x128x32_w2x2_s2    async |     36.84 |     38.08 | ×1.034
+0.8B attn.o         128 64x128x32_w2x2_s2    sync  |     44.50 |     45.03 | ×1.012
+0.8B attn.o         128 64x64x32_w2x2_s3     async |     21.37 |     21.89 | ×1.024
+0.8B attn.o         128 64x64x32_w2x2_s3     sync  |     30.47 |     29.67 | ×0.974
+0.8B attn.o         512 64x128x32_w2x2_s2    async |     39.37 |     40.05 | ×1.017
+0.8B attn.o         512 64x128x32_w2x2_s2    sync  |     44.37 |     44.60 | ×1.005
+0.8B attn.o         512 64x64x32_w2x2_s3     async |     34.47 |     37.10 | ×1.076
+0.8B attn.o         512 64x64x32_w2x2_s3     sync  |     32.77 |     37.55 | ×1.146
+0.8B attn.o        1024 64x128x32_w2x2_s2    async |     61.72 |     64.77 | ×1.049
+0.8B attn.o        1024 64x128x32_w2x2_s2    sync  |     55.04 |     56.06 | ×1.019
+0.8B attn.o        1024 64x64x32_w2x2_s3     async |     73.98 |     67.58 | ×0.913
+0.8B attn.o        1024 64x64x32_w2x2_s3     sync  |     67.84 |     71.94 | ×1.060
+0.8B attn.o        2048 64x128x32_w2x2_s2    async |    112.98 |    116.74 | ×1.033
+0.8B attn.o        2048 64x128x32_w2x2_s2    sync  |    117.76 |    132.10 | ×1.122
+0.8B attn.o        2048 64x64x32_w2x2_s3     async |    126.63 |    120.58 | ×0.952
+0.8B attn.o        2048 64x64x32_w2x2_s3     sync  |    108.20 |    115.05 | ×1.063
+0.8B attn.qkv       128 64x128x32_w2x2_s2    async |     31.31 |     32.11 | ×1.026
+0.8B attn.qkv       128 64x128x32_w2x2_s2    sync  |     30.06 |     30.50 | ×1.015
+0.8B attn.qkv       128 64x64x32_w2x2_s3     async |     26.33 |     27.28 | ×1.036
+0.8B attn.qkv       128 64x64x32_w2x2_s3     sync  |     25.92 |     27.06 | ×1.044
+0.8B attn.qkv       512 64x128x32_w2x2_s2    async |     71.00 |     71.68 | ×1.010
+0.8B attn.qkv       512 64x128x32_w2x2_s2    sync  |     71.72 |     70.31 | ×0.980
+0.8B attn.qkv       512 64x64x32_w2x2_s3     async |     73.10 |     75.09 | ×1.027
+0.8B attn.qkv       512 64x64x32_w2x2_s3     sync  |     66.56 |     71.00 | ×1.067
+0.8B attn.qkv      1024 64x128x32_w2x2_s2    async |    122.20 |    123.47 | ×1.010
+0.8B attn.qkv      1024 64x128x32_w2x2_s2    sync  |    121.77 |    123.90 | ×1.017
+0.8B attn.qkv      1024 64x64x32_w2x2_s3     async |    141.31 |    139.96 | ×0.990
+0.8B attn.qkv      1024 64x64x32_w2x2_s3     sync  |    121.17 |    130.05 | ×1.073
+0.8B attn.qkv      2048 64x128x32_w2x2_s2    async |    225.28 |    226.08 | ×1.004
+0.8B attn.qkv      2048 64x128x32_w2x2_s2    sync  |    223.23 |    228.35 | ×1.023
+0.8B attn.qkv      2048 64x64x32_w2x2_s3     async |    277.50 |    272.73 | ×0.983
+0.8B attn.qkv      2048 64x64x32_w2x2_s3     sync  |    235.86 |    253.27 | ×1.074
+0.8B dn.out         128 64x128x32_w2x2_s2    async |     36.87 |     38.11 | ×1.034
+0.8B dn.out         128 64x128x32_w2x2_s2    sync  |     44.47 |     45.08 | ×1.014
+0.8B dn.out         128 64x64x32_w2x2_s3     async |     21.23 |     21.84 | ×1.029
+0.8B dn.out         128 64x64x32_w2x2_s3     sync  |     30.31 |     29.75 | ×0.982
+0.8B dn.out         512 64x128x32_w2x2_s2    async |     39.19 |     39.71 | ×1.013
+0.8B dn.out         512 64x128x32_w2x2_s2    sync  |     44.65 |     44.60 | ×0.999
+0.8B dn.out         512 64x64x32_w2x2_s3     async |     34.49 |     37.17 | ×1.078
+0.8B dn.out         512 64x64x32_w2x2_s3     sync  |     32.77 |     37.64 | ×1.149
+0.8B dn.out        1024 64x128x32_w2x2_s2    async |     61.70 |     65.02 | ×1.054
+0.8B dn.out        1024 64x128x32_w2x2_s2    sync  |     55.10 |     55.55 | ×1.008
+0.8B dn.out        1024 64x64x32_w2x2_s3     async |     74.14 |     67.77 | ×0.914
+0.8B dn.out        1024 64x64x32_w2x2_s3     sync  |     67.58 |     72.22 | ×1.069
+0.8B dn.out        2048 64x128x32_w2x2_s2    async |    112.98 |    116.74 | ×1.033
+0.8B dn.out        2048 64x128x32_w2x2_s2    sync  |    108.23 |    138.88 | ×1.283
+0.8B dn.out        2048 64x64x32_w2x2_s3     async |    127.27 |    120.83 | ×0.949
+0.8B dn.out        2048 64x64x32_w2x2_s3     sync  |    108.20 |    115.07 | ×1.063
+0.8B dn.proj128     128 64x128x32_w2x2_s2    async |     37.02 |     36.75 | ×0.993
+0.8B dn.proj128     128 64x128x32_w2x2_s2    sync  |     36.94 |     37.32 | ×1.010
+0.8B dn.proj128     128 64x64x32_w2x2_s3     async |     43.58 |     44.49 | ×1.021
+0.8B dn.proj128     128 64x64x32_w2x2_s3     sync  |     45.74 |     46.54 | ×1.017
+0.8B dn.proj128     512 64x128x32_w2x2_s2    async |     97.62 |     98.20 | ×1.006
+0.8B dn.proj128     512 64x128x32_w2x2_s2    sync  |     97.44 |     99.33 | ×1.019
+0.8B dn.proj128     512 64x64x32_w2x2_s3     async |    115.03 |    115.71 | ×1.006
+0.8B dn.proj128     512 64x64x32_w2x2_s3     sync  |    100.69 |    108.54 | ×1.078
+0.8B dn.proj128    1024 64x128x32_w2x2_s2    async |    185.34 |    187.77 | ×1.013
+0.8B dn.proj128    1024 64x128x32_w2x2_s2    sync  |    185.34 |    189.44 | ×1.022
+0.8B dn.proj128    1024 64x64x32_w2x2_s3     async |    224.94 |    222.21 | ×0.988
+0.8B dn.proj128    1024 64x64x32_w2x2_s3     sync  |    193.88 |    209.24 | ×1.079
+0.8B dn.proj128    2048 64x128x32_w2x2_s2    async |    359.08 |    365.57 | ×1.018
+0.8B dn.proj128    2048 64x128x32_w2x2_s2    sync  |    360.87 |    370.69 | ×1.027
+0.8B dn.proj128    2048 64x64x32_w2x2_s3     async |    444.74 |    437.54 | ×0.984
+0.8B dn.proj128    2048 64x64x32_w2x2_s3     sync  |    377.02 |    406.53 | ×1.078
+0.8B mlp.down       128 64x128x32_w2x2_s2    async |     63.05 |     64.29 | ×1.020
+0.8B mlp.down       128 64x128x32_w2x2_s2    sync  |     80.23 |     78.60 | ×0.980
+0.8B mlp.down       128 64x64x32_w2x2_s3     async |     37.01 |     37.51 | ×1.014
+0.8B mlp.down       128 64x64x32_w2x2_s3     sync  |     56.52 |     53.40 | ×0.945
+0.8B mlp.down       512 64x128x32_w2x2_s2    async |     64.10 |     64.31 | ×1.003
+0.8B mlp.down       512 64x128x32_w2x2_s2    sync  |     72.06 |     74.34 | ×1.032
+0.8B mlp.down       512 64x64x32_w2x2_s3     async |     60.01 |     62.19 | ×1.036
+0.8B mlp.down       512 64x64x32_w2x2_s3     sync  |     52.02 |     61.64 | ×1.185
+0.8B mlp.down      1024 64x128x32_w2x2_s2    async |    102.74 |    109.23 | ×1.063
+0.8B mlp.down      1024 64x128x32_w2x2_s2    sync  |     90.92 |     92.50 | ×1.017
+0.8B mlp.down      1024 64x64x32_w2x2_s3     async |    127.59 |    118.45 | ×0.928
+0.8B mlp.down      1024 64x64x32_w2x2_s3     sync  |    114.01 |    122.54 | ×1.075
+0.8B mlp.down      2048 64x128x32_w2x2_s2    async |    192.74 |    198.31 | ×1.029
+0.8B mlp.down      2048 64x128x32_w2x2_s2    sync  |    180.22 |    238.04 | ×1.321
+0.8B mlp.down      2048 64x64x32_w2x2_s3     async |    225.28 |    224.94 | ×0.998
+0.8B mlp.down      2048 64x64x32_w2x2_s3     sync  |    179.88 |    194.88 | ×1.083
+0.8B mlp.gate_up    128 64x128x32_w2x2_s2    async |     33.08 |     33.89 | ×1.024
+0.8B mlp.gate_up    128 64x128x32_w2x2_s2    sync  |     33.57 |     34.73 | ×1.035
+0.8B mlp.gate_up    128 64x64x32_w2x2_s3     async |     32.05 |     32.46 | ×1.013
+0.8B mlp.gate_up    128 64x64x32_w2x2_s3     sync  |     29.99 |     30.62 | ×1.021
+0.8B mlp.gate_up    512 64x128x32_w2x2_s2    async |     83.78 |     85.33 | ×1.019
+0.8B mlp.gate_up    512 64x128x32_w2x2_s2    sync  |     83.58 |     85.45 | ×1.022
+0.8B mlp.gate_up    512 64x64x32_w2x2_s3     async |    100.35 |    100.69 | ×1.003
+0.8B mlp.gate_up    512 64x64x32_w2x2_s3     sync  |     86.70 |     93.53 | ×1.079
+0.8B mlp.gate_up   1024 64x128x32_w2x2_s2    async |    158.66 |    162.47 | ×1.024
+0.8B mlp.gate_up   1024 64x128x32_w2x2_s2    sync  |    158.72 |    163.50 | ×1.030
+0.8B mlp.gate_up   1024 64x64x32_w2x2_s3     async |    193.19 |    191.83 | ×0.993
+0.8B mlp.gate_up   1024 64x64x32_w2x2_s3     sync  |    165.89 |    180.22 | ×1.086
+0.8B mlp.gate_up   2048 64x128x32_w2x2_s2    async |    306.67 |    315.05 | ×1.027
+0.8B mlp.gate_up   2048 64x128x32_w2x2_s2    sync  |    308.22 |    319.15 | ×1.035
+0.8B mlp.gate_up   2048 64x64x32_w2x2_s3     async |    379.90 |    377.86 | ×0.995
+0.8B mlp.gate_up   2048 64x64x32_w2x2_s3     sync  |    324.27 |    352.18 | ×1.086
+4B attn.o         128 64x128x32_w2x2_s2    async |     81.04 |     82.65 | ×1.020
+4B attn.o         128 64x128x32_w2x2_s2    sync  |     99.47 |     99.18 | ×0.997
+4B attn.o         128 64x64x32_w2x2_s3     async |     63.08 |     69.20 | ×1.097
+4B attn.o         128 64x64x32_w2x2_s3     sync  |     78.70 |     82.36 | ×1.047
+4B attn.o         512 64x128x32_w2x2_s2    async |    162.40 |    168.07 | ×1.035
+4B attn.o         512 64x128x32_w2x2_s2    sync  |    174.42 |    174.08 | ×0.998
+4B attn.o         512 64x64x32_w2x2_s3     async |    159.73 |    155.65 | ×0.974
+4B attn.o         512 64x64x32_w2x2_s3     sync  |    139.57 |    152.23 | ×1.091
+4B attn.o        1024 64x128x32_w2x2_s2    async |    264.59 |    272.99 | ×1.032
+4B attn.o        1024 64x128x32_w2x2_s2    sync  |    268.92 |    268.29 | ×0.998
+4B attn.o        1024 64x64x32_w2x2_s3     async |    285.70 |    292.49 | ×1.024
+4B attn.o        1024 64x64x32_w2x2_s3     sync  |    247.47 |    263.80 | ×1.066
+4B attn.o        2048 64x128x32_w2x2_s2    async |    467.97 |    474.65 | ×1.014
+4B attn.o        2048 64x128x32_w2x2_s2    sync  |    461.48 |    479.11 | ×1.038
+4B attn.o        2048 64x64x32_w2x2_s3     async |    572.07 |    549.12 | ×0.960
+4B attn.o        2048 64x64x32_w2x2_s3     sync  |    456.36 |    490.15 | ×1.074
+4B attn.qkv       128 64x128x32_w2x2_s2    async |    176.47 |    176.81 | ×1.002
+4B attn.qkv       128 64x128x32_w2x2_s2    sync  |    199.08 |    199.00 | ×1.000
+4B attn.qkv       128 64x64x32_w2x2_s3     async |    170.67 |    173.40 | ×1.016
+4B attn.qkv       128 64x64x32_w2x2_s3     sync  |    189.03 |    193.19 | ×1.022
+4B attn.qkv       512 64x128x32_w2x2_s2    async |    295.94 |    299.69 | ×1.013
+4B attn.qkv       512 64x128x32_w2x2_s2    sync  |    323.93 |    322.90 | ×0.997
+4B attn.qkv       512 64x64x32_w2x2_s3     async |    351.57 |    348.52 | ×0.991
+4B attn.qkv       512 64x64x32_w2x2_s3     sync  |    320.21 |    341.33 | ×1.066
+4B attn.qkv      1024 64x128x32_w2x2_s2    async |    553.27 |    553.98 | ×1.001
+4B attn.qkv      1024 64x128x32_w2x2_s2    sync  |    570.37 |    582.09 | ×1.021
+4B attn.qkv      1024 64x64x32_w2x2_s3     async |    702.12 |    696.97 | ×0.993
+4B attn.qkv      1024 64x64x32_w2x2_s3     sync  |    591.19 |    656.04 | ×1.110
+4B attn.qkv      2048 64x128x32_w2x2_s2    async |   1105.58 |   1114.11 | ×1.008
+4B attn.qkv      2048 64x128x32_w2x2_s2    sync  |   1110.70 |   1136.64 | ×1.023
+4B attn.qkv      2048 64x64x32_w2x2_s3     async |   1392.30 |   1383.42 | ×0.994
+4B attn.qkv      2048 64x64x32_w2x2_s3     sync  |   1147.56 |   1284.78 | ×1.120
+4B dn.out         128 64x128x32_w2x2_s2    async |     81.73 |     81.77 | ×1.000
+4B dn.out         128 64x128x32_w2x2_s2    sync  |     98.89 |     98.74 | ×0.998
+4B dn.out         128 64x64x32_w2x2_s3     async |     62.90 |     69.19 | ×1.100
+4B dn.out         128 64x64x32_w2x2_s3     sync  |     78.56 |     81.92 | ×1.043
+4B dn.out         512 64x128x32_w2x2_s2    async |    162.47 |    168.28 | ×1.036
+4B dn.out         512 64x128x32_w2x2_s2    sync  |    174.42 |    173.06 | ×0.992
+4B dn.out         512 64x64x32_w2x2_s3     async |    157.70 |    155.65 | ×0.987
+4B dn.out         512 64x64x32_w2x2_s3     sync  |    139.95 |    152.58 | ×1.090
+4B dn.out        1024 64x128x32_w2x2_s2    async |    264.53 |    273.41 | ×1.034
+4B dn.out        1024 64x128x32_w2x2_s2    sync  |    268.57 |    268.97 | ×1.001
+4B dn.out        1024 64x64x32_w2x2_s3     async |    285.82 |    292.52 | ×1.023
+4B dn.out        1024 64x64x32_w2x2_s3     sync  |    247.81 |    263.52 | ×1.063
+4B dn.out        2048 64x128x32_w2x2_s2    async |    468.65 |    474.78 | ×1.013
+4B dn.out        2048 64x128x32_w2x2_s2    sync  |    460.80 |    479.23 | ×1.040
+4B dn.out        2048 64x64x32_w2x2_s3     async |    571.03 |    549.18 | ×0.962
+4B dn.out        2048 64x64x32_w2x2_s3     sync  |    456.77 |    490.58 | ×1.074
+4B dn.proj128     128 64x128x32_w2x2_s2    async |    218.79 |    219.37 | ×1.003
+4B dn.proj128     128 64x128x32_w2x2_s2    sync  |    225.28 |    226.30 | ×1.005
+4B dn.proj128     128 64x64x32_w2x2_s3     async |    200.36 |    201.05 | ×1.003
+4B dn.proj128     128 64x64x32_w2x2_s3     sync  |    225.96 |    226.02 | ×1.000
+4B dn.proj128     512 64x128x32_w2x2_s2    async |    355.33 |    362.84 | ×1.021
+4B dn.proj128     512 64x128x32_w2x2_s2    sync  |    387.75 |    392.66 | ×1.013
+4B dn.proj128     512 64x64x32_w2x2_s3     async |    425.98 |    422.23 | ×0.991
+4B dn.proj128     512 64x64x32_w2x2_s3     sync  |    385.05 |    417.45 | ×1.084
+4B dn.proj128    1024 64x128x32_w2x2_s2    async |    673.79 |    678.57 | ×1.007
+4B dn.proj128    1024 64x128x32_w2x2_s2    sync  |    693.59 |    709.97 | ×1.024
+4B dn.proj128    1024 64x64x32_w2x2_s3     async |    841.39 |    842.67 | ×1.002
+4B dn.proj128    1024 64x64x32_w2x2_s3     sync  |    706.56 |    791.17 | ×1.120
+4B dn.proj128    2048 64x128x32_w2x2_s2    async |   1338.03 |   1338.85 | ×1.001
+4B dn.proj128    2048 64x128x32_w2x2_s2    sync  |   1332.89 |   1368.06 | ×1.026
+4B dn.proj128    2048 64x64x32_w2x2_s3     async |   1675.95 |   1673.22 | ×0.998
+4B dn.proj128    2048 64x64x32_w2x2_s3     sync  |   1382.27 |   1552.73 | ×1.123
+4B mlp.down       128 64x128x32_w2x2_s2    async |    214.06 |    215.10 | ×1.005
+4B mlp.down       128 64x128x32_w2x2_s2    sync  |    247.13 |    242.69 | ×0.982
+4B mlp.down       128 64x64x32_w2x2_s3     async |    148.82 |    153.60 | ×1.032
+4B mlp.down       128 64x64x32_w2x2_s3     sync  |    212.99 |    206.17 | ×0.968
+4B mlp.down       512 64x128x32_w2x2_s2    async |    359.42 |    370.35 | ×1.030
+4B mlp.down       512 64x128x32_w2x2_s2    sync  |    384.69 |    381.59 | ×0.992
+4B mlp.down       512 64x64x32_w2x2_s3     async |    387.41 |    353.07 | ×0.911
+4B mlp.down       512 64x64x32_w2x2_s3     sync  |    371.71 |    340.99 | ×0.917
+4B mlp.down      1024 64x128x32_w2x2_s2    async |    588.46 |    608.94 | ×1.035
+4B mlp.down      1024 64x128x32_w2x2_s2    sync  |    596.31 |    597.67 | ×1.002
+4B mlp.down      1024 64x64x32_w2x2_s3     async |    723.56 |    660.14 | ×0.912
+4B mlp.down      1024 64x64x32_w2x2_s3     sync  |    654.61 |    605.18 | ×0.924
+4B mlp.down      2048 64x128x32_w2x2_s2    async |   1058.82 |   1061.89 | ×1.003
+4B mlp.down      2048 64x128x32_w2x2_s2    sync  |   1023.45 |   1060.52 | ×1.036
+4B mlp.down      2048 64x64x32_w2x2_s3     async |   1479.00 |   1276.66 | ×0.863
+4B mlp.down      2048 64x64x32_w2x2_s3     sync  |   1284.10 |   1136.64 | ×0.885
+4B mlp.gate_up    128 64x128x32_w2x2_s2    async |    348.84 |    349.87 | ×1.003
+4B mlp.gate_up    128 64x128x32_w2x2_s2    sync  |    365.23 |    365.91 | ×1.002
+4B mlp.gate_up    128 64x64x32_w2x2_s3     async |    302.51 |    304.47 | ×1.006
+4B mlp.gate_up    128 64x64x32_w2x2_s3     sync  |    336.21 |    337.92 | ×1.005
+4B mlp.gate_up    512 64x128x32_w2x2_s2    async |    510.03 |    523.26 | ×1.026
+4B mlp.gate_up    512 64x128x32_w2x2_s2    sync  |    559.85 |    563.54 | ×1.007
+4B mlp.gate_up    512 64x64x32_w2x2_s3     async |    622.25 |    615.77 | ×0.990
+4B mlp.gate_up    512 64x64x32_w2x2_s3     sync  |    572.07 |    612.69 | ×1.071
+4B mlp.gate_up   1024 64x128x32_w2x2_s2    async |    968.64 |    991.57 | ×1.024
+4B mlp.gate_up   1024 64x128x32_w2x2_s2    sync  |   1017.41 |   1041.41 | ×1.024
+4B mlp.gate_up   1024 64x64x32_w2x2_s3     async |   1242.79 |   1241.88 | ×0.999
+4B mlp.gate_up   1024 64x64x32_w2x2_s3     sync  |   1043.75 |   1164.97 | ×1.116
+4B mlp.gate_up   2048 64x128x32_w2x2_s2    async |   1967.79 |   1968.13 | ×1.000
+4B mlp.gate_up   2048 64x128x32_w2x2_s2    sync  |   1970.18 |   2023.88 | ×1.027
+4B mlp.gate_up   2048 64x64x32_w2x2_s3     async |   2483.35 |   2480.13 | ×0.999
+4B mlp.gate_up   2048 64x64x32_w2x2_s3     sync  |   2041.91 |   2293.08 | ×1.123
+
+geometric mean of wmma / mma over the 6 shapes
+0.8B 64x128x32_w2x2_s2    async M   128: ×1.022 (min 0.993 max 1.034)
+0.8B 64x128x32_w2x2_s2    async M   512: ×1.011 (min 1.003 max 1.019)
+0.8B 64x128x32_w2x2_s2    async M  1024: ×1.035 (min 1.010 max 1.063)
+0.8B 64x128x32_w2x2_s2    async M  2048: ×1.024 (min 1.004 max 1.033)
+0.8B 64x128x32_w2x2_s2    sync  M   128: ×1.011 (min 0.980 max 1.035)
+0.8B 64x128x32_w2x2_s2    sync  M   512: ×1.009 (min 0.980 max 1.032)
+0.8B 64x128x32_w2x2_s2    sync  M  1024: ×1.019 (min 1.008 max 1.030)
+0.8B 64x128x32_w2x2_s2    sync  M  2048: ×1.129 (min 1.023 max 1.321)
+0.8B 64x64x32_w2x2_s3     async M   128: ×1.023 (min 1.013 max 1.036)
+0.8B 64x64x32_w2x2_s3     async M   512: ×1.037 (min 1.003 max 1.078)
+0.8B 64x64x32_w2x2_s3     async M  1024: ×0.954 (min 0.913 max 0.993)
+0.8B 64x64x32_w2x2_s3     async M  2048: ×0.977 (min 0.949 max 0.998)
+0.8B 64x64x32_w2x2_s3     sync  M   128: ×0.997 (min 0.945 max 1.044)
+0.8B 64x64x32_w2x2_s3     sync  M   512: ×1.116 (min 1.067 max 1.185)
+0.8B 64x64x32_w2x2_s3     sync  M  1024: ×1.074 (min 1.060 max 1.086)
+0.8B 64x64x32_w2x2_s3     sync  M  2048: ×1.075 (min 1.063 max 1.086)
+4B 64x128x32_w2x2_s2    async M   128: ×1.005 (min 1.000 max 1.020)
+4B 64x128x32_w2x2_s2    async M   512: ×1.027 (min 1.013 max 1.036)
+4B 64x128x32_w2x2_s2    async M  1024: ×1.022 (min 1.001 max 1.035)
+4B 64x128x32_w2x2_s2    async M  2048: ×1.006 (min 1.000 max 1.014)
+4B 64x128x32_w2x2_s2    sync  M   128: ×0.997 (min 0.982 max 1.005)
+4B 64x128x32_w2x2_s2    sync  M   512: ×1.000 (min 0.992 max 1.013)
+4B 64x128x32_w2x2_s2    sync  M  1024: ×1.011 (min 0.998 max 1.024)
+4B 64x128x32_w2x2_s2    sync  M  2048: ×1.032 (min 1.023 max 1.040)
+4B 64x64x32_w2x2_s3     async M   128: ×1.042 (min 1.003 max 1.100)
+4B 64x64x32_w2x2_s3     async M   512: ×0.974 (min 0.911 max 0.991)
+4B 64x64x32_w2x2_s3     async M  1024: ×0.991 (min 0.912 max 1.024)
+4B 64x64x32_w2x2_s3     async M  2048: ×0.961 (min 0.863 max 0.999)
+4B 64x64x32_w2x2_s3     sync  M   128: ×1.014 (min 0.968 max 1.047)
+4B 64x64x32_w2x2_s3     sync  M   512: ×1.051 (min 0.917 max 1.091)
+4B 64x64x32_w2x2_s3     sync  M  1024: ×1.064 (min 0.924 max 1.120)
+4B 64x64x32_w2x2_s3     sync  M  2048: ×1.063 (min 0.885 max 1.123)

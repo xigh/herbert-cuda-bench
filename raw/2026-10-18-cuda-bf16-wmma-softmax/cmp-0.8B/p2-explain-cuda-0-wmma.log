@@ -1,0 +1,14 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=8 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=pad gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=1 sdpa.bk=32 sdpa.softmax=reg rec.tc=1
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv × 256, intermediate 3584, vocab 248320, rotary 64, linear k 16×128 v 16×128, tied head true
+[cuda] 1.81 GiB allocated, KV for 4096 positions; 13.4 of 15.6 GiB free
+[cuda] 48 kernels, 245 launches per step
+[engine] loaded in 0.8 s, mounted in 0.01 s
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Explain step by step, in about 150 words, why the sky is blue during the day and red at sunset.
+During the day, sunlight travels through the atmosphere, scattering shorter wavelengths of blue light more effectively than longer ones. This phenomenon, known as Rayleigh scattering, causes the sky to appear blue. As the sun sets, the light path through the atmosphere becomes longer, allowing longer wavelengths like red and orange to travel further. By the time the light reaches the ground, the blue light has already been scattered away, leaving the sky to appear red or orange.
+[ids] 15542 279 1834 11 37728 33060 1472 279 16078 11 69377 22602 89661 314 6105 3000 777 13057 1056 4860 5981 13 1061 24057 11 3750 430 12870 60845 69377 11 10814 279 12515 310 4833 6105 13 1577 279 6797 7062 11 279 3000 1752 1472 279 16078 8772 4860 11 10377 4860 89661 1040 2438 321 18016 310 5640 4473 13 3113 279 854 279 3000 23716 279 4751 11 279 6105 3000 682 2582 978 35742 3023 11 9101 279 12515 310 4833 2438 466 18016 13
+[decoded] "During the day, sunlight travels through the atmosphere, scattering shorter wavelengths of blue light more effectively than longer ones. This phenomenon, known as Rayleigh scattering, causes the sky to appear blue. As the sun sets, the light path through the atmosphere becomes longer, allowing longer wavelengths like red and orange to travel further. By the time the light reaches the ground, the blue light has already been scattered away, leaving the sky to appear red or orange."
+[turn 1] 39 prompt tokens in 0.004 s (8889.2 tok/s) · 90 generated in 0.23 s (392.67 tok/s) · position 129

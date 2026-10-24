@@ -1,0 +1,4 @@
+llama 0.8B vk-faoff p1-short 8 tokens
+llama 0.8B vk-faoff p2-explain 94 tokens
+llama 0.8B vk-faoff p3-long 256 tokens
+llama 0.8B vk-faoff p4-xlong 182 tokens

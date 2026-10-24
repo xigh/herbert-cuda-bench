@@ -1,0 +1,5 @@
+vllm-cg512 Qwen3.5-4B p   10: in [20, 21] · TTFT 25.34 ms · prefill 795 tok/s (12.9 %) · decode 76.93 tok/s (0.1 %) · out [128] · n=15
+vllm-cg512 Qwen3.5-4B p  100: in [109, 110, 111] · TTFT 27.44 ms · prefill 3973 tok/s (9.5 %) · decode 76.88 tok/s (0.1 %) · out [128] · n=15
+vllm-cg512 Qwen3.5-4B p  500: in [510, 511] · TTFT 57.20 ms · prefill 8920 tok/s (1.7 %) · decode 76.50 tok/s (0.1 %) · out [128] · n=15
+vllm-cg512 Qwen3.5-4B p 2048: in [2058, 2059] · TTFT 209.52 ms · prefill 9823 tok/s (0.6 %) · decode 75.25 tok/s (0.1 %) · out [128] · n=15
+vllm-cg512 Qwen3.5-4B p 4096: in [4105, 4106, 4107] · TTFT 401.49 ms · prefill 10229 tok/s (0.5 %) · decode 74.87 tok/s (0.1 %) · out [128] · n=15

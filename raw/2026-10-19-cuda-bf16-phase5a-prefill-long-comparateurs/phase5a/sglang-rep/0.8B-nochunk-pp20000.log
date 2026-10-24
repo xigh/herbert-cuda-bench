@@ -1,0 +1,50 @@
+[2026-10-19 19:36:49 TP0] Init parallel begin.
+[2026-10-19 19:36:49 TP0] Init parallel ends. elapsed=0.08 s
+[2026-10-19 19:36:49 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-19 19:36:50 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-19 19:36:50 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-19 19:36:50 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-19 19:36:50 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.62it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.62it/s]
+[2026-10-19 19:36:50 TP0] Load weight end. elapsed=0.69 s, type=Qwen3_5ForConditionalGeneration, avail mem=13.53 GB, mem usage=1.72 GB.
+[2026-10-19 19:36:51 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-19 19:36:51 TP0] max_running_requests is capped to 53 by the mamba state cache (max_mamba_cache_size=268, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[2026-10-19 19:36:51 TP0] Mamba Cache is allocated. max_mamba_cache_size: 268, conv_state size: 0.17GB, ssm_state size: 4.73GB 
+[2026-10-19 19:36:51 TP0] KV Cache is allocated. dtype: torch.float16, #tokens: 477565, K size: 2.73 GB, V size: 2.73 GB
+[2026-10-19 19:36:51 TP0] Memory pool end. avail mem=3.13 GB
+[2026-10-19 19:36:51 TP0] Linear attention kernel backend: decode=triton, prefill=triton, verify=triton
+[2026-10-19 19:36:51 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-19 19:36:51 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-19 19:36:51 TP0] Disable prefill CUDA graph because the capture size is not set
+[2026-10-19 19:36:51 TP0] Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, avail mem=2.68 GB
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+Capturing batches (bs=1 avail_mem=2.68 GB):   0%|          | 0/1 [00:00<?, ?it/s][2026-10-19 19:36:52 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+
+Capturing batches (bs=1 avail_mem=2.68 GB): 100%|██████████| 1/1 [00:00<00:00,  1.69it/s]
+Capturing batches (bs=1 avail_mem=2.68 GB): 100%|██████████| 1/1 [00:00<00:00,  1.69it/s]
+[2026-10-19 19:36:52 TP0] Capture target decode CUDA graph end. bs=[1], elapsed=1.40 s, mem usage=0.04 GB, avail mem=2.64 GB.
+[2026-10-19 19:36:53 TP0] Reset HybridReqToTokenPool
+[2026-10-19 19:36:53 TP0] Reset HybridReqToTokenPool
+[2026-10-19 19:36:54 TP0] Reset HybridReqToTokenPool
+[2026-10-19 19:36:54 TP0] Reset HybridReqToTokenPool
+max_total_num_tokens=477565
+Warmup ...
+Prefill. latency: 0.46771 s, throughput:  42761.52 token/s
+Total. latency:  0.468 s, throughput:  42763.66 token/s
+Benchmark ...
+Prefill. latency: 0.42472 s, throughput:  47090.37 token/s
+Total. latency:  0.425 s, throughput:  47092.73 token/s
+Prefill. latency: 0.42471 s, throughput:  47090.69 token/s
+Total. latency:  0.425 s, throughput:  47093.04 token/s
+Prefill. latency: 0.42434 s, throughput:  47131.77 token/s
+Total. latency:  0.424 s, throughput:  47134.12 token/s

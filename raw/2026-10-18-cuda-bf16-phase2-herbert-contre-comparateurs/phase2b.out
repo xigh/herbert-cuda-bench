@@ -1,0 +1,16 @@
+== 2026-10-18T18:32:15+02:00 build b11719 ·  18:32:15 up 6 days,  9:41, 11 users,  load average: 0.54, 1.23, 1.22
+== 2026-10-18T18:35:53+02:00 round 1 0.8B ·  18:35:53 up 6 days,  9:44, 11 users,  load average: 2.93, 3.91, 2.44
+== 2026-10-18T18:36:04+02:00 round 1 4B ·  18:36:04 up 6 days,  9:45, 11 users,  load average: 2.63, 3.81, 2.43
+== 2026-10-18T18:36:33+02:00 round 2 0.8B ·  18:36:33 up 6 days,  9:45, 11 users,  load average: 1.99, 3.54, 2.38
+== 2026-10-18T18:36:44+02:00 round 2 4B ·  18:36:44 up 6 days,  9:45, 11 users,  load average: 1.83, 3.46, 2.36
+== 2026-10-18T18:37:14+02:00 round 3 0.8B ·  18:37:14 up 6 days,  9:46, 11 users,  load average: 1.50, 3.22, 2.32
+== 2026-10-18T18:37:24+02:00 round 3 4B ·  18:37:24 up 6 days,  9:46, 11 users,  load average: 1.43, 3.15, 2.30
+== 2026-10-18T18:37:54+02:00 round 4 0.8B ·  18:37:54 up 6 days,  9:46, 11 users,  load average: 1.26, 2.94, 2.26
+== 2026-10-18T18:38:04+02:00 round 4 4B ·  18:38:04 up 6 days,  9:47, 11 users,  load average: 1.22, 2.88, 2.25
+== 2026-10-18T18:38:34+02:00 round 5 0.8B ·  18:38:34 up 6 days,  9:47, 11 users,  load average: 1.20, 2.71, 2.21
+== 2026-10-18T18:38:44+02:00 round 5 4B ·  18:38:44 up 6 days,  9:47, 11 users,  load average: 1.17, 2.66, 2.20
+== 2026-10-18T18:39:14+02:00 tokens 0.8B cuda-default ·  18:39:14 up 6 days,  9:48, 11 users,  load average: 1.10, 2.50, 2.16
+== 2026-10-18T18:39:17+02:00 tokens 0.8B cuda-faon-ub1024 ·  18:39:17 up 6 days,  9:48, 11 users,  load average: 1.01, 2.45, 2.15
+== 2026-10-18T18:39:20+02:00 tokens 4B cuda-default ·  18:39:20 up 6 days,  9:48, 11 users,  load average: 1.09, 2.45, 2.15
+== 2026-10-18T18:39:31+02:00 tokens 4B cuda-faon-ub1024 ·  18:39:31 up 6 days,  9:48, 11 users,  load average: 1.08, 2.40, 2.13
+ALLDONE-phase2b

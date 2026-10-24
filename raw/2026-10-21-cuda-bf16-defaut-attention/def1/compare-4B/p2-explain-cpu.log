@@ -1,0 +1,22 @@
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.1 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.9 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.8 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.008 s
+[engine] loaded in 3.1 s, mounted in 0.49 s — 8192 positions reserved, prefill program Some((3941112, 404459, 405442)), decode program Some((3940632, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Explain step by step, in about 150 words, why the sky is blue during the day and red at sunset.
+
+[answer]
+The sky appears blue during the day due to a phenomenon called Rayleigh scattering. Sunlight contains all colors of the visible spectrum, but shorter wavelengths like blue scatter much more easily than longer wavelengths like red when they hit Earth's atmosphere. Since the atmosphere is relatively thin, this scattered blue light reaches our eyes from all directions, making the sky look blue.
+
+At sunset, the sun is lower on the horizon, so sunlight must travel through a much thicker layer of the atmosphere to reach us. During this longer journey, most of the blue light is scattered away completely. The remaining light, dominated by longer wavelengths like red, orange, and yellow, passes through to our eyes. This concentrated path of red light creates the vibrant colors seen at sunrise and sunset. Essentially, the angle of the sun changes how much light interacts with the air, shifting the perceived color from blue to red.
+[ids] 760 12515 7701 6105 2261 279 1834 4016 310 264 24057 2512 12870 60845 69377 13 7806 4009 5435 660 7736 314 279 9155 19142 11 694 22602 89661 1040 6105 43000 1691 777 6497 1056 4860 89661 1040 2438 948 781 4062 8964 579 16078 13 8439 279 16078 369 11697 14979 11 411 35742 6105 3000 23716 1004 6213 494 660 17425 11 3154 279 12515 1353 6105 13 271 1597 41564 11 279 6797 369 4570 383 279 32946 11 748 37728 1902 5640 1472 264 1691 56797 6000 314 279 16078 310 5372 586 13 11615 411 4860 11285 11 1379 314 279 6105 3000 369 35742 3023 6379 13 561 9376 3000 11 28731 539 4860 89661 1040 2438 11 18016 11 321 13358 11 15734 1472 310 1004 6213 13 1061 36283 1752 314 2438 3000 11121 279 31883 7736 3753 506 61665 321 41564 13 68360 11 279 8937 314 279 6797 4203 1204 1691 3000 80291 440 279 3594 11 30787 279 24723 1829 494 6105 310 2438 13
+[decoded] "The sky appears blue during the day due to a phenomenon called Rayleigh scattering. Sunlight contains all colors of the visible spectrum, but shorter wavelengths like blue scatter much more easily than longer wavelengths like red when they hit Earth's atmosphere. Since the atmosphere is relatively thin, this scattered blue light reaches our eyes from all directions, making the sky look blue.\n\nAt sunset, the sun is lower on the horizon, so sunlight must travel through a much thicker layer of the atmosphere to reach us. During this longer journey, most of the blue light is scattered away completely. The remaining light, dominated by longer wavelengths like red, orange, and yellow, passes through to our eyes. This concentrated path of red light creates the vibrant colors seen at sunrise and sunset. Essentially, the angle of the sun changes how much light interacts with the air, shifting the perceived color from blue to red."
+[turn 1] 39 prompt tokens in 0.227 s (171.5 tok/s) · 177 generated in 34.50 s (5.13 tok/s) · 0 tool calls · rewrite 0.000 s · position 216

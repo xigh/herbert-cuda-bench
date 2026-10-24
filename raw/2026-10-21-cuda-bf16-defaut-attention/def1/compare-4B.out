@@ -1,0 +1,90 @@
+p1-short cuda-0-new exit 0
+p1-short cuda-0-old-sw exit 0
+p1-short cuda-0-new-old exit 0
+p1-short cuda-0-old exit 0
+p2-explain cuda-0-new exit 0
+p2-explain cuda-0-old-sw exit 0
+p2-explain cuda-0-new-old exit 0
+p2-explain cuda-0-old exit 0
+p3-long cuda-0-new exit 0
+p3-long cuda-0-old-sw exit 0
+p3-long cuda-0-new-old exit 0
+p3-long cuda-0-old exit 0
+p4-xlong cuda-0-new exit 0
+p4-xlong cuda-0-old-sw exit 0
+p4-xlong cuda-0-new-old exit 0
+p4-xlong cuda-0-old exit 0
+pp1024 cuda-0-new exit 0
+pp1024 cuda-0-old-sw exit 0
+pp1024 cuda-0-new-old exit 0
+pp1024 cuda-0-old exit 0
+pp128 cuda-0-new exit 0
+pp128 cuda-0-old-sw exit 0
+pp128 cuda-0-new-old exit 0
+pp128 cuda-0-old exit 0
+pp2048 cuda-0-new exit 0
+pp2048 cuda-0-old-sw exit 0
+pp2048 cuda-0-new-old exit 0
+pp2048 cuda-0-old exit 0
+pp256 cuda-0-new exit 0
+pp256 cuda-0-old-sw exit 0
+pp256 cuda-0-new-old exit 0
+pp256 cuda-0-old exit 0
+pp4000 cuda-0-new exit 0
+pp4000 cuda-0-old-sw exit 0
+pp4000 cuda-0-new-old exit 0
+pp4000 cuda-0-old exit 0
+pp512 cuda-0-new exit 0
+pp512 cuda-0-old-sw exit 0
+pp512 cuda-0-new-old exit 0
+pp512 cuda-0-old exit 0
+p1-short: cpu 7 tokens · prompt 24 @ 111.1 tok/s · gen 7 @ 5.14 tok/s
+  0-new-old: identical (7 tokens) · prompt 24 @ 1429.9 tok/s · gen 7 @ 80.06 tok/s
+  0-new: identical (7 tokens) · prompt 24 @ 1430.6 tok/s · gen 7 @ 79.86 tok/s
+  0-old-sw: identical (7 tokens) · prompt 24 @ 1430.0 tok/s · gen 7 @ 79.86 tok/s
+  0-old: identical (7 tokens) · prompt 24 @ 1430.0 tok/s · gen 7 @ 80.07 tok/s
+p2-explain: cpu 177 tokens · prompt 39 @ 171.5 tok/s · gen 177 @ 5.13 tok/s
+  0-new-old: first divergence at token 32 of 177 · prompt 39 @ 2276.4 tok/s · gen 165 @ 80.16 tok/s
+  0-new: identical (177 tokens) · prompt 39 @ 2277.1 tok/s · gen 177 @ 79.98 tok/s
+  0-old-sw: identical (177 tokens) · prompt 39 @ 2277.9 tok/s · gen 177 @ 79.97 tok/s
+  0-old: first divergence at token 32 of 177 · prompt 39 @ 2272.5 tok/s · gen 165 @ 80.16 tok/s
+p3-long: cpu 255 tokens · prompt 759 @ 617.0 tok/s · gen 255 @ 5.10 tok/s
+  0-new-old: identical (255 tokens) · prompt 759 @ 11011.1 tok/s · gen 255 @ 78.44 tok/s
+  0-new: identical (255 tokens) · prompt 759 @ 10927.7 tok/s · gen 255 @ 78.66 tok/s
+  0-old-sw: identical (255 tokens) · prompt 759 @ 10967.8 tok/s · gen 255 @ 78.66 tok/s
+  0-old: identical (255 tokens) · prompt 759 @ 10885.0 tok/s · gen 255 @ 78.43 tok/s
+p4-xlong: cpu 190 tokens · prompt 2882 @ 587.0 tok/s · gen 190 @ 5.02 tok/s
+  0-new-old: first divergence at token 105 of 190 · prompt 2882 @ 11303.5 tok/s · gen 186 @ 76.80 tok/s
+  0-new: first divergence at token 105 of 190 · prompt 2882 @ 11346.3 tok/s · gen 186 @ 77.89 tok/s
+  0-old-sw: first divergence at token 105 of 190 · prompt 2882 @ 11397.8 tok/s · gen 186 @ 77.89 tok/s
+  0-old: first divergence at token 105 of 190 · prompt 2882 @ 11259.9 tok/s · gen 186 @ 76.80 tok/s
+pp1024: cpu 1 tokens · prompt 1024 @ 615.0 tok/s · gen 1 @ 5.09 tok/s
+  0-new-old: identical (1 tokens) · prompt 1024 @ 11341.3 tok/s · gen 1 @ 77.02 tok/s
+  0-new: identical (1 tokens) · prompt 1024 @ 11496.7 tok/s · gen 1 @ 77.28 tok/s
+  0-old-sw: identical (1 tokens) · prompt 1024 @ 11378.7 tok/s · gen 1 @ 77.32 tok/s
+  0-old: identical (1 tokens) · prompt 1024 @ 11341.6 tok/s · gen 1 @ 77.00 tok/s
+pp128: cpu 1 tokens · prompt 128 @ 422.3 tok/s · gen 1 @ 5.13 tok/s
+  0-new-old: identical (1 tokens) · prompt 128 @ 6481.9 tok/s · gen 1 @ 78.82 tok/s
+  0-new: identical (1 tokens) · prompt 128 @ 6495.9 tok/s · gen 1 @ 78.74 tok/s
+  0-old-sw: identical (1 tokens) · prompt 128 @ 6491.1 tok/s · gen 1 @ 78.74 tok/s
+  0-old: identical (1 tokens) · prompt 128 @ 6481.9 tok/s · gen 1 @ 78.74 tok/s
+pp2048: cpu 1 tokens · prompt 2048 @ 605.8 tok/s · gen 1 @ 5.04 tok/s
+  0-new-old: identical (1 tokens) · prompt 2048 @ 11681.9 tok/s · gen 1 @ 76.21 tok/s
+  0-new: identical (1 tokens) · prompt 2048 @ 11758.9 tok/s · gen 1 @ 76.90 tok/s
+  0-old-sw: identical (1 tokens) · prompt 2048 @ 11742.9 tok/s · gen 1 @ 76.85 tok/s
+  0-old: identical (1 tokens) · prompt 2048 @ 11710.7 tok/s · gen 1 @ 76.19 tok/s
+pp256: cpu 1 tokens · prompt 256 @ 589.0 tok/s · gen 1 @ 5.12 tok/s
+  0-new-old: identical (1 tokens) · prompt 256 @ 9337.9 tok/s · gen 1 @ 78.65 tok/s
+  0-new: identical (1 tokens) · prompt 256 @ 9359.5 tok/s · gen 1 @ 78.64 tok/s
+  0-old-sw: identical (1 tokens) · prompt 256 @ 9364.4 tok/s · gen 1 @ 78.61 tok/s
+  0-old: identical (1 tokens) · prompt 256 @ 9349.8 tok/s · gen 1 @ 78.63 tok/s
+pp4000: cpu 1 tokens · prompt 4001 @ 585.9 tok/s · gen 1 @ 4.98 tok/s
+  0-new-old: identical (1 tokens) · prompt 4001 @ 11333.8 tok/s · gen 1 @ 75.11 tok/s
+  0-new: identical (1 tokens) · prompt 4001 @ 11440.1 tok/s · gen 1 @ 76.61 tok/s
+  0-old-sw: identical (1 tokens) · prompt 4001 @ 11453.0 tok/s · gen 1 @ 76.60 tok/s
+  0-old: identical (1 tokens) · prompt 4001 @ 11297.2 tok/s · gen 1 @ 75.18 tok/s
+pp512: cpu 1 tokens · prompt 513 @ 504.6 tok/s · gen 1 @ 5.11 tok/s
+  0-new-old: first divergence at token 0 of 1 · prompt 513 @ 9653.7 tok/s · gen 1 @ 78.04 tok/s
+  0-new: first divergence at token 0 of 1 · prompt 513 @ 9671.8 tok/s · gen 1 @ 78.14 tok/s
+  0-old-sw: first divergence at token 0 of 1 · prompt 513 @ 9712.6 tok/s · gen 1 @ 78.16 tok/s
+  0-old: first divergence at token 0 of 1 · prompt 513 @ 9655.3 tok/s · gen 1 @ 78.05 tok/s

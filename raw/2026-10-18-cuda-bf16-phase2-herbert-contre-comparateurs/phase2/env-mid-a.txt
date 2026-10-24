@@ -1,0 +1,118 @@
+2026-10-18T17:32:13+02:00
+ 17:32:13 up 6 days,  8:41, 12 users,  load average: 1.02, 1.22, 1.16
+NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  595.99.02  Release Build  (dvs-builder@U22-I3-AF05-06-2)  Wed Aug 26 05:20:50 UTC 2026
+GCC version:  gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 
+name, driver_version, clocks.current.sm [MHz], clocks.current.memory [MHz], pstate, persistence_mode
+NVIDIA GeForce RTX 4080, 595.99.02, 2805 MHz, 11201 MHz, P0, Disabled
+-- herbert-cuda af9a631 (code = 71920b9)
+c34b25e0a85ad090b0d0fe691b5c6eb99816329f10de399e921993c14ec878ce  ~/herbert-cuda-mma/target/release/herbert-cuda-chat
+0e813072f177bf3ec1b87cb3e0c0a25f97c539187b9b29de36028ddd0b1e0098  ~/herbert-cuda-mma/target/release/herbert-cuda-serve
+-- herbert-vk 2f3ae48 / serve 9738be7
+238400e3f03cc49cdb7a38fc2fe6bde53ecefda4b9b4999e4218548f3d6ec703  ~/herbert-vk-bf16-v1/target/release/herbert-vk-chat
+96f7f676c548bbc4a429914a3e9d1571cebd1db37abd55e297d2ed96ad5d8210  ~/herbert-vk-bf16-serve/target/release/herbert-vk-serve
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 15945 MiB):
+  Device 0: NVIDIA GeForce RTX 4080, compute capability 8.9, VMM: yes, VRAM: 15945 MiB
+-- vllm-latest
+{'torch': '2.13.0', 'transformers': '5.17.0', 'vllm': '0.31.0', 'flashinfer-python': '0.7.0.post1', 'torchvision': '0.28.0'}
+-- sglang-latest
+{'torch': '2.14.1', 'transformers': '5.19.0', 'sglang': '0.5.22', 'flashinfer-python': '0.7.1', 'torchvision': '0.29.1'}
+-- transformers-latest
+{'torch': '2.14.1', 'transformers': '5.20.1', 'torchvision': '0.29.1'}
+-- profile
+{
+    "profiles": [
+        {
+            "name": "CudaNoStablePerfLimit",
+            "settings": [
+                "0x166c5e",
+                0
+            ]
+        }
+    ],
+    "rules": [
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-chat"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-bench"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-probe"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-bench"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-server"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-cli"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python3"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python3.12"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-serve"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "vllm"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "transformers"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        }
+    ]
+}

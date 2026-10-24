@@ -1,0 +1,4 @@
+llama 4B vk-default pp10000 64 tokens
+llama 4B vk-default pp20000 64 tokens
+llama 4B vk-default pp40000 64 tokens
+llama 4B vk-default pp60000 64 tokens

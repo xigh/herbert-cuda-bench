@@ -1,0 +1,8 @@
+== 2026-10-20T22:22:21+02:00 dd3 ended: ALLDONE-dd3 == 2026-10-20T22:22:03+02:00 resident-gpu: active 
+== 2026-10-20T22:23:07+02:00 dd4: ALLDONE-dd4
+warning: remote HEAD refers to nonexistent ref, unable to checkout
+== 2026-10-20T22:23:17+02:00 built bc8e601 (2026-10-20T22:07:01+02:00) Decode attention in one pass per GQA group (--tune sdpa.gqa=1, default 0): blocks pe
+ptxas ok sdpa_gqa_h16kv4d256_s8.ptx
+ptxas ok sdpa_gqa_h8kv2d256_s8.ptx
+== 2026-10-20T22:27:55+02:00 dd5: ALLDONE-dd5
+ALLDONE-chain

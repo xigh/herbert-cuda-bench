@@ -1,0 +1,169 @@
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:36,  8.67it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1638.59it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-dynamic 10000 1 done
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-dynamic 10000 128 done
+0.8B sdpa-dynamic 20000 1 done
+0.8B sdpa-dynamic 20000 128 done
+0.8B sdpa-dynamic 40000 1 done
+0.8B sdpa-dynamic 40000 128 done
+0.8B sdpa-dynamic 60000 1 done
+0.8B sdpa-dynamic 60000 128 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:36,  8.78it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1750.46it/s]
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 21:45:12.761000 766110 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-static-compile 10000 1 done
+W1019 21:45:16.620000 766110 torch/_dynamo/convert_frame.py:2008] [7/8] torch._dynamo hit config.recompile_limit (8)
+W1019 21:45:16.620000 766110 torch/_dynamo/convert_frame.py:2008] [7/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:860)
+W1019 21:45:16.620000 766110 torch/_dynamo/convert_frame.py:2008] [7/8]    last reason: 7/0: KeyError on self._modules['linear_attn']
+W1019 21:45:16.620000 766110 torch/_dynamo/convert_frame.py:2008] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 21:45:16.620000 766110 torch/_dynamo/convert_frame.py:2008] [7/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs] skipping cudagraphs due to mutated inputs (19 instances). Found from : 
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]    File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = func(self, *args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1708, in forward
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     outputs: BaseModelOutputWithPast = self.model(
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                                        ^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = func(self, *args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     outputs = func(self, *args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1278, in forward
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     hidden_states = decoder_layer(
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                     ^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     return super().__call__(*args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 875, in forward
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     hidden_states = self.linear_attn(
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                     ^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/integrations/accelerate.py", line 1010, in wrapped
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = forward_func(self, *args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 563, in forward
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     mixed_qkv = causal_conv1d_update(
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                 ^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 1051, in wrapped
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     return implementation(*args, **kwargs)
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 247, in causal_conv1d_update
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     conv_state.copy_(hidden_states_new[:, :, -state_len:])
+W1019 21:45:28.918000 766110 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs] 
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:53,  3.73it/s]
+Loading weights:  18%|█▊        | 75/426 [00:00<00:01, 247.72it/s]
+Loading weights:  28%|██▊       | 120/426 [00:00<00:00, 311.78it/s]
+Loading weights:  39%|███▉      | 167/426 [00:00<00:00, 340.63it/s]
+Loading weights:  50%|████▉     | 212/426 [00:00<00:00, 352.94it/s]
+Loading weights:  61%|██████    | 259/426 [00:00<00:00, 384.83it/s]
+Loading weights:  72%|███████▏  | 307/426 [00:00<00:00, 411.22it/s]
+Loading weights:  83%|████████▎ | 354/426 [00:01<00:00, 415.46it/s]
+Loading weights:  93%|█████████▎| 398/426 [00:01<00:00, 420.87it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 356.15it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+4B sdpa-dynamic 10000 1 done
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+4B sdpa-dynamic 10000 128 done
+4B sdpa-dynamic 20000 1 done
+4B sdpa-dynamic 20000 128 done
+[W1019 22:12:26.214477836 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 559284224, total: 16720199680).
+4B sdpa-dynamic 40000 1 done
+4B sdpa-dynamic 40000 128 done
+[W1019 22:13:54.717859632 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 655753216, total: 16720199680).
+[W1019 22:13:54.843257794 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1107296256 bytes (free: 112590848, total: 16720199680).
+[W1019 22:13:54.010578463 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 976617472, total: 16720199680).
+[W1019 22:13:54.010638276 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 976617472, total: 16720199680).
+4B sdpa-dynamic 60000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 938.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 931.38 MiB is free. Including non-PyTorch memory, this process has 14.64 GiB memory in use. Of the allocated memory 13.57 GiB is allocated by PyTorch, and 805.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 22:13:54.142203497 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 974520320, total: 16720199680).
+[W1019 22:13:54.230082478 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 983564288 bytes (free: 976617472, total: 16720199680).
+4B sdpa-dynamic 60000 128 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 938.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 931.38 MiB is free. Including non-PyTorch memory, this process has 14.64 GiB memory in use. Of the allocated memory 13.28 GiB is allocated by PyTorch, and 1.07 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:54,  3.70it/s]
+Loading weights:  16%|█▌        | 67/426 [00:00<00:01, 223.89it/s]
+Loading weights:  25%|██▍       | 106/426 [00:00<00:01, 277.21it/s]
+Loading weights:  37%|███▋      | 159/426 [00:00<00:00, 346.07it/s]
+Loading weights:  48%|████▊     | 204/426 [00:00<00:00, 367.61it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:00<00:00, 401.46it/s]
+Loading weights:  71%|███████   | 301/426 [00:00<00:00, 400.05it/s]
+Loading weights:  83%|████████▎ | 354/426 [00:01<00:00, 414.97it/s]
+Loading weights:  93%|█████████▎| 398/426 [00:01<00:00, 421.27it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 353.90it/s]
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 22:14:04.896000 774221 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+W1019 22:14:06.091000 774221 torch/_dynamo/convert_frame.py:2008] [7/8] torch._dynamo hit config.recompile_limit (8)
+W1019 22:14:06.091000 774221 torch/_dynamo/convert_frame.py:2008] [7/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:860)
+W1019 22:14:06.091000 774221 torch/_dynamo/convert_frame.py:2008] [7/8]    last reason: 7/0: KeyError on self._modules['linear_attn']
+W1019 22:14:06.091000 774221 torch/_dynamo/convert_frame.py:2008] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 22:14:06.091000 774221 torch/_dynamo/convert_frame.py:2008] [7/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+4B sdpa-static-compile 10000 1 done
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs] skipping cudagraphs due to mutated inputs (16 instances). Found from : 
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]    File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = func(self, *args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1708, in forward
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     outputs: BaseModelOutputWithPast = self.model(
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                                        ^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = func(self, *args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     outputs = func(self, *args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1278, in forward
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     hidden_states = decoder_layer(
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                     ^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     return super().__call__(*args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 875, in forward
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     hidden_states = self.linear_attn(
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                     ^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/integrations/accelerate.py", line 1010, in wrapped
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     output = forward_func(self, *args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 563, in forward
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     mixed_qkv = causal_conv1d_update(
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]                 ^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 1051, in wrapped
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     return implementation(*args, **kwargs)
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 247, in causal_conv1d_update
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs]     conv_state.copy_(hidden_states_new[:, :, -state_len:])
+W1019 22:14:30.678000 774221 torch/_inductor/cudagraph_utils.py:401] [__cudagraphs] 

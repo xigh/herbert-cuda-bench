@@ -1,0 +1,4 @@
+llama 4B cuda-default pp10000 64 tokens
+llama 4B cuda-default pp20000 64 tokens
+llama 4B cuda-default pp40000 64 tokens
+llama 4B cuda-default pp60000 64 tokens

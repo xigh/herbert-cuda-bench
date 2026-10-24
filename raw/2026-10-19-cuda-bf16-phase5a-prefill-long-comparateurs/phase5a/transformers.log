@@ -1,0 +1,253 @@
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:35,  9.08it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1723.19it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-dynamic 10000 1 done
+0.8B sdpa-dynamic 20000 1 done
+0.8B sdpa-dynamic 40000 1 done
+0.8B sdpa-dynamic 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  45%|████▌     | 145/320 [00:00<00:00, 1444.73it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2012.01it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-static 10000 1 done
+0.8B sdpa-static 20000 1 done
+0.8B sdpa-static 40000 1 done
+0.8B sdpa-static 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:36,  8.82it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1700.47it/s]
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:49:42.988000 746434 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-static-compile 10000 1 done
+W1019 19:49:52.289000 746434 torch/_dynamo/convert_frame.py:2008] [7/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:49:52.289000 746434 torch/_dynamo/convert_frame.py:2008] [7/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:860)
+W1019 19:49:52.289000 746434 torch/_dynamo/convert_frame.py:2008] [7/8]    last reason: 7/7: KeyError on self._modules['linear_attn']
+W1019 19:49:52.289000 746434 torch/_dynamo/convert_frame.py:2008] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:49:52.289000 746434 torch/_dynamo/convert_frame.py:2008] [7/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+0.8B sdpa-static-compile 20000 1 done
+0.8B sdpa-static-compile 40000 1 done
+0.8B sdpa-static-compile 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  36%|███▌      | 114/320 [00:00<00:00, 1130.71it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1871.74it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B eager-dynamic 10000 1 done
+[W1019 19:50:19.722299914 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 1091960832, total: 16720199680).
+[W1019 19:50:19.887225247 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 6236274688, total: 16720199680).
+0.8B eager-dynamic 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 5.81 GiB is free. Including non-PyTorch memory, this process has 9.74 GiB memory in use. Of the allocated memory 8.59 GiB is allocated by PyTorch, and 887.89 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:50:19.034301122 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 8283095040, total: 16720199680).
+[W1019 19:50:19.217644260 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 10585767936, total: 16720199680).
+0.8B eager-dynamic 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 9.86 GiB is free. Including non-PyTorch memory, this process has 5.69 GiB memory in use. Of the allocated memory 5.32 GiB is allocated by PyTorch, and 82.81 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+0.8B eager-dynamic 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:37,  8.52it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1654.18it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B eager-static 10000 1 done
+[W1019 19:50:27.103081821 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 1112932352, total: 16720199680).
+[W1019 19:50:27.202203676 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 6257246208, total: 16720199680).
+0.8B eager-static 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 5.83 GiB is free. Including non-PyTorch memory, this process has 9.72 GiB memory in use. Of the allocated memory 8.59 GiB is allocated by PyTorch, and 868.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:50:28.494226280 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 8304066560, total: 16720199680).
+[W1019 19:50:28.531651395 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 10564796416, total: 16720199680).
+0.8B eager-static 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 9.84 GiB is free. Including non-PyTorch memory, this process has 5.71 GiB memory in use. Of the allocated memory 5.32 GiB is allocated by PyTorch, and 103.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+0.8B eager-static 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/320 [00:00<00:33,  9.52it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1737.86it/s]
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:50:38.825000 747077 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B eager-static-compile 10000 1 done
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8]    function: '__call__' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py:82)
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8]    last reason: 6/7: kwargs['attention_mask'] is None                         # return super().__call__(*args, **kwargs)  # transformers/modeling_layers.py:111 in __call__
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8] User stack trace:
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8]     return super().__call__(*args, **kwargs)
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:50:43.375000 747077 torch/_dynamo/convert_frame.py:2008] [6/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[W1019 19:50:43.757639181 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 508952576, total: 16720199680).
+[W1019 19:50:43.794229009 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 1719009280, total: 16720199680).
+0.8B eager-static-compile 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 1.60 GiB is free. Including non-PyTorch memory, this process has 13.95 GiB memory in use. Of the allocated memory 13.43 GiB is allocated by PyTorch, with 4.83 GiB allocated in private pools (e.g., CUDA Graphs), and 209.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:50:43.070865389 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 2492858368, total: 16720199680).
+[W1019 19:50:43.103548502 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 25602031616 bytes (free: 4464181248, total: 16720199680).
+0.8B eager-static-compile 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 23.84 GiB. GPU 0 has a total capacity of 15.57 GiB of which 4.16 GiB is free. Including non-PyTorch memory, this process has 11.39 GiB memory in use. Of the allocated memory 10.91 GiB is allocated by PyTorch, with 4.79 GiB allocated in private pools (e.g., CUDA Graphs), and 172.10 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+0.8B eager-static-compile 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:35,  4.43it/s]
+Loading weights:  15%|█▌        | 64/426 [00:00<00:01, 242.33it/s]
+Loading weights:  23%|██▎       | 100/426 [00:00<00:01, 275.74it/s]
+Loading weights:  35%|███▌      | 151/426 [00:00<00:00, 328.45it/s]
+Loading weights:  47%|████▋     | 200/426 [00:00<00:00, 377.53it/s]
+Loading weights:  58%|█████▊    | 248/426 [00:00<00:00, 388.51it/s]
+Loading weights:  69%|██████▊   | 292/426 [00:00<00:00, 402.88it/s]
+Loading weights:  80%|███████▉  | 340/426 [00:00<00:00, 404.46it/s]
+Loading weights:  90%|████████▉ | 383/426 [00:01<00:00, 406.58it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 357.07it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+4B sdpa-dynamic 10000 1 done
+4B sdpa-dynamic 20000 1 done
+[W1019 19:51:14.694564742 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 559284224, total: 16720199680).
+4B sdpa-dynamic 40000 1 done
+4B sdpa-dynamic 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:55,  3.69it/s]
+Loading weights:  16%|█▌        | 69/426 [00:00<00:01, 237.18it/s]
+Loading weights:  26%|██▌       | 110/426 [00:00<00:01, 286.19it/s]
+Loading weights:  36%|███▌      | 152/426 [00:00<00:00, 319.21it/s]
+Loading weights:  48%|████▊     | 204/426 [00:00<00:00, 363.39it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:00<00:00, 396.56it/s]
+Loading weights:  70%|██████▉   | 297/426 [00:00<00:00, 407.37it/s]
+Loading weights:  80%|████████  | 341/426 [00:01<00:00, 415.81it/s]
+Loading weights:  90%|█████████ | 385/426 [00:01<00:00, 407.55it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 351.55it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+4B sdpa-static 10000 1 done
+4B sdpa-static 20000 1 done
+[W1019 19:52:19.638891135 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 559284224, total: 16720199680).
+4B sdpa-static 40000 1 done
+4B sdpa-static 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:39,  4.29it/s]
+Loading weights:  14%|█▍        | 61/426 [00:00<00:01, 229.33it/s]
+Loading weights:  25%|██▍       | 106/426 [00:00<00:01, 300.09it/s]
+Loading weights:  35%|███▌      | 151/426 [00:00<00:00, 342.94it/s]
+Loading weights:  47%|████▋     | 199/426 [00:00<00:00, 380.29it/s]
+Loading weights:  58%|█████▊    | 248/426 [00:00<00:00, 388.28it/s]
+Loading weights:  69%|██████▉   | 293/426 [00:00<00:00, 405.82it/s]
+Loading weights:  80%|███████▉  | 340/426 [00:00<00:00, 404.13it/s]
+Loading weights:  90%|█████████ | 385/426 [00:01<00:00, 416.34it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 359.31it/s]
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:53:08.266000 747547 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+W1019 19:53:10.236000 747547 torch/_dynamo/convert_frame.py:2008] [7/8] torch._dynamo hit config.recompile_limit (8)
+W1019 19:53:10.236000 747547 torch/_dynamo/convert_frame.py:2008] [7/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:860)
+W1019 19:53:10.236000 747547 torch/_dynamo/convert_frame.py:2008] [7/8]    last reason: 7/0: KeyError on self._modules['linear_attn']
+W1019 19:53:10.236000 747547 torch/_dynamo/convert_frame.py:2008] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1019 19:53:10.236000 747547 torch/_dynamo/convert_frame.py:2008] [7/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+4B sdpa-static-compile 10000 1 done
+4B sdpa-static-compile 20000 1 done
+[W1019 19:53:33.442080840 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 450232320, total: 16720199680).
+[W1019 19:53:38.111157443 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 357957632, total: 16720199680).
+[W1019 19:53:38.111214520 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 329252864 bytes (free: 357957632, total: 16720199680).
+4B sdpa-static-compile 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 314.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 341.38 MiB is free. Including non-PyTorch memory, this process has 15.21 GiB memory in use. Of the allocated memory 14.31 GiB is allocated by PyTorch, with 1.18 GiB allocated in private pools (e.g., CUDA Graphs), and 600.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+4B sdpa-static-compile 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:58,  3.58it/s]
+Loading weights:  18%|█▊        | 75/426 [00:00<00:01, 240.66it/s]
+Loading weights:  28%|██▊       | 119/426 [00:00<00:01, 301.03it/s]
+Loading weights:  38%|███▊      | 160/426 [00:00<00:00, 334.36it/s]
+Loading weights:  48%|████▊     | 204/426 [00:00<00:00, 355.03it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:00<00:00, 393.34it/s]
+Loading weights:  71%|███████   | 301/426 [00:00<00:00, 398.04it/s]
+Loading weights:  81%|████████  | 346/426 [00:01<00:00, 410.98it/s]
+Loading weights:  92%|█████████▏| 393/426 [00:01<00:00, 406.51it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 351.20it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[W1019 19:53:45.073877021 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 3200253952 bytes (free: 2465595392, total: 16720199680).
+[W1019 19:53:45.214033826 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 668336128, total: 16720199680).
+[W1019 19:53:45.291829365 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 3868590080, total: 16720199680).
+4B eager-dynamic 10000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.60 GiB is free. Including non-PyTorch memory, this process has 11.94 GiB memory in use. Of the allocated memory 11.50 GiB is allocated by PyTorch, and 158.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:53:45.336861269 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 12801015808 bytes (free: 3866492928, total: 16720199680).
+[W1019 19:53:46.575100997 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 12801015808 bytes (free: 4237688832, total: 16720199680).
+4B eager-dynamic 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 11.92 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.95 GiB is free. Including non-PyTorch memory, this process has 11.60 GiB memory in use. Of the allocated memory 9.57 GiB is allocated by PyTorch, and 1.74 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:53:46.639883708 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 378929152, total: 16720199680).
+[W1019 19:53:46.652117393 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 649461760, total: 16720199680).
+4B eager-dynamic 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 626.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 619.38 MiB is free. Including non-PyTorch memory, this process has 14.94 GiB memory in use. Of the allocated memory 14.45 GiB is allocated by PyTorch, and 216.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+4B eager-dynamic 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<01:49,  3.89it/s]
+Loading weights:  16%|█▌        | 67/426 [00:00<00:01, 236.46it/s]
+Loading weights:  27%|██▋       | 114/426 [00:00<00:01, 311.65it/s]
+Loading weights:  37%|███▋      | 156/426 [00:00<00:00, 341.83it/s]
+Loading weights:  48%|████▊     | 204/426 [00:00<00:00, 360.47it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:00<00:00, 398.06it/s]
+Loading weights:  71%|███████   | 301/426 [00:00<00:00, 394.57it/s]
+Loading weights:  83%|████████▎ | 354/426 [00:01<00:00, 408.88it/s]
+Loading weights:  94%|█████████▎| 399/426 [00:01<00:00, 415.73it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 356.00it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[W1019 19:53:52.787801344 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 3200253952 bytes (free: 2618687488, total: 16720199680).
+[W1019 19:53:52.819201198 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 739639296, total: 16720199680).
+[W1019 19:53:52.895747683 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 6400507904 bytes (free: 3939893248, total: 16720199680).
+4B eager-static 10000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 5.96 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.67 GiB is free. Including non-PyTorch memory, this process has 11.88 GiB memory in use. Of the allocated memory 11.50 GiB is allocated by PyTorch, and 89.36 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:53:52.172184965 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 12801015808 bytes (free: 3772121088, total: 16720199680).
+[W1019 19:53:52.179155530 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 12801015808 bytes (free: 4040556544, total: 16720199680).
+4B eager-static 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 11.92 GiB. GPU 0 has a total capacity of 15.57 GiB of which 3.76 GiB is free. Including non-PyTorch memory, this process has 11.78 GiB memory in use. Of the allocated memory 9.57 GiB is allocated by PyTorch, and 1.93 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:53:52.244359212 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 181796864, total: 16720199680).
+[W1019 19:53:52.260143612 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 656408576 bytes (free: 653656064, total: 16720199680).
+4B eager-static 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 626.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 623.38 MiB is free. Including non-PyTorch memory, this process has 14.94 GiB memory in use. Of the allocated memory 14.45 GiB is allocated by PyTorch, and 212.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+4B eager-static 60000 1 FAIL AssertionError(torch.Size([1, 59988]))
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<02:00,  3.54it/s]
+Loading weights:  18%|█▊        | 75/426 [00:00<00:01, 247.37it/s]
+Loading weights:  28%|██▊       | 119/426 [00:00<00:01, 302.42it/s]
+Loading weights:  38%|███▊      | 161/426 [00:00<00:00, 337.46it/s]
+Loading weights:  48%|████▊     | 206/426 [00:00<00:00, 364.05it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:00<00:00, 393.20it/s]
+Loading weights:  71%|███████   | 301/426 [00:00<00:00, 402.51it/s]
+Loading weights:  81%|████████  | 345/426 [00:01<00:00, 410.99it/s]
+Loading weights:  91%|█████████ | 388/426 [00:01<00:00, 413.51it/s]
+Loading weights: 100%|██████████| 426/426 [00:01<00:00, 351.28it/s]
+[W1019 19:54:02.352823542 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 3217031168 bytes (free: 2660630528, total: 16720199680).
+[W1019 19:54:03.309288993 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 83886080 bytes (free: 112590848, total: 16720199680).
+[W1019 19:54:03.309355618 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 83886080 bytes (free: 112590848, total: 16720199680).
+4B eager-static-compile 10000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 80.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 107.38 MiB is free. Including non-PyTorch memory, this process has 15.44 GiB memory in use. Of the allocated memory 15.08 GiB is allocated by PyTorch, with 6.41 GiB allocated in private pools (e.g., CUDA Graphs), and 60.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:54:03.322899313 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 400556032 bytes (free: 110493696, total: 16720199680).
+[W1019 19:54:03.329085956 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 400556032 bytes (free: 496369664, total: 16720199680).
+4B eager-static-compile 20000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 382.00 MiB. GPU 0 has a total capacity of 15.57 GiB of which 473.38 MiB is free. Including non-PyTorch memory, this process has 15.08 GiB memory in use. Of the allocated memory 14.77 GiB is allocated by PyTorch, with 6.89 GiB allocated in private pools (e.g., CUDA Graphs), and 11.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1019 19:54:03.332693789 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1600126976 bytes (free: 496369664, total: 16720199680).
+[W1019 19:54:03.332737892 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1600126976 bytes (free: 496369664, total: 16720199680).
+4B eager-static-compile 40000 1 FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 1.49 GiB. GPU 0 has a total capacity of 15.57 GiB of which 473.38 MiB is free. Including non-PyTorch memory, this process has 15.08 GiB memory in use. Of the allocated memory 14.77 GiB is allocated by PyTorch, with 6.89 GiB allocated in private pools (e.g., CUDA Graphs), and 10.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+4B eager-static-compile 60000 1 FAIL AssertionError(torch.Size([1, 59988]))

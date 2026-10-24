@@ -1,0 +1,47 @@
+[2026-10-19 22:06:36 TP0] Init parallel begin.
+[2026-10-19 22:06:36 TP0] Init parallel ends. elapsed=0.07 s
+[2026-10-19 22:06:36 TP0] Memory baseline taken. mem usage=0.00 GB
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-19 22:06:37 TP0] Load weight begin. avail mem=15.26 GB
+[2026-10-19 22:06:37 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-19 22:06:37 TP0] Using triton_attn as multimodal attention backend.
+[2026-10-19 22:06:37 TP0] using attn output gate!
+
+Multi-thread loading shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Multi-thread loading shards:  50% Completed | 1/2 [00:02<00:02,  2.21s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.47s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.58s/it]
+[2026-10-19 22:06:40 TP0] Load weight end. elapsed=3.26 s, type=Qwen3_5ForConditionalGeneration, avail mem=6.64 GB, mem usage=8.62 GB.
+[2026-10-19 22:06:40 TP0] Reserving 0.10 GB of the KV budget for post-sizing multimodal allocations (feature-transport pools + embedding cache).
+[2026-10-19 22:06:40 TP0] max_running_requests is capped to 0 by the mamba state cache (max_mamba_cache_size=3, 5 state slots per request). To raise it: increase --mamba-full-memory-ratio or --max-mamba-cache-size, or halve the state size with --mamba-ssm-dtype bfloat16.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1111, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1104, in cli_main
+[rank0]:     main(server_args, bench_args)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 1066, in main
+[rank0]:     work_func(server_args, port_args, bench_args, 0, 0)
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 922, in latency_test
+[rank0]:     model_runner, tokenizer = load_model(server_args, port_args, gpu_id, tp_rank)
+[rank0]:                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/benchmark/one_batch.py", line 359, in load_model
+[rank0]:     model_runner.alloc_memory_pool()
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 960, in alloc_memory_pool
+[rank0]:     result = self.kv_cache_configurator.configure(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 436, in configure
+[rank0]:     config = self._resolve_memory_pool_config(pre_model_load_memory)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 2865, in _resolve_memory_pool_config
+[rank0]:     config.max_running_requests = self.resolve_max_num_reqs(
+[rank0]:                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 2834, in resolve_max_num_reqs
+[rank0]:     raise RuntimeError(
+[rank0]: RuntimeError: Hybrid (mamba/linear-attention) state cache is too small to serve any requests. max_mamba_cache_size=3, mamba_ratio=5, resulting max_num_reqs=0. Try: (1) reduce --max-running-requests, (2) increase --mem-fraction-static, or (3) use GPUs with more memory.

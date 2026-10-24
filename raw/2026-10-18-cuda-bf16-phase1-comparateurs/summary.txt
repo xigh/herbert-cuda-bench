@@ -1,0 +1,159 @@
+== llama-cuda 0.8B
+  pp128      best ub256-b2048-faon      15840.6 tok/s (n=3, spread 1.4 %) · default    15618.5 (×1.014)
+  pp512      best ub512-b2048-faon      34531.5 tok/s (n=3, spread 0.2 %) · default    34367.6 (×1.005)
+  pp2048     best ub1024-b4096-faon     38986.6 tok/s (n=3, spread 0.8 %) · default    38257.0 (×1.019)
+  pp4000     best ub1024-b2048-faon     41184.6 tok/s (n=3, spread 0.1 %) · default    38509.5 (×1.069)
+  tg255@759  best default                 325.4 tok/s (n=3, spread 0.0 %) · default      325.4 (×1.000)
+  all settings: default faoff faon ub1024-b2048-faoff ub1024-b2048-faon ub1024-b4096-faoff ub1024-b4096-faon ub2048-b2048-faoff ub2048-b2048-faon ub2048-b4096-faoff ub2048-b4096-faon ub256-b2048-faoff ub256-b2048-faon ub256-b4096-faoff ub256-b4096-faon ub512-b2048-faoff ub512-b2048-faon ub512-b4096-faoff ub512-b4096-faon
+== llama-cuda 4B
+  pp128      best ub1024-b4096-faon      5246.1 tok/s (n=3, spread 0.3 %) · default     5201.8 (×1.009)
+  pp512      best ub2048-b2048-faon      8914.7 tok/s (n=3, spread 0.5 %) · default     8913.9 (×1.000)
+  pp2048     best ub512-b2048-faon       9386.7 tok/s (n=3, spread 0.3 %) · default     9383.7 (×1.000)
+  pp4000     best ub512-b2048-faon       9243.6 tok/s (n=3, spread 0.0 %) · default     9239.7 (×1.000)
+  tg255@759  best faon                     74.4 tok/s (n=3, spread 0.0 %) · default       74.4 (×1.000)
+  all settings: default faoff faon ub1024-b2048-faoff ub1024-b2048-faon ub1024-b4096-faoff ub1024-b4096-faon ub2048-b2048-faoff ub2048-b2048-faon ub2048-b4096-faoff ub2048-b4096-faon ub256-b2048-faoff ub256-b2048-faon ub256-b4096-faoff ub256-b4096-faon ub512-b2048-faoff ub512-b2048-faon ub512-b4096-faoff ub512-b4096-faon
+== llama-ref08ffba21e 0.8B
+  pp128      best default               14701.4 tok/s (n=3, spread 0.4 %) · default    14701.4 (×1.000)
+  pp512      best default               29747.4 tok/s (n=3, spread 0.5 %) · default    29747.4 (×1.000)
+  pp2048     best default               32602.4 tok/s (n=3, spread 0.2 %) · default    32602.4 (×1.000)
+  pp4000     best default               32850.6 tok/s (n=3, spread 0.2 %) · default    32850.6 (×1.000)
+  tg255@759  best default                 322.4 tok/s (n=3, spread 0.0 %) · default      322.4 (×1.000)
+  all settings: default
+== llama-ref08ffba21e 4B
+  pp128      best default                5019.3 tok/s (n=3, spread 0.6 %) · default     5019.3 (×1.000)
+  pp512      best default                8319.4 tok/s (n=3, spread 0.1 %) · default     8319.4 (×1.000)
+  pp2048     best default                8714.7 tok/s (n=3, spread 0.1 %) · default     8714.7 (×1.000)
+  pp4000     best default                8596.8 tok/s (n=3, spread 0.1 %) · default     8596.8 (×1.000)
+  tg255@759  best default                  74.1 tok/s (n=3, spread 0.0 %) · default       74.1 (×1.000)
+  all settings: default
+== llama-vk 0.8B
+  pp128      best ub512-b4096-faoff      7171.5 tok/s (n=3, spread 0.2 %) · default     7127.2 (×1.006)
+  pp512      best ub2048-b4096-faon     11903.4 tok/s (n=3, spread 0.2 %) · default    11859.0 (×1.004)
+  pp2048     best ub2048-b2048-faon     14186.0 tok/s (n=3, spread 0.1 %) · default    12020.8 (×1.180)
+  pp4000     best ub2048-b4096-faon     13938.2 tok/s (n=3, spread 0.1 %) · default    11678.1 (×1.194)
+  tg255@759  best faon                    306.2 tok/s (n=3, spread 0.3 %) · default      305.9 (×1.001)
+  all settings: default faoff faon ub1024-b2048-faoff ub1024-b2048-faon ub1024-b4096-faoff ub1024-b4096-faon ub2048-b2048-faoff ub2048-b2048-faon ub2048-b4096-faoff ub2048-b4096-faon ub256-b2048-faoff ub256-b2048-faon ub256-b4096-faoff ub256-b4096-faon ub512-b2048-faoff ub512-b2048-faon ub512-b4096-faoff ub512-b4096-faon
+== llama-vk 4B
+  pp128      best ub512-b4096-faoff      1930.7 tok/s (n=3, spread 0.1 %) · default     1926.9 (×1.002)
+  pp512      best ub256-b4096-faon       2626.1 tok/s (n=3, spread 0.7 %) · default     2491.5 (×1.054)
+  pp2048     best ub2048-b2048-faon      2818.7 tok/s (n=3, spread 0.2 %) · default     2490.2 (×1.132)
+  pp4000     best ub2048-b4096-faon      2762.4 tok/s (n=3, spread 0.1 %) · default     2429.9 (×1.137)
+  tg255@759  best default                  70.3 tok/s (n=3, spread 0.0 %) · default       70.3 (×1.000)
+  all settings: default faoff faon ub1024-b2048-faoff ub1024-b2048-faon ub1024-b4096-faoff ub1024-b4096-faon ub2048-b2048-faoff ub2048-b2048-faon ub2048-b4096-faoff ub2048-b4096-faon ub256-b2048-faoff ub256-b2048-faon ub256-b4096-faoff ub256-b4096-faon ub512-b2048-faoff ub512-b2048-faon ub512-b4096-faoff ub512-b4096-faon
+== sglang 0.8B
+  pp128      best triton                14455.4 tok/s (n=3, spread 5.7 %) · default    14268.7 (×1.013)
+  pp512      best triton                47249.4 tok/s (n=3, spread 2.6 %) · default    47003.9 (×1.005)
+  pp2048     best nochunk               64251.1 tok/s (n=3, spread 1.5 %) · default    63796.0 (×1.007)
+  pp4000     best nochunk               58417.8 tok/s (n=3, spread 17.0 %) · default    58400.8 (×1.000)
+  tg255@759  best triton                  337.0 tok/s (n=3, spread 0.0 %) · default      330.7 (×1.019)
+  all settings: chunk2048 default flashinfer nochunk nograph triton
+== sglang 4B
+  pp128      best chunk2048              6153.0 tok/s (n=3, spread 1.6 %) · default     6081.2 (×1.012)
+  pp512      best default               10677.7 tok/s (n=3, spread 0.3 %) · default    10677.7 (×1.000)
+  pp2048     best nochunk               11416.4 tok/s (n=3, spread 0.1 %) · default    11368.4 (×1.004)
+  pp4000     best flashinfer            11342.7 tok/s (n=3, spread 2.0 %) · default    11327.1 (×1.001)
+  tg255@759  best triton                   75.1 tok/s (n=3, spread 0.0 %) · default       74.9 (×1.003)
+  all settings: chunk2048 default flashinfer nochunk nograph triton
+== sglang-phase1 0.8B
+  pp128      best flashinfer            14156.5 tok/s (n=1, spread 0.0 %) · default    13954.9 (×1.014)
+  pp512      best flashinfer            46280.0 tok/s (n=1, spread 0.0 %) · default    46124.0 (×1.003)
+  pp2048     best flashinfer            63832.2 tok/s (n=1, spread 0.0 %) · default    63757.8 (×1.001)
+  pp4000     best chunk2048             52800.6 tok/s (n=1, spread 0.0 %) · default    10431.1 (×5.062)
+  tg255@759  best triton                  337.5 tok/s (n=1, spread 0.0 %) · default      330.6 (×1.021)
+  all settings: chunk2048 default flashinfer nochunk nograph triton
+== sglang-phase1 4B
+  pp128      best triton                 6080.8 tok/s (n=1, spread 0.0 %) · default     6043.7 (×1.006)
+  pp512      best chunk2048             10666.4 tok/s (n=1, spread 0.0 %) · default    10665.1 (×1.000)
+  pp2048     best nochunk               11412.8 tok/s (n=1, spread 0.0 %) · default    11359.6 (×1.005)
+  pp4000     best flashinfer            11143.5 tok/s (n=1, spread 0.0 %) · default     5703.4 (×1.954)
+  tg255@759  best triton                   75.1 tok/s (n=1, spread 0.0 %) · default       74.8 (×1.004)
+  all settings: chunk2048 default flashinfer nochunk nograph triton
+== transformers 0.8B
+  pp128      best sdpa-static-compile     8494.9 tok/s (n=5, spread 99.7 %) · default     7635.9 (×1.112)
+  pp512      best sdpa-dynamic          30822.0 tok/s (n=5, spread 0.4 %) · default    30822.0 (×1.000)
+  pp2048     best sdpa-static-compile    44416.1 tok/s (n=5, spread 69.4 %) · default    43290.9 (×1.026)
+  pp4000     best sdpa-static-compile    40942.5 tok/s (n=5, spread 60.6 %) · default    39652.9 (×1.033)
+  tg255@759  best eager-static            270.3 tok/s (n=5, spread 1.9 %) · default      102.4 (×2.640)
+  all settings: eager-dynamic eager-static eager-static-compile sdpa-dynamic sdpa-static sdpa-static-compile
+== transformers 4B
+  pp128      best sdpa-static-compile     5683.1 tok/s (n=5, spread 89.0 %) · default     5063.5 (×1.122)
+  pp512      best sdpa-static-compile     9001.7 tok/s (n=5, spread 61.5 %) · default     8877.7 (×1.014)
+  pp2048     best sdpa-dynamic           9394.5 tok/s (n=5, spread 0.0 %) · default     9394.5 (×1.000)
+  pp4000     best sdpa-static-compile     8816.4 tok/s (n=5, spread 44.9 %) · default     8448.0 (×1.044)
+  tg255@759  best eager-static-compile       68.0 tok/s (n=5, spread 0.5 %) · default       60.5 (×1.125)
+  all settings: eager-dynamic eager-static eager-static-compile sdpa-dynamic sdpa-static sdpa-static-compile
+== vllm 0.8B
+  pp128      best ref0.28.0              9525.9 tok/s (n=5, spread 2.1 %) · default     8934.2 (×1.066)
+  pp512      best mnbt16384             35762.9 tok/s (n=5, spread 1.9 %) · default    35748.4 (×1.000)
+  pp2048     best flashattn             56341.4 tok/s (n=5, spread 6.5 %) · default    54359.0 (×1.036)
+  pp4000     best mnbt2048              54522.5 tok/s (n=5, spread 0.8 %) · default    52988.0 (×1.029)
+  tg255@759  best triton                  376.1 tok/s (n=5, spread 0.1 %) · default      366.2 (×1.027)
+  all settings: default eager flashattn flashinfer mnbt16384 mnbt2048 ref0.28.0 triton
+== vllm 4B
+  pp128      best default                5880.8 tok/s (n=5, spread 2.7 %) · default     5880.8 (×1.000)
+  pp512      best mnbt16384              9804.1 tok/s (n=5, spread 0.9 %) · default     9770.8 (×1.003)
+  pp2048     best flashinfer            10986.9 tok/s (n=5, spread 0.3 %) · default    10942.8 (×1.004)
+  pp4000     best flashinfer            10893.6 tok/s (n=5, spread 0.4 %) · default    10844.7 (×1.005)
+  tg255@759  best triton                   76.5 tok/s (n=5, spread 0.1 %) · default       76.1 (×1.005)
+  all settings: default eager flashattn flashinfer mnbt16384 mnbt2048 ref0.28.0 triton
+== vllm-graphs 0.8B
+  pp128      best mns256                10937.8 tok/s (n=5, spread 1.1 %) · default     8974.4 (×1.219)
+  pp512      best mns256                42235.6 tok/s (n=5, spread 3.9 %) · default    35181.6 (×1.201)
+  pp2048     best cg512                 57042.9 tok/s (n=5, spread 10.5 %) · default    54282.6 (×1.051)
+  pp4000     best cg512                 53348.9 tok/s (n=5, spread 1.5 %) · default    52994.0 (×1.007)
+  tg255@759  best triton-cg512            375.9 tok/s (n=5, spread 0.1 %) · default      366.4 (×1.026)
+  all settings: cg4096 cg512 default flashinfer-cg512 mns256 triton-cg512
+== vllm-graphs 4B
+  pp128      best cg4096                 5978.6 tok/s (n=5, spread 0.8 %) · default     5896.5 (×1.014)
+  pp512      best flashinfer-cg512       9887.7 tok/s (n=5, spread 0.7 %) · default     9782.4 (×1.011)
+  pp2048     best cg512                 10972.8 tok/s (n=5, spread 0.1 %) · default    10951.6 (×1.002)
+  pp4000     best flashinfer-cg512      10897.1 tok/s (n=5, spread 0.3 %) · default    10812.3 (×1.008)
+  tg255@759  best triton-cg512             76.6 tok/s (n=5, spread 0.1 %) · default       76.1 (×1.006)
+  all settings: cg4096 cg512 default flashinfer-cg512 triton-cg512
+== vllm-phase1 0.8B
+  pp128      best mnbt2048              11110.9 tok/s (n=5, spread 4.4 %) · default    10852.5 (×1.024)
+  pp512      best mnbt2048              42034.6 tok/s (n=5, spread 2.1 %) · default    41795.7 (×1.006)
+  pp2048     best mnbt16384             58701.0 tok/s (n=5, spread 1.7 %) · default    57167.5 (×1.027)
+  pp4000     best mnbt16384             54663.9 tok/s (n=5, spread 2.5 %) · default    53026.2 (×1.031)
+  tg255@759  best triton                  375.6 tok/s (n=5, spread 3.5 %) · default      364.7 (×1.030)
+  all settings: default eager flashattn mnbt16384 mnbt2048 ref0.28.0 triton
+== vllm-phase1 4B
+  pp128      best eager                  4994.7 tok/s (n=5, spread 4.6 %)
+  pp512      best eager                  9589.4 tok/s (n=5, spread 0.7 %)
+  pp2048     best eager                 10465.4 tok/s (n=5, spread 0.3 %)
+  pp4000     best eager                  9668.3 tok/s (n=5, spread 2.8 %)
+  tg255@759  best eager                    68.4 tok/s (n=5, spread 0.2 %)
+  all settings: eager
+
+## best of all settings (default below)
+| engine | model | pp128 | pp512 | pp2048 | pp4000 | tg255@759 |
+|---|---|---|---|---|---|---|
+| llama-cuda | 0.8B | 15840.6 (ub256-b2048-faon) | 34531.5 (ub512-b2048-faon) | 38986.6 (ub1024-b4096-faon) | 41184.6 (ub1024-b2048-faon) | 325.4 (default) |
+| llama-cuda | 0.8B default | 15618.5 | 34367.6 | 38257.0 | 38509.5 | 325.4 |
+| llama-cuda | 4B | 5246.1 (ub1024-b4096-faon) | 8914.7 (ub2048-b2048-faon) | 9386.7 (ub512-b2048-faon) | 9243.6 (ub512-b2048-faon) | 74.4 (faon) |
+| llama-cuda | 4B default | 5201.8 | 8913.9 | 9383.7 | 9239.7 | 74.4 |
+| llama-ref08ffba21e | 0.8B | 14701.4 (default) | 29747.4 (default) | 32602.4 (default) | 32850.6 (default) | 322.4 (default) |
+| llama-ref08ffba21e | 0.8B default | 14701.4 | 29747.4 | 32602.4 | 32850.6 | 322.4 |
+| llama-ref08ffba21e | 4B | 5019.3 (default) | 8319.4 (default) | 8714.7 (default) | 8596.8 (default) | 74.1 (default) |
+| llama-ref08ffba21e | 4B default | 5019.3 | 8319.4 | 8714.7 | 8596.8 | 74.1 |
+| llama-vk | 0.8B | 7171.5 (ub512-b4096-faoff) | 11903.4 (ub2048-b4096-faon) | 14186.0 (ub2048-b2048-faon) | 13938.2 (ub2048-b4096-faon) | 306.2 (faon) |
+| llama-vk | 0.8B default | 7127.2 | 11859.0 | 12020.8 | 11678.1 | 305.9 |
+| llama-vk | 4B | 1930.7 (ub512-b4096-faoff) | 2626.1 (ub256-b4096-faon) | 2818.7 (ub2048-b2048-faon) | 2762.4 (ub2048-b4096-faon) | 70.3 (default) |
+| llama-vk | 4B default | 1926.9 | 2491.5 | 2490.2 | 2429.9 | 70.3 |
+| sglang | 0.8B | 14455.4 (triton) | 47249.4 (triton) | 64251.1 (nochunk) | 58417.8 (nochunk) | 337.0 (triton) |
+| sglang | 0.8B default | 14268.7 | 47003.9 | 63796.0 | 58400.8 | 330.7 |
+| sglang | 4B | 6153.0 (chunk2048) | 10677.7 (default) | 11416.4 (nochunk) | 11342.7 (flashinfer) | 75.1 (triton) |
+| sglang | 4B default | 6081.2 | 10677.7 | 11368.4 | 11327.1 | 74.9 |
+| transformers | 0.8B | 8494.9 (sdpa-static-compile) | 30822.0 (sdpa-dynamic) | 44416.1 (sdpa-static-compile) | 40942.5 (sdpa-static-compile) | 270.3 (eager-static) |
+| transformers | 0.8B default | 7635.9 | 30822.0 | 43290.9 | 39652.9 | 102.4 |
+| transformers | 4B | 5683.1 (sdpa-static-compile) | 9001.7 (sdpa-static-compile) | 9394.5 (sdpa-dynamic) | 8816.4 (sdpa-static-compile) | 68.0 (eager-static-compile) |
+| transformers | 4B default | 5063.5 | 8877.7 | 9394.5 | 8448.0 | 60.5 |
+| vllm | 0.8B | 10937.8 (mns256*) | 42235.6 (mns256*) | 57042.9 (cg512*) | 54522.5 (mnbt2048) | 376.1 (triton) |
+| vllm | 0.8B default | 8934.2 | 35748.4 | 54359.0 | 52988.0 | 366.2 |
+| vllm | 4B | 5978.6 (cg4096*) | 9887.7 (flashinfer-cg512*) | 10986.9 (flashinfer) | 10897.1 (flashinfer-cg512*) | 76.6 (triton-cg512*) |
+| vllm | 4B default | 5880.8 | 9770.8 | 10942.8 | 10844.7 | 76.1 |
+| vllm-0.28.0 | 0.8B | 9525.9 (ref0.28.0) | 35665.3 (ref0.28.0) | 54101.7 (ref0.28.0) | 52926.2 (ref0.28.0) | 356.7 (ref0.28.0) |
+| vllm-0.28.0 | 0.8B default | 9525.9 | 35665.3 | 54101.7 | 52926.2 | 356.7 |
+| vllm-0.28.0 | 4B | 5815.0 (ref0.28.0) | 9795.2 (ref0.28.0) | 10939.2 (ref0.28.0) | 10788.5 (ref0.28.0) | 75.8 (ref0.28.0) |
+| vllm-0.28.0 | 4B default | 5815.0 | 9795.2 | 10939.2 | 10788.5 | 75.8 |
+(* : vLLM run with explicit CUDA graph capture sizes, after-p1c)

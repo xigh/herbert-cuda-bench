@@ -1,0 +1,4 @@
+vllm-flashinfer Qwen3.5-4B p10000: in [10009, 10010] · TTFT 962.18 ms · prefill 10403 tok/s (0.7 %) · decode 73.48 tok/s (0.1 %) · out [128] · n=15
+vllm-flashinfer Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2065.88 ms · prefill 9686 tok/s (0.4 %) · decode 71.84 tok/s (0.1 %) · out [128] · n=15
+vllm-flashinfer Qwen3.5-4B p40000: in [40008, 40009, 40010] · TTFT 4690.94 ms · prefill 8529 tok/s (0.2 %) · decode 67.37 tok/s (0.1 %) · out [128] · n=15
+vllm-flashinfer Qwen3.5-4B p60000: in [60009, 60010, 60011] · TTFT 7928.27 ms · prefill 7569 tok/s (0.2 %) · decode 63.47 tok/s (0.1 %) · out [128] · n=15

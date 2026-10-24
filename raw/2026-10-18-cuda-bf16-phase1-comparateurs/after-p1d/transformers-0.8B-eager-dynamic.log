@@ -1,0 +1,7 @@
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:  82%|████████▏ | 262/320 [00:00<00:00, 2615.68it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2732.05it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+transformers 0.8B eager-dynamic p1-short 10 tokens
+transformers 0.8B eager-dynamic p2-explain 96 tokens
+transformers 0.8B eager-dynamic p3-long 256 tokens
+transformers 0.8B eager-dynamic p4-xlong 200 tokens

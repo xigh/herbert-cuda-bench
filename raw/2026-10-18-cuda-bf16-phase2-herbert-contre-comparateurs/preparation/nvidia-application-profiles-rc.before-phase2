@@ -1,0 +1,16 @@
+{
+    "profiles": [
+        { "name": "CudaNoStablePerfLimit", "settings": ["0x166c5e", 0 ] }
+    ],
+    "rules": [
+        { "pattern" : { "feature" : "procname", "matches" : "herbert-cuda-chat" },  "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "herbert-cuda-bench" }, "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "herbert-cuda-probe" }, "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "llama-bench" },        "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "llama-server" },       "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "llama-cli" },          "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "python" },             "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "python3" },            "profile" : "CudaNoStablePerfLimit" },
+        { "pattern" : { "feature" : "procname", "matches" : "python3.12" },         "profile" : "CudaNoStablePerfLimit" }
+    ]
+}

@@ -1,0 +1,11 @@
+== 2026-10-20T21:43:16+02:00 round 1 ·  21:43:16 up 2 days,  1:26,  2 users,  load average: 0.28, 0.46, 0.38
+== 2026-10-20T21:44:06+02:00 round 2 ·  21:44:06 up 2 days,  1:27,  2 users,  load average: 0.74, 0.56, 0.41
+FAIL r2 s8 pp20000
+FAIL r2 s8 pp40000
+== 2026-10-20T21:44:56+02:00 round 3 ·  21:44:56 up 2 days,  1:28,  2 users,  load average: 10.93, 2.76, 1.14
+FAIL r3 s8 p3
+FAIL r3 s8 pp20000
+FAIL r3 s8 pp40000
+FAIL r3 s16 p3
+FAIL r3 s16 pp20000
+ALLDONE-dd2

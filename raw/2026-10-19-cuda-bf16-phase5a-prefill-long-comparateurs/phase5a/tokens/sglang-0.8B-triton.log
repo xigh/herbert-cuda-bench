@@ -1,0 +1,88 @@
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.65it/s]
+Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00,  1.65it/s]
+
+  0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=6.15 GB):   0%|          | 0/42 [00:00<?, ?it/s]
+Capturing prefill shape (num_tokens=2048 avail_mem=6.15 GB):   2%|▏         | 1/42 [00:00<00:25,  1.64it/s]
+Capturing prefill shape (num_tokens=1792 avail_mem=5.79 GB):   2%|▏         | 1/42 [00:00<00:25,  1.64it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=5.79 GB):   2%|▏         | 1/42 [00:00<00:25,  1.64it/s]
+Capturing prefill shape (num_tokens=1536 avail_mem=5.79 GB):   7%|▋         | 3/42 [00:00<00:07,  4.93it/s]
+Capturing prefill shape (num_tokens=1280 avail_mem=5.79 GB):   7%|▋         | 3/42 [00:00<00:07,  4.93it/s]
+Capturing prefill shape (num_tokens=1024 avail_mem=5.78 GB):   7%|▋         | 3/42 [00:00<00:07,  4.93it/s]
+Capturing prefill shape (num_tokens=960 avail_mem=5.78 GB):   7%|▋         | 3/42 [00:00<00:07,  4.93it/s] 
+Capturing prefill shape (num_tokens=960 avail_mem=5.78 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.75it/s]
+Capturing prefill shape (num_tokens=896 avail_mem=5.75 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.75it/s]
+Capturing prefill shape (num_tokens=832 avail_mem=5.74 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.75it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=5.74 GB):  14%|█▍        | 6/42 [00:00<00:03,  9.75it/s]
+Capturing prefill shape (num_tokens=768 avail_mem=5.74 GB):  21%|██▏       | 9/42 [00:00<00:02, 13.96it/s]
+Capturing prefill shape (num_tokens=704 avail_mem=5.73 GB):  21%|██▏       | 9/42 [00:00<00:02, 13.96it/s]
+Capturing prefill shape (num_tokens=640 avail_mem=5.73 GB):  21%|██▏       | 9/42 [00:00<00:02, 13.96it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=5.72 GB):  21%|██▏       | 9/42 [00:01<00:02, 13.96it/s]
+Capturing prefill shape (num_tokens=576 avail_mem=5.72 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.52it/s]
+Capturing prefill shape (num_tokens=512 avail_mem=5.72 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.52it/s]
+Capturing prefill shape (num_tokens=480 avail_mem=5.71 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.52it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=5.70 GB):  29%|██▊       | 12/42 [00:01<00:01, 17.52it/s]
+Capturing prefill shape (num_tokens=448 avail_mem=5.70 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.34it/s]
+Capturing prefill shape (num_tokens=416 avail_mem=5.70 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.34it/s]
+Capturing prefill shape (num_tokens=384 avail_mem=5.69 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.34it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=5.68 GB):  36%|███▌      | 15/42 [00:01<00:01, 20.34it/s]
+Capturing prefill shape (num_tokens=352 avail_mem=5.68 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.24it/s]
+Capturing prefill shape (num_tokens=320 avail_mem=5.68 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.24it/s]
+Capturing prefill shape (num_tokens=288 avail_mem=5.67 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.24it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=5.67 GB):  43%|████▎     | 18/42 [00:01<00:01, 22.24it/s]
+Capturing prefill shape (num_tokens=256 avail_mem=5.67 GB):  50%|█████     | 21/42 [00:01<00:00, 23.88it/s]
+Capturing prefill shape (num_tokens=240 avail_mem=5.65 GB):  50%|█████     | 21/42 [00:01<00:00, 23.88it/s]
+Capturing prefill shape (num_tokens=224 avail_mem=5.65 GB):  50%|█████     | 21/42 [00:01<00:00, 23.88it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=5.64 GB):  50%|█████     | 21/42 [00:01<00:00, 23.88it/s]
+Capturing prefill shape (num_tokens=208 avail_mem=5.64 GB):  57%|█████▋    | 24/42 [00:01<00:00, 25.13it/s]
+Capturing prefill shape (num_tokens=192 avail_mem=5.64 GB):  57%|█████▋    | 24/42 [00:01<00:00, 25.13it/s]
+Capturing prefill shape (num_tokens=176 avail_mem=5.63 GB):  57%|█████▋    | 24/42 [00:01<00:00, 25.13it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=5.62 GB):  57%|█████▋    | 24/42 [00:01<00:00, 25.13it/s]
+Capturing prefill shape (num_tokens=160 avail_mem=5.62 GB):  64%|██████▍   | 27/42 [00:01<00:00, 26.11it/s]
+Capturing prefill shape (num_tokens=144 avail_mem=5.62 GB):  64%|██████▍   | 27/42 [00:01<00:00, 26.11it/s]
+Capturing prefill shape (num_tokens=128 avail_mem=5.61 GB):  64%|██████▍   | 27/42 [00:01<00:00, 26.11it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=5.61 GB):  64%|██████▍   | 27/42 [00:01<00:00, 26.11it/s]
+Capturing prefill shape (num_tokens=112 avail_mem=5.61 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=96 avail_mem=5.60 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.81it/s] 
+Capturing prefill shape (num_tokens=80 avail_mem=5.59 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=5.59 GB):  71%|███████▏  | 30/42 [00:01<00:00, 26.81it/s]
+Capturing prefill shape (num_tokens=64 avail_mem=5.59 GB):  79%|███████▊  | 33/42 [00:01<00:00, 27.28it/s]
+Capturing prefill shape (num_tokens=48 avail_mem=5.58 GB):  79%|███████▊  | 33/42 [00:01<00:00, 27.28it/s]
+Capturing prefill shape (num_tokens=32 avail_mem=5.58 GB):  79%|███████▊  | 33/42 [00:01<00:00, 27.28it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=5.57 GB):  79%|███████▊  | 33/42 [00:01<00:00, 27.28it/s]
+Capturing prefill shape (num_tokens=28 avail_mem=5.57 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.56it/s]
+Capturing prefill shape (num_tokens=24 avail_mem=5.57 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.56it/s]
+Capturing prefill shape (num_tokens=20 avail_mem=5.56 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.56it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=5.55 GB):  86%|████████▌ | 36/42 [00:01<00:00, 27.56it/s]
+Capturing prefill shape (num_tokens=16 avail_mem=5.55 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.79it/s]
+Capturing prefill shape (num_tokens=12 avail_mem=5.55 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.79it/s]
+Capturing prefill shape (num_tokens=8 avail_mem=5.54 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.79it/s] 
+Capturing prefill shape (num_tokens=4 avail_mem=5.54 GB):  93%|█████████▎| 39/42 [00:02<00:00, 27.79it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=5.54 GB): 100%|██████████| 42/42 [00:02<00:00, 28.03it/s]
+Capturing prefill shape (num_tokens=4 avail_mem=5.54 GB): 100%|██████████| 42/42 [00:02<00:00, 19.75it/s]
+
+  0%|          | 0/4 [00:00<?, ?it/s]
+Capturing batches (bs=8 avail_mem=5.74 GB):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing batches (bs=4 avail_mem=5.74 GB):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing batches (bs=2 avail_mem=5.74 GB):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing batches (bs=2 avail_mem=5.74 GB):  75%|███████▌  | 3/4 [00:00<00:00, 26.14it/s]
+Capturing batches (bs=1 avail_mem=5.74 GB):  75%|███████▌  | 3/4 [00:00<00:00, 26.14it/s]
+Capturing batches (bs=1 avail_mem=5.74 GB): 100%|██████████| 4/4 [00:00<00:00, 27.14it/s]
+sglang 0.8B triton pp10000 64 tokens
+sglang 0.8B triton pp20000 64 tokens
+sglang 0.8B triton pp40000 64 tokens
+sglang 0.8B triton pp60000 64 tokens

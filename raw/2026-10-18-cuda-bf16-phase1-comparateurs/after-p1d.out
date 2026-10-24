@@ -1,0 +1,51 @@
+== 2026-10-18T15:11:14+02:00 vllm 0.8B default ·  15:11:14 up 6 days,  6:20, 11 users,  load average: 0.88, 1.33, 1.36
+FAIL vllm 0.8B default
+== 2026-10-18T15:11:37+02:00 vllm 0.8B triton ·  15:11:37 up 6 days,  6:20, 11 users,  load average: 1.18, 1.36, 1.37
+FAIL vllm 0.8B triton
+== 2026-10-18T15:12:01+02:00 vllm 0.8B flashinfer ·  15:12:01 up 6 days,  6:20, 11 users,  load average: 1.62, 1.45, 1.40
+FAIL vllm 0.8B flashinfer
+== 2026-10-18T15:12:25+02:00 vllm 0.8B eager ·  15:12:25 up 6 days,  6:21, 11 users,  load average: 1.55, 1.45, 1.40
+FAIL vllm 0.8B eager
+== 2026-10-18T15:12:48+02:00 sglang 0.8B default ·  15:12:48 up 6 days,  6:21, 11 users,  load average: 1.50, 1.45, 1.40
+FAIL sglang 0.8B default
+== 2026-10-18T15:13:03+02:00 sglang 0.8B triton ·  15:13:03 up 6 days,  6:21, 11 users,  load average: 1.47, 1.44, 1.40
+FAIL sglang 0.8B triton
+== 2026-10-18T15:13:18+02:00 sglang 0.8B flashinfer ·  15:13:18 up 6 days,  6:22, 11 users,  load average: 1.44, 1.43, 1.40
+FAIL sglang 0.8B flashinfer
+== 2026-10-18T15:13:33+02:00 sglang 0.8B chunk2048 ·  15:13:33 up 6 days,  6:22, 11 users,  load average: 1.41, 1.43, 1.40
+FAIL sglang 0.8B chunk2048
+== 2026-10-18T15:13:47+02:00 transformers 0.8B sdpa-dynamic ·  15:13:47 up 6 days,  6:22, 11 users,  load average: 1.39, 1.42, 1.39
+== 2026-10-18T15:13:57+02:00 transformers 0.8B eager-dynamic ·  15:13:57 up 6 days,  6:22, 11 users,  load average: 1.36, 1.42, 1.39
+== 2026-10-18T15:14:07+02:00 transformers 0.8B sdpa-static ·  15:14:07 up 6 days,  6:23, 11 users,  load average: 1.31, 1.40, 1.39
+== 2026-10-18T15:14:43+02:00 llama 0.8B cuda-default ·  15:14:43 up 6 days,  6:23, 11 users,  load average: 1.22, 1.37, 1.37
+== 2026-10-18T15:14:46+02:00 llama 0.8B cuda-faon-ub1024 ·  15:14:46 up 6 days,  6:23, 11 users,  load average: 1.22, 1.37, 1.37
+== 2026-10-18T15:14:49+02:00 llama 0.8B cuda-faoff ·  15:14:49 up 6 days,  6:23, 11 users,  load average: 1.21, 1.36, 1.37
+== 2026-10-18T15:14:52+02:00 llama 0.8B vk-default ·  15:14:52 up 6 days,  6:23, 11 users,  load average: 1.19, 1.35, 1.37
+== 2026-10-18T15:14:56+02:00 llama 0.8B vk-faon-ub2048 ·  15:14:56 up 6 days,  6:23, 11 users,  load average: 1.19, 1.35, 1.37
+== 2026-10-18T15:15:00+02:00 llama 0.8B vk-faoff ·  15:15:00 up 6 days,  6:23, 11 users,  load average: 1.17, 1.35, 1.37
+== 2026-10-18T15:15:06+02:00 vllm 4B default ·  15:15:06 up 6 days,  6:24, 11 users,  load average: 1.16, 1.34, 1.36
+FAIL vllm 4B default
+== 2026-10-18T15:15:30+02:00 vllm 4B triton ·  15:15:30 up 6 days,  6:24, 11 users,  load average: 1.39, 1.38, 1.38
+FAIL vllm 4B triton
+== 2026-10-18T15:15:54+02:00 vllm 4B flashinfer ·  15:15:54 up 6 days,  6:24, 11 users,  load average: 1.40, 1.38, 1.37
+FAIL vllm 4B flashinfer
+== 2026-10-18T15:16:18+02:00 vllm 4B eager ·  15:16:18 up 6 days,  6:25, 11 users,  load average: 1.48, 1.40, 1.38
+FAIL vllm 4B eager
+== 2026-10-18T15:16:41+02:00 sglang 4B default ·  15:16:41 up 6 days,  6:25, 11 users,  load average: 1.77, 1.47, 1.40
+FAIL sglang 4B default
+== 2026-10-18T15:16:56+02:00 sglang 4B triton ·  15:16:56 up 6 days,  6:25, 11 users,  load average: 1.83, 1.50, 1.41
+FAIL sglang 4B triton
+== 2026-10-18T15:17:11+02:00 sglang 4B flashinfer ·  15:17:11 up 6 days,  6:26, 11 users,  load average: 1.87, 1.52, 1.42
+FAIL sglang 4B flashinfer
+== 2026-10-18T15:17:26+02:00 sglang 4B chunk2048 ·  15:17:26 up 6 days,  6:26, 11 users,  load average: 1.91, 1.55, 1.43
+FAIL sglang 4B chunk2048
+== 2026-10-18T15:17:40+02:00 transformers 4B sdpa-dynamic ·  15:17:40 up 6 days,  6:26, 11 users,  load average: 1.86, 1.55, 1.44
+== 2026-10-18T15:17:56+02:00 transformers 4B eager-dynamic ·  15:17:56 up 6 days,  6:26, 11 users,  load average: 1.67, 1.53, 1.43
+== 2026-10-18T15:18:12+02:00 transformers 4B sdpa-static ·  15:18:12 up 6 days,  6:27, 11 users,  load average: 1.52, 1.50, 1.42
+== 2026-10-18T15:19:05+02:00 llama 4B cuda-default ·  15:19:05 up 6 days,  6:28, 11 users,  load average: 1.27, 1.43, 1.40
+== 2026-10-18T15:19:17+02:00 llama 4B cuda-faon-ub1024 ·  15:19:17 up 6 days,  6:28, 11 users,  load average: 1.15, 1.40, 1.39
+== 2026-10-18T15:19:28+02:00 llama 4B cuda-faoff ·  15:19:28 up 6 days,  6:28, 11 users,  load average: 1.12, 1.38, 1.38
+== 2026-10-18T15:19:39+02:00 llama 4B vk-default ·  15:19:39 up 6 days,  6:28, 11 users,  load average: 1.10, 1.37, 1.38
+== 2026-10-18T15:19:52+02:00 llama 4B vk-faon-ub2048 ·  15:19:52 up 6 days,  6:28, 11 users,  load average: 0.93, 1.32, 1.36
+== 2026-10-18T15:20:05+02:00 llama 4B vk-faoff ·  15:20:05 up 6 days,  6:29, 11 users,  load average: 0.95, 1.30, 1.36
+ALLDONE-after-p1d

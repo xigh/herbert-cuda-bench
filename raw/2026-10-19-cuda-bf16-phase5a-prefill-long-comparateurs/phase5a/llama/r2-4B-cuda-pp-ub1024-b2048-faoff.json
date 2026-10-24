@@ -1,0 +1,163 @@
+[
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "NVIDIA GeForce RTX 4080",
+    "backends": "CUDA",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 2048,
+    "n_ubatch": 1024,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "CUDA0",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 10000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:24:34Z",
+    "avg_ns": 1127789788,
+    "stddev_ns": 0,
+    "avg_ts": 8866.900646,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 1127789788 ],
+    "samples_ts": [ 8866.9 ]
+  },
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "NVIDIA GeForce RTX 4080",
+    "backends": "CUDA",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 2048,
+    "n_ubatch": 1024,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "CUDA0",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 20000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:24:36Z",
+    "avg_ns": 2845951759,
+    "stddev_ns": 0,
+    "avg_ts": 7027.526007,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 2845951759 ],
+    "samples_ts": [ 7027.53 ]
+  },
+  {
+    "build_commit": "547208dca",
+    "build_number": 11718,
+    "cpu_info": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu_info": "NVIDIA GeForce RTX 4080",
+    "backends": "CUDA",
+    "model_filename": "$BENCH_DIR/Qwen3.5-4B-F16.gguf",
+    "model_type": "qwen35 4B F16",
+    "model_size": 8654651392,
+    "model_n_params": 4326350848,
+    "n_batch": 2048,
+    "n_ubatch": 1024,
+    "n_threads": 12,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 99,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": 0,
+    "devices": "CUDA0",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "load_mode": "auto",
+    "lazy_mode": "auto",
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "repack": true,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 40000,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-19T15:24:42Z",
+    "avg_ns": 8011033953,
+    "stddev_ns": 0,
+    "avg_ts": 4993.113278,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 8011033953 ],
+    "samples_ts": [ 4993.11 ]
+  }[New LWP 713569]
+[New LWP 713568]
+[New LWP 713567]
+[New LWP 713563]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x0000795af9710913 in __GI___wait4 (pid=713573, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+#0  0x0000795af9710913 in __GI___wait4 (pid=713573, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+30	in ../sysdeps/unix/sysv/linux/wait4.c
+#1  0x0000795af9945bd3 in ggml_print_backtrace () from ~/llama.cpp-b11718/build-cuda/bin/libggml-base.so.0
+#2  0x0000795af9945d7b in ggml_abort () from ~/llama.cpp-b11718/build-cuda/bin/libggml-base.so.0
+#3  0x0000795aebcf6a17 in ggml_cuda_error(char const*, char const*, char const*, int, char const*) () from ~/llama.cpp-b11718/build-cuda/bin/libggml-cuda.so.0
+#4  0x0000795aebd139c5 in ggml_cuda_pool_vmm::alloc(unsigned long, unsigned long*) () from ~/llama.cpp-b11718/build-cuda/bin/libggml-cuda.so.0
+#5  0x0000795aebd06d72 in ggml_cuda_mul_mat_cublas(ggml_backend_cuda_context&, ggml_tensor const*, ggml_tensor const*, ggml_tensor*) () from ~/llama.cpp-b11718/build-cuda/bin/libggml-cuda.so.0
+#6  0x0000795aebd0f0b9 in ggml_backend_cuda_graph_compute(ggml_backend*, ggml_cgraph*) () from ~/llama.cpp-b11718/build-cuda/bin/libggml-cuda.so.0
+#7  0x0000795af99644d4 in ggml_backend_sched_graph_compute_async () from ~/llama.cpp-b11718/build-cuda/bin/libggml-base.so.0
+#8  0x0000795af8c3b91b in llama_context::graph_compute(ggml_cgraph*, bool) () from ~/llama.cpp-b11718/build-cuda/bin/libllama.so.0
+#9  0x0000795af8c3f5b6 in llama_context::process_ubatch(llama_ubatch const&, llm_graph_type, llama_memory_context_i*, ggml_status&) () from ~/llama.cpp-b11718/build-cuda/bin/libllama.so.0
+#10 0x0000795af8c488c6 in llama_context::decode(llama_batch_ext const&) () from ~/llama.cpp-b11718/build-cuda/bin/libllama.so.0
+#11 0x0000795af9d05473 in test_prompt(llama_context*, int, int, int) () from ~/llama.cpp-b11718/build-cuda/bin/libllama-bench-impl.so
+#12 0x0000795af9d148d8 in llama_bench(int, char**) () from ~/llama.cpp-b11718/build-cuda/bin/libllama-bench-impl.so
+#13 0x0000795af962a1ca in __libc_start_call_main (main=main@entry=0x5c8181495270 <main>, argc=argc@entry=21, argv=argv@entry=0x7ffdf56a9de8) at ../sysdeps/nptl/libc_start_call_main.h:58
+#14 0x0000795af962a28b in __libc_start_main_impl (main=0x5c8181495270 <main>, argc=21, argv=0x7ffdf56a9de8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7ffdf56a9dd8) at ../csu/libc-start.c:360
+#15 0x00005c81814952a5 in _start ()
+[Inferior 1 (process 713562) detached]

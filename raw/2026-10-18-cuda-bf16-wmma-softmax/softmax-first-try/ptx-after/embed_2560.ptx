@@ -1,0 +1,36 @@
+//
+// embed_2560, emitted by herbert-cuda-bf16
+//
+.version 8.5
+.target sm_89
+.address_size 64
+
+
+.visible .entry embed_2560(
+	.param .u64 embed_2560_p0,
+	.param .u64 embed_2560_p1,
+	.param .u64 embed_2560_p2
+)
+.reqntid 320, 1, 1
+{
+	.reg .b32 %r<6>;
+	.reg .b64 %rd<12>;
+
+	ld.param.u64 %rd0, [embed_2560_p0];
+	cvta.to.global.u64 %rd1, %rd0;
+	ld.param.u64 %rd2, [embed_2560_p1];
+	cvta.to.global.u64 %rd3, %rd2;
+	ld.param.u64 %rd4, [embed_2560_p2];
+	cvta.to.global.u64 %rd5, %rd4;
+	mov.u32 %r0, %tid.x;
+	ld.global.u32 %r1, [%rd1];
+	mul.wide.u32 %rd6, %r1, 5120;
+	add.s64 %rd7, %rd3, %rd6;
+	mul.wide.u32 %rd8, %r0, 16;
+	add.s64 %rd9, %rd7, %rd8;
+	ld.global.nc.v4.u32 {%r2, %r3, %r4, %r5}, [%rd9];
+	mul.wide.u32 %rd10, %r0, 16;
+	add.s64 %rd11, %rd5, %rd10;
+	st.global.v4.u32 [%rd11], {%r2, %r3, %r4, %r5};
+	ret;
+}

@@ -1,0 +1,160 @@
+
+## 0.8B: prefill tok/s (median of rounds, spread)
+| variant | pp4000 | pp10000 | pp20000 | pp40000 | pp60000 |
+|---|---|---|---|---|---|
+| default | 60149 (n=3, 0.3 %) | 53190 (n=3, 0.5 %) | 44576 (n=3, 0.5 %) | 33123 (n=3, 0.4 %) | 26556 (n=3, 0.6 %) |
+| rows32 | 60697 (n=3, 0.9 %) | 53602 (n=3, 0.8 %) | 46494 (n=3, 0.4 %) | 34930 (n=3, 0.3 %) | 27817 (n=3, 0.4 %) |
+| pipe | 61422 (n=3, 0.3 %) | 55758 (n=3, 0.6 %) | 48378 (n=3, 0.5 %) | 37648 (n=3, 0.4 %) | 31036 (n=3, 0.1 %) |
+| pipe-rows32 | 61465 (n=3, 0.4 %) | 54982 (n=3, 0.0 %) | 48550 (n=3, 0.3 %) | 37483 (n=3, 0.2 %) | 30407 (n=3, 0.2 %) |
+
+| 0.8B / default (ratio of medians · median of per-round ratios) | pp4000 | pp10000 | pp20000 | pp40000 | pp60000 |
+|---|---|---|---|---|---|
+| rows32 | ×1.009 · ×1.011 | ×1.008 · ×1.008 | ×1.043 · ×1.042 | ×1.055 · ×1.054 | ×1.047 · ×1.047 |
+| pipe | ×1.021 · ×1.023 | ×1.048 · ×1.051 | ×1.085 · ×1.085 | ×1.137 · ×1.136 | ×1.169 · ×1.169 |
+| pipe-rows32 | ×1.022 · ×1.022 | ×1.034 · ×1.034 | ×1.089 · ×1.088 | ×1.132 · ×1.130 | ×1.145 · ×1.145 |
+
+## 4B: prefill tok/s (median of rounds, spread)
+| variant | pp4000 | pp10000 | pp20000 | pp40000 | pp60000 |
+|---|---|---|---|---|---|
+| default | 11136 (n=3, 0.3 %) | 10509 (n=3, 0.1 %) | 9474 (n=3, 0.1 %) | 7972 (n=3, 0.2 %) | 6856 (n=3, 0.1 %) |
+| rows32 | 11213 (n=3, 0.1 %) | 10673 (n=3, 0.1 %) | 9691 (n=3, 0.1 %) | 8219 (n=3, 0.0 %) | 7109 (n=3, 0.0 %) |
+| pipe | 11312 (n=3, 0.4 %) | 10782 (n=3, 0.2 %) | 9911 (n=3, 0.1 %) | 8618 (n=3, 0.1 %) | 7618 (n=3, 0.1 %) |
+| pipe-rows32 | 11282 (n=3, 0.2 %) | 10791 (n=3, 0.2 %) | 9926 (n=3, 0.1 %) | 8582 (n=3, 0.1 %) | 7548 (n=3, 0.0 %) |
+
+| 4B / default (ratio of medians · median of per-round ratios) | pp4000 | pp10000 | pp20000 | pp40000 | pp60000 |
+|---|---|---|---|---|---|
+| rows32 | ×1.007 · ×1.007 | ×1.016 · ×1.016 | ×1.023 · ×1.023 | ×1.031 · ×1.031 | ×1.037 · ×1.037 |
+| pipe | ×1.016 · ×1.013 | ×1.026 · ×1.027 | ×1.046 · ×1.046 | ×1.081 · ×1.081 | ×1.111 · ×1.111 |
+| pipe-rows32 | ×1.013 · ×1.012 | ×1.027 · ×1.027 | ×1.048 · ×1.048 | ×1.076 · ×1.076 | ×1.101 · ×1.101 |
+
+## --profile at 60K
+  0.8B default: 15 prefill blocks: GPU 155958.1 µs per block (median), host wall 155975.9 µs | 96079.9 µs 61.6 % ×6 sdpa_flash_h8kv2d256_k32
+  0.8B rows32: 15 prefill blocks: GPU 148088.6 µs per block (median), host wall 148109.8 µs | 88573.6 µs 59.8 % ×6 sdpa_flash_h8kv2d256_k32_q32
+  0.8B pipe: 15 prefill blocks: GPU 133270.5 µs per block (median), host wall 133288.5 µs | 72336.4 µs 54.3 % ×6 sdpa_flash_h8kv2d256_k32_pipe
+  0.8B pipe-rows32: 15 prefill blocks: GPU 136017.7 µs per block (median), host wall 136034.9 µs | 76077.1 µs 55.9 % ×6 sdpa_flash_h8kv2d256_k32_pipe_q32
+  4B default: 30 prefill blocks: GPU 296979.6 µs per block (median), host wall 296998.1 µs | 126960.2 µs 42.8 % ×8 sdpa_flash_h16kv4d256_k32
+  4B rows32: 30 prefill blocks: GPU 286932.0 µs per block (median), host wall 286951.8 µs | 117327.3 µs 40.9 % ×8 sdpa_flash_h16kv4d256_k32_q32
+  4B pipe: 30 prefill blocks: GPU 269074.4 µs per block (median), host wall 269094.2 µs | 94900.6 µs 35.3 % ×8 sdpa_flash_h16kv4d256_k32_pipe
+  4B pipe-rows32: 30 prefill blocks: GPU 270797.6 µs per block (median), host wall 270816.4 µs | 99883.3 µs 36.9 % ×8 sdpa_flash_h16kv4d256_k32_pipe_q32
+
+## Nsight Compute (sdpa_flash, last prefill block at 60K)
+
+sdpa_flash-0.8B-pipe-rows32-last.details.txt
+    Memory Throughput  %  21.66
+    DRAM Throughput  %  2.14
+    Duration  ms  17.71
+    Compute (SM) Throughput  %  33.09
+    Memory Throughput  Gbyte/s  15.33
+    Issued Warp Per Scheduler  0.12
+    No Eligible  %  87.58
+    Eligible Warps Per Scheduler  warp  0.17
+    Registers Per Thread  register/thread  222
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  2.18
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.68
+    DRAM Throughput  %  2.14
+    Duration  ms  17.69
+    Compute (SM) Throughput  %  33.13
+    Issued Warp Per Scheduler  0.12
+    No Eligible  %  87.58
+    Eligible Warps Per Scheduler  warp  0.17
+    Registers Per Thread  register/thread  222
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  2.18
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.68
+
+sdpa_flash-0.8B-rows32-last.details.txt
+    Memory Throughput  %  18.05
+    DRAM Throughput  %  1.80
+    Duration  ms  21.17
+    Compute (SM) Throughput  %  27.73
+    Memory Throughput  Gbyte/s  12.90
+    Issued Warp Per Scheduler  0.11
+    No Eligible  %  88.84
+    Eligible Warps Per Scheduler  warp  0.16
+    Registers Per Thread  register/thread  207
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  2.18
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.66
+    DRAM Throughput  %  1.81
+    Duration  ms  21.14
+    Compute (SM) Throughput  %  27.72
+    Issued Warp Per Scheduler  0.11
+    No Eligible  %  88.84
+    Eligible Warps Per Scheduler  warp  0.16
+    Registers Per Thread  register/thread  207
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  2.18
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.67
+
+sdpa_flash-4B-pipe-rows32-last.details.txt
+    Memory Throughput  %  29.42
+    DRAM Throughput  %  5.92
+    Duration  ms  6.08
+    Compute (SM) Throughput  %  44.96
+    Memory Throughput  Gbyte/s  42.43
+    Issued Warp Per Scheduler  0.12
+    No Eligible  %  87.59
+    Eligible Warps Per Scheduler  warp  0.17
+    Registers Per Thread  register/thread  222
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  1
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.68
+    DRAM Throughput  %  5.93
+    Duration  ms  6.08
+    Compute (SM) Throughput  %  44.96
+    Issued Warp Per Scheduler  0.12
+    No Eligible  %  87.59
+    Eligible Warps Per Scheduler  warp  0.17
+    Registers Per Thread  register/thread  222
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  1
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.67
+
+sdpa_flash-4B-rows32-last.details.txt
+    Memory Throughput  %  24.49
+    DRAM Throughput  %  4.96
+    Duration  ms  7.26
+    Compute (SM) Throughput  %  37.62
+    Memory Throughput  Gbyte/s  35.53
+    Issued Warp Per Scheduler  0.11
+    No Eligible  %  88.91
+    Eligible Warps Per Scheduler  warp  0.16
+    Registers Per Thread  register/thread  207
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  1
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.67
+    DRAM Throughput  %  4.96
+    Duration  ms  7.26
+    Compute (SM) Throughput  %  37.62
+    Issued Warp Per Scheduler  0.11
+    No Eligible  %  88.91
+    Eligible Warps Per Scheduler  warp  0.16
+    Registers Per Thread  register/thread  207
+    Dynamic Shared Memory Per Block  Kbyte/block  101.38
+    Waves Per SM  1
+    Block Limit Registers  block  1
+    Block Limit Shared Mem  block  1
+    Theoretical Occupancy  %  16.67
+    Achieved Occupancy  %  16.67

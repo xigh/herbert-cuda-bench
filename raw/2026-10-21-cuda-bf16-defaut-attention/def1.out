@@ -1,0 +1,15 @@
+== 2026-10-21T06:27:37+02:00 build
+cargo 1.98.0 (797e8a9bc 2026-08-05)
+== 2026-10-21T06:27:40+02:00 built dac152c (2026-10-21T03:53:36+02:00) docs: and sdpa.rows + working tree (attention defaults, DIFF)
+old modules 440, differing 0
+new only: sdpa_combine_h16d256_s64.ptx sdpa_combine_h8d256_s64.ptx sdpa_gqa_h16kv4d256_s64.ptx sdpa_gqa_h8kv2d256_s64.ptx 
+== 2026-10-21T06:27:41+02:00 stopping resident-gpu
+== 2026-10-21T06:27:46+02:00 A tokens 0.8B
+== 2026-10-21T06:28:37+02:00 B 0.8B pp10000
+== 2026-10-21T06:28:43+02:00 B 0.8B pp60000
+== 2026-10-21T06:28:58+02:00 A tokens 4B
+== 2026-10-21T06:32:36+02:00 B 4B pp10000
+== 2026-10-21T06:33:01+02:00 B 4B pp60000
+ALLDONE-def1
+== 2026-10-21T06:33:57+02:00 starting resident-gpu
+== 2026-10-21T06:34:17+02:00 resident-gpu: active

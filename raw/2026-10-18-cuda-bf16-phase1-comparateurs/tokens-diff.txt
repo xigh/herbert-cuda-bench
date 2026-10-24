@@ -1,0 +1,136 @@
+transformers 0.8B sdpa-dynamic     p1-short    identical (7 tokens)
+transformers 0.8B sdpa-dynamic     p2-explain  first divergence at token 8 of 145
+transformers 0.8B sdpa-dynamic     p3-long     first divergence at token 20 of 255
+transformers 0.8B sdpa-dynamic     p4-xlong    first divergence at token 8 of 199
+transformers 0.8B eager-dynamic    p1-short    identical (7 tokens)
+transformers 0.8B eager-dynamic    p2-explain  first divergence at token 8 of 145
+transformers 0.8B eager-dynamic    p3-long     first divergence at token 172 of 255
+transformers 0.8B eager-dynamic    p4-xlong    first divergence at token 61 of 199
+transformers 0.8B sdpa-static      p1-short    identical (7 tokens)
+transformers 0.8B sdpa-static      p2-explain  first divergence at token 15 of 145
+transformers 0.8B sdpa-static      p3-long     first divergence at token 111 of 255
+transformers 0.8B sdpa-static      p4-xlong    first divergence at token 8 of 199
+llama        0.8B cuda-default     p1-short    identical (7 tokens)
+llama        0.8B cuda-default     p2-explain  first divergence at token 8 of 145
+llama        0.8B cuda-default     p3-long     first divergence at token 172 of 255
+llama        0.8B cuda-default     p4-xlong    first divergence at token 8 of 199
+llama        0.8B cuda-faon-ub1024 p1-short    identical (7 tokens)
+llama        0.8B cuda-faon-ub1024 p2-explain  first divergence at token 8 of 145
+llama        0.8B cuda-faon-ub1024 p3-long     first divergence at token 172 of 255
+llama        0.8B cuda-faon-ub1024 p4-xlong    first divergence at token 8 of 199
+llama        0.8B cuda-faoff       p1-short    identical (7 tokens)
+llama        0.8B cuda-faoff       p2-explain  first divergence at token 8 of 145
+llama        0.8B cuda-faoff       p3-long     first divergence at token 172 of 255
+llama        0.8B cuda-faoff       p4-xlong    first divergence at token 8 of 199
+llama        0.8B vk-default       p1-short    identical (7 tokens)
+llama        0.8B vk-default       p2-explain  first divergence at token 8 of 145
+llama        0.8B vk-default       p3-long     first divergence at token 172 of 255
+llama        0.8B vk-default       p4-xlong    first divergence at token 8 of 199
+llama        0.8B vk-faon-ub2048   p1-short    identical (7 tokens)
+llama        0.8B vk-faon-ub2048   p2-explain  first divergence at token 8 of 145
+llama        0.8B vk-faon-ub2048   p3-long     first divergence at token 172 of 255
+llama        0.8B vk-faon-ub2048   p4-xlong    first divergence at token 8 of 199
+llama        0.8B vk-faoff         p1-short    identical (7 tokens)
+llama        0.8B vk-faoff         p2-explain  first divergence at token 8 of 145
+llama        0.8B vk-faoff         p3-long     first divergence at token 172 of 255
+llama        0.8B vk-faoff         p4-xlong    first divergence at token 8 of 199
+transformers 4B   sdpa-dynamic     p1-short    identical (7 tokens)
+transformers 4B   sdpa-dynamic     p2-explain  first divergence at token 43 of 177
+transformers 4B   sdpa-dynamic     p3-long     first divergence at token 151 of 255
+transformers 4B   sdpa-dynamic     p4-xlong    first divergence at token 131 of 190
+transformers 4B   eager-dynamic    p1-short    identical (7 tokens)
+transformers 4B   eager-dynamic    p2-explain  first divergence at token 32 of 177
+transformers 4B   eager-dynamic    p3-long     identical prefix of 255, lengths 255 (oracle) vs 256
+transformers 4B   eager-dynamic    p4-xlong    first divergence at token 105 of 190
+transformers 4B   sdpa-static      p1-short    identical (7 tokens)
+transformers 4B   sdpa-static      p2-explain  first divergence at token 32 of 177
+transformers 4B   sdpa-static      p3-long     first divergence at token 151 of 255
+transformers 4B   sdpa-static      p4-xlong    first divergence at token 106 of 190
+llama        4B   cuda-default     p1-short    identical (7 tokens)
+llama        4B   cuda-default     p2-explain  identical (177 tokens)
+llama        4B   cuda-default     p3-long     first divergence at token 162 of 255
+llama        4B   cuda-default     p4-xlong    first divergence at token 155 of 190
+llama        4B   cuda-faon-ub1024 p1-short    identical (7 tokens)
+llama        4B   cuda-faon-ub1024 p2-explain  identical (177 tokens)
+llama        4B   cuda-faon-ub1024 p3-long     first divergence at token 162 of 255
+llama        4B   cuda-faon-ub1024 p4-xlong    first divergence at token 105 of 190
+llama        4B   cuda-faoff       p1-short    identical (7 tokens)
+llama        4B   cuda-faoff       p2-explain  identical (177 tokens)
+llama        4B   cuda-faoff       p3-long     first divergence at token 162 of 255
+llama        4B   cuda-faoff       p4-xlong    first divergence at token 155 of 190
+llama        4B   vk-default       p1-short    identical (7 tokens)
+llama        4B   vk-default       p2-explain  identical (177 tokens)
+llama        4B   vk-default       p3-long     first divergence at token 151 of 255
+llama        4B   vk-default       p4-xlong    first divergence at token 105 of 190
+llama        4B   vk-faon-ub2048   p1-short    identical (7 tokens)
+llama        4B   vk-faon-ub2048   p2-explain  identical (177 tokens)
+llama        4B   vk-faon-ub2048   p3-long     first divergence at token 162 of 255
+llama        4B   vk-faon-ub2048   p4-xlong    first divergence at token 105 of 190
+llama        4B   vk-faoff         p1-short    identical (7 tokens)
+llama        4B   vk-faoff         p2-explain  identical (177 tokens)
+llama        4B   vk-faoff         p3-long     first divergence at token 162 of 255
+llama        4B   vk-faoff         p4-xlong    first divergence at token 105 of 190
+vllm         0.8B default          p1-short    identical (7 tokens)
+vllm         0.8B default          p2-explain  first divergence at token 8 of 145
+vllm         0.8B default          p3-long     first divergence at token 111 of 255
+vllm         0.8B default          p4-xlong    first divergence at token 8 of 199
+vllm         0.8B triton           p1-short    identical (7 tokens)
+vllm         0.8B triton           p2-explain  first divergence at token 15 of 145
+vllm         0.8B triton           p3-long     first divergence at token 111 of 255
+vllm         0.8B triton           p4-xlong    first divergence at token 8 of 199
+vllm         0.8B flashinfer       p1-short    identical (7 tokens)
+vllm         0.8B flashinfer       p2-explain  first divergence at token 8 of 145
+vllm         0.8B flashinfer       p3-long     first divergence at token 233 of 255
+vllm         0.8B flashinfer       p4-xlong    first divergence at token 8 of 199
+vllm         0.8B eager            p1-short    identical (7 tokens)
+vllm         0.8B eager            p2-explain  first divergence at token 15 of 145
+vllm         0.8B eager            p3-long     first divergence at token 233 of 255
+vllm         0.8B eager            p4-xlong    first divergence at token 8 of 199
+sglang       0.8B default          p1-short    identical (7 tokens)
+sglang       0.8B default          p2-explain  first divergence at token 8 of 145
+sglang       0.8B default          p3-long     first divergence at token 111 of 255
+sglang       0.8B default          p4-xlong    first divergence at token 8 of 199
+sglang       0.8B triton           p1-short    identical (7 tokens)
+sglang       0.8B triton           p2-explain  first divergence at token 8 of 145
+sglang       0.8B triton           p3-long     first divergence at token 233 of 255
+sglang       0.8B triton           p4-xlong    first divergence at token 8 of 199
+sglang       0.8B flashinfer       p1-short    identical (7 tokens)
+sglang       0.8B flashinfer       p2-explain  first divergence at token 8 of 145
+sglang       0.8B flashinfer       p3-long     first divergence at token 111 of 255
+sglang       0.8B flashinfer       p4-xlong    first divergence at token 8 of 199
+sglang       0.8B chunk2048        p1-short    identical (7 tokens)
+sglang       0.8B chunk2048        p2-explain  first divergence at token 8 of 145
+sglang       0.8B chunk2048        p3-long     first divergence at token 111 of 255
+sglang       0.8B chunk2048        p4-xlong    first divergence at token 8 of 199
+vllm         4B   default          p1-short    identical (7 tokens)
+vllm         4B   default          p2-explain  first divergence at token 23 of 177
+vllm         4B   default          p3-long     first divergence at token 94 of 255
+vllm         4B   default          p4-xlong    first divergence at token 82 of 190
+vllm         4B   triton           p1-short    identical (7 tokens)
+vllm         4B   triton           p2-explain  first divergence at token 32 of 177
+vllm         4B   triton           p3-long     first divergence at token 85 of 255
+vllm         4B   triton           p4-xlong    first divergence at token 45 of 190
+vllm         4B   flashinfer       p1-short    identical (7 tokens)
+vllm         4B   flashinfer       p2-explain  first divergence at token 32 of 177
+vllm         4B   flashinfer       p3-long     identical prefix of 255, lengths 255 (oracle) vs 256
+vllm         4B   flashinfer       p4-xlong    first divergence at token 2 of 190
+vllm         4B   eager            p1-short    identical (7 tokens)
+vllm         4B   eager            p2-explain  first divergence at token 32 of 177
+vllm         4B   eager            p3-long     first divergence at token 85 of 255
+vllm         4B   eager            p4-xlong    first divergence at token 155 of 190
+sglang       4B   default          p1-short    identical (7 tokens)
+sglang       4B   default          p2-explain  first divergence at token 118 of 177
+sglang       4B   default          p3-long     first divergence at token 99 of 255
+sglang       4B   default          p4-xlong    first divergence at token 105 of 190
+sglang       4B   triton           p1-short    identical (7 tokens)
+sglang       4B   triton           p2-explain  first divergence at token 32 of 177
+sglang       4B   triton           p3-long     first divergence at token 99 of 255
+sglang       4B   triton           p4-xlong    identical (190 tokens)
+sglang       4B   flashinfer       p1-short    identical (7 tokens)
+sglang       4B   flashinfer       p2-explain  first divergence at token 118 of 177
+sglang       4B   flashinfer       p3-long     first divergence at token 99 of 255
+sglang       4B   flashinfer       p4-xlong    first divergence at token 105 of 190
+sglang       4B   chunk2048        p1-short    identical (7 tokens)
+sglang       4B   chunk2048        p2-explain  first divergence at token 118 of 177
+sglang       4B   chunk2048        p3-long     first divergence at token 99 of 255
+sglang       4B   chunk2048        p4-xlong    first divergence at token 105 of 190

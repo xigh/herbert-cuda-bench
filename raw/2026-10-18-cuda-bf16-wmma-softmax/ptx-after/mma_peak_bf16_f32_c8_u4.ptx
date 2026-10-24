@@ -1,0 +1,142 @@
+//
+// mma_peak_bf16_f32_c8_u4, emitted by herbert-cuda-bf16
+//
+.version 8.5
+.target sm_89
+.address_size 64
+
+
+.visible .entry mma_peak_bf16_f32_c8_u4(
+	.param .u64 mma_peak_bf16_f32_c8_u4_p0,
+	.param .u32 mma_peak_bf16_f32_c8_u4_p1
+)
+.reqntid 128, 1, 1
+{
+	.reg .pred %p<2>;
+	.reg .b32 %r<13>;
+	.reg .f32 %f<32>;
+	.reg .b64 %rd<4>;
+
+	ld.param.u64 %rd0, [mma_peak_bf16_f32_c8_u4_p0];
+	cvta.to.global.u64 %rd1, %rd0;
+	ld.param.u32 %r0, [mma_peak_bf16_f32_c8_u4_p1];
+	mov.u32 %r1, %tid.x;
+	mov.u32 %r2, %ctaid.x;
+	mad.lo.u32 %r3, %r2, 128, %r1;
+	and.b32 %r4, %r1, 1;
+	xor.b32 %r5, %r4, 981482112;
+	xor.b32 %r6, %r4, 981482112;
+	xor.b32 %r7, %r4, 981482112;
+	xor.b32 %r8, %r4, 981482112;
+	xor.b32 %r9, %r4, 981482112;
+	xor.b32 %r10, %r4, 981482112;
+	mov.f32 %f0, 0f00000000;
+	mov.f32 %f1, 0f00000000;
+	mov.f32 %f2, 0f00000000;
+	mov.f32 %f3, 0f00000000;
+	mov.f32 %f4, 0f00000000;
+	mov.f32 %f5, 0f00000000;
+	mov.f32 %f6, 0f00000000;
+	mov.f32 %f7, 0f00000000;
+	mov.f32 %f8, 0f00000000;
+	mov.f32 %f9, 0f00000000;
+	mov.f32 %f10, 0f00000000;
+	mov.f32 %f11, 0f00000000;
+	mov.f32 %f12, 0f00000000;
+	mov.f32 %f13, 0f00000000;
+	mov.f32 %f14, 0f00000000;
+	mov.f32 %f15, 0f00000000;
+	mov.f32 %f16, 0f00000000;
+	mov.f32 %f17, 0f00000000;
+	mov.f32 %f18, 0f00000000;
+	mov.f32 %f19, 0f00000000;
+	mov.f32 %f20, 0f00000000;
+	mov.f32 %f21, 0f00000000;
+	mov.f32 %f22, 0f00000000;
+	mov.f32 %f23, 0f00000000;
+	mov.f32 %f24, 0f00000000;
+	mov.f32 %f25, 0f00000000;
+	mov.f32 %f26, 0f00000000;
+	mov.f32 %f27, 0f00000000;
+	mov.f32 %f28, 0f00000000;
+	mov.f32 %f29, 0f00000000;
+	mov.f32 %f30, 0f00000000;
+	mov.f32 %f31, 0f00000000;
+	mov.u32 %r11, 0;
+	setp.ge.u32 %p0, %r11, %r0;
+	@%p0 bra L1;
+L0:
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f0, %f1, %f2, %f3}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f0, %f1, %f2, %f3};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f4, %f5, %f6, %f7}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f4, %f5, %f6, %f7};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f8, %f9, %f10, %f11}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f8, %f9, %f10, %f11};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f12, %f13, %f14, %f15}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f12, %f13, %f14, %f15};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f16, %f17, %f18, %f19}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f16, %f17, %f18, %f19};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f20, %f21, %f22, %f23}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f20, %f21, %f22, %f23};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f24, %f25, %f26, %f27}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f24, %f25, %f26, %f27};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f28, %f29, %f30, %f31}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f28, %f29, %f30, %f31};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f0, %f1, %f2, %f3}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f0, %f1, %f2, %f3};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f4, %f5, %f6, %f7}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f4, %f5, %f6, %f7};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f8, %f9, %f10, %f11}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f8, %f9, %f10, %f11};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f12, %f13, %f14, %f15}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f12, %f13, %f14, %f15};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f16, %f17, %f18, %f19}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f16, %f17, %f18, %f19};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f20, %f21, %f22, %f23}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f20, %f21, %f22, %f23};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f24, %f25, %f26, %f27}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f24, %f25, %f26, %f27};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f28, %f29, %f30, %f31}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f28, %f29, %f30, %f31};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f0, %f1, %f2, %f3}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f0, %f1, %f2, %f3};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f4, %f5, %f6, %f7}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f4, %f5, %f6, %f7};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f8, %f9, %f10, %f11}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f8, %f9, %f10, %f11};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f12, %f13, %f14, %f15}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f12, %f13, %f14, %f15};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f16, %f17, %f18, %f19}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f16, %f17, %f18, %f19};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f20, %f21, %f22, %f23}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f20, %f21, %f22, %f23};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f24, %f25, %f26, %f27}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f24, %f25, %f26, %f27};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f28, %f29, %f30, %f31}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f28, %f29, %f30, %f31};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f0, %f1, %f2, %f3}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f0, %f1, %f2, %f3};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f4, %f5, %f6, %f7}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f4, %f5, %f6, %f7};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f8, %f9, %f10, %f11}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f8, %f9, %f10, %f11};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f12, %f13, %f14, %f15}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f12, %f13, %f14, %f15};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f16, %f17, %f18, %f19}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f16, %f17, %f18, %f19};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f20, %f21, %f22, %f23}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f20, %f21, %f22, %f23};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f24, %f25, %f26, %f27}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f24, %f25, %f26, %f27};
+	mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%f28, %f29, %f30, %f31}, {%r5, %r6, %r7, %r8}, {%r9, %r10}, {%f28, %f29, %f30, %f31};
+	add.u32 %r11, %r11, 1;
+	setp.lt.u32 %p1, %r11, %r0;
+	@%p1 bra L0;
+L1:
+	mov.u32 %r12, 0;
+	xor.b32 %r12, %r12, %f0;
+	xor.b32 %r12, %r12, %f1;
+	xor.b32 %r12, %r12, %f2;
+	xor.b32 %r12, %r12, %f3;
+	xor.b32 %r12, %r12, %f4;
+	xor.b32 %r12, %r12, %f5;
+	xor.b32 %r12, %r12, %f6;
+	xor.b32 %r12, %r12, %f7;
+	xor.b32 %r12, %r12, %f8;
+	xor.b32 %r12, %r12, %f9;
+	xor.b32 %r12, %r12, %f10;
+	xor.b32 %r12, %r12, %f11;
+	xor.b32 %r12, %r12, %f12;
+	xor.b32 %r12, %r12, %f13;
+	xor.b32 %r12, %r12, %f14;
+	xor.b32 %r12, %r12, %f15;
+	xor.b32 %r12, %r12, %f16;
+	xor.b32 %r12, %r12, %f17;
+	xor.b32 %r12, %r12, %f18;
+	xor.b32 %r12, %r12, %f19;
+	xor.b32 %r12, %r12, %f20;
+	xor.b32 %r12, %r12, %f21;
+	xor.b32 %r12, %r12, %f22;
+	xor.b32 %r12, %r12, %f23;
+	xor.b32 %r12, %r12, %f24;
+	xor.b32 %r12, %r12, %f25;
+	xor.b32 %r12, %r12, %f26;
+	xor.b32 %r12, %r12, %f27;
+	xor.b32 %r12, %r12, %f28;
+	xor.b32 %r12, %r12, %f29;
+	xor.b32 %r12, %r12, %f30;
+	xor.b32 %r12, %r12, %f31;
+	mul.wide.u32 %rd2, %r3, 4;
+	add.s64 %rd3, %rd1, %rd2;
+	st.global.u32 [%rd3], %r12;
+	ret;
+}

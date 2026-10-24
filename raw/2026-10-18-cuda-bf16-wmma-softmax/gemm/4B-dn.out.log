@@ -1,0 +1,197 @@
+device 0: NVIDIA GeForce RTX 4080
+== NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+   clock 2505 MHz, memory 11201 MHz × 256 bits, L2 64 MiB, 15.3/15.6 GiB free
+   shared 48 KiB per block (99 opt-in), 100 KiB per SM; 65536 registers and 1536 threads per SM
+   driver reserves 1024 bytes of shared memory per block
+resources 64x64x32_w2x2_s3: 69 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3:     62.03 µs   43.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3:    158.44 µs   67.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3:    286.01 µs   75.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3:    571.03 µs   75.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x128x32_w2x2_s2: 127 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2:     81.92 µs   32.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2:    162.47 µs   66.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2:    263.85 µs   81.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2:    469.89 µs   91.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x64x32_w2x2_s3_wmma: 62 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_wmma:     69.16 µs   38.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_wmma:    155.65 µs   69.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_wmma:    292.52 µs   73.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_wmma:    549.21 µs   78.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x128x32_w2x2_s2_wmma: 123 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_wmma:     82.12 µs   32.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_wmma:    167.86 µs   64.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_wmma:    273.41 µs   78.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_wmma:    474.45 µs   90.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+resources 64x64x32_w2x2_s3_sync: 96 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync:     78.70 µs   34.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync:    139.86 µs   76.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync:    247.81 µs   86.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync:    456.77 µs   94.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x128x32_w2x2_s2_sync: 159 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync:     98.30 µs   27.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync:    174.76 µs   61.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync:    268.97 µs   79.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync:    461.14 µs   93.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x64x32_w2x2_s3_sync_wmma: 79 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync_wmma:     81.71 µs   32.9 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync_wmma:    152.92 µs   70.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync_wmma:    263.27 µs   81.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync_wmma:    490.15 µs   87.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 1 weight copies 7
+resources 64x128x32_w2x2_s2_sync_wmma: 161 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync_wmma:     98.74 µs   27.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync_wmma:    173.06 µs   62.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync_wmma:    268.97 µs   79.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync_wmma:    478.60 µs   89.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 1 weight copies 7
+resources 64x128x32_w2x2_s2_sync_wmma: 161 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync_wmma:     98.76 µs   27.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync_wmma:    173.40 µs   61.9 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync_wmma:    268.97 µs   79.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync_wmma:    479.23 µs   89.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+resources 64x64x32_w2x2_s3_sync_wmma: 79 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync_wmma:     82.21 µs   32.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync_wmma:    152.23 µs   70.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync_wmma:    263.56 µs   81.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync_wmma:    490.58 µs   87.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x128x32_w2x2_s2_sync: 159 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync:     99.33 µs   27.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync:    174.42 µs   61.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync:    268.29 µs   80.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync:    460.80 µs   93.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x64x32_w2x2_s3_sync: 96 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync:     77.98 µs   34.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync:    139.95 µs   76.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync:    247.37 µs   86.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync:    456.62 µs   94.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x128x32_w2x2_s2_wmma: 123 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_wmma:     81.76 µs   32.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_wmma:    168.28 µs   63.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_wmma:    273.03 µs   78.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_wmma:    474.78 µs   90.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 2 weight copies 7
+resources 64x64x32_w2x2_s3_wmma: 62 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_wmma:     69.78 µs   38.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_wmma:    155.99 µs   68.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_wmma:    292.86 µs   73.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_wmma:    548.99 µs   78.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x128x32_w2x2_s2: 127 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2:     81.04 µs   33.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2:    162.47 µs   66.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2:    266.92 µs   80.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2:    468.31 µs   91.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x64x32_w2x2_s3: 69 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3:     62.90 µs   42.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3:    157.70 µs   68.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3:    284.67 µs   75.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3:    570.71 µs   75.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 2 weight copies 7
+resources 64x64x32_w2x2_s3: 69 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3:     63.20 µs   42.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3:    157.35 µs   68.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3:    285.82 µs   75.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3:    572.07 µs   75.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 69 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x128x32_w2x2_s2: 127 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2:     81.73 µs   32.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2:    163.06 µs   65.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2:    264.53 µs   81.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2:    468.65 µs   91.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 127 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x64x32_w2x2_s3_wmma: 62 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_wmma:     69.19 µs   38.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_wmma:    155.31 µs   69.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_wmma:    292.05 µs   73.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_wmma:    549.18 µs   78.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 62 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x128x32_w2x2_s2_wmma: 123 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_wmma:     81.77 µs   32.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_wmma:    168.62 µs   63.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_wmma:    273.75 µs   78.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_wmma:    474.82 µs   90.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 123 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+resources 64x64x32_w2x2_s3_sync: 96 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync:     78.56 µs   34.2 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync:    140.09 µs   76.6 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync:    247.81 µs   86.7 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync:    457.14 µs   94.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 96 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x128x32_w2x2_s2_sync: 159 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync:     98.89 µs   27.1 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync:    172.37 µs   62.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync:    268.57 µs   80.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync:    460.46 µs   93.3 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 159 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x64x32_w2x2_s3_sync_wmma: 79 regs, 30720 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x64x32_w2x2_s3_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x64x32_w2x2_s3_sync_wmma:     81.92 µs   32.8 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x64x32_w2x2_s3_sync_wmma:    152.58 µs   70.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x64x32_w2x2_s3_sync_wmma:    263.52 µs   81.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+path-check 64x64x32_w2x2_s3_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x64x32_w2x2_s3_sync_wmma:    490.84 µs   87.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 79 regs, 0 B spill, 0 B static shared, 30720 B dynamic — res round 3 weight copies 7
+resources 64x128x32_w2x2_s2_sync_wmma: 161 regs, 32768 B dynamic shared, 0 B local, preferred carveout -1, driver bound 3 CTA/SM
+path-check 64x128x32_w2x2_s2_sync_wmma M 128: 327680 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 128    4096×2560   64x128x32_w2x2_s2_sync_wmma:     97.87 µs   27.4 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 138 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 512: 1310720 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 512    4096×2560   64x128x32_w2x2_s2_sync_wmma:    173.06 µs   62.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 506 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 1024: 2621440 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 1024   4096×2560   64x128x32_w2x2_s2_sync_wmma:    268.29 µs   80.0 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 1035 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7
+path-check 64x128x32_w2x2_s2_sync_wmma M 2048: 5242880 BF16 entries identical to ldmatrix/cp.async/mma
+gemm   4B dn.out       M 2048   4096×2560   64x128x32_w2x2_s2_sync_wmma:    479.91 µs   89.5 TFLOPS — max 0.000 ulp, 0 > 1 ulp, 0.0000 of Σ|aw|·2⁻⁸, 0 non-finite / 2064 — 161 regs, 0 B spill, 0 B static shared, 32768 B dynamic — res round 3 weight copies 7

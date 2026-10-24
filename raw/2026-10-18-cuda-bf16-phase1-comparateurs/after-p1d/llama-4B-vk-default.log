@@ -1,0 +1,4 @@
+llama 4B vk-default p1-short 8 tokens
+llama 4B vk-default p2-explain 178 tokens
+llama 4B vk-default p3-long 256 tokens
+llama 4B vk-default p4-xlong 168 tokens

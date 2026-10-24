@@ -1,0 +1,5 @@
+hc-nu Qwen3.5-0.8B p   10: in [20, 21] · TTFT 4.94 ms · prefill 4057 tok/s (12.3 %) · decode 406.56 tok/s (0.1 %) · out [128] · n=15
+hc-nu Qwen3.5-0.8B p  100: in [109, 110, 111] · TTFT 5.55 ms · prefill 19630 tok/s (7.4 %) · decode 406.66 tok/s (0.1 %) · out [128] · n=15
+hc-nu Qwen3.5-0.8B p  500: in [510, 511] · TTFT 11.58 ms · prefill 44109 tok/s (2.0 %) · decode 404.27 tok/s (0.1 %) · out [128] · n=15
+hc-nu Qwen3.5-0.8B p 2048: in [2058, 2059] · TTFT 47.78 ms · prefill 43071 tok/s (2.2 %) · decode 391.32 tok/s (0.2 %) · out [128] · n=15
+hc-nu Qwen3.5-0.8B p 4096: in [4105, 4106, 4107] · TTFT 95.71 ms · prefill 42902 tok/s (2.2 %) · decode 350.47 tok/s (0.1 %) · out [128] · n=15

@@ -1,0 +1,37 @@
+== 0.8B pp10000: 21 sequences, lengths [63, 64]
+  class 0 (= against class 0): hc-bf16
+  class 1 (first divergence at 17 against class 0): hc-f16 hc-f16-acc16 hvf llama:cuda-default llama:cuda-faoff llama:cuda-faon-ub1024 llama:vk-default llama:vk-faoff llama:vk-faon-ub2048 sglang:chunk2048 sglang:default sglang:flashinfer sglang:triton transformers:eager-dynamic transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:eager vllm:flashinfer vllm:triton
+== 0.8B pp20000: 20 sequences, lengths [63, 64]
+  class 0 (= against class 0): hc-bf16
+  class 1 (first divergence at 32 against class 0): hc-f16 hc-f16-acc16 hvf llama:cuda-default llama:cuda-faoff llama:cuda-faon-ub1024 llama:vk-default llama:vk-faoff llama:vk-faon-ub2048 sglang:chunk2048 sglang:default sglang:flashinfer sglang:triton transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:eager vllm:flashinfer vllm:triton
+== 0.8B pp40000: 19 sequences, lengths [64]
+  class 0 (= against class 0): hc-bf16
+  class 1 (first divergence at 49 against class 0): hc-f16 sglang:chunk2048 sglang:default sglang:flashinfer sglang:triton transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:flashinfer vllm:triton
+  class 2 (first divergence at 20 against class 0): hc-f16-acc16 llama:vk-faoff vllm:eager
+  class 3 (first divergence at 22 against class 0): llama:cuda-default
+  class 4 (first divergence at 22 against class 0): llama:cuda-faoff llama:cuda-faon-ub1024 llama:vk-default llama:vk-faon-ub2048
+  between classes: 1/2 20  1/3 22  1/4 22  2/3 20  2/4 20  3/4 35
+== 0.8B pp60000: 19 sequences, lengths [64]
+  class 0 (= against class 0): hc-bf16
+  class 1 (first divergence at 17 against class 0): hc-f16 vllm:eager vllm:flashinfer
+  class 2 (first divergence at 17 against class 0): hc-f16-acc16 sglang:chunk2048 sglang:default sglang:flashinfer sglang:triton transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:triton
+  class 3 (first divergence at 13 against class 0): llama:cuda-default llama:cuda-faon-ub1024
+  class 4 (first divergence at 13 against class 0): llama:cuda-faoff llama:vk-default llama:vk-faon-ub2048
+  class 5 (first divergence at 13 against class 0): llama:vk-faoff
+  between classes: 1/2 32  1/3 13  1/4 13  1/5 13  2/3 13  2/4 13  2/5 13  3/4 14  3/5 14  4/5 33
+== 4B pp10000: 16 sequences, lengths [63, 64]
+  class 0 (= against class 0): hc-bf16 hc-f16 hc-f16-acc16 hvf llama:cuda-default llama:cuda-faoff llama:cuda-faon-ub1024 llama:vk-default llama:vk-faoff llama:vk-faon-ub2048 transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:eager vllm:flashinfer vllm:triton
+== 4B pp20000: 16 sequences, lengths [63, 64]
+  class 0 (= against class 0): hc-bf16 hc-f16 hc-f16-acc16 hvf llama:cuda-default llama:cuda-faoff llama:cuda-faon-ub1024 llama:vk-default llama:vk-faoff llama:vk-faon-ub2048 transformers:sdpa-dynamic transformers:sdpa-static vllm:default vllm:eager vllm:flashinfer vllm:triton
+== 4B pp40000: 14 sequences, lengths [64]
+  class 0 (= against class 0): hc-bf16 hc-f16 hc-f16-acc16 llama:cuda-default llama:vk-default transformers:sdpa-dynamic vllm:default vllm:eager vllm:flashinfer vllm:triton
+  class 1 (first divergence at 6 against class 0): llama:cuda-faoff llama:vk-faon-ub2048
+  class 2 (first divergence at 42 against class 0): llama:cuda-faon-ub1024
+  class 3 (first divergence at 16 against class 0): llama:vk-faoff
+  between classes: 1/2 6  1/3 6  2/3 16
+== 4B pp60000: 13 sequences, lengths [64]
+  class 0 (= against class 0): hc-bf16 hc-f16 hc-f16-acc16 vllm:default vllm:eager vllm:flashinfer vllm:triton
+  class 1 (first divergence at 28 against class 0): llama:cuda-default llama:cuda-faon-ub1024 llama:vk-default llama:vk-faon-ub2048
+  class 2 (first divergence at 14 against class 0): llama:cuda-faoff
+  class 3 (first divergence at 39 against class 0): llama:vk-faoff
+  between classes: 1/2 14  1/3 28  2/3 14

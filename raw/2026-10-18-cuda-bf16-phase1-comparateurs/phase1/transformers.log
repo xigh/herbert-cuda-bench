@@ -1,0 +1,131 @@
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  73%|███████▎  | 235/320 [00:00<00:00, 2343.63it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2566.04it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-dynamic 128 1 done
+0.8B sdpa-dynamic 512 1 done
+0.8B sdpa-dynamic 2048 1 done
+0.8B sdpa-dynamic 4000 1 done
+0.8B sdpa-dynamic 759 1 done
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+0.8B sdpa-dynamic 759 255 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  75%|███████▍  | 239/320 [00:00<00:00, 2383.50it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2585.26it/s]
+0.8B sdpa-static 128 1 done
+0.8B sdpa-static 512 1 done
+0.8B sdpa-static 2048 1 done
+0.8B sdpa-static 4000 1 done
+0.8B sdpa-static 759 1 done
+0.8B sdpa-static 759 255 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  75%|███████▍  | 239/320 [00:00<00:00, 2389.44it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2565.95it/s]
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8] torch._dynamo hit config.recompile_limit (8)
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:535)
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]    last reason: 9/7: cache_params.layers[9].device is None                    # if self.device is None:  # transformers/cache_utils.py:1055 in lazy_initialization
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8] User stack trace:
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 572, in forward
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]     mixed_qkv = cache_params.update_conv_state(
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1449, in update_conv_state
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]     conv_states = self.layers[layer_idx].update_conv_state(conv_states, state_idx, **kwargs)
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1094, in update_conv_state
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]     self.lazy_initialization(conv_states=conv_states, state_idx=state_idx, conv_kernel_size=conv_kernel_size)
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/cache_utils.py", line 1055, in lazy_initialization
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8]     if self.device is None:
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1018 12:22:30.014000 1828851 torch/_dynamo/convert_frame.py:2008] [9/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+0.8B sdpa-static-compile 128 1 done
+W1018 12:22:33.415000 1828851 torch/_dynamo/convert_frame.py:2008] [7/8] torch._dynamo hit config.recompile_limit (8)
+W1018 12:22:33.415000 1828851 torch/_dynamo/convert_frame.py:2008] [7/8]    function: 'forward' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py:860)
+W1018 12:22:33.415000 1828851 torch/_dynamo/convert_frame.py:2008] [7/8]    last reason: 7/7: KeyError on self._modules['linear_attn']
+W1018 12:22:33.415000 1828851 torch/_dynamo/convert_frame.py:2008] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1018 12:22:33.415000 1828851 torch/_dynamo/convert_frame.py:2008] [7/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+0.8B sdpa-static-compile 512 1 done
+0.8B sdpa-static-compile 2048 1 done
+0.8B sdpa-static-compile 4000 1 done
+0.8B sdpa-static-compile 759 1 done
+0.8B sdpa-static-compile 759 255 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  78%|███████▊  | 250/320 [00:00<00:00, 2499.67it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2631.29it/s]
+0.8B eager-dynamic 128 1 done
+0.8B eager-dynamic 512 1 done
+0.8B eager-dynamic 2048 1 done
+0.8B eager-dynamic 4000 1 done
+0.8B eager-dynamic 759 1 done
+0.8B eager-dynamic 759 255 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  71%|███████   | 226/320 [00:00<00:00, 2256.30it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2513.56it/s]
+0.8B eager-static 128 1 done
+0.8B eager-static 512 1 done
+0.8B eager-static 2048 1 done
+0.8B eager-static 4000 1 done
+0.8B eager-static 759 1 done
+0.8B eager-static 759 255 done
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights:  70%|███████   | 225/320 [00:00<00:00, 2242.90it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 2489.87it/s]
+0.8B eager-static-compile 128 1 done
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8] torch._dynamo hit config.recompile_limit (8)
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8]    function: '__call__' (~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py:82)
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8]    last reason: 6/1: kwargs['attention_mask'] is None                         # return super().__call__(*args, **kwargs)  # transformers/modeling_layers.py:111 in __call__
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8] User stack trace:
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8]   File "~/venvs/bench-transformers-latest/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8]     return super().__call__(*args, **kwargs)
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1018 12:23:27.319000 1828851 torch/_dynamo/convert_frame.py:2008] [6/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+0.8B eager-static-compile 512 1 done
+0.8B eager-static-compile 2048 1 done
+0.8B eager-static-compile 4000 1 done
+0.8B eager-static-compile 759 1 done
+0.8B eager-static-compile 759 255 done
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   6%|▌         | 26/426 [00:00<00:01, 241.02it/s]
+Loading weights:  25%|██▍       | 106/426 [00:00<00:00, 558.86it/s]
+Loading weights:  44%|████▍     | 187/426 [00:00<00:00, 668.10it/s]
+Loading weights:  62%|██████▏   | 266/426 [00:00<00:00, 714.56it/s]
+Loading weights:  81%|████████  | 346/426 [00:00<00:00, 741.05it/s]
+Loading weights: 100%|█████████▉| 424/426 [00:00<00:00, 753.97it/s]
+Loading weights: 100%|██████████| 426/426 [00:00<00:00, 696.38it/s]
+4B sdpa-dynamic 128 1 done
+4B sdpa-dynamic 512 1 done
+4B sdpa-dynamic 2048 1 done
+4B sdpa-dynamic 4000 1 done
+4B sdpa-dynamic 759 1 done
+4B sdpa-dynamic 759 255 done
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   6%|▌         | 25/426 [00:00<00:01, 225.81it/s]
+Loading weights:  25%|██▍       | 106/426 [00:00<00:00, 552.66it/s]
+Loading weights:  43%|████▎     | 185/426 [00:00<00:00, 654.31it/s]
+Loading weights:  62%|██████▏   | 264/426 [00:00<00:00, 705.57it/s]
+Loading weights:  81%|████████  | 346/426 [00:00<00:00, 741.32it/s]
+Loading weights:  99%|█████████▉| 423/426 [00:00<00:00, 749.04it/s]
+Loading weights: 100%|██████████| 426/426 [00:00<00:00, 690.99it/s]
+4B sdpa-static 128 1 done
+4B sdpa-static 512 1 done
+4B sdpa-static 2048 1 done
+4B sdpa-static 4000 1 done
+4B sdpa-static 759 1 done
+4B sdpa-static 759 255 done
+[W1018 12:25:16.790931280 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+[W1018 12:25:16.791039793 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+4B sdpa-static-compile FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 7.55 GiB. GPU 0 has a total capacity of 15.57 GiB of which 6.82 GiB is free. Including non-PyTorch memory, this process has 8.73 GiB memory in use. Of the allocated memory 8.25 GiB is allocated by PyTorch, with 230.00 MiB allocated in private pools (e.g., CUDA Graphs), and 57.32 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1018 12:25:16.822586725 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+[W1018 12:25:16.822689007 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+4B eager-dynamic FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 7.55 GiB. GPU 0 has a total capacity of 15.57 GiB of which 6.82 GiB is free. Including non-PyTorch memory, this process has 8.73 GiB memory in use. Of the allocated memory 8.25 GiB is allocated by PyTorch, with 230.00 MiB allocated in private pools (e.g., CUDA Graphs), and 57.32 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1018 12:25:16.843300080 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+[W1018 12:25:16.843398424 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+4B eager-static FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 7.55 GiB. GPU 0 has a total capacity of 15.57 GiB of which 6.82 GiB is free. Including non-PyTorch memory, this process has 8.73 GiB memory in use. Of the allocated memory 8.25 GiB is allocated by PyTorch, with 230.00 MiB allocated in private pools (e.g., CUDA Graphs), and 57.32 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')
+[W1018 12:25:16.863838415 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+[W1018 12:25:16.863935027 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8111783936 bytes (free: 7322206208, total: 16720199680).
+4B eager-static-compile FAIL OutOfMemoryError('CUDA out of memory. Tried to allocate 7.55 GiB. GPU 0 has a total capacity of 15.57 GiB of which 6.82 GiB is free. Including non-PyTorch memory, this process has 8.73 GiB memory in use. Of the allocated memory 8.25 GiB is allocated by PyTorch, with 230.00 MiB allocated in private pools (e.g., CUDA Graphs), and 57.32 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')

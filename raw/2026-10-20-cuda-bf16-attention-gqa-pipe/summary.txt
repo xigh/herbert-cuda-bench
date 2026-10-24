@@ -1,0 +1,367 @@
+# A. decode step and attention by depth (sdpa.split=8, --profile)
+## 0.8B (dd1/a)
+   10000: step 3948.5 µs · sdpa_split 873.5 µs (22.1 %) · combine 18.4 µs · rest 3056.6 µs · KV once 123 MB → 141 GB/s · prefill 3 blocks, 67125 µs per block, sdpa_flash 12919 µs (19.2 %)
+   20000: step 4773.9 µs · sdpa_split 1704.7 µs (35.7 %) · combine 18.8 µs · rest 3050.4 µs · KV once 246 MB → 144 GB/s · prefill 5 blocks, 92792 µs per block, sdpa_flash 33088 µs (35.7 %)
+   40000: step 6439.8 µs · sdpa_split 3378.4 µs (52.5 %) · combine 19.7 µs · rest 3041.7 µs · KV once 492 MB → 146 GB/s · prefill 10 blocks, 129853 µs per block, sdpa_flash 70422 µs (54.2 %)
+   60000: step 8115.2 µs · sdpa_split 5042.7 µs (62.1 %) · combine 19.9 µs · rest 3052.6 µs · KV once 738 MB → 146 GB/s · prefill 15 blocks, 154969 µs per block, sdpa_flash 95550 µs (61.7 %)
+## 4B (dd3/a)
+   10000: step 14568.8 µs · sdpa_split 1234.9 µs (8.5 %) · combine 25.7 µs · rest 13308.2 µs · KV once 329 MB → 266 GB/s · prefill 5 blocks, 189090 µs per block, sdpa_flash 23310 µs (12.3 %)
+   20000: step 15695.9 µs · sdpa_split 2428.5 µs (15.5 %) · combine 26.9 µs · rest 13240.5 µs · KV once 656 MB → 270 GB/s · prefill 10 blocks, 210302 µs per block, sdpa_flash 49242 µs (23.4 %)
+   40000: step 18113.5 µs · sdpa_split 4817.0 µs (26.6 %) · combine 26.7 µs · rest 13269.8 µs · KV once 1312 MB → 272 GB/s · prefill 20 blocks, 252431 µs per block, sdpa_flash 91604 µs (36.3 %)
+   60000: step 20488.2 µs · sdpa_split 7234.8 µs (35.3 %) · combine 27.1 µs · rest 13226.3 µs · KV once 1967 MB → 272 GB/s · prefill 30 blocks, 293866 µs per block, sdpa_flash 125704 µs (42.8 %)
+
+# B. decode tok/s per variant (graph on; median, n, spread, ratio to the first variant)
+## 0.8B, sdpa.split (dd1/b, dd2b/b; dd2b runs left out: 14)
+  p3: s8 401.0 (n=3, 0.0 %, ×1.000) · s16 403.7 (n=3, 21.5 %, ×1.007) · s32 403.8 (n=2, 0.0 %, ×1.007) · s64 402.5 (n=2, 0.0 %, ×1.004) · s128 400.0 (n=1, 0.0 %, ×0.998)
+    ids s128r3 s8r1 s8r2 s8r3: first difference against s8 at None
+    ids s16r1 s16r2 s16r3 s32r2 s32r3: first difference against s8 at 144
+    ids s64r2 s64r3: first difference against s8 at 172
+  pp10000: s8 298.7 (n=3, 0.0 %, ×1.000) · s16 338.7 (n=3, 0.0 %, ×1.134) · s32 361.3 (n=3, 0.0 %, ×1.209) · s64 359.7 (n=3, 2.0 %, ×1.204) · s128 362.2 (n=3, 0.0 %, ×1.213) · s256 352.6 (n=3, 2.6 %, ×1.180)
+    ids s128r1 s128r2 s128r3 s16r1 s16r2 s16r3: first difference against s8 at 12
+    ids s256r1 s256r2 s256r3: first difference against s8 at 10
+    ids s32r1 s32r2 s32r3: first difference against s8 at 98
+    ids s64r1 s64r2 s64r3: first difference against s8 at 28
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+  pp20000: s8 240.1 (n=3, 0.6 %, ×1.000) · s16 295.7 (n=2, 0.0 %, ×1.232) · s32 329.1 (n=2, 1.8 %, ×1.371) · s64 330.0 (n=2, 0.1 %, ×1.375) · s128 335.8 (n=1, 0.0 %, ×1.399)
+    ids s128r3 s32r2 s32r3 s64r2 s64r3: first difference against s8 at 32
+    ids s16r2 s16r3: first difference against s8 at 125
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+  pp40000: s8 171.8 (n=3, 0.0 %, ×1.000) · s16 235.1 (n=2, 0.0 %, ×1.369) · s32 284.6 (n=2, 0.0 %, ×1.657) · s64 275.7 (n=2, 0.0 %, ×1.604) · s128 290.0 (n=1, 0.0 %, ×1.688)
+    ids s128r3 s64r2 s64r3: first difference against s8 at 22
+    ids s16r2 s16r3: first difference against s8 at 57
+    ids s32r2 s32r3: first difference against s8 at 22
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+  pp60000: s8 133.5 (n=3, 0.0 %, ×1.000) · s16 194.5 (n=3, 0.0 %, ×1.457) · s32 246.8 (n=3, 0.0 %, ×1.849) · s64 230.6 (n=3, 0.0 %, ×1.727) · s128 251.8 (n=3, 0.1 %, ×1.886) · s256 238.7 (n=3, 0.1 %, ×1.788)
+    ids s128r1 s128r2 s128r3 s16r1 s16r2 s16r3 s32r1 s32r2 s32r3 s64r1 s64r2 s64r3: first difference against s8 at 17
+    ids s256r1 s256r2 s256r3: first difference against s8 at 31
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+## 4B, sdpa.split (dd3/b)
+  p3: s8 78.7 (n=3, 0.2 %, ×1.000) · s16 78.9 (n=3, 0.2 %, ×1.003) · s32 78.8 (n=3, 0.0 %, ×1.003) · s128 78.6 (n=3, 0.0 %, ×0.999)
+    ids s128r1 s128r2 s128r3 s16r1 s16r2 s16r3 s32r1 s32r2 s32r3 s8r1 s8r2 s8r3: first difference against s8 at None
+  pp10000: s8 72.5 (n=3, 0.0 %, ×1.000) · s16 75.2 (n=3, 0.0 %, ×1.037) · s32 75.0 (n=3, 0.5 %, ×1.034) · s128 75.6 (n=3, 0.0 %, ×1.042)
+    ids s128r1 s128r2 s128r3 s16r1 s16r2 s16r3 s32r1 s32r2 s32r3 s8r1 s8r2 s8r3: first difference against s8 at None
+  pp20000: s8 67.1 (n=3, 0.2 %, ×1.000) · s16 71.8 (n=3, 0.0 %, ×1.070) · s32 71.3 (n=3, 0.0 %, ×1.062) · s128 72.7 (n=3, 0.0 %, ×1.083)
+    ids s128r1 s128r2 s128r3: first difference against s8 at 114
+    ids s16r1 s16r2 s16r3: first difference against s8 at 114
+    ids s32r1 s32r2 s32r3: first difference against s8 at 17
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+  pp40000: s8 57.8 (n=3, 0.0 %, ×1.000) · s16 65.0 (n=3, 0.0 %, ×1.123) · s32 63.7 (n=3, 0.0 %, ×1.102) · s128 67.2 (n=3, 0.0 %, ×1.162)
+    ids s128r1 s128r2 s128r3: first difference against s8 at 33
+    ids s16r1 s16r2 s16r3: first difference against s8 at 16
+    ids s32r1 s32r2 s32r3: first difference against s8 at 126
+    ids s8r1 s8r2 s8r3: first difference against s8 at None
+  pp60000: s8 50.8 (n=3, 0.4 %, ×1.000) · s16 59.6 (n=3, 0.2 %, ×1.175) · s32 57.2 (n=3, 0.3 %, ×1.126) · s128 57.8 (n=3, 0.4 %, ×1.137)
+    ids s128r1 s128r2 s128r3: first difference against s8 at 23
+    ids s16r1 s16r2 s16r3 s8r1 s8r2 s8r3: first difference against s8 at None
+    ids s32r1 s32r2 s32r3: first difference against s8 at 23
+## 0.8B, old kernel against sdpa.gqa=1 (dd5/b)
+  p3: old8 400.9 (n=3, 0.0 %, ×1.000) · gqa16 404.6 (n=3, 1.5 %, ×1.009) · gqa32 400.7 (n=3, 1.2 %, ×0.999) · gqa64 404.1 (n=3, 1.1 %, ×1.008) · gqa128 401.4 (n=3, 0.1 %, ×1.001) · old128 400.1 (n=3, 0.0 %, ×0.998)
+    ids gqa128r1 gqa128r2 gqa128r3: first difference against old8 at 20
+    ids gqa16r1 gqa16r2 gqa16r3 gqa32r1 gqa32r2 gqa32r3 old128r1 old128r2 old128r3 old8r1 old8r2 old8r3: first difference against old8 at None
+    ids gqa64r1 gqa64r2 gqa64r3: first difference against old8 at 172
+  pp10000: old8 298.7 (n=3, 0.0 %, ×1.000) · gqa16 355.6 (n=3, 0.1 %, ×1.191) · gqa32 369.5 (n=3, 0.0 %, ×1.237) · gqa64 370.2 (n=3, 0.0 %, ×1.240) · gqa128 368.6 (n=3, 0.0 %, ×1.234) · old128 362.6 (n=3, 0.1 %, ×1.214)
+    ids gqa128r1 gqa128r2 gqa128r3: first difference against old8 at 10
+    ids gqa16r1 gqa16r2 gqa16r3: first difference against old8 at 10
+    ids gqa32r1 gqa32r2 gqa32r3: first difference against old8 at 28
+    ids gqa64r1 gqa64r2 gqa64r3: first difference against old8 at 10
+    ids old128r1 old128r2 old128r3: first difference against old8 at 12
+    ids old8r1 old8r2 old8r3: first difference against old8 at None
+  pp60000: old8 133.5 (n=3, 0.0 %, ×1.000) · gqa16 233.2 (n=3, 1.0 %, ×1.747) · gqa32 274.5 (n=3, 0.0 %, ×2.057) · gqa64 278.1 (n=3, 0.1 %, ×2.084) · gqa128 277.4 (n=3, 0.0 %, ×2.078) · old128 252.4 (n=3, 0.1 %, ×1.891)
+    ids gqa128r1 gqa128r2 gqa128r3: first difference against old8 at 17
+    ids gqa16r1 gqa16r2 gqa16r3 old128r1 old128r2 old128r3: first difference against old8 at 17
+    ids gqa32r1 gqa32r2 gqa32r3: first difference against old8 at 17
+    ids gqa64r1 gqa64r2 gqa64r3: first difference against old8 at 17
+    ids old8r1 old8r2 old8r3: first difference against old8 at None
+## 4B, old kernel against sdpa.gqa=1 (dd6/b)
+  p3: old8 78.4 (n=3, 0.2 %, ×1.000) · gqa32 78.8 (n=3, 0.1 %, ×1.004) · gqa64 78.7 (n=3, 0.3 %, ×1.003) · gqa128 78.5 (n=3, 0.0 %, ×1.001) · old16 78.7 (n=3, 0.0 %, ×1.003)
+    ids gqa128r1 gqa128r2 gqa128r3 gqa32r1 gqa32r2 gqa32r3 gqa64r1 gqa64r2 gqa64r3 old16r1 old16r2 old16r3 old8r1 old8r2 old8r3: first difference against old8 at None
+  pp10000: old8 72.6 (n=3, 0.0 %, ×1.000) · gqa32 76.3 (n=3, 0.0 %, ×1.052) · gqa64 76.2 (n=3, 0.2 %, ×1.050) · gqa128 76.1 (n=3, 0.0 %, ×1.048) · old16 75.2 (n=3, 0.0 %, ×1.037)
+    ids gqa128r1 gqa128r2 gqa128r3 gqa32r1 gqa32r2 gqa32r3 gqa64r1 gqa64r2 gqa64r3 old16r1 old16r2 old16r3 old8r1 old8r2 old8r3: first difference against old8 at None
+  pp60000: old8 50.9 (n=3, 0.0 %, ×1.000) · gqa32 64.8 (n=3, 0.0 %, ×1.274) · gqa64 64.7 (n=3, 0.0 %, ×1.272) · gqa128 64.5 (n=3, 0.0 %, ×1.268) · old16 59.6 (n=3, 0.0 %, ×1.172)
+    ids gqa128r1 gqa128r2 gqa128r3 gqa64r1 gqa64r2 gqa64r3: first difference against old8 at 23
+    ids gqa32r1 gqa32r2 gqa32r3: first difference against old8 at 28
+    ids old16r1 old16r2 old16r3 old8r1 old8r2 old8r3: first difference against old8 at None
+
+# C. 60K, --profile per variant
+  dd1    s128: step 4579.4 µs · attention 1480.7 µs (498 GB/s if KV read once) · combine 48.5 µs
+  dd1     s16: step 5761.0 µs · attention 2684.2 µs (275 GB/s if KV read once) · combine 20.5 µs
+  dd1    s256: step 4803.6 µs · attention 1648.6 µs (447 GB/s if KV read once) · combine 95.9 µs
+  dd1     s32: step 4659.2 µs · attention 1572.9 µs (469 GB/s if KV read once) · combine 22.9 µs
+  dd1     s64: step 4939.8 µs · attention 1857.5 µs (397 GB/s if KV read once) · combine 27.0 µs
+  dd1      s8: step 8113.2 µs · attention 5045.7 µs (146 GB/s if KV read once) · combine 19.5 µs
+  dd3    s128: step 18115.6 µs · attention 4816.9 µs (408 GB/s if KV read once) · combine 70.8 µs
+  dd3     s16: step 17609.7 µs · attention 4345.9 µs (453 GB/s if KV read once) · combine 27.6 µs
+  dd3     s32: step 18224.1 µs · attention 4955.7 µs (397 GB/s if KV read once) · combine 32.9 µs
+  dd5  gqa128: step 4217.9 µs · attention 1126.5 µs (655 GB/s if KV read once) · combine 39.9 µs
+  dd5   gqa32: step 4251.6 µs · attention 1183.2 µs (623 GB/s if KV read once) · combine 23.5 µs
+  dd5   gqa64: step 4205.6 µs · attention 1129.7 µs (653 GB/s if KV read once) · combine 27.6 µs
+  dd5  old128: step 4568.1 µs · attention 1473.8 µs (501 GB/s if KV read once) · combine 49.2 µs
+  dd6   gqa64: step 16239.6 µs · attention 2956.3 µs (665 GB/s if KV read once) · combine 45.1 µs
+  dd6   old16: step 17608.7 µs · attention 4347.9 µs (452 GB/s if KV read once) · combine 27.9 µs
+
+# D. Nsight Compute (dd4, 0.8B, 60K)
+  sdpa_flash-last.details.txt: sdpa_flash_h8kv2d256_k32 (166, 2, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 8.9
+     Memory Throughput % 28.48
+     DRAM Throughput % 2.01
+     Duration ms 21.55
+     L2 Cache Throughput % 28.48
+     Compute (SM) Throughput % 27.17
+     Issue Slots Busy % 10.31
+     Memory Throughput Gbyte/s 14.38
+     No Eligible % 89.69
+     Active Warps Per Scheduler warp 1.00
+     Eligible Warps Per Scheduler warp 0.10
+     Registers Per Thread register/thread 207
+     Dynamic Shared Memory Per Block Kbyte/block 67.58
+     Static Shared Memory Per Block byte/block 0
+     Theoretical Occupancy % 8.33
+     Achieved Occupancy % 8.33
+     INF Tensor is the highest-utilized pipeline (31.0%) based on active cycles, taking into account the rates of its
+  sdpa_split-s128.details.txt: sdpa_split_h8kv2d256_s128 (1024, 1, 1)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 8.9
+     Memory Throughput % 79.85
+     DRAM Throughput % 79.85
+     Duration us 242.69
+     L2 Cache Throughput % 43.91
+     Compute (SM) Throughput % 44.63
+     Issue Slots Busy % 32.76
+     Memory Throughput Gbyte/s 571.73
+     No Eligible % 65.80
+     Active Warps Per Scheduler warp 11.12
+     Eligible Warps Per Scheduler warp 0.62
+     Registers Per Thread register/thread 30
+     Dynamic Shared Memory Per Block byte/block 0
+     Static Shared Memory Per Block byte/block 128
+     Theoretical Occupancy % 100
+     Achieved Occupancy % 89.10
+     INF FMA is the highest-utilized pipeline (23.9%) based on active cycles, taking into account the rates of its
+  sdpa_split-s8.details.txt: sdpa_split_h8kv2d256_s8 (64, 1, 1)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 8.9
+     Memory Throughput % 20.83
+     DRAM Throughput % 20.83
+     Duration us 838.18
+     L2 Cache Throughput % 12.52
+     Compute (SM) Throughput % 12.41
+     Issue Slots Busy % 10.06
+     Memory Throughput Gbyte/s 149.19
+     No Eligible % 89.88
+     Active Warps Per Scheduler warp 2.00
+     Eligible Warps Per Scheduler warp 0.11
+     Registers Per Thread register/thread 30
+     Dynamic Shared Memory Per Block byte/block 0
+     Static Shared Memory Per Block byte/block 128
+     Theoretical Occupancy % 100
+     Achieved Occupancy % 16.55
+
+# E. tokens against the CPU oracle (compare.out)
+## dd5
+  p1-short: cpu 7 tokens · prompt 24 @ 572.0 tok/s · gen 7 @ 27.56 tok/s
+    0-gqa128: identical (7 tokens) · prompt 24 @ 5894.8 tok/s · gen 7 @ 399.75 tok/s
+    0-gqa16: identical (7 tokens) · prompt 24 @ 5903.1 tok/s · gen 7 @ 404.59 tok/s
+    0-gqa32: identical (7 tokens) · prompt 24 @ 5909.4 tok/s · gen 7 @ 403.97 tok/s
+    0-gqa64: identical (7 tokens) · prompt 24 @ 5903.8 tok/s · gen 7 @ 402.61 tok/s
+    0-gqa8: identical (7 tokens) · prompt 24 @ 5900.0 tok/s · gen 7 @ 404.55 tok/s
+    0-old: identical (7 tokens) · prompt 24 @ 5891.9 tok/s · gen 7 @ 404.89 tok/s
+    0-old128: identical (7 tokens) · prompt 24 @ 5898.9 tok/s · gen 7 @ 400.07 tok/s
+  p2-explain: cpu 145 tokens · prompt 39 @ 874.9 tok/s · gen 145 @ 27.55 tok/s
+    0-gqa128: first divergence at token 8 of 145 · prompt 39 @ 9403.3 tok/s · gen 107 @ 401.71 tok/s
+    0-gqa16: first divergence at token 15 of 145 · prompt 39 @ 9370.9 tok/s · gen 150 @ 406.26 tok/s
+    0-gqa32: first divergence at token 72 of 145 · prompt 39 @ 9406.4 tok/s · gen 127 @ 406.03 tok/s
+    0-gqa64: first divergence at token 8 of 145 · prompt 39 @ 9383.5 tok/s · gen 93 @ 404.86 tok/s
+    0-gqa8: first divergence at token 8 of 145 · prompt 39 @ 9377.7 tok/s · gen 93 @ 406.59 tok/s
+    0-old: first divergence at token 8 of 145 · prompt 39 @ 9371.8 tok/s · gen 90 @ 406.90 tok/s
+    0-old128: first divergence at token 8 of 145 · prompt 39 @ 9402.6 tok/s · gen 107 @ 402.07 tok/s
+  p3-long: cpu 255 tokens · prompt 759 @ 3286.3 tok/s · gen 255 @ 27.22 tok/s
+    0-gqa128: first divergence at token 20 of 255 · prompt 759 @ 52190.5 tok/s · gen 255 @ 401.32 tok/s
+    0-gqa16: identical (255 tokens) · prompt 759 @ 52259.6 tok/s · gen 255 @ 404.63 tok/s
+    0-gqa32: identical (255 tokens) · prompt 759 @ 52143.9 tok/s · gen 255 @ 405.33 tok/s
+    0-gqa64: first divergence at token 172 of 255 · prompt 759 @ 52248.7 tok/s · gen 255 @ 404.40 tok/s
+    0-gqa8: first divergence at token 172 of 255 · prompt 759 @ 52229.3 tok/s · gen 255 @ 402.30 tok/s
+    0-old: identical (255 tokens) · prompt 759 @ 52232.5 tok/s · gen 255 @ 400.86 tok/s
+    0-old128: identical (255 tokens) · prompt 759 @ 52226.7 tok/s · gen 255 @ 399.33 tok/s
+  p4-xlong: cpu 199 tokens · prompt 2882 @ 3032.4 tok/s · gen 199 @ 26.44 tok/s
+    0-gqa128: first divergence at token 8 of 199 · prompt 2882 @ 62279.4 tok/s · gen 181 @ 391.76 tok/s
+    0-gqa16: first divergence at token 8 of 199 · prompt 2882 @ 62396.3 tok/s · gen 181 @ 389.46 tok/s
+    0-gqa32: first divergence at token 8 of 199 · prompt 2882 @ 62632.9 tok/s · gen 181 @ 393.87 tok/s
+    0-gqa64: first divergence at token 8 of 199 · prompt 2882 @ 62498.2 tok/s · gen 181 @ 394.89 tok/s
+    0-gqa8: first divergence at token 8 of 199 · prompt 2882 @ 62366.1 tok/s · gen 181 @ 380.96 tok/s
+    0-old: first divergence at token 8 of 199 · prompt 2882 @ 62689.2 tok/s · gen 181 @ 374.71 tok/s
+    0-old128: first divergence at token 8 of 199 · prompt 2882 @ 62461.9 tok/s · gen 181 @ 388.31 tok/s
+
+## dd6
+  p1-short: cpu 7 tokens · prompt 24 @ 111.1 tok/s · gen 7 @ 5.14 tok/s
+    0-gqa32: identical (7 tokens) · prompt 24 @ 1430.1 tok/s · gen 7 @ 79.98 tok/s
+    0-gqa64: identical (7 tokens) · prompt 24 @ 1430.7 tok/s · gen 7 @ 79.86 tok/s
+    0-old: identical (7 tokens) · prompt 24 @ 1425.7 tok/s · gen 7 @ 80.07 tok/s
+    0-old16: identical (7 tokens) · prompt 24 @ 1429.7 tok/s · gen 7 @ 80.05 tok/s
+  p2-explain: cpu 177 tokens · prompt 39 @ 171.5 tok/s · gen 177 @ 5.13 tok/s
+    0-gqa32: identical (177 tokens) · prompt 39 @ 2278.8 tok/s · gen 177 @ 80.07 tok/s
+    0-gqa64: identical (177 tokens) · prompt 39 @ 2277.9 tok/s · gen 177 @ 79.96 tok/s
+    0-old: first divergence at token 32 of 177 · prompt 39 @ 2278.1 tok/s · gen 165 @ 80.16 tok/s
+    0-old16: first divergence at token 53 of 177 · prompt 39 @ 2279.1 tok/s · gen 180 @ 80.15 tok/s
+  p3-long: cpu 255 tokens · prompt 759 @ 617.0 tok/s · gen 255 @ 5.10 tok/s
+    0-gqa32: identical (255 tokens) · prompt 759 @ 10914.1 tok/s · gen 255 @ 78.76 tok/s
+    0-gqa64: identical (255 tokens) · prompt 759 @ 10931.3 tok/s · gen 255 @ 78.66 tok/s
+    0-old: identical (255 tokens) · prompt 759 @ 11011.0 tok/s · gen 255 @ 78.43 tok/s
+    0-old16: identical (255 tokens) · prompt 759 @ 10937.5 tok/s · gen 255 @ 78.69 tok/s
+  p4-xlong: cpu 190 tokens · prompt 2882 @ 587.0 tok/s · gen 190 @ 5.02 tok/s
+    0-gqa32: first divergence at token 105 of 190 · prompt 2882 @ 11313.3 tok/s · gen 186 @ 77.97 tok/s
+    0-gqa64: first divergence at token 105 of 190 · prompt 2882 @ 11282.3 tok/s · gen 186 @ 77.89 tok/s
+    0-old: first divergence at token 105 of 190 · prompt 2882 @ 11259.3 tok/s · gen 186 @ 76.80 tok/s
+    0-old16: first divergence at token 105 of 190 · prompt 2882 @ 11300.0 tok/s · gen 186 @ 77.69 tok/s
+
+
+# F. dd7 (0.8B, a build with one extra instruction in the default sdpa_flash, see the README): default against sdpa.pipe=1, prefill tok/s
+  pp10000 prefill: default 52950.7 (n=3, 0.5 %, ×1.000) · pipe 55803.6 (n=3, 0.7 %, ×1.054)
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp20000 prefill: default 44499.4 (n=3, 0.6 %, ×1.000) · pipe 48409.2 (n=3, 0.4 %, ×1.088)
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp40000 prefill: default 33107.2 (n=3, 0.3 %, ×1.000) · pipe 37585.5 (n=3, 0.3 %, ×1.135)
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp60000 prefill: default 26559.4 (n=3, 0.2 %, ×1.000) · pipe 31028.4 (n=3, 0.2 %, ×1.168)
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  60K --profile profile-default-pp60000.log: 15 blocks, 156053 µs per block, sdpa_flash 96252 µs (61.7 %)
+  60K --profile profile-pipe-pp60000.log: 15 blocks, 133340 µs per block, sdpa_flash 72410 µs (54.3 %)
+  tokens (compare.out):
+    p1-short: cpu 7 tokens · prompt 24 @ 572.0 tok/s · gen 7 @ 27.56 tok/s
+      0-default: identical (7 tokens) · prompt 24 @ 5893.1 tok/s · gen 7 @ 404.80 tok/s
+      0-pipe: identical (7 tokens) · prompt 24 @ 5891.5 tok/s · gen 7 @ 404.87 tok/s
+    p2-explain: cpu 145 tokens · prompt 39 @ 874.9 tok/s · gen 145 @ 27.55 tok/s
+      0-default: first divergence at token 8 of 145 · prompt 39 @ 9382.7 tok/s · gen 90 @ 406.88 tok/s
+      0-pipe: first divergence at token 8 of 145 · prompt 39 @ 9419.8 tok/s · gen 90 @ 393.34 tok/s
+    p3-long: cpu 255 tokens · prompt 759 @ 3286.3 tok/s · gen 255 @ 27.22 tok/s
+      0-default: identical (255 tokens) · prompt 759 @ 52226.8 tok/s · gen 255 @ 400.80 tok/s
+      0-pipe: identical (255 tokens) · prompt 759 @ 52475.0 tok/s · gen 255 @ 400.85 tok/s
+    p4-xlong: cpu 199 tokens · prompt 2882 @ 3032.4 tok/s · gen 199 @ 26.44 tok/s
+      0-default: first divergence at token 8 of 199 · prompt 2882 @ 62384.7 tok/s · gen 181 @ 369.14 tok/s
+      0-pipe: first divergence at token 8 of 199 · prompt 2882 @ 63931.2 tok/s · gen 181 @ 374.80 tok/s
+    pp1024: cpu 1 tokens · prompt 1024 @ 3325.7 tok/s · gen 1 @ 27.05 tok/s
+      0-default: identical (1 tokens) · prompt 1024 @ 60055.3 tok/s · gen 1 @ 370.22 tok/s
+      0-pipe: identical (1 tokens) · prompt 1024 @ 60902.0 tok/s · gen 1 @ 371.54 tok/s
+    pp128: cpu 1 tokens · prompt 128 @ 2091.8 tok/s · gen 1 @ 27.43 tok/s
+      0-default: identical (1 tokens) · prompt 128 @ 27504.5 tok/s · gen 1 @ 388.65 tok/s
+      0-pipe: identical (1 tokens) · prompt 128 @ 27703.2 tok/s · gen 1 @ 388.90 tok/s
+    pp2048: cpu 1 tokens · prompt 2048 @ 3264.4 tok/s · gen 1 @ 26.69 tok/s
+      0-default: identical (1 tokens) · prompt 2048 @ 62665.2 tok/s · gen 1 @ 352.30 tok/s
+      0-pipe: identical (1 tokens) · prompt 2048 @ 63705.2 tok/s · gen 1 @ 353.83 tok/s
+    pp256: cpu 1 tokens · prompt 256 @ 2965.9 tok/s · gen 1 @ 27.36 tok/s
+      0-default: identical (1 tokens) · prompt 256 @ 44851.1 tok/s · gen 1 @ 383.02 tok/s
+      0-pipe: identical (1 tokens) · prompt 256 @ 45175.6 tok/s · gen 1 @ 383.72 tok/s
+    pp4000: cpu 1 tokens · prompt 4001 @ 2968.2 tok/s · gen 1 @ 25.88 tok/s
+      0-default: identical (1 tokens) · prompt 4001 @ 60551.1 tok/s · gen 1 @ 329.43 tok/s
+      0-pipe: identical (1 tokens) · prompt 4001 @ 61873.0 tok/s · gen 1 @ 98.15 tok/s
+    pp512: cpu 1 tokens · prompt 513 @ 2786.8 tok/s · gen 1 @ 27.26 tok/s
+      0-default: identical (1 tokens) · prompt 513 @ 49387.5 tok/s · gen 1 @ 377.52 tok/s
+      0-pipe: identical (1 tokens) · prompt 513 @ 49634.4 tok/s · gen 1 @ 377.63 tok/s
+
+
+# G. dd8 0.8B (73b5a70): default, gqa (sdpa.gqa=1 split 64), pipe (sdpa.pipe=1), both; prefill and decode tok/s
+  p3 prefill: default 52460.0 (n=3, 0.2 %, ×1.000) · both 52808.4 (n=3, 0.0 %, ×1.007) · gqa 52478.6 (n=3, 0.1 %, ×1.000) · pipe 52781.2 (n=3, 0.2 %, ×1.006)
+  p3 decode: default 401.0 (n=3, 1.2 %, ×1.000) · both 404.4 (n=3, 1.4 %, ×1.008) · gqa 404.6 (n=3, 1.2 %, ×1.009) · pipe 400.9 (n=3, 1.2 %, ×1.000)
+    ids bothr1 bothr2 bothr3 gqar1 gqar2 gqar3: first difference against default at 172
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp4000 prefill: default 60057.1 (n=3, 0.4 %, ×1.000) · both 61567.2 (n=3, 1.3 %, ×1.025) · gqa 60427.3 (n=3, 0.4 %, ×1.006) · pipe 61594.8 (n=3, 0.5 %, ×1.026)
+  pp4000 decode: default 351.4 (n=3, 0.3 %, ×1.000) · both 387.3 (n=3, 0.2 %, ×1.102) · gqa 388.1 (n=3, 0.3 %, ×1.104) · pipe 351.4 (n=3, 0.3 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp10000 prefill: default 52912.1 (n=3, 0.3 %, ×1.000) · both 55724.5 (n=3, 0.8 %, ×1.053) · gqa 52963.2 (n=3, 0.3 %, ×1.001) · pipe 55671.9 (n=3, 0.1 %, ×1.052)
+  pp10000 decode: default 298.5 (n=3, 0.1 %, ×1.000) · both 369.5 (n=3, 0.0 %, ×1.238) · gqa 369.6 (n=3, 0.0 %, ×1.238) · pipe 298.4 (n=3, 1.5 %, ×0.999)
+    ids bothr1 bothr2 bothr3 gqar1 gqar2 gqar3: first difference against default at 10
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp20000 prefill: default 44562.2 (n=3, 0.1 %, ×1.000) · both 48504.6 (n=3, 0.2 %, ×1.088) · gqa 44564.1 (n=3, 0.2 %, ×1.000) · pipe 48542.7 (n=3, 0.3 %, ×1.089)
+  pp20000 decode: default 240.2 (n=3, 0.1 %, ×1.000) · both 347.8 (n=3, 1.9 %, ×1.448) · gqa 347.9 (n=3, 0.0 %, ×1.448) · pipe 240.2 (n=3, 0.0 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp40000 prefill: default 33093.2 (n=3, 0.1 %, ×1.000) · both 37642.6 (n=3, 0.1 %, ×1.137) · gqa 33078.7 (n=3, 0.2 %, ×1.000) · pipe 37715.4 (n=3, 0.1 %, ×1.140)
+  pp40000 decode: default 171.8 (n=3, 0.0 %, ×1.000) · both 308.8 (n=3, 1.7 %, ×1.797) · gqa 309.0 (n=3, 0.0 %, ×1.798) · pipe 171.7 (n=3, 0.1 %, ×1.000)
+    ids bothr1 bothr2 bothr3 gqar1 gqar2 gqar3: first difference against default at 22
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  pp60000 prefill: default 26534.9 (n=3, 0.0 %, ×1.000) · both 31025.3 (n=3, 0.1 %, ×1.169) · gqa 26548.6 (n=3, 0.1 %, ×1.001) · pipe 31041.7 (n=3, 0.1 %, ×1.170)
+  pp60000 decode: default 133.4 (n=3, 0.0 %, ×1.000) · both 278.1 (n=3, 1.4 %, ×2.084) · gqa 278.2 (n=3, 0.0 %, ×2.085) · pipe 133.4 (n=3, 0.0 %, ×1.000)
+    ids bothr1 bothr2 bothr3 gqar1 gqar2 gqar3: first difference against default at 17
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  60K --profile profile-both-pp60000.log: prefill 133162 µs per block, sdpa_flash 72294 µs (54.3 %) · decode step 4202 µs, attention 1125 µs (26.8 %)
+  60K --profile profile-default-pp60000.log: prefill 155893 µs per block, sdpa_flash 96100 µs (61.6 %) · decode step 8118 µs, attention 5045 µs (62.1 %)
+  tokens (compare.out):
+    p1-short: cpu 7 tokens · prompt 24 @ 572.0 tok/s · gen 7 @ 27.56 tok/s
+      0-both: identical (7 tokens) · prompt 24 @ 5835.9 tok/s · gen 7 @ 402.49 tok/s
+      0-default: identical (7 tokens) · prompt 24 @ 5893.5 tok/s · gen 7 @ 404.22 tok/s
+    p2-explain: cpu 145 tokens · prompt 39 @ 874.9 tok/s · gen 145 @ 27.55 tok/s
+      0-both: first divergence at token 8 of 145 · prompt 39 @ 9368.1 tok/s · gen 93 @ 404.56 tok/s
+      0-default: first divergence at token 8 of 145 · prompt 39 @ 9359.4 tok/s · gen 90 @ 405.78 tok/s
+    p3-long: cpu 255 tokens · prompt 759 @ 3286.3 tok/s · gen 255 @ 27.22 tok/s
+      0-both: first divergence at token 172 of 255 · prompt 759 @ 52572.8 tok/s · gen 255 @ 404.49 tok/s
+      0-default: identical (255 tokens) · prompt 759 @ 52248.5 tok/s · gen 255 @ 400.90 tok/s
+    p4-xlong: cpu 199 tokens · prompt 2882 @ 3032.4 tok/s · gen 199 @ 26.44 tok/s
+      0-both: first divergence at token 8 of 199 · prompt 2882 @ 63881.7 tok/s · gen 181 @ 399.92 tok/s
+      0-default: first divergence at token 8 of 199 · prompt 2882 @ 62319.3 tok/s · gen 181 @ 373.99 tok/s
+    pp1024: cpu 1 tokens · prompt 1024 @ 3325.7 tok/s · gen 1 @ 27.05 tok/s
+      0-both: identical (1 tokens) · prompt 1024 @ 60852.1 tok/s · gen 1 @ 377.68 tok/s
+      0-default: identical (1 tokens) · prompt 1024 @ 60271.3 tok/s · gen 1 @ 370.37 tok/s
+    pp128: cpu 1 tokens · prompt 128 @ 2091.8 tok/s · gen 1 @ 27.43 tok/s
+      0-both: identical (1 tokens) · prompt 128 @ 27560.4 tok/s · gen 1 @ 388.38 tok/s
+      0-default: identical (1 tokens) · prompt 128 @ 27664.5 tok/s · gen 1 @ 388.41 tok/s
+    pp2048: cpu 1 tokens · prompt 2048 @ 3264.4 tok/s · gen 1 @ 26.69 tok/s
+      0-both: identical (1 tokens) · prompt 2048 @ 63722.7 tok/s · gen 1 @ 370.43 tok/s
+      0-default: identical (1 tokens) · prompt 2048 @ 62658.8 tok/s · gen 1 @ 353.93 tok/s
+    pp256: cpu 1 tokens · prompt 256 @ 2965.9 tok/s · gen 1 @ 27.36 tok/s
+      0-both: identical (1 tokens) · prompt 256 @ 45221.5 tok/s · gen 1 @ 385.03 tok/s
+      0-default: identical (1 tokens) · prompt 256 @ 45037.1 tok/s · gen 1 @ 385.06 tok/s
+    pp4000: cpu 1 tokens · prompt 4001 @ 2968.2 tok/s · gen 1 @ 25.88 tok/s
+      0-both: identical (1 tokens) · prompt 4001 @ 61860.1 tok/s · gen 1 @ 359.90 tok/s
+      0-default: identical (1 tokens) · prompt 4001 @ 60531.4 tok/s · gen 1 @ 330.41 tok/s
+    pp512: cpu 1 tokens · prompt 513 @ 2786.8 tok/s · gen 1 @ 27.26 tok/s
+      0-both: identical (1 tokens) · prompt 513 @ 49727.5 tok/s · gen 1 @ 380.50 tok/s
+      0-default: identical (1 tokens) · prompt 513 @ 49396.1 tok/s · gen 1 @ 378.02 tok/s
+
+
+# G. dd8 4B (73b5a70): default, gqa (sdpa.gqa=1 split 64), pipe (sdpa.pipe=1), both; prefill and decode tok/s
+  p3 prefill: default 10865.2 (n=3, 2.3 %, ×1.000) · both 11039.3 (n=3, 1.7 %, ×1.016) · gqa 10804.5 (n=3, 0.2 %, ×0.994) · pipe 11048.0 (n=3, 1.6 %, ×1.017)
+  p3 decode: default 78.4 (n=3, 0.0 %, ×1.000) · both 78.7 (n=3, 0.0 %, ×1.003) · gqa 78.7 (n=3, 0.2 %, ×1.003) · pipe 78.4 (n=3, 0.2 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp4000 prefill: default 11157.2 (n=3, 0.4 %, ×1.000) · both 11304.0 (n=3, 0.6 %, ×1.013) · gqa 11148.9 (n=3, 0.1 %, ×0.999) · pipe 11288.1 (n=3, 0.1 %, ×1.012)
+  pp4000 decode: default 76.5 (n=3, 0.0 %, ×1.000) · both 78.0 (n=3, 0.0 %, ×1.020) · gqa 78.0 (n=3, 0.0 %, ×1.020) · pipe 76.5 (n=3, 0.0 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp10000 prefill: default 10515.8 (n=3, 0.8 %, ×1.000) · both 10800.3 (n=3, 0.2 %, ×1.027) · gqa 10513.0 (n=3, 0.2 %, ×1.000) · pipe 10784.4 (n=3, 0.1 %, ×1.026)
+  pp10000 decode: default 72.6 (n=3, 0.0 %, ×1.000) · both 76.2 (n=3, 0.0 %, ×1.051) · gqa 76.2 (n=3, 0.1 %, ×1.051) · pipe 72.6 (n=3, 0.2 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp20000 prefill: default 9475.4 (n=3, 0.5 %, ×1.000) · both 9914.5 (n=3, 0.1 %, ×1.046) · gqa 9476.0 (n=3, 0.2 %, ×1.000) · pipe 9913.9 (n=3, 0.1 %, ×1.046)
+  pp20000 decode: default 67.1 (n=3, 0.0 %, ×1.000) · both 73.9 (n=3, 0.0 %, ×1.100) · gqa 73.9 (n=3, 0.0 %, ×1.100) · pipe 67.1 (n=3, 0.0 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp40000 prefill: default 7963.8 (n=3, 0.4 %, ×1.000) · both 8614.3 (n=3, 0.0 %, ×1.082) · gqa 7972.1 (n=3, 0.1 %, ×1.001) · pipe 8612.2 (n=3, 0.1 %, ×1.081)
+  pp40000 decode: default 57.8 (n=3, 0.0 %, ×1.000) · both 69.0 (n=3, 0.0 %, ×1.193) · gqa 69.0 (n=3, 0.0 %, ×1.193) · pipe 57.8 (n=3, 0.0 %, ×1.000)
+    ids bothr1 bothr2 bothr3 defaultr1 defaultr2 defaultr3 gqar1 gqar2 gqar3 piper1 piper2 piper3: first difference against default at None
+  pp60000 prefill: default 6855.5 (n=3, 0.2 %, ×1.000) · both 7614.4 (n=3, 0.0 %, ×1.111) · gqa 6854.6 (n=3, 0.2 %, ×1.000) · pipe 7613.4 (n=3, 0.1 %, ×1.111)
+  pp60000 decode: default 50.9 (n=3, 0.1 %, ×1.000) · both 64.7 (n=3, 0.0 %, ×1.272) · gqa 64.7 (n=3, 0.2 %, ×1.272) · pipe 50.9 (n=3, 0.1 %, ×1.000)
+    ids bothr1 bothr2 bothr3 gqar1 gqar2 gqar3: first difference against default at 23
+    ids defaultr1 defaultr2 defaultr3 piper1 piper2 piper3: first difference against default at None
+  60K --profile profile-both-pp60000.log: prefill 269321 µs per block, sdpa_flash 94963 µs (35.3 %) · decode step 16238 µs, attention 2954 µs (18.2 %)
+  60K --profile profile-default-pp60000.log: prefill 297258 µs per block, sdpa_flash 127078 µs (42.8 %) · decode step 20507 µs, attention 7242 µs (35.3 %)
+  tokens (compare.out):
+    p1-short: cpu 7 tokens · prompt 24 @ 111.1 tok/s · gen 7 @ 5.14 tok/s
+      0-both: identical (7 tokens) · prompt 24 @ 1429.4 tok/s · gen 7 @ 79.86 tok/s
+      0-default: identical (7 tokens) · prompt 24 @ 1430.0 tok/s · gen 7 @ 80.07 tok/s
+    p2-explain: cpu 177 tokens · prompt 39 @ 171.5 tok/s · gen 177 @ 5.13 tok/s
+      0-both: identical (177 tokens) · prompt 39 @ 2275.1 tok/s · gen 177 @ 79.95 tok/s
+      0-default: first divergence at token 32 of 177 · prompt 39 @ 2275.4 tok/s · gen 165 @ 80.15 tok/s
+    p3-long: cpu 255 tokens · prompt 759 @ 617.0 tok/s · gen 255 @ 5.10 tok/s
+      0-both: identical (255 tokens) · prompt 759 @ 10921.4 tok/s · gen 255 @ 78.65 tok/s
+      0-default: identical (255 tokens) · prompt 759 @ 10886.0 tok/s · gen 255 @ 78.35 tok/s
+    p4-xlong: cpu 190 tokens · prompt 2882 @ 587.0 tok/s · gen 190 @ 5.02 tok/s
+      0-both: first divergence at token 105 of 190 · prompt 2882 @ 11400.4 tok/s · gen 186 @ 77.90 tok/s
+      0-default: first divergence at token 105 of 190 · prompt 2882 @ 11260.6 tok/s · gen 186 @ 76.81 tok/s
+    pp1024: cpu 1 tokens · prompt 1024 @ 615.0 tok/s · gen 1 @ 5.09 tok/s
+      0-both: identical (1 tokens) · prompt 1024 @ 11519.5 tok/s · gen 1 @ 77.40 tok/s
+      0-default: identical (1 tokens) · prompt 1024 @ 11464.7 tok/s · gen 1 @ 76.98 tok/s
+    pp128: cpu 1 tokens · prompt 128 @ 422.3 tok/s · gen 1 @ 5.13 tok/s
+      0-both: identical (1 tokens) · prompt 128 @ 6489.1 tok/s · gen 1 @ 78.63 tok/s
+      0-default: identical (1 tokens) · prompt 128 @ 6484.2 tok/s · gen 1 @ 78.86 tok/s
+    pp2048: cpu 1 tokens · prompt 2048 @ 605.8 tok/s · gen 1 @ 5.04 tok/s
+      0-both: identical (1 tokens) · prompt 2048 @ 11732.8 tok/s · gen 1 @ 76.87 tok/s
+      0-default: identical (1 tokens) · prompt 2048 @ 11672.6 tok/s · gen 1 @ 76.19 tok/s
+    pp256: cpu 1 tokens · prompt 256 @ 589.0 tok/s · gen 1 @ 5.12 tok/s
+      0-both: identical (1 tokens) · prompt 256 @ 9355.9 tok/s · gen 1 @ 78.63 tok/s
+      0-default: identical (1 tokens) · prompt 256 @ 9337.1 tok/s · gen 1 @ 78.57 tok/s
+    pp4000: cpu 1 tokens · prompt 4001 @ 585.9 tok/s · gen 1 @ 4.98 tok/s
+      0-both: identical (1 tokens) · prompt 4001 @ 11423.3 tok/s · gen 1 @ 76.65 tok/s
+      0-default: identical (1 tokens) · prompt 4001 @ 11268.2 tok/s · gen 1 @ 75.10 tok/s
+    pp512: cpu 1 tokens · prompt 513 @ 504.6 tok/s · gen 1 @ 5.11 tok/s
+      0-both: first divergence at token 0 of 1 · prompt 513 @ 9705.2 tok/s · gen 1 @ 78.17 tok/s
+      0-default: first divergence at token 0 of 1 · prompt 513 @ 9641.3 tok/s · gen 1 @ 78.06 tok/s
+

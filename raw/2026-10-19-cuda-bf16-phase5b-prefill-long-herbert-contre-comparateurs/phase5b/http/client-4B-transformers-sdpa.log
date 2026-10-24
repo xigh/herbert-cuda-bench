@@ -1,0 +1,7 @@
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p10000: in [10009, 10010] · TTFT 1278.43 ms · prefill 7830 tok/s (0.4 %) · decode 55.84 tok/s (0.5 %) · out [128] · n=15
+transformers-sdpa $MODELS_DIR/Qwen3.5-4B p20000: in [20009, 20010] · TTFT 2723.43 ms · prefill 7347 tok/s (0.2 %) · decode 50.73 tok/s (0.2 %) · out [128] · n=15
+Traceback (most recent call last):
+  File "~/c003/phase2-scripts/_http_client.py", line 118, in <module>
+    print(f"{args.engine} {args.model} p{n:>5}: in {row['input_tokens']} · TTFT {row['ttft_ms_median']:.2f} ms · prefill {row['prefill_tps_median']:.0f} tok/s ({row['prefill_spread_pct']:.1f} %) · decode {row['decode_tps_median']:.2f} tok/s ({row['decode_spread_pct']:.1f} %) · out {row['output_tokens']} · n={len(ttft)}", flush=True)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__

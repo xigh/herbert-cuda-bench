@@ -1,0 +1,199 @@
+diff --git a/src/cuda/engine.rs b/src/cuda/engine.rs
+index df12a1a..6dedbf9 100644
+--- a/src/cuda/engine.rs
++++ b/src/cuda/engine.rs
+@@ -570,7 +570,7 @@ impl Engine {
+                         Some(AttentionKernels {
+                             qkv: load_gemm(&mut ld, h32, h32, attn.qkv_width(), Out::Bf16, tile, tuning.gemm_auto)?,
+                             rope: ld.get(dc::qk_rope_append(attn, true))?,
+-                            flash: ld.get(pf::sdpa_flash(attn, tuning.sdpa_bk, tuning.sdpa_smem_softmax, f16, tuning.sdpa_maxnreg, tuning.sdpa_pipe == 1))?,
++                            flash: ld.get(pf::sdpa_flash(attn, tuning.sdpa_bk, tuning.sdpa_smem_softmax, f16, tuning.sdpa_maxnreg, tuning.sdpa_pipe == 1, tuning.sdpa_rows / pf::QT))?,
+                             out: load_gemm(&mut ld, h32, attn.out_width(), h32, Out::Residual, tile, tuning.gemm_auto)?,
+                         })
+                     } else {
+@@ -907,7 +907,7 @@ impl Engine {
+                     let g = kernels.qkv.select(m);
+                     op(g.kernel, g.tile.grid(m, attn.qkv_width()), vec![p(b.xn), p(qkv), p(b.qkv), mu]);
+                     op(kernels.rope, (attn.heads + 2 * attn.kv_heads, m, 1), vec![p(a.state), p(b.qkv), p(q_norm), p(k_norm), p(w.cos), p(w.sin), p(k_cache), p(v_cache)]);
+-                    op(kernels.flash, pf::flash_grid(attn, m), vec![p(a.state), p(b.qkv), p(k_cache), p(v_cache), p(b.attn_out), mu]);
++                    op(kernels.flash, pf::flash_grid(attn, m, self.tuning.sdpa_rows / pf::QT), vec![p(a.state), p(b.qkv), p(k_cache), p(v_cache), p(b.attn_out), mu]);
+                     let g = kernels.out.select(m);
+                     op(g.kernel, g.tile.grid(m, h32), vec![p(b.attn_out), p(o), p(b.x), mu]);
+                 }
+diff --git a/src/cuda/prefill.rs b/src/cuda/prefill.rs
+index 8371606..bd526aa 100644
+--- a/src/cuda/prefill.rs
++++ b/src/cuda/prefill.rs
+@@ -284,13 +284,14 @@ pub fn dn_recurrence_rows(s: DeltaShape) -> Emitted {
+ /// Query rows per warp: the M of `mma.m16n8k16`.
+ pub const QT: u32 = 16;
+ 
+-/// Dynamic shared bytes of [`sdpa_flash`]: the Q tiles of the block's warps,
+-/// one K and one V tile of `bk` keys, rows padded by 16 bytes; with the
+-/// softmax in shared memory, per warp S (f32), P (bf16) and two row vectors.
+-pub fn flash_shared_bytes(s: AttnShape, bk: u32, smem_softmax: bool) -> u32 {
++/// Dynamic shared bytes of [`sdpa_flash`]: the Q tiles of the block's warps
++/// (`qg` groups of `QT` rows per query head), one K and one V tile of `bk` keys,
++/// rows padded by 16 bytes; with the softmax in shared memory, per warp S (f32),
++/// P (bf16) and two row vectors.
++pub fn flash_shared_bytes(s: AttnShape, bk: u32, smem_softmax: bool, qg: u32) -> u32 {
+     let g = s.heads / s.kv_heads;
+     let stride = (s.head_dim + 8) * 2;
+-    (g * QT + 2 * bk) * stride + if smem_softmax { g * softmax_warp_bytes(bk) } else { 0 }
++    (g * qg * QT + 2 * bk) * stride + if smem_softmax { g * softmax_warp_bytes(bk) } else { 0 }
+ }
+ 
+ /// Per warp, the softmax in shared memory: S `QT × bk` f32, P `QT × bk` bf16
+@@ -300,9 +301,9 @@ fn softmax_warp_bytes(bk: u32) -> u32 {
+     QT * bk * 4 + QT * (bk + 8) * 2 + 2 * QT * 4
+ }
+ 
+-/// Blocks of [`sdpa_flash`] for `m` rows.
+-pub fn flash_grid(s: AttnShape, m: u32) -> (u32, u32, u32) {
+-    (m.div_ceil(QT), s.kv_heads, 1)
++/// Blocks of [`sdpa_flash`] for `m` rows, `qg` groups of `QT` rows per block.
++pub fn flash_grid(s: AttnShape, m: u32, qg: u32) -> (u32, u32, u32) {
++    (m.div_ceil(QT * qg), s.kv_heads, 1)
+ }
+ 
+ /// The causal attention of the block, FlashAttention's online softmax with
+@@ -333,17 +334,27 @@ pub fn flash_grid(s: AttnShape, m: u32) -> (u32, u32, u32) {
+ /// each is awaited with `cp.async.wait_group 1` just before its use. Without it, every tile waits for both
+ /// copies before any arithmetic, and with one block of 4 warps per SM nothing hides that wait (
+ /// Nsight Compute: theoretical occupancy 8.33 %). The arithmetic and its order are the same: same results.
+-pub fn sdpa_flash(s: AttnShape, bk: u32, smem_softmax: bool, h16: bool, maxnreg: u32, pipe: bool) -> Emitted {
++///
++/// `qg` > 1 (`sdpa.rows=32`: `qg` = 2): a block covers `qg` groups of `QT` query rows, `g · qg` warps sharing each
++/// K and V tile, warp w on head `w mod g` and rows group `w / g`. One block of 4 warps per SM is what the shared
++/// memory allowed (67.6 KB); with `qg` = 2 the block holds 8 warps in 101 376 bytes, the most a block may have on
++/// sm_89, and each copy of K and V serves twice the rows. Every warp runs the keys up to the block's last row: past
++/// its own rows a tile is wholly masked, its exponentials are zeros and its correction 1, as when the default's
++/// rows end before a tile does (the prompt not aligned): same arithmetic per row, same results.
++#[allow(clippy::too_many_arguments)]
++pub fn sdpa_flash(s: AttnShape, bk: u32, smem_softmax: bool, h16: bool, maxnreg: u32, pipe: bool, qg: u32) -> Emitted {
+     assert!(!(pipe && smem_softmax), "sdpa.pipe needs the register softmax");
++    assert!(qg >= 1 && (qg == 1 || !smem_softmax), "sdpa.rows > 16 needs the register softmax");
+     let hd = s.head_dim;
+     let g = s.heads / s.kv_heads;
+     assert!(hd.is_multiple_of(16) && bk.is_multiple_of(16));
+-    let threads = g * 32;
++    let threads = g * qg * 32;
+     let stride = (hd + 8) * 2;
+     let chunks = hd / 8; // 16-byte chunks per row
+     assert!((bk * chunks).is_multiple_of(threads) && (QT * chunks).is_multiple_of(32));
+     let mut k = Kernel::new(format!("sdpa_flash_h{}kv{}d{hd}_k{bk}{}{}{}{}", s.heads, s.kv_heads, if smem_softmax { "_smem" } else { "" }, if h16 { "_h16" } else { "" },
+-        if maxnreg > 0 { format!("_r{maxnreg}") } else { String::new() }, if pipe { "_pipe" } else { "" }), threads);
++        if maxnreg > 0 { format!("_r{maxnreg}") } else { String::new() }, if pipe { "_pipe" } else { "" })
++        + &if qg > 1 { format!("_q{}", qg * QT) } else { String::new() }, threads);
+     if maxnreg > 0 {
+         k.max_regs(maxnreg);
+     }
+@@ -360,14 +371,23 @@ pub fn sdpa_flash(s: AttnShape, bk: u32, smem_softmax: bool, h16: bool, maxnreg:
+     let qt = k.ctaid_x();
+     let kvh = k.ctaid_y();
+     let p0 = pos(&mut k, state);
+-    let r0 = k.mul(qt, QT);
+-    let h = k.mad(kvh, g, warp);
++    // The warp's head and first row; with qg > 1, warp w on head w mod g, rows group w / g.
++    let (r0, h, rb) = if qg > 1 {
++        let rb = k.mul(qt, qg * QT);
++        let hw = k.rem(warp, g);
++        let rg = k.div(warp, g);
++        let r0 = k.mad(rg, QT, rb);
++        (r0, k.mad(kvh, g, hw), rb)
++    } else {
++        let r0 = k.mul(qt, QT);
++        (r0, k.mad(kvh, g, warp), r0)
++    };
+     let q_smem = k.mad(warp, QT * stride, smem);
+-    let k_smem = k.add(smem, g * QT * stride);
++    let k_smem = k.add(smem, g * qg * QT * stride);
+     let v_smem = k.add(k_smem, bk * stride);
+     let m_last = k.sub(m, 1u32);
+-    // The keys the tile's rows see.
+-    let rows_end = k.add(r0, QT);
++    // The keys the block's rows see.
++    let rows_end = k.add(rb, qg * QT);
+     let rows_end = k.min(rows_end, m);
+     let kv_end = k.add(p0, rows_end);
+ 
+@@ -729,5 +749,5 @@ pub fn sdpa_flash(s: AttnShape, bk: u32, smem_softmax: bool, h16: bool, maxnreg:
+             k.st_u32(oa, off, pk);
+         }
+     }
+-    Emitted::of(k, flash_shared_bytes(s, bk, smem_softmax))
++    Emitted::of(k, flash_shared_bytes(s, bk, smem_softmax, qg))
+ }
+diff --git a/src/cuda/probe.rs b/src/cuda/probe.rs
+index f79b3e5..034c626 100644
+--- a/src/cuda/probe.rs
++++ b/src/cuda/probe.rs
+@@ -67,9 +67,11 @@ pub fn all_kernels() -> Vec<Emitted> {
+         v.push(dc::embed(h, true));
+         v.push(dc::rmsnorm(h, 1e-6, true, true, false));
+         v.push(dc::swiglu(inter, true, false));
+-        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, false));
+-        v.push(super::prefill::sdpa_flash(attn, 32, true, false, 0, false));
+-        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, true));
++        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, false, 1));
++        v.push(super::prefill::sdpa_flash(attn, 32, true, false, 0, false, 1));
++        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, true, 1));
++        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, false, 2));
++        v.push(super::prefill::sdpa_flash(attn, 32, false, false, 0, true, 2));
+         v.push(gemm::gemm(inter, h, Out::Residual, Tile::T64));
+         v.push(dc::sdpa_split(attn, 8));
+         v.push(dc::sdpa_gqa(attn, 8));
+diff --git a/src/cuda/tuning.rs b/src/cuda/tuning.rs
+index 0cd03a1..9b4e2fc 100644
+--- a/src/cuda/tuning.rs
++++ b/src/cuda/tuning.rs
+@@ -62,6 +62,9 @@ pub struct Tuning {
+     /// `sdpa.pipe`: 1 = the prefill attention's copies of K and V overlap its arithmetic (`prefill::sdpa_flash`,
+     /// same results), 0 = each tile waits for both copies (the default).
+     pub sdpa_pipe: u32,
++    /// `sdpa.rows`: query rows per block of the prefill attention, 16 (the default, 4 warps) or 32 (8 warps sharing
++    /// each K and V tile, `prefill::sdpa_flash` with `qg` = 2, same results).
++    pub sdpa_rows: u32,
+     /// `rec.tc`: 1 = the prefill's delta rule chunked on the tensor cores
+     /// (`cuda/dntc.rs`, bf16 activations), 0 = row by row.
+     pub rec_tc: u32,
+@@ -73,7 +76,7 @@ pub struct Tuning {
+ 
+ impl Default for Tuning {
+     fn default() -> Tuning {
+-        Tuning { matvec: Matvec { rows: 2, warps: 4, depth: 8, cache: Ld::NcNoL1, w16: false }, sdpa_split: 8, sdpa_gqa: 0, act: Act::Bf16, graph: 1, prefill_block: 0, gemm_tile: "64".to_string(), gemm_bk: 32, gemm_stages: 3, gemm_auto: 3, gemm_carveout: None, gemm_swizzle: true, gemm_schedule: 0, gemm_pipeline: 0, gemm_down_short: "same".into(), gemm_ldmatrix: true, gemm_async_copy: true, gemm_wmma: false, gemm_f16: false, sdpa_bk: 32, sdpa_smem_softmax: false, sdpa_pipe: 0, rec_tc: 1, ld_scope: 0, sdpa_maxnreg: 0 }
++        Tuning { matvec: Matvec { rows: 2, warps: 4, depth: 8, cache: Ld::NcNoL1, w16: false }, sdpa_split: 8, sdpa_gqa: 0, act: Act::Bf16, graph: 1, prefill_block: 0, gemm_tile: "64".to_string(), gemm_bk: 32, gemm_stages: 3, gemm_auto: 3, gemm_carveout: None, gemm_swizzle: true, gemm_schedule: 0, gemm_pipeline: 0, gemm_down_short: "same".into(), gemm_ldmatrix: true, gemm_async_copy: true, gemm_wmma: false, gemm_f16: false, sdpa_bk: 32, sdpa_smem_softmax: false, sdpa_pipe: 0, sdpa_rows: 16, rec_tc: 1, ld_scope: 0, sdpa_maxnreg: 0 }
+     }
+ }
+ 
+@@ -133,11 +136,12 @@ impl Tuning {
+                 "gemm.copy" => t.gemm_async_copy = match value { "async" => true, "sync" => false, _ => return Err(HerbertError::Config("gemm.copy: async or sync".into())) },
+                 "sdpa.bk" => t.sdpa_bk = num()?,
+                 "sdpa.pipe" => t.sdpa_pipe = num()?.min(1),
++                "sdpa.rows" => t.sdpa_rows = match num()? { v @ (16 | 32) => v, _ => return Err(HerbertError::Config("sdpa.rows: 16 or 32".into())) },
+                 "sdpa.softmax" => t.sdpa_smem_softmax = match value { "reg" => false, "shared" => true, _ => return Err(HerbertError::Config("sdpa.softmax: reg or shared".into())) },
+                 "rec.tc" => t.rec_tc = num()?,
+                 "sdpa.maxnreg" => t.sdpa_maxnreg = num()?,
+                 "ld.scope" => t.ld_scope = match value { "plain" => 0, "sm" => 1, "gpu" => 2, _ => return Err(HerbertError::Config("ld.scope: plain, sm or gpu".into())) },
+-                _ => return Err(HerbertError::Config(format!("--tune {o}: unknown key (matvec.rows, matvec.warps, matvec.depth, matvec.cache, sdpa.split, sdpa.gqa, act, graph, prefill.block, gemm.tile, gemm.bk, gemm.stages, gemm.auto, gemm.carveout, gemm.layout, gemm.schedule, gemm.pipeline, gemm.down_short, gemm.ldmatrix, gemm.copy, gemm.wmma, gemm.f16, sdpa.bk, sdpa.softmax, sdpa.pipe, rec.tc, ld.scope, sdpa.maxnreg)"))),
++                _ => return Err(HerbertError::Config(format!("--tune {o}: unknown key (matvec.rows, matvec.warps, matvec.depth, matvec.cache, sdpa.split, sdpa.gqa, act, graph, prefill.block, gemm.tile, gemm.bk, gemm.stages, gemm.auto, gemm.carveout, gemm.layout, gemm.schedule, gemm.pipeline, gemm.down_short, gemm.ldmatrix, gemm.copy, gemm.wmma, gemm.f16, sdpa.bk, sdpa.softmax, sdpa.pipe, sdpa.rows, rec.tc, ld.scope, sdpa.maxnreg)"))),
+             }
+         }
+         Ok(t)
+@@ -217,7 +221,7 @@ impl Tuning {
+ 
+     pub fn summary(&self) -> String {
+         format!(
+-            "matvec.rows={} matvec.warps={} matvec.depth={} matvec.cache={} sdpa.split={} sdpa.gqa={} act={} graph={} prefill.block={} gemm.tile={} gemm.bk={} gemm.stages={} gemm.auto={} gemm.carveout={} gemm.layout={} gemm.schedule={} gemm.pipeline={} gemm.down_short={} gemm.ldmatrix={} gemm.copy={} gemm.wmma={} gemm.f16={} sdpa.bk={} sdpa.softmax={} sdpa.pipe={} rec.tc={} ld.scope={} sdpa.maxnreg={}",
++            "matvec.rows={} matvec.warps={} matvec.depth={} matvec.cache={} sdpa.split={} sdpa.gqa={} act={} graph={} prefill.block={} gemm.tile={} gemm.bk={} gemm.stages={} gemm.auto={} gemm.carveout={} gemm.layout={} gemm.schedule={} gemm.pipeline={} gemm.down_short={} gemm.ldmatrix={} gemm.copy={} gemm.wmma={} gemm.f16={} sdpa.bk={} sdpa.softmax={} sdpa.pipe={} sdpa.rows={} rec.tc={} ld.scope={} sdpa.maxnreg={}",
+             self.matvec.rows,
+             self.matvec.warps,
+             self.matvec.depth,
+@@ -243,6 +247,7 @@ impl Tuning {
+             self.sdpa_bk,
+             if self.sdpa_smem_softmax { "shared" } else { "reg" },
+             self.sdpa_pipe,
++            self.sdpa_rows,
+             self.rec_tc,
+             ["plain", "sm", "gpu"][self.ld_scope as usize],
+             self.sdpa_maxnreg

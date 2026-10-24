@@ -1,0 +1,45 @@
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+~/venvs/bench-sglang-latest/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+
+Multi-thread loading shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Multi-thread loading shards:  50% Completed | 1/2 [00:02<00:02,  2.17s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.44s/it]
+Multi-thread loading shards: 100% Completed | 2/2 [00:03<00:00,  1.55s/it]
+[2026-10-19 16:27:35] Scheduler hit an exception: Traceback (most recent call last):
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 6128, in run_scheduler_process
+    scheduler = Scheduler(server_args, port_args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 563, in __init__
+    self.init_model_worker()
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 1107, in init_model_worker
+    self.init_memory_pools()
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 1070, in init_memory_pools
+    self.init_target_memory_pool()
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 1066, in init_target_memory_pool
+    self.tp_worker.alloc_memory_pool()
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/managers/tp_worker.py", line 406, in alloc_memory_pool
+    self.model_runner.alloc_memory_pool(memory_pool_config)
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 960, in alloc_memory_pool
+    result = self.kv_cache_configurator.configure(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 436, in configure
+    config = self._resolve_memory_pool_config(pre_model_load_memory)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 2865, in _resolve_memory_pool_config
+    config.max_running_requests = self.resolve_max_num_reqs(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-sglang-latest/lib/python3.12/site-packages/sglang/srt/mem_cache/kv_cache_configurator.py", line 2834, in resolve_max_num_reqs
+    raise RuntimeError(
+RuntimeError: Hybrid (mamba/linear-attention) state cache is too small to serve any requests. max_mamba_cache_size=3, mamba_ratio=5, resulting max_num_reqs=0. Try: (1) reduce --max-running-requests, (2) increase --mem-fraction-static, or (3) use GPUs with more memory.
+
+[2026-10-19 16:27:35] Received sigquit from a child process. It usually means the child failed.

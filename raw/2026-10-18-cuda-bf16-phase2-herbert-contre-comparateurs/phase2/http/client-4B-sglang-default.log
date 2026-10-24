@@ -1,0 +1,5 @@
+sglang-default Qwen3.5-4B p   10: in [20, 21] · TTFT 20.91 ms · prefill 962 tok/s (10.0 %) · decode 78.04 tok/s (0.1 %) · out [128] · n=15
+sglang-default Qwen3.5-4B p  100: in [109, 110, 111] · TTFT 22.39 ms · prefill 4868 tok/s (6.7 %) · decode 77.92 tok/s (0.1 %) · out [128] · n=15
+sglang-default Qwen3.5-4B p  500: in [510, 511] · TTFT 50.14 ms · prefill 10172 tok/s (3.7 %) · decode 77.60 tok/s (0.3 %) · out [128] · n=15
+sglang-default Qwen3.5-4B p 2048: in [2058, 2059] · TTFT 198.79 ms · prefill 10353 tok/s (1.9 %) · decode 76.11 tok/s (0.2 %) · out [128] · n=15
+sglang-default Qwen3.5-4B p 4096: in [4105, 4106, 4107] · TTFT 384.82 ms · prefill 10670 tok/s (1.5 %) · decode 75.65 tok/s (0.2 %) · out [128] · n=15

@@ -1,0 +1,135 @@
+2026-10-19T20:24:06+02:00
+ 20:24:06 up 1 day, 7 min,  2 users,  load average: 0.00, 0.11, 0.72
+NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  595.99.02  Release Build  (dvs-builder@U22-I3-AF05-06-2)  Wed Aug 26 05:20:50 UTC 2026
+GCC version:  gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 
+name, driver_version, clocks.current.sm [MHz], clocks.current.memory [MHz], pstate, persistence_mode
+NVIDIA GeForce RTX 4080, 595.99.02, 2805 MHz, 11201 MHz, P0, Disabled
+-- herbert-cuda-bf16 011bfdf (2026-10-19T15:39:56+02:00 local commit: --ask-file)
+6710c86af6f3efe69dd0264a0be09a7018ce1475ca5d7bfe9bd809385eac5f1a  ~/herbert-cuda-bf16/target/release/herbert-cuda-chat
+ac7b073363ac04579c104eb7bcd4acca09b11b5d48f8ca6318917e9637839997  ~/herbert-cuda-bf16/target/release/herbert-cuda-serve
+-- herbert-cuda-f16 0c7d88d (2026-10-19T15:39:56+02:00 local commit: --ask-file)
+a490d439d31bc0d2a680b1b6501a4872ba0e57429cd45444e410b50069e8cb7b  ~/herbert-cuda-f16/target/release/herbert-cuda-chat
+009fa78dede740e3c795a2f34f9e4812a9be822490b05001ba2b50016aa45d27  ~/herbert-cuda-f16/target/release/herbert-cuda-serve
+-- herbert-vk-f16 cc51363
+0e72f515ad9ae177a6c7a73e3d02b528797e3e85d5b101b703ce1980a9036db8  ~/herbert-vk-f16-cc51363/target/release/herbert-vk-chat
+5b4cd0bdf2f4eebcb7157767503f316be77870d0739f15edb7aa445fdf942e8a  ~/herbert-vk-f16-cc51363/target/release/herbert-vk-serve
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 15945 MiB):
+  Device 0: NVIDIA GeForce RTX 4080, compute capability 8.9, VMM: yes, VRAM: 15945 MiB
+7a5fffa842c45a0e78201f149b10f53564aab5061fa11f2aa3d437c0a58c72a6  $BENCH_DIR/Qwen3.5-0.8B-F16.gguf
+21dbc382f411fd30ce027ceaa406c458f0b21dc605a53280050b03da09acc429  $BENCH_DIR/Qwen3.5-4B-F16.gguf
+2cc66678d4eb23f39a0036a2b91e4ae28c8ecdb8af0699c27f349f1539c06551  ~/c003/long-prompts/pp10000.txt
+93c56451435e25f96e7a6e861e1ff41487b769cea4cf58769b6632dff602a265  ~/c003/long-prompts/pp20000.txt
+3ef31844b11cd6fbdb954a7736beb703fcc30f3b63262afd6fb7d612333dcb73  ~/c003/long-prompts/pp40000.txt
+11adc8f3a1517fc3b496050a1877b414826ebaae9946bcd530a9f61f57e50dba  ~/c003/long-prompts/pp60000.txt
+c98eff98a7ed2dc40de8ee3d66a1b63a4d57cf888501a711360ae2ff41f35455  ~/c003/long-prompts/prompts-long.json
+-- vllm-latest
+{'torch': '2.13.0', 'transformers': '5.17.0', 'vllm': '0.31.0', 'flashinfer-python': '0.7.0.post1'}
+-- sglang-latest
+{'torch': '2.14.1', 'transformers': '5.19.0', 'sglang': '0.5.22', 'flashinfer-python': '0.7.1'}
+-- transformers-latest
+{'torch': '2.14.1', 'transformers': '5.20.1', 'flash-linear-attention': '0.5.2'}
+-- profile
+{
+    "profiles": [
+        {
+            "name": "CudaNoStablePerfLimit",
+            "settings": [
+                "0x166c5e",
+                0
+            ]
+        }
+    ],
+    "rules": [
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-chat"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-bench"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-probe"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-bench"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-server"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "llama-cli"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python3"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "python3.12"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-serve"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "vllm"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "transformers"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        },
+        {
+            "pattern": {
+                "feature": "procname",
+                "matches": "herbert-cuda-absmax"
+            },
+            "profile": "CudaNoStablePerfLimit"
+        }
+    ]
+}

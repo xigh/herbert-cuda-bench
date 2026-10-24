@@ -1,0 +1,9 @@
+== 2026-10-18T18:49:43+02:00 0.8B transformers-sdpa ·  18:49:43 up 6 days,  9:58, 11 users,  load average: 0.07, 0.33, 1.10
+== 2026-10-18T18:51:32+02:00 0.8B transformers-sdpa-compile ·  18:51:32 up 6 days, 10:00, 12 users,  load average: 0.81, 0.54, 1.08
+== 2026-10-18T18:52:32+02:00 0.8B hc-cand ·  18:52:32 up 6 days, 10:01, 12 users,  load average: 0.88, 0.62, 1.08
+== 2026-10-18T18:53:04+02:00 0.8B vllm-cg512 ·  18:53:04 up 6 days, 10:02, 12 users,  load average: 0.93, 0.66, 1.07
+== 2026-10-18T18:54:09+02:00 4B transformers-sdpa ·  18:54:09 up 6 days, 10:03, 12 users,  load average: 1.06, 0.79, 1.09
+== 2026-10-18T18:57:13+02:00 4B transformers-sdpa-compile ·  18:57:13 up 6 days, 10:06, 11 users,  load average: 0.92, 0.88, 1.07
+== 2026-10-18T19:00:15+02:00 4B hc-cand ·  19:00:15 up 6 days, 10:09, 12 users,  load average: 0.92, 0.93, 1.05
+== 2026-10-18T19:02:37+02:00 4B vllm-cg512 ·  19:02:37 up 6 days, 10:11, 12 users,  load average: 0.91, 0.95, 1.03
+ALLDONE-phase2c
