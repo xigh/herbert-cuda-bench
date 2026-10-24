@@ -21,7 +21,7 @@ occupancy/        the prefill attention at 32 query rows per block (sdpa.rows=32
 raw/              raw logs of each measure, as produced, machine names and paths replaced
 ```
 
-In each folder, `_scripts/` holds the drivers exactly as they ran (`*-003.sh`) and the folder itself the summary scripts (`_*_summary.py`, `_*_diff.py`) that rebuild the tables from the drivers' output directories. `protocol.md` and `predictions.md` are in French, like the article; P1 to P9 and P14 to P15 are the predictions read in this release.
+In each folder, `_scripts/` holds the drivers exactly as they ran (`*-003.sh`) and the folder itself the summary scripts (`_*_summary.py`, `_*_diff.py`) that rebuild the tables from the drivers' output directories. `protocol.md` and `predictions.md` are in French, like the article; P1 to P9, P14 to P15 and P16 to P18 (TensorRT-LLM) are the predictions read in this release.
 
 ## Machine
 
@@ -47,6 +47,7 @@ The CPU load is logged (`uptime`) at every round. The later scripts (decode-dept
 | vLLM | 0.31.0; 0.28.0 (the version of #002) as a reference in phase 1 | bfloat16 (phases 1, 2), float16 (phase 5) |
 | SGLang | 0.5.22, `CUDA_HOME` at the 12.8 toolkit | bfloat16, float16 (phase 5) |
 | transformers | 5.20.1, flash-linear-attention installed, causal-conv1d absent | bfloat16, float16 (phase 5) |
+| TensorRT-LLM | 1.4.0rc1, PyTorch backend, CUDA graph for a batch of 1 (article measure of 2026-10-25 only) | bfloat16 |
 
 In phase 5 the comparators run in float16 (llama.cpp on F16 GGUFs, the others converting the bf16 weights at load), as the protocol says; herbert-cuda-bf16 stays in bf16, and herbert-cuda-f16 runs in the same rounds under its two forms.
 
@@ -58,6 +59,7 @@ In phase 5 the comparators run in float16 (llama.cpp on F16 GGUFs, the others co
 | phase 5, decode-depth dd1–dd4 | `011bfdf` (`638364b` plus `--ask-file`) | |
 | decode-depth dd5–dd8, alt-vs | `bc8e601` (`sdpa.gqa`), `5ec3063` (`sdpa.pipe`), `73b5a70` (both behind switches; its default PTX is the same text as `011bfdf`'s, all 432 modules) | |
 | occupancy | `8db5b92` (`sdpa.rows=32` behind a switch; default PTX unchanged) | |
+| article measure (2026-10-25) | `31b86e1`, the code of `6701002`: two trials behind switches, default PTX unchanged (the 444 modules of `herbert-cuda-probe --emit` identical to `f0b646a`'s) | the public tree's defaults |
 | defaults, public tree | `f0b646a`: attention defaults `sdpa.gqa=1 sdpa.split=64 sdpa.pipe=1` | with `--tune sdpa.gqa=0 --tune sdpa.split=8 --tune sdpa.pipe=0` it emits the same PTX as `8db5b92`'s default (440 modules) and gives the same `[ids]` (p1–p4, pp128–pp4000, 10K and 60K, 0.8B and 4B) |
 
 So phases 1 to 5 measured the former attention: to replay them with the public tree, add `--tune sdpa.gqa=0 --tune sdpa.split=8 --tune sdpa.pipe=0`.
@@ -114,6 +116,7 @@ The `_after-*`, `_chain-*` and `*2b`/`*2c` scripts are the follow-up runs the pr
 | `2026-10-21-cuda-bf16-alterne-comparateurs` | alt-vs |
 | `2026-10-21-cuda-bf16-occupation-prefill` | occupancy |
 | `2026-10-21-cuda-bf16-defaut-attention` | defaults |
+| `2026-10-25-cuda-bf16-art-qwen35-bf16` | the article measure: Qwen3.5 0.8B, 2B and 4B in bf16, herbert-cuda against TensorRT-LLM, llama.cpp, vLLM and SGLang, prefill from 128 to 4 000 tokens and decode after 759 tokens; predictions P16 to P18 |
 
 The replacement is mechanical and the same everywhere: the home directory becomes `~`, the models directory becomes `$MODELS_DIR` and the bench data directory `$BENCH_DIR` (so the copies of the scripts inside `raw/` are records, the runnable ones are the top-level copies), the local servers' address `localhost`, the machine `rtx4080` (and a second RTX 4080 `rtx4080-b`), the resident inference services of the machine `resident-gpu` and `resident-cpu`, other work that shared the machine `other-tests`; references to private working notes are removed. No number is touched. The long prompts are Moby-Dick, which explains the whales in the logs.
 

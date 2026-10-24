@@ -1,0 +1,123 @@
+== 2026-10-24T23:58:33+02:00 stopping resident-gpu
+== 2026-10-24T23:58:38+02:00 trtllm-0.8B-in512-out1
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:   6%|▌         | 29/518 [00:00<00:11, 41.47it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 645.73it/s]
+Avg latency: 0.014300967333838344 seconds
+exit 0
+== 2026-10-24T23:59:38+02:00 trtllm-0.8B-in759-out1
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  72%|███████▏  | 371/518 [00:00<00:00, 3709.36it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 3580.43it/s]
+Avg latency: 0.015166736004175618 seconds
+exit 0
+== 2026-10-25T00:00:02+02:00 trtllm-0.8B-in759-out255
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  68%|██████▊   | 351/518 [00:00<00:00, 3485.71it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 3558.21it/s]
+Avg latency: 0.6857913703279337 seconds
+exit 0
+== 2026-10-25T00:00:29+02:00 trtllm-2B-in512-out1
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  17%|█▋        | 86/518 [00:00<00:00, 859.41it/s]
+Loading weights concurrently:  49%|████▉     | 255/518 [00:00<00:00, 1346.10it/s]
+Loading weights concurrently:  86%|████████▋ | 447/518 [00:00<00:00, 1604.27it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 1326.43it/s]
+Avg latency: 0.02217704233286592 seconds
+exit 0
+== 2026-10-25T00:00:57+02:00 trtllm-2B-in759-out1
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  21%|██        | 107/518 [00:00<00:00, 857.77it/s]
+Loading weights concurrently:  62%|██████▏   | 321/518 [00:00<00:00, 1522.07it/s]
+Loading weights concurrently:  99%|█████████▉| 513/518 [00:00<00:00, 1676.64it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 1344.87it/s]
+Avg latency: 0.02982515566206227 seconds
+exit 0
+== 2026-10-25T00:01:22+02:00 trtllm-2B-in759-out255
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  19%|█▊        | 96/518 [00:00<00:00, 955.16it/s]
+Loading weights concurrently:  52%|█████▏    | 271/518 [00:00<00:00, 1396.69it/s]
+Loading weights concurrently:  89%|████████▉ | 461/518 [00:00<00:00, 1603.63it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 1353.57it/s]
+Avg latency: 1.5328457646683091 seconds
+exit 0
+== 2026-10-25T00:01:55+02:00 trtllm-4B-in512-out1
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   4%|▍         | 29/688 [00:00<00:02, 253.53it/s]
+Loading weights concurrently:  22%|██▏       | 151/688 [00:00<00:00, 766.13it/s]
+Loading weights concurrently:  40%|████      | 277/688 [00:00<00:00, 960.24it/s]
+Loading weights concurrently:  59%|█████▉    | 408/688 [00:00<00:00, 1084.18it/s]
+Loading weights concurrently:  77%|███████▋  | 532/688 [00:00<00:00, 1134.63it/s]
+Loading weights concurrently:  97%|█████████▋| 664/688 [00:00<00:00, 1185.63it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 990.59it/s] 
+Avg latency: 0.04831062133598607 seconds
+exit 0
+== 2026-10-25T00:03:00+02:00 trtllm-4B-in759-out1
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   7%|▋         | 50/688 [00:00<00:01, 480.73it/s]
+Loading weights concurrently:  22%|██▏       | 151/688 [00:00<00:00, 739.72it/s]
+Loading weights concurrently:  40%|███▉      | 275/688 [00:00<00:00, 943.27it/s]
+Loading weights concurrently:  61%|██████    | 421/688 [00:00<00:00, 1139.53it/s]
+Loading weights concurrently:  78%|███████▊  | 536/688 [00:00<00:00, 1103.32it/s]
+Loading weights concurrently:  97%|█████████▋| 670/688 [00:00<00:00, 1160.75it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 1001.72it/s]
+Avg latency: 0.07016236199706327 seconds
+exit 0
+== 2026-10-25T00:03:28+02:00 trtllm-4B-in759-out255
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   7%|▋         | 45/688 [00:00<00:01, 449.99it/s]
+Loading weights concurrently:  22%|██▏       | 151/688 [00:00<00:00, 807.88it/s]
+Loading weights concurrently:  40%|████      | 277/688 [00:00<00:00, 987.76it/s]
+Loading weights concurrently:  58%|█████▊    | 402/688 [00:00<00:00, 1077.86it/s]
+Loading weights concurrently:  77%|███████▋  | 533/688 [00:00<00:00, 1150.50it/s]
+Loading weights concurrently:  96%|█████████▋| 663/688 [00:00<00:00, 1191.11it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 1009.50it/s]
+Avg latency: 3.3705431090008156 seconds
+exit 0
+== 2026-10-25T00:04:12+02:00 hc-2B-pp512
+[warmup 1] 513 prompt tokens in 0.023 s (22699.1 tok/s) · 1 generated in 0.00 s (73931.69 tok/s)
+[turn 1] 513 prompt tokens in 0.023 s (22793.0 tok/s) · 1 generated in 0.00 s (350262.70 tok/s) · position 513
+exit 0
+== 2026-10-25T00:04:14+02:00 hc-2B-p3
+[warmup 1] 759 prompt tokens in 0.031 s (24634.3 tok/s) · 255 generated in 1.46 s (174.74 tok/s)
+[turn 1] 759 prompt tokens in 0.031 s (24704.9 tok/s) · 255 generated in 1.46 s (174.19 tok/s) · position 1014
+exit 0
+== 2026-10-25T00:04:20+02:00 llama-2B-pp
+exit 0
+== 2026-10-25T00:04:22+02:00 llama-2B-tg
+exit 0
+== 2026-10-25T00:04:24+02:00 vllm-2B-in512-out1
+
+Bench iterations:   0%|          | 0/3 [00:00<?, ?it/s]
+Bench iterations: 100%|██████████| 3/3 [00:00<00:00, 43.80it/s]
+Avg latency: 0.022820496669737622 seconds
+exit 0
+== 2026-10-25T00:05:56+02:00 vllm-2B-in759-out255
+
+Bench iterations:   0%|          | 0/3 [00:00<?, ?it/s]
+Bench iterations:  33%|███▎      | 1/3 [00:01<00:03,  1.56s/it]
+Bench iterations:  67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it]
+Bench iterations: 100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+Bench iterations: 100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+Avg latency: 1.5598784423345933 seconds
+exit 0
+== 2026-10-25T00:06:44+02:00 sglang-2B
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+Capturing batches (bs=1 avail_mem=2.18 GB):   0%|          | 0/1 [00:00<?, ?it/s][2026-10-25 00:06:57 TP0] Using fused GDN decode QKVZ/BA unpack + indexed Conv1D.
+
+Capturing batches (bs=1 avail_mem=2.18 GB): 100%|██████████| 1/1 [00:00<00:00,  8.09it/s]
+Capturing batches (bs=1 avail_mem=2.18 GB): 100%|██████████| 1/1 [00:00<00:00,  8.08it/s]
+exit 0
+== 2026-10-25T00:07:00+02:00 starting resident-gpu
+== 2026-10-25T00:07:20+02:00 resident-gpu: active
+ALLDONE-feas-art

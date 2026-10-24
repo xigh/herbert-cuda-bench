@@ -1,0 +1,1 @@
+{"run_name": "feas-2B-pp", "batch_size": 1, "input_len": 512, "output_len": 1, "prefill_latency": 0.022161753004183993, "prefill_throughput": 23102.865549640308, "total_latency": 0.022161753004183993, "overall_throughput": 23147.98833391695}

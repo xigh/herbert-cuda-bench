@@ -1,0 +1,9 @@
+~/llama.cpp-b11718/build-cuda/bin/llama-bench -m $BENCH_DIR/Qwen3.5-2B-BF16.gguf -dev CUDA0 -ngl 99 -p 512 -n 0 -r 1
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 15937 MiB):
+  Device 0: NVIDIA GeForce RTX 4080, compute capability 8.9, VMM: yes, VRAM: 15937 MiB
+| model                          |       size |     params | backend    | ngl | dev          |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------------ | --------------: | -------------------: |
+| qwen35 2B BF16                 |   3.62 GiB |     1.94 B | CUDA       |  99 | CUDA0        |           pp512 |      17384.73 ± 0.00 |
+
+build: 547208dca (11718)
+exit 0

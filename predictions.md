@@ -48,3 +48,18 @@ Dictées par Philippe après le protocole de la phase 5 (`680e3c7`), avant toute
 - **P15, décodage** : herbert se fait battre aussi au décodage (lecture ajoutée, hors dictée : le décodage qui suit un prompt long, à cette profondeur).
 
 Lecture (ajoutée, hors dictée) : « herbert » couvre les trois formes de herbert-cuda du protocole (bf16, f16, f16 avec `gemm.f16=1`), chacune lue séparément, contre chaque comparateur ; herbert-vk-f16 est lu à part. Le texte dicté n'est pas retouché.
+
+# Prédiction pour TensorRT-LLM en bf16, le 24 octobre 2026 à 23 h 57 (21:57 UTC)
+
+Dictée pendant que tournait la comparaison du 24 au soir (Qwen3.5 0.8B, 2B et 4B en bf16 : herbert-cuda face à TensorRT-LLM, llama.cpp, vLLM et SGLang, à plusieurs tailles de prompt), qui venait de commencer ; aucun de ses résultats n'était connu. Les mesures des phases précédentes, sans TensorRT-LLM en bf16, l'étaient.
+
+## Ses mots, tels quels (dictés)
+
+« La prédiction pour TensorRT-LLM : jeu égale en décode, voire un peu mieux, mais moins bien avec plus de pp ... et un peu moins bien en prefill, tout le temps ... c'est le code de Nvidia, même si j'imagine qu'ils s'occupent plus des H100, B200 etc ... je pense qu'ils savent mieux utiliser la puissance de leur hardware que moi »
+
+## Ce qu'on vérifiera, une ligne par prédiction
+
+- **P16, décodage** : herbert-cuda à égalité avec TensorRT-LLM, voire un peu devant.
+- **P17, décodage avec un prompt plus long** : herbert-cuda moins bien que TensorRT-LLM quand la taille du prompt grandit.
+- **P18, prefill** : herbert-cuda un peu derrière TensorRT-LLM, à toutes les tailles de prompt.
+
