@@ -1,0 +1,9 @@
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=4096 gemm.tile=64x128w2x2 gemm.bk=32 gemm.stages=2 gemm.auto=0 gemm.carveout=driver gemm.layout=xor gem
+robes to Tartar Emperors; they mirror the paved capitals of Buffalo and
+[turn 1] 2001 prompt tokens in 0.068 s (29235.2 tok/s) · 1 generated in 0.00 s (62893.08 tok/s) · position 2001
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=1024 gemm.tile=128w4x4 gemm.bk=64 gemm.stages=2 gemm.auto=0 gemm.carveout=driver gemm.layout=xor gemm.s
+robes to Tartar Emperors; they mirror the paved capitals of Buffalo and
+[turn 1] 2001 prompt tokens in 0.082 s (24477.0 tok/s) · 1 generated in 0.00 s (62972.29 tok/s) · position 2001
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=1024 gemm.tile=64x128 gemm.bk=32 gemm.stages=3 gemm.auto=0 gemm.carveout=driver gemm.layout=xor gemm.sc
+robes to Tartar Emperors; they mirror the paved capitals of Buffalo and
+[turn 1] 2001 prompt tokens in 0.078 s (25721.2 tok/s) · 1 generated in 0.00 s (59484.86 tok/s) · position 2001

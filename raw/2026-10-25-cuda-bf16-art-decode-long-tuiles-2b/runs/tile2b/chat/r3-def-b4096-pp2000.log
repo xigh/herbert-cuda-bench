@@ -1,0 +1,141 @@
+[cuda] NVIDIA GeForce RTX 4080 — sm_89, 76 SMs, driver 13.2
+[loader] skipped: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[tuning] matvec.rows=2 matvec.warps=4 matvec.depth=8 matvec.cache=nol1 sdpa.split=64 sdpa.gqa=1 act=bf16 graph=1 prefill.block=4096 gemm.tile=64 gemm.bk=32 gemm.stages=3 gemm.auto=3 gemm.carveout=driver gemm.layout=xor gemm.schedule=0 gemm.pipeline=0 gemm.down_short=same gemm.ldmatrix=1 gemm.copy=async gemm.wmma=0 gemm.f16=0 sdpa.bk=32 sdpa.softmax=reg sdpa.pipe=1 sdpa.rows=16 sdpa.alias=0 rec.tc=1 ld.scope=plain sdpa.maxnreg=0 fuse.norm=0 fuse.swiglu=0 fuse.dn=0
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv × 256, intermediate 6144, vocab 248320, rotary 64, linear k 16×128 v 16×128, tied head true
+[cuda] 4.42 GiB allocated, KV for 40960 positions; 10.8 of 15.6 GiB free
+[cuda] 43 kernels, 245 launches per step
+[engine] loaded in 1.9 s, mounted in 0.01 s
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+[warmup 1] 2001 prompt tokens in 0.075 s (26841.0 tok/s) · 1 generated in 0.00 s (73877.07 tok/s)
+
+>>>  nations, as the Atlantic is; they furnish long
+maritime approaches to our numerous territorial colonies from the East,
+dotted all round their banks; here and there are frowned upon by
+batteries, and by the goat-like craggy guns of lofty Mackinaw; they
+have heard the fleet thunderings of naval victories; at intervals, they
+yield their beaches to wild barbarians, whose red painted faces flash
+from out their peltry wigwams; for leagues and leagues are flanked by
+ancient and unentered forests, where the gaunt pines stand like serried
+lines of kings in Gothic genealogies; those same woods harboring wild
+Afric beasts of prey, and silken creatures whose exported furs give
+robes to Tartar Emperors; they mirror the paved capitals of Buffalo and
+Cleveland, as well as Winnebago villages; they float alike the
+full-rigged merchant ship, the armed cruiser of the State, the steamer,
+and the beech canoe; they are swept by Borean and dismasting blasts as
+direful as any that lash the salted wave; they know what shipwrecks
+are, for out of sight of land, however inland, they have drowned full
+many a midnight ship with all its shrieking crew. Thus, gentlemen,
+though an inlander, Steelkilt was wild-ocean born, and wild-ocean
+nurtured; as much of an audacious mariner as any. And for Radney,
+though in his infancy he may have laid him down on the lone Nantucket
+beach, to nurse at his maternal sea; though in after life he had long
+followed our austere Atlantic and your contemplative Pacific; yet was
+he quite as vengeful and full of social quarrel as the backwoods
+seaman, fresh from the latitudes of buck-horn handled Bowie-knives. Yet
+was this Nantucketer a man with some good-hearted traits; and this
+Lakeman, a mariner, who though a sort of devil indeed, might yet by
+inflexible firmness, only tempered by that common decency of human
+recognition which is the meanest slave’s right; thus treated, this
+Steelkilt had long been retained harmless and docile. At all events, he
+had proved so thus far; but Radney was doomed and made mad, and
+Steelkilt—but, gentlemen, you shall hear.
+
+“It was not more than a day or two at the furthest after pointing her
+prow for her island haven, that the Town-Ho’s leak seemed again
+increasing, but only so as to require an hour or more at the pumps
+every day. You must know that in a settled and civilized ocean like our
+Atlantic, for example, some skippers think little of pumping their
+whole way across it; though of a still, sleepy night, should the
+officer of the deck happen to forget his duty in that respect, the
+probability would be that he and his shipmates would never again
+remember it, on account of all hands gently subsiding to the bottom.
+Nor in the solitary and savage seas far from you to the westward,
+gentlemen, is it altogether unusual for ships to keep clanging at their
+pump-handles in full chorus even for a voyage of considerable length;
+that is, if it lie along a tolerably accessible coast, or if any other
+reasonable retreat is afforded them. It is only when a leaky vessel is
+in some very out of the way part of those waters, some really landless
+latitude, that her captain begins to feel a little anxious.
+
+“Much this way had it been with the Town-Ho; so when her leak was found
+gaining once more, there was in truth some small concern manifested by
+several of her company; especially by Radney the mate. He commanded the
+upper sails to be well hoisted, sheeted home anew, and every way
+expanded to the breeze. Now this Radney, I suppose, was as little of a
+coward, and as little inclined to any sort of nervous apprehensiveness
+touching his own person as any fearless, unthinking creature on land or
+on sea that you can conveniently imagine, gentlemen. Therefore when he
+betrayed this solicitude about the safety of the ship, some of the
+seamen declared that it was only on account of his being a part owner
+in her. So when they were working that evening at the pumps, there was
+on this head no small gamesomeness slily going on among them, as they
+stood with their feet continually overflowed by the rippling clear
+water; clear as any mountain spring, gentlemen—that bubbling from the
+pumps ran across the deck, and poured itself out in steady spouts at
+the lee scupper-holes.
+
+“Now, as you well know, it is not seldom the case in this conventional
+world of ours—watery or otherwise; that when a person placed in command
+over his fellow-men finds one of them to be very significantly his
+superior in general pride of manhood, straightway against that man he
+conceives an unconquerable dislike and bitterness; and if he have a
+chance he will pull down and pulverize that subaltern’s tower, and make
+a little heap of dust of it. Be this conceit of mine as it may,
+gentlemen, at all events Steelkilt was a tall and noble animal with a
+head like a Roman, and a flowing golden beard like the tasseled
+housings of your last viceroy’s snorting charger; and a brain, and a
+heart, and a soul in him, gentlemen, which had made Steelkilt
+Charlemagne, had he been born son to Charlemagne’s father. But Radney,
+the mate, was ugly as a mule; yet as hardy, as stubborn, as malicious.
+He did not love Steelkilt, and Steelkilt knew it.
+
+“Espying the mate drawing near as he was toiling at the pump with the
+rest, the Lakeman affected not to notice him, but unawed, went on with
+his gay banterings.
+
+“‘Aye, aye, my merry lads, it’s a lively leak this; hold a cannikin,
+one of ye, and let’s have a taste. By the Lord, it’s worth bottling! I
+tell ye what, men, old Rad’s investment must go for it! he had best cut
+away his part of the hull and tow it home. The fact is, boys, that
+sword-fish only began the job; he’s come back again with a gang of
+ship-carpenters, saw-fish, and file-fish, and what not; and the whole
+posse of ’em are now hard at work cutting and slashing at the bottom;
+making improvements, I suppose. If old Rad were here now, I’d tell him
+to jump overboard and scatter ’em. They’re playing the devil with his
+estate, I can tell him. But he’s a simple old soul,—Rad, and a beauty
+too. Boys, they say the rest of his property is invested in
+looking-glasses. I wonder if he’d give a poor devil like me the model
+of his nose.’
+
+“‘Damn your eyes! what’s that pump stopping for?’ roared Radney,
+pretending not to have heard the sailors’ talk. ‘Thunder away at it!’
+
+“‘Aye, aye, sir,’ said Steelkilt, merry as a cricket. ‘Lively, boys,
+lively, now!’ And with that the pump clanged like fifty fire-engines;
+the men tossed their hats off to it, and ere long that peculiar gasping
+of the lungs was heard which denotes the fullest tension of life’s
+utmost energies.
+
+“Quitting the pump at last, with the rest of his band, the Lakeman went
+forward all panting, and sat himself down on the windlass; his face
+fiery red, his eyes bloodshot, and wiping the profuse sweat from his
+brow. Now what cozening fiend it was, gentlemen, that possessed Radney
+to meddle with such a man in that corporeally exasperated state, I know
+not; but so it happened. Intolerably striding along the deck, the mate
+commanded him to get a broom and sweep down the planks, and also a
+shovel, and remove some offensive matters consequent upon allowing a
+pig to run at large.
+
+“Now, gentlemen, sweeping a ship’s deck at sea is a piece of household
+work which in all times but raging gales is regularly attended to every
+evening; it has been known to be done in the case of ships actually
+foundering at the time. Such, gentlemen, is the inflexibility of
+sea-usages and the instinctive love of neatness in seamen; some of whom
+would not willingly drown without first washing their faces. But in all
+vessels this broom business is the prescriptive province of the boys,
+if boys there be aboard. Besides, it was the stronger men in the
+Town-Ho that had been divided into gangs, taking turns at the
+Based
+[ids] 27775
+[decoded] "Based"
+[turn 1] 2001 prompt tokens in 0.075 s (26754.7 tok/s) · 1 generated in 0.00 s (168321.83 tok/s) · position 2001

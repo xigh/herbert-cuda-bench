@@ -118,6 +118,7 @@ The `_after-*`, `_chain-*` and `*2b`/`*2c` scripts are the follow-up runs the pr
 | `2026-10-21-cuda-bf16-defaut-attention` | defaults |
 | `2026-10-25-cuda-bf16-art-qwen35-bf16` | the article measure: Qwen3.5 0.8B, 2B and 4B in bf16, herbert-cuda against TensorRT-LLM, llama.cpp, vLLM and SGLang, prefill from 128 to 4 000 tokens and decode after 759 tokens; predictions P16 to P18 |
 | `2026-10-25-cuda-bf16-art-long-prefill` | the article's long prefill: the same five engines and three models, prefill at 2 000, 5 000, 10 000, 20 000 and 40 000 tokens (decode is that of the measure above) |
+| `2026-10-25-cuda-bf16-art-decode-long-tuiles-2b` | decode of 128 tokens after 10 000, 20 000 and 40 000 prompt tokens, the same five engines and three models; and the 2B's prefill with hand-set GEMM tiles (`--tune gemm.auto=0 --tune gemm.tile=64x128w2x2 --tune gemm.bk=32 --tune gemm.stages=2 --tune prefill.block=2048`) |
 
 The replacement is mechanical and the same everywhere: the home directory becomes `~`, the models directory becomes `$MODELS_DIR` and the bench data directory `$BENCH_DIR` (so the copies of the scripts inside `raw/` are records, the runnable ones are the top-level copies), the local servers' address `localhost`, the machine `rtx4080` (and a second RTX 4080 `rtx4080-b`), the resident inference services of the machine `resident-gpu` and `resident-cpu`, other work that shared the machine `other-tests`; references to private working notes are removed. No number is touched. The long prompts are Moby-Dick, which explains the whales in the logs.
 
