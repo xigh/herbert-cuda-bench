@@ -1,0 +1,40 @@
+== 2026-10-25T04:48:28+01:00 stopping resident-gpu
+== 2026-10-25T04:48:33+01:00 round 1 0.8B ·  04:48:33 up 1 day,  4:59,  2 users,  load average: 0.40, 0.75, 0.71
+== 2026-10-25T04:48:57+01:00 round 1 2B ·  04:48:57 up 1 day,  4:59,  2 users,  load average: 0.57, 0.77, 0.71
+== 2026-10-25T04:49:38+01:00 round 1 4B ·  04:49:38 up 1 day,  5:00,  2 users,  load average: 0.75, 0.79, 0.72
+== 2026-10-25T04:51:01+01:00 round 2 0.8B ·  04:51:01 up 1 day,  5:01,  2 users,  load average: 0.94, 0.84, 0.75
+== 2026-10-25T04:51:27+01:00 round 2 2B ·  04:51:27 up 1 day,  5:01,  2 users,  load average: 0.74, 0.81, 0.74
+== 2026-10-25T04:52:09+01:00 round 2 4B ·  04:52:09 up 1 day,  5:02,  2 users,  load average: 0.73, 0.79, 0.73
+== 2026-10-25T04:53:36+01:00 round 3 0.8B ·  04:53:36 up 1 day,  5:04,  2 users,  load average: 0.90, 0.83, 0.75
+== 2026-10-25T04:53:58+01:00 round 3 2B ·  04:53:58 up 1 day,  5:04,  2 users,  load average: 0.93, 0.84, 0.76
+== 2026-10-25T04:54:41+01:00 round 3 4B ·  04:54:41 up 1 day,  5:05,  2 users,  load average: 0.93, 0.85, 0.77
+== 2026-10-25T04:56:05+01:00 round 4 0.8B ·  04:56:05 up 1 day,  5:06,  2 users,  load average: 0.98, 0.89, 0.79
+== 2026-10-25T04:56:28+01:00 round 4 2B ·  04:56:28 up 1 day,  5:06,  2 users,  load average: 0.99, 0.90, 0.80
+== 2026-10-25T04:57:09+01:00 round 4 4B ·  04:57:09 up 1 day,  5:07,  2 users,  load average: 0.78, 0.85, 0.79
+== 2026-10-25T04:58:32+01:00 round 5 0.8B ·  04:58:32 up 1 day,  5:09,  2 users,  load average: 0.88, 0.87, 0.81
+== 2026-10-25T04:58:58+01:00 round 5 2B ·  04:58:58 up 1 day,  5:09,  2 users,  load average: 0.80, 0.86, 0.80
+== 2026-10-25T04:59:43+01:00 round 5 4B ·  04:59:43 up 1 day,  5:10,  2 users,  load average: 0.87, 0.86, 0.81
+== 2026-10-25T05:01:08+01:00 vllm 0.8B default ·  05:01:08 up 1 day,  5:11,  2 users,  load average: 0.97, 0.90, 0.83
+== 2026-10-25T05:05:14+01:00 vllm 0.8B flashinfer ·  05:05:14 up 1 day,  5:15,  2 users,  load average: 1.09, 1.08, 0.93
+== 2026-10-25T05:09:18+01:00 sglang 0.8B mf07-mrr1 ·  05:09:18 up 1 day,  5:19,  2 users,  load average: 1.21, 1.20, 1.02
+== 2026-10-25T05:10:30+01:00 trtllm 0.8B mnt40960 ·  05:10:30 up 1 day,  5:20,  2 users,  load average: 1.06, 1.15, 1.01
+== 2026-10-25T05:13:01+01:00 trtllm 0.8B chunk8192 ·  05:13:01 up 1 day,  5:23,  2 users,  load average: 1.15, 1.14, 1.02
+== 2026-10-25T05:15:20+01:00 vllm 2B default ·  05:15:20 up 1 day,  5:25,  2 users,  load average: 1.00, 1.08, 1.00
+== 2026-10-25T05:19:52+01:00 vllm 2B flashinfer ·  05:19:52 up 1 day,  5:30,  2 users,  load average: 1.00, 1.09, 1.02
+== 2026-10-25T05:24:26+01:00 sglang 2B mf07-mrr1 ·  05:24:26 up 1 day,  5:34,  2 users,  load average: 1.42, 1.43, 1.18
+== 2026-10-25T05:25:48+01:00 trtllm 2B mnt40960 ·  05:25:48 up 1 day,  5:36,  2 users,  load average: 1.10, 1.32, 1.17
+== 2026-10-25T05:28:39+01:00 trtllm 2B chunk8192 ·  05:28:39 up 1 day,  5:39,  2 users,  load average: 1.01, 1.19, 1.14
+== 2026-10-25T05:31:19+01:00 vllm 4B default ·  05:31:19 up 1 day,  5:41,  2 users,  load average: 1.95, 1.53, 1.28
+== 2026-10-25T05:36:09+01:00 vllm 4B flashinfer ·  05:36:09 up 1 day,  5:46,  2 users,  load average: 2.21, 2.18, 1.65
+== 2026-10-25T05:40:59+01:00 sglang 4B mf07-mrr1 ·  05:40:59 up 1 day,  5:51,  2 users,  load average: 2.03, 2.32, 1.89
+SKIP sglang 4B pp40000
+== 2026-10-25T05:42:37+01:00 trtllm 4B mnt40960 ·  05:42:37 up 1 day,  5:53,  2 users,  load average: 1.21, 1.96, 1.80
+FAIL trtllm 4B mnt40960 in2000
+FAIL trtllm 4B mnt40960 in5000
+FAIL trtllm 4B mnt40960 in10000
+FAIL trtllm 4B mnt40960 in20000
+FAIL trtllm 4B mnt40960 in40000
+== 2026-10-25T05:44:02+01:00 trtllm 4B chunk8192 ·  05:44:02 up 1 day,  5:54,  2 users,  load average: 2.70, 2.17, 1.88
+== 2026-10-25T05:47:25+01:00 starting resident-gpu
+== 2026-10-25T05:47:45+01:00 resident-gpu: active
+ALLDONE-art-long

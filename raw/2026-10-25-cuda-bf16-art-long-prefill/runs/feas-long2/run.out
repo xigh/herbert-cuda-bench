@@ -1,0 +1,18 @@
+== 2026-10-25T04:41:31+01:00 stopping resident-gpu
+== 2026-10-25T04:41:36+01:00 trtllm 4B mnt40960-kv02
+FAIL trtllm 4B mnt40960-kv02
+== 2026-10-25T04:42:15+01:00 trtllm 4B chunk8192
+== 2026-10-25T04:42:53+01:00 trtllm 0.8B chunk8192
+== 2026-10-25T04:43:21+01:00 trtllm 0.8B mnt40960
+== 2026-10-25T04:43:50+01:00 trtllm 2B mnt40960
+== 2026-10-25T04:44:23+01:00 sglang 4B mf0.72-mrr1
+SKIP sglang 4B mf0.72
+== 2026-10-25T04:44:40+01:00 sglang 4B mf0.74-mrr1
+FAIL sglang 4B mf0.74
+== 2026-10-25T04:44:57+01:00 sglang 4B mf0.76-mrr1
+FAIL sglang 4B mf0.76
+== 2026-10-25T04:45:14+01:00 sglang 4B mf0.78-mrr1
+FAIL sglang 4B mf0.78
+== 2026-10-25T04:45:31+01:00 starting resident-gpu
+== 2026-10-25T04:45:51+01:00 resident-gpu: active
+ALLDONE-feas-long2

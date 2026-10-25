@@ -1,0 +1,39 @@
+Skipping import of cpp extensions due to incompatible torch version 2.14.0+cu130 for torchao version 0.15.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+~/venvs/bench-trtllm/lib/python3.12/site-packages/flashinfer/cutile/cutile_common.py:64: UserWarning: Installed NVIDIA pip packages have mismatched versions (nvidia-cuda-tileiras 13.1.80, nvidia-cuda-nvcc 13.0.88, nvidia-nvvm 13.0.88). Falling back to system tileiras.
+  binary = _find_compiler_bin()
+[TensorRT-LLM] TensorRT LLM version: 1.4.0rc1
+[10/25/2026-05:45:45] [TRT-LLM] [I] [llmapi] Using LLM with PyTorch backend
+[10/25/2026-05:45:45] [TRT-LLM] [W] [llmapi] Using default gpus_per_node: 1
+[10/25/2026-05:45:45] [TRT-LLM] [I] [llmapi] Setting multimodal_config.encoder_cache_max_bytes to 0 because disable_mm_encoder=True.
+[10/25/2026-05:45:45] [TRT-LLM] [I] [llmapi] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+
+Mapping safetensors weights in parallel:   0%|          | 0/2 [00:00<?, ?it/s]
+Mapping safetensors weights in parallel: 100%|██████████| 2/2 [00:00<00:00, 70.26it/s]
+
+Loading weights serially: 0it [00:00, ?it/s]
+Loading weights serially: 0it [00:00, ?it/s]
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   8%|▊         | 54/688 [00:00<00:01, 529.73it/s]
+Loading weights concurrently:  22%|██▏       | 154/688 [00:00<00:00, 801.13it/s]
+Loading weights concurrently:  41%|████      | 279/688 [00:00<00:00, 996.87it/s]
+Loading weights concurrently:  57%|█████▋    | 394/688 [00:00<00:00, 1056.64it/s]
+Loading weights concurrently:  75%|███████▍  | 514/688 [00:00<00:00, 1107.42it/s]
+Loading weights concurrently:  92%|█████████▏| 631/688 [00:00<00:00, 1119.28it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 1007.93it/s]
+[TRT-LLM] [I] [runtime] GPU 0 is on NUMA node 0
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 50798592 bytes to 100729856 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 50798592 bytes to 67142656 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 67142656 bytes to 100729856 bytes
+latency 2.065521 s
+latency 2.065460 s
+latency 2.066073 s
+latency 2.071232 s
+latency 2.071932 s
+Avg latency: 2.0680435722024413 seconds

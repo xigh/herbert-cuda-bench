@@ -1,0 +1,10 @@
+{
+  "model": "$MODELS_DIR/Qwen3.5-4B",
+  "trtllm": "1.4.0rc1",
+  "input_len": 40000,
+  "output_len": 1,
+  "avg_latency": 4.80904395399557,
+  "latencies": [
+    4.80904395399557
+  ]
+}

@@ -1,0 +1,140 @@
+Skipping import of cpp extensions due to incompatible torch version 2.14.0+cu130 for torchao version 0.15.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+~/venvs/bench-trtllm/lib/python3.12/site-packages/flashinfer/cutile/cutile_common.py:64: UserWarning: Installed NVIDIA pip packages have mismatched versions (nvidia-cuda-tileiras 13.1.80, nvidia-cuda-nvcc 13.0.88, nvidia-nvvm 13.0.88). Falling back to system tileiras.
+  binary = _find_compiler_bin()
+[TensorRT-LLM] TensorRT LLM version: 1.4.0rc1
+[10/25/2026-04:41:42] [TRT-LLM] [I] [llmapi] Using LLM with PyTorch backend
+[10/25/2026-04:41:42] [TRT-LLM] [W] [llmapi] Using default gpus_per_node: 1
+[10/25/2026-04:41:42] [TRT-LLM] [I] [llmapi] Setting multimodal_config.encoder_cache_max_bytes to 0 because disable_mm_encoder=True.
+[10/25/2026-04:41:42] [TRT-LLM] [I] [llmapi] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+
+Mapping safetensors weights in parallel:   0%|          | 0/2 [00:00<?, ?it/s]
+Mapping safetensors weights in parallel: 100%|██████████| 2/2 [00:00<00:00, 19.34it/s]
+Mapping safetensors weights in parallel: 100%|██████████| 2/2 [00:00<00:00, 18.82it/s]
+
+Loading weights serially: 0it [00:00, ?it/s]
+Loading weights serially: 0it [00:00, ?it/s]
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   7%|▋         | 51/688 [00:00<00:01, 504.01it/s]
+Loading weights concurrently:  22%|██▏       | 150/688 [00:00<00:00, 775.49it/s]
+Loading weights concurrently:  40%|████      | 277/688 [00:00<00:00, 992.05it/s]
+Loading weights concurrently:  59%|█████▉    | 408/688 [00:00<00:00, 1111.35it/s]
+Loading weights concurrently:  76%|███████▌  | 521/688 [00:00<00:00, 1116.62it/s]
+Loading weights concurrently:  95%|█████████▌| 656/688 [00:00<00:00, 1194.98it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 1013.24it/s]
+[TRT-LLM] [I] [runtime] GPU 0 is on NUMA node 0
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[W1025 04:41:57.282972742 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1509949440 bytes (free: 784596992, total: 16711352320).
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[W1025 04:42:03.507308415 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1509949440 bytes (free: 941883392, total: 16711352320).
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[10/25/2026-04:42:11] [TRT-LLM] [E] [_torch] Error in event loop: User-provided base page indices is too short
+[10/25/2026-04:42:11] [TRT-LLM] [E] [_torch] Traceback (most recent call last):
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 1465, in _event_loop_wrapper
+    self.event_loop()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 5747, in _executor_loop_overlap
+    scheduled_batch, iter_stats = self._prepare_and_schedule_batch()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 4381, in _prepare_and_schedule_batch
+    scheduled_batch, scheduler_fitting_disagg_gen_init_requests, _ = self._schedule(
+                                                                     ^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 7216, in _schedule
+    scheduler_output = self.scheduler.schedule_request(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 296, in schedule_request
+    ) = self._schedule_loop(active_requests, inflight_request_ids)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 626, in _schedule_loop
+    action, tokens, chunking_flag = self._try_schedule_context(
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 867, in _try_schedule_context
+    result = self._try_schedule_context_full(req, budget, preempt_for_pages)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 936, in _try_schedule_context_full
+    if not self._try_allocate_context(req, context_tokens + draft_len):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 1199, in _try_allocate_context
+    if not self.kv_cache_manager.resize_context(req, num_tokens):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/kv_cache/kv_cache_manager_v2.py", line 3908, in resize_context
+    kv_cache.resize(capacity, history) if history is not None else kv_cache.resize(capacity)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: User-provided base page indices is too short
+
+Exception in thread Thread-2 (_event_loop_wrapper):
+[10/25/2026-04:42:11] [TRT-LLM] [E] [executor] Broadcasting event-loop error to 1 pending request(s): User-provided base page indices is too short
+Traceback (most recent call last):
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 1491, in _event_loop_wrapper
+    raise e
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 1465, in _event_loop_wrapper
+    self.event_loop()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 5747, in _executor_loop_overlap
+    scheduled_batch, iter_stats = self._prepare_and_schedule_batch()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 4381, in _prepare_and_schedule_batch
+    scheduled_batch, scheduler_fitting_disagg_gen_init_requests, _ = self._schedule(
+                                                                     ^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 7216, in _schedule
+    scheduler_output = self.scheduler.schedule_request(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 296, in schedule_request
+    ) = self._schedule_loop(active_requests, inflight_request_ids)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 626, in _schedule_loop
+Traceback (most recent call last):
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/utils.py", line 54, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+    action, tokens, chunking_flag = self._try_schedule_context(
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/result.py", line 764, in _handle_response
+    handler(response.error_msg)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/executor.py", line 306, in _handle_background_error
+    raise error
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 867, in _try_schedule_context
+tensorrt_llm.executor.utils.RequestError: Event loop terminated with error: User-provided base page indices is too short
+Traceback (most recent call last):
+  File "~/c003/art/scripts/_trtllm_latency.py", line 60, in <module>
+    result = self._try_schedule_context_full(req, budget, preempt_for_pages)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 936, in _try_schedule_context_full
+    if not self._try_allocate_context(req, context_tokens + draft_len):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py", line 1199, in _try_allocate_context
+    if not self.kv_cache_manager.resize_context(req, num_tokens):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/kv_cache/kv_cache_manager_v2.py", line 3908, in resize_context
+    main()
+  File "~/c003/art/scripts/_trtllm_latency.py", line 49, in main
+    once()
+  File "~/c003/art/scripts/_trtllm_latency.py", line 43, in once
+    out = llm.generate([ids], sampling_params=sp, use_tqdm=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/llm.py", line 788, in generate
+    kv_cache.resize(capacity, history) if history is not None else kv_cache.resize(capacity)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: User-provided base page indices is too short
+    future.result()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/result.py", line 1217, in result
+    self._result_step(remaining)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/result.py", line 1183, in _result_step
+    self._handle_response(response)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/result.py", line 1012, in _handle_response
+    GenerationResultBase._handle_response(self, response)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/utils.py", line 58, in wrapper
+    raise e
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/utils.py", line 54, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/result.py", line 764, in _handle_response
+    handler(response.error_msg)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/executor.py", line 306, in _handle_background_error
+    raise error
+tensorrt_llm.executor.utils.RequestError: Event loop terminated with error: User-provided base page indices is too short

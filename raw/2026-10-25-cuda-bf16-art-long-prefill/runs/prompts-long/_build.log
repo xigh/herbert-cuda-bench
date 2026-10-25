@@ -1,0 +1,4 @@
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (303880 > 262144). Running this sequence through the model will result in indexing errors
+corpus tokens: 303880
+pp2000: offset 130000, text 1988 tokens + 12 template
+pp5000: offset 132000, text 4988 tokens + 12 template

@@ -1,0 +1,4 @@
+{"run_name": "0.8B-mf07-mrr1", "batch_size": 1, "input_len": 40000, "output_len": 1, "prefill_latency": 1.049292138995952, "prefill_throughput": 38120.93745243841, "total_latency": 1.049292138995952, "overall_throughput": 38121.89047587472}
+{"run_name": "0.8B-mf06", "batch_size": 1, "input_len": 40000, "output_len": 1, "prefill_latency": 1.0492320470075356, "prefill_throughput": 38123.12072823365, "total_latency": 1.0492320470075356, "overall_throughput": 38124.07380625185}
+{"run_name": "2B-mf07-mrr1", "batch_size": 1, "input_len": 40000, "output_len": 1, "prefill_latency": 1.7686439599929145, "prefill_throughput": 22616.196874446254, "total_latency": 1.7686439599929145, "overall_throughput": 22616.762279368115}
+{"run_name": "2B-mf06", "batch_size": 1, "input_len": 40000, "output_len": 1, "prefill_latency": 1.7670926930004498, "prefill_throughput": 22636.050818636835, "total_latency": 1.7670926930004498, "overall_throughput": 22636.6167199073}

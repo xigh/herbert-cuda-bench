@@ -1,0 +1,31 @@
+Skipping import of cpp extensions due to incompatible torch version 2.14.0+cu130 for torchao version 0.15.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+~/venvs/bench-trtllm/lib/python3.12/site-packages/flashinfer/cutile/cutile_common.py:64: UserWarning: Installed NVIDIA pip packages have mismatched versions (nvidia-cuda-tileiras 13.1.80, nvidia-cuda-nvcc 13.0.88, nvidia-nvvm 13.0.88). Falling back to system tileiras.
+  binary = _find_compiler_bin()
+[TensorRT-LLM] TensorRT LLM version: 1.4.0rc1
+[10/25/2026-05:11:03] [TRT-LLM] [I] [llmapi] Using LLM with PyTorch backend
+[10/25/2026-05:11:03] [TRT-LLM] [W] [llmapi] Using default gpus_per_node: 1
+[10/25/2026-05:11:03] [TRT-LLM] [I] [llmapi] Setting multimodal_config.encoder_cache_max_bytes to 0 because disable_mm_encoder=True.
+[10/25/2026-05:11:03] [TRT-LLM] [I] [llmapi] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+
+Mapping safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Mapping safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 112.01it/s]
+
+Loading weights serially: 0it [00:00, ?it/s]
+Loading weights serially: 0it [00:00, ?it/s]
+
+Loading weights concurrently:   0%|          | 0/518 [00:00<?, ?it/s]
+Loading weights concurrently:  70%|███████   | 364/518 [00:00<00:00, 3622.88it/s]
+Loading weights concurrently: 100%|██████████| 518/518 [00:00<00:00, 3676.99it/s]
+[TRT-LLM] [I] [runtime] GPU 0 is on NUMA node 0
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50790400 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50790400 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50790400 bytes
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50790400 bytes
+latency 0.089208 s
+latency 0.089614 s
+latency 0.089392 s
+latency 0.089386 s
+latency 0.089339 s
+Avg latency: 0.08938806999940425 seconds

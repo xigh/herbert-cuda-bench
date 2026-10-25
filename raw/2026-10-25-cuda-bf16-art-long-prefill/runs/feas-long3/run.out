@@ -1,0 +1,12 @@
+== 2026-10-25T04:46:30+01:00 stopping resident-gpu
+== 2026-10-25T04:46:35+01:00 sglang 4B mf073-mrr1
+FAIL sglang 4B mf073-mrr1
+== 2026-10-25T04:46:52+01:00 sglang 4B mf074-mrr1-nograph
+FAIL sglang 4B mf074-mrr1-nograph
+== 2026-10-25T04:47:02+01:00 sglang 4B mf076-mrr1-nograph
+FAIL sglang 4B mf076-mrr1-nograph
+== 2026-10-25T04:47:12+01:00 sglang 4B mf074-mrr1-expseg
+FAIL sglang 4B mf074-mrr1-expseg
+== 2026-10-25T04:47:29+01:00 starting resident-gpu
+== 2026-10-25T04:47:49+01:00 resident-gpu: active
+ALLDONE-feas-long3

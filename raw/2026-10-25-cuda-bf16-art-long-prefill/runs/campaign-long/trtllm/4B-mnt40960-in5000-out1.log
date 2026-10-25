@@ -1,0 +1,248 @@
+Skipping import of cpp extensions due to incompatible torch version 2.14.0+cu130 for torchao version 0.15.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+~/venvs/bench-trtllm/lib/python3.12/site-packages/flashinfer/cutile/cutile_common.py:64: UserWarning: Installed NVIDIA pip packages have mismatched versions (nvidia-cuda-tileiras 13.1.80, nvidia-cuda-nvcc 13.0.88, nvidia-nvvm 13.0.88). Falling back to system tileiras.
+  binary = _find_compiler_bin()
+[TensorRT-LLM] TensorRT LLM version: 1.4.0rc1
+[10/25/2026-05:42:59] [TRT-LLM] [I] [llmapi] Using LLM with PyTorch backend
+[10/25/2026-05:42:59] [TRT-LLM] [W] [llmapi] Using default gpus_per_node: 1
+[10/25/2026-05:42:59] [TRT-LLM] [I] [llmapi] Setting multimodal_config.encoder_cache_max_bytes to 0 because disable_mm_encoder=True.
+[10/25/2026-05:42:59] [TRT-LLM] [I] [llmapi] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+
+Mapping safetensors weights in parallel:   0%|          | 0/2 [00:00<?, ?it/s]
+Mapping safetensors weights in parallel: 100%|██████████| 2/2 [00:00<00:00, 100.14it/s]
+
+Loading weights serially: 0it [00:00, ?it/s]
+Loading weights serially: 0it [00:00, ?it/s]
+
+Loading weights concurrently:   0%|          | 0/688 [00:00<?, ?it/s]
+Loading weights concurrently:   7%|▋         | 50/688 [00:00<00:01, 492.46it/s]
+Loading weights concurrently:  22%|██▏       | 150/688 [00:00<00:00, 777.39it/s]
+Loading weights concurrently:  40%|████      | 276/688 [00:00<00:00, 971.07it/s]
+Loading weights concurrently:  60%|██████    | 416/688 [00:00<00:00, 1128.95it/s]
+Loading weights concurrently:  77%|███████▋  | 530/688 [00:00<00:00, 1132.08it/s]
+Loading weights concurrently:  97%|█████████▋| 664/688 [00:00<00:00, 1187.72it/s]
+Loading weights concurrently: 100%|██████████| 688/688 [00:00<00:00, 1008.33it/s]
+[TRT-LLM] [I] [runtime] GPU 0 is on NUMA node 0
+[TRT-LLM] [W] [thop] Attention workspace size is not enough, increase the size from 0 bytes to 50798592 bytes
+[W1025 05:43:07.680323205 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 335544320 bytes (free: 396623872, total: 16711352320).
+[W1025 05:43:07.692726391 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 268435456 bytes (free: 144965632, total: 16711352320).
+[W1025 05:43:07.694034116 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 268435456 bytes (free: 147062784, total: 16711352320).
+Traceback (most recent call last):
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 207, in observe_creation_stage
+    yield
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 778, in allocation_scope
+    yield
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 1212, in _create_py_executor
+    py_executor = create_py_executor_instance(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/_util.py", line 4513, in create_py_executor_instance
+    return PyExecutor(
+           ^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 911, in __init__
+    self.model_engine.warmup(self.resource_manager)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/model_engine.py", line 926, in wrapper
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/model_engine.py", line 952, in wrapper
+    result = method(self, resource_manager, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/model_engine.py", line 1015, in warmup
+    self._warmup_impl(resource_manager)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/model_engine.py", line 1030, in _warmup_impl
+    self._runner.warmup(resource_manager)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 419, in warmup
+    self._warmup_scheduled(resource_manager, kv_cache_manager)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 858, in _warmup_scheduled
+    self._run_autotuner_warmup(resource_manager)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 1722, in _run_autotuner_warmup
+    ran_native_forward = run_autotuner_pass(
+                         ^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 1700, in run_autotuner_pass
+    self._forward_warmup(
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 4692, in _forward_warmup
+    return self.forward(inputs, resource_manager=resource_manager, is_dummy=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/utils.py", line 185, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 413, in forward
+    return self._forward_decoder(inputs, resource_manager, is_dummy=is_dummy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 4925, in _forward_decoder
+    outputs = forward_step()
+              ^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 4901, in forward_step
+    return self._forward_step(
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 5054, in _forward_step
+    outputs = self.model_forward(
+              ^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/runners/decoder/runner.py", line 5027, in model_forward
+    return self._model_caller(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/engine/model_call.py", line 80, in __call__
+    return self._model.forward(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/models/modeling_multimodal_mixin.py", line 806, in forward
+    return self.language_model.forward(**llm_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/models/modeling_speculative.py", line 1870, in forward
+    hidden_states = self.model(
+                    ^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/models/modeling_qwen3_next.py", line 1112, in forward
+    hidden_states, residual = decoder_layer(
+                              ^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/models/modeling_qwen3_next.py", line 571, in forward
+    hidden_states = self.linear_attn(
+                    ^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/mamba/gdn_mixer.py", line 1062, in forward
+    attn_out = self.forward_core(
+               ^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/mamba/gdn_mixer.py", line 1174, in forward_core
+    attn_out = self.forward_extend(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/mamba/gdn_mixer.py", line 1001, in forward_extend
+    core_attn_out, _ = chunk_gated_delta_rule(
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/mamba/gdn_mixer.py", line 84, in chunk_gated_delta_rule
+    return _resolve_chunk_gated_delta_rule()(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/fla/chunk.py", line 251, in chunk_gated_delta_rule
+    o, final_state = ChunkGatedDeltaRuleFunction.apply(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/fla/utils.py", line 194, in wrapper
+    return func(*contiguous_args, **contiguous_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 481, in decorate_fwd
+    return fwd(*args, **kwargs)  # pyrefly: ignore [not-callable]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/fla/chunk.py", line 106, in forward
+    g, o, A, final_state, w, h, v_new = chunk_gated_delta_rule_fwd(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/fla/chunk.py", line 54, in chunk_gated_delta_rule_fwd
+    h, v_new, final_state = chunk_gated_delta_rule_fwd_h(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/modules/fla/chunk_delta_h.py", line 323, in chunk_gated_delta_rule_fwd_h
+    chunk_gated_delta_rule_fwd_kernel_h_blockdim64[grid](
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/runtime/jit.py", line 374, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 483, in run
+    return self.fn.run(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 251, in run
+    benchmark()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 240, in benchmark
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 169, in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/testing.py", line 275, in do_bench
+    cache = runtime.driver.active.get_empty_cache_for_benchmark()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/triton/backends/nvidia/driver.py", line 406, in get_empty_cache_for_benchmark
+    return torch.empty(int(cache_size // 4), dtype=torch.int, device='cuda')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 256.00 MiB. GPU 0 has a total capacity of 15.56 GiB of which 140.25 MiB is free. Including non-PyTorch memory, this process has 15.34 GiB memory in use. Of the allocated memory 12.31 GiB is allocated by PyTorch, and 27.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/c003/art/scripts/_trtllm_latency.py", line 60, in <module>
+    main()
+  File "~/c003/art/scripts/_trtllm_latency.py", line 37, in main
+    llm = LLM(**kw)
+          ^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/llm.py", line 2210, in __init__
+    super().__init__(model, tokenizer, tokenizer_mode, skip_tokenizer_init,
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/llm.py", line 1884, in __init__
+    super().__init__(model,
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/llm.py", line 507, in __init__
+    self._build_model()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/llmapi/llm.py", line 2158, in _build_model
+    self._executor = self._executor_cls.create(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/executor.py", line 703, in create
+    return GenerationExecutor._create_ipc_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/executor.py", line 564, in _create_ipc_executor
+    return GenerationExecutorWorker(**worker_kwargs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/worker.py", line 92, in __init__
+    self.setup_engine()
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/base_worker.py", line 213, in setup_engine
+    self.engine = _create_py_executor()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/executor/base_worker.py", line 206, in _create_py_executor
+    _executor = create_executor(**args)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 1364, in create_py_executor
+    return _create_py_executor_impl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 510, in _create_py_executor_impl
+    py_executor = _create_py_executor(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 1207, in _create_py_executor
+    with allocation_scope(
+         ^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 775, in allocation_scope
+    metric_name=metric_name), mem_monitor.observe_creation_stage(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "~/venvs/bench-trtllm/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py", line 215, in observe_creation_stage
+    raise RuntimeError(explanation) from e
+RuntimeError: Executor creation failed due to insufficient GPU memory.
+
+The following component could not be created: Additional executor resources (temporary for KV cache size estimation)
+Total GPU memory (GiB): 15.56
+Free GPU memory before component creation attempt (GiB): 4.56
+
+Previously created components and free GPU memory before/after creation (GiB):
+model: 15.24 / 7.25
+sampler: 7.25 / 7.25
+_no_capture_init_kv_cache: 7.25 / 4.56
+spec_resource_manager: 4.56 / 4.56
+drafter: 4.56 / 4.56
+
+Please refer to the TensorRT LLM documentation for information on how to control the memory usage through TensorRT LLM configuration options. Possible options include:
+  model: reduce max_num_tokens and/or shard the model weights across GPUs by enabling pipeline and/or tensor parallelism
+  sampler: reduce max_seq_len and/or max_attention_window_size
+  _no_capture_init_kv_cache: reduce max_num_tokens
+  spec_resource_manager: reduce max_seq_len and/or max_batch_size
+  drafter: reduce max_seq_len and/or max_draft_len
+  _no_capture_init_extra_resources: reduce max_num_tokens

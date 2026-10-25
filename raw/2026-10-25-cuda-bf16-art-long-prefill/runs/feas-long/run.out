@@ -1,0 +1,25 @@
+== 2026-10-25T04:33:54+01:00 stopping resident-gpu
+== 2026-10-25T04:33:59+01:00 herbert 4B
+== 2026-10-25T04:34:13+01:00 llama 4B default
+== 2026-10-25T04:34:25+01:00 llama 4B ub1024-b4096-faon
+== 2026-10-25T04:34:37+01:00 vllm 4B default
+== 2026-10-25T04:36:23+01:00 vllm 4B flashinfer
+== 2026-10-25T04:38:10+01:00 trtllm 4B
+FAIL trtllm 4B
+== 2026-10-25T04:38:28+01:00 sglang 0.8B mf08-mrr1-mc2
+FAIL sglang 0.8B mf08-mrr1-mc2
+== 2026-10-25T04:38:36+01:00 sglang 0.8B mf07-mrr1
+== 2026-10-25T04:38:52+01:00 sglang 0.8B mf06
+== 2026-10-25T04:39:08+01:00 sglang 2B mf08-mrr1-mc2
+FAIL sglang 2B mf08-mrr1-mc2
+== 2026-10-25T04:39:16+01:00 sglang 2B mf07-mrr1
+== 2026-10-25T04:39:34+01:00 sglang 2B mf06
+== 2026-10-25T04:39:52+01:00 sglang 4B mf08-mrr1-mc2
+FAIL sglang 4B mf08-mrr1-mc2
+== 2026-10-25T04:40:01+01:00 sglang 4B mf07-mrr1
+SKIP sglang 4B mf07-mrr1
+== 2026-10-25T04:40:18+01:00 sglang 4B mf06
+FAIL sglang 4B mf06
+== 2026-10-25T04:40:27+01:00 starting resident-gpu
+== 2026-10-25T04:40:47+01:00 resident-gpu: active
+ALLDONE-feas-long
